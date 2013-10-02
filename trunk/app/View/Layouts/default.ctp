@@ -23,6 +23,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<title>
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
@@ -30,33 +31,86 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		//echo $this->Html->css('cake.generic');
+		echo $this->Html->css( 'bootstrap.min' );
+		echo $this->Html->css( 'main' );
+		echo $this->Html->css( 'plugins' );
+		echo $this->Html->css( 'responsive' );
+		echo $this->Html->css( 'icons' );
+		echo $this->Html->css( 'fontawesome/font-awesome.min' );
+
+		echo $this->Html->script( 'libs/jquery-1.10.2.min' );
+		echo $this->Html->script( 'plugins/jquery-ui/jquery-ui-1.10.2.custom.min' );
+		echo $this->Html->script( 'bootstrap.min' );
+		echo $this->Html->script( 'libs/lodash.compat.min' );
+		echo $this->Html->script( 'plugins/touchpunch/jquery.ui.touch-punch.min' );
+		echo $this->Html->script( 'plugins/event.swipe/jquery.event.move' );
+		echo $this->Html->script( 'plugins/event.swipe/jquery.event.swipe' );
+		echo $this->Html->script( 'libs/breakpoints' );
+		echo $this->Html->script( 'plugins/respond/respond.min' );
+		echo $this->Html->script( 'plugins/cookie/jquery.cookie.min' );
+		echo $this->Html->script( 'plugins/slimscroll/jquery.slimscroll.min' );
+		echo $this->Html->script( 'plugins/slimscroll/jquery.slimscroll.horizontal.min' );
+		echo $this->Html->script( 'plugins/sparkline/jquery.sparkline.min' );
+
+		echo $this->Html->script( 'plugins/flot/jquery.flot.min' );
+		echo $this->Html->script( 'plugins/flot/jquery.flot.tooltip.min' );
+		echo $this->Html->script( 'plugins/flot/jquery.flot.resize.min' );
+		echo $this->Html->script( 'plugins/flot/jquery.flot.time.min' );
+		echo $this->Html->script( 'plugins/flot/jquery.flot.growraf.min' );
+		echo $this->Html->script( 'plugins/easy-pie-chart/jquery.easy-pie-chart.min' );
+
+		echo $this->Html->script( 'plugins/daterangepicker/moment.min' );
+		echo $this->Html->script( 'plugins/daterangepicker/daterangepicker' );
+		echo $this->Html->script( 'plugins/blockui/jquery.blockUI.min' );
+		echo $this->Html->script( 'plugins/fullcalendar/fullcalendar.min' );
+		echo $this->Html->script( 'plugins/noty/jquery.noty' );
+		echo $this->Html->script( 'plugins/noty/layouts/top' );
+		echo $this->Html->script( 'plugins/noty/themes/default' );
+		echo $this->Html->script( 'plugins/uniform/jquery.uniform.min' );
+		echo $this->Html->script( 'plugins/select2/select2.min' );
+
+		echo $this->Html->script( 'app' );
+		echo $this->Html->script( 'plugins' );
+		echo $this->Html->script( 'plugins.form-components' );
+
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
+
+	<?php echo $this->element( 'header' ); ?>
+	<div id="container" class="fixed-header sidebar-closed">
+
 		<div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+			<div class="container">
 
-			<?php echo $this->fetch('content'); ?>
+				<?php echo $this->Session->flash(); ?>
+
+				<?php echo $this->fetch('content'); ?>
+
+			</div>
+
 		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
+
 	</div>
+
 	<?php echo $this->element('sql_dump'); ?>
+
 </body>
 </html>
