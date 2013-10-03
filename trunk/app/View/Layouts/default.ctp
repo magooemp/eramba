@@ -94,6 +94,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 
 	<?php echo $this->element( 'header' ); ?>
+	
 	<div id="container" class="fixed-header sidebar-closed">
 
 		<div id="content">
@@ -101,9 +102,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="container">
 
 				<?php echo $this->element( 'breadcrumbs' ); ?>
-				<?php echo $this->element( 'page_header' ); ?>
 
 				<?php echo $this->Session->flash(); ?>
+
+				<?php echo $this->element( 'page_header' ); ?>
 
 				<?php echo $this->fetch('content'); ?>
 
