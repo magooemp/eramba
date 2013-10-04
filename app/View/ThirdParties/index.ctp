@@ -19,10 +19,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="widget box">
+		<div class="widget">
 
 			<div class="widget-content">
-				<table class="table table-hover table-striped">
+				<table class="table table-hover table-striped table-bordered table-highlight-head">
 					<thead>
 						<tr>
 							<th><?php echo __( 'Name' ); ?></th>
@@ -33,23 +33,13 @@
 					<tbody>
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
-								<td><?php echo $entry['ThirdParty']['tp_name']; ?></td>
-								<td><?php echo $entry['ThirdParty']['tp_description']; ?></td>
+								<td><?php echo $entry['ThirdParty']['name']; ?></td>
+								<td><?php echo $entry['ThirdParty']['description']; ?></td>
 								<td class="align-center">
-									<ul class="table-controls">
-										<li>
-											<?php echo $this->Html->link( '<i class="icon-pencil"></i>', array(
-												'controller' => 'thirdParties',
-												'action' => 'edit',
-												$entry['ThirdParty']['tp_id']
-											), array(
-												'class' => 'bs-tooltip',
-												'escape' => false,
-												'title' => __( 'Edit' )
-											) ); ?>
-										</li>
-										<li><a href="javascript:void(0);" class="bs-tooltip" title="Delete"><i class="icon-trash"></i></a> </li>
-									</ul>
+									<?php echo $this->element( 'action_buttons', array( 
+										'id' => $entry['ThirdParty']['id'],
+										'controller' => 'thirdParties'
+									) ); ?>
 								</td>
 							</tr>
 						<?php endforeach; ?>

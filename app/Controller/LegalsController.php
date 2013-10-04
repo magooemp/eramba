@@ -17,7 +17,7 @@ class LegalsController extends AppController {
 	public function delete( $id = null ) {
 		$data = $this->Legal->find( 'count', array(
 			'conditions' => array(
-				'Legal.legal_id' => $id
+				'Legal.id' => $id
 			)
 		) );
 
@@ -53,12 +53,12 @@ class LegalsController extends AppController {
 		$id = (int) $id;
 
 		if ( ! empty( $this->request->data ) ) {
-			$id = (int) $this->request->data['Legal']['legal_id'];
+			$id = (int) $this->request->data['Legal']['id'];
 		}
 
 		$legal = $this->Legal->find( 'first', array(
 			'conditions' => array(
-				'Legal.legal_id' => $id
+				'Legal.id' => $id
 			),
 			'recursive' => -1
 		) );
