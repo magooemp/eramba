@@ -10,7 +10,7 @@
 							'class' => 'form-horizontal row-border'
 						) );
 
-						echo $this->Form->input( 'legal_id', array( 'type' => 'hidden' ) );
+						echo $this->Form->input( 'id', array( 'type' => 'hidden' ) );
 						$submit_label = __( 'Edit' );
 					}
 					else {
@@ -26,7 +26,7 @@
 				<div class="form-group" style="border-top:none; padding-top:5px;">
 					<label class="col-md-2 control-label"><?php echo __( 'Name' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'legal_name', array(
+						<?php echo $this->Form->input( 'name', array(
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'
@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Description' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'legal_description', array(
+						<?php echo $this->Form->input( 'description', array(
 							'type' => 'textarea',
 							'label' => false,
 							'div' => false,
@@ -51,7 +51,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Risk Magnifier' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'legal_risk_magnifier', array(
+						<?php echo $this->Form->input( 'risk_magnifier', array(
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'

@@ -19,45 +19,35 @@
 				</div>
 			</div>
 		</div>
-		<div class="widget box">
+		<div class="widget">
 
-			<div class="widget-content">
-				<table class="table table-hover table-striped">
-					<thead>
+			<table class="table table-hover table-striped table-bordered table-highlight-head">
+				<thead>
+					<tr>
+						<th><?php echo __( 'Name' ); ?></th>
+						<th><?php echo __( 'Description' ); ?></th>
+						<th><?php echo __( 'Risk magnifier' ); ?></th>
+						<th class="align-center"><?php echo __( 'Action' ); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ( $data as $entry ) : ?>
 						<tr>
-							<th><?php echo __( 'Name' ); ?></th>
-							<th><?php echo __( 'Description' ); ?></th>
-							<th><?php echo __( 'Risk magnifier' ); ?></th>
-							<th class="align-center"><?php echo __( 'Action' ); ?></th>
+							<td><?php echo $entry['Legal']['name']; ?></td>
+							<td><?php echo $entry['Legal']['description']; ?></td>
+							<td><?php echo $entry['Legal']['risk_magnifier']; ?></td>
+							<td class="align-center">
+								<?php echo $this->element( 'action_buttons', array( 
+									'id' => $entry['Legal']['id'],
+									'controller' => 'legals'
+								) ); ?>
+							</td>
 						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ( $data as $entry ) : ?>
-							<tr>
-								<td><?php echo $entry['Legal']['legal_name']; ?></td>
-								<td><?php echo $entry['Legal']['legal_description']; ?></td>
-								<td><?php echo $entry['Legal']['legal_risk_magnifier']; ?></td>
-								<td class="align-center">
-									<ul class="table-controls">
-										<li>
-											<?php echo $this->Html->link( '<i class="icon-pencil"></i>', array(
-												'controller' => 'legals',
-												'action' => 'edit',
-												$entry['Legal']['legal_id']
-											), array(
-												'class' => 'bs-tooltip',
-												'escape' => false,
-												'title' => __( 'Edit' )
-											) ); ?>
-										</li>
-										<li><a href="javascript:void(0);" class="bs-tooltip" title="Delete"><i class="icon-trash"></i></a> </li>
-									</ul>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-			</div>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<?php echo $this->element( 'pagination' ); ?>
 
 		</div>
 	</div>
