@@ -36,10 +36,12 @@
 
 if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
 	Configure::write('debug', 2);
-} else {
+	Configure::write('ajaxDebug', 1);
+} 
+else {
 	Configure::write('debug', 0);
+	Configure::write('ajaxDebug', 0);
 }
-
 
 /**
  * Configure the Error handler used to handle errors for your application. By default
@@ -224,18 +226,19 @@ if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
  *
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'php',
+		'cookie' => 'Eramba'
 	));
 
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'v3S3CimetLZ55Vkm0MzuHmCnOgCdiQ8NIQ2UcIEWDKGTrYrtqk0QKQPv1k9Jw6');
+	Configure::write('Security.salt', 'I92H10xrOR1V3lRcrng0ChYxP4325Cg1UHK0x97G76spq8nyew');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '626572357340474430920951198116');
+	Configure::write('Security.cipherSeed', '62651036489230920951198116');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -358,7 +361,7 @@ if (Configure::read('debug') > 0) {
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
+$prefix = 'eramba_';
 
 /**
  * Configure the cache used for general framework caching. Path information,

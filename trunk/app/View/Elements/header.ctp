@@ -207,15 +207,31 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<!--<img alt="" src="assets/img/avatar1_small.jpg" />-->
 					<i class="icon-male"></i>
-					<span class="username">John Doe</span>
+					<span class="username"><?php echo $logged['name'] .' '. $logged['surname']; ?></span>
 					<i class="icon-caret-down small"></i>
 				</a>
 				<ul class="dropdown-menu">
-					<li><a href="pages_user_profile.html"><i class="icon-user"></i> My Profile</a></li>
+					<li>
+						<?php 
+						echo $this->Html->link(
+							'<i class="icon-user"></i> '. __('My Profile'),
+							array('controller' => 'users', 'action' => 'profile'),
+							array('escape' => false)
+						);
+						?>
+					</li>
 					<li><a href="pages_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
 					<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
 					<li class="divider"></li>
-					<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+					<li>
+						<?php 
+						echo $this->Html->link(
+							'<i class="icon-key"></i> '. __('Log Out'),
+							array('controller' => 'users', 'action' => 'logout'),
+							array('escape' => false)
+						);
+						?>
+					</li>
 				</ul>
 			</li>
 			<!-- /user login dropdown -->
