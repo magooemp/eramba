@@ -64,9 +64,9 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'admin',
-		'password' => 'admin',
+		'host' => 'internal.adbee.sk',
+		'login' => 'eramba',
+		'password' => 'W6NX56LztUmLktWbI',
 		'database' => 'eramba',
 		'prefix' => '',
 		//'encoding' => 'utf8',
