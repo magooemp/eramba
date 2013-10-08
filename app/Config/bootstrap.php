@@ -24,6 +24,12 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+//globalne konstanty pre cakephp
+require_once('constants.php');
+
+//shared konstanty pre cakephp aj ostatne vendoors, libs, js a pod
+require_once('shared_constants.php');
+
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
 
@@ -72,6 +78,8 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
+CakePlugin::load('DebugKit');
+
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter . By Default CakePHP bundles two filters:
  *
@@ -107,3 +115,63 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+App::uses('CakeTime', 'Utility');
+App::uses('CakeNumber', 'Utility');
+CakeNumber::addFormat('EUR', array(
+	'wholeSymbol' => ' &#8364;',
+	'wholePosition' => 'after',
+	'fractionSymbol' => false,
+	'fractionPosition' => 'after',
+	'zero' => 0,
+	'places' => 0,
+	'thousands' => ' ',
+	'decimals' => ',',
+	'negative' => '-',
+	'escape' => false
+));
+
+/**
+ * All available languages in format (except the default which is defined in constants.php):
+ * ISO-639-1 => ISO-639-2
+ * napriklad 'sk' => 'slo'
+ *
+ * @see ISO link: http://www.loc.gov/standards/iso639-2/php/code_list.php
+ */
+function availableLocals() {
+	return array(
+			
+	);
+}
+
+/**
+ * Return local in format ISO-639-2.
+ *
+ * @param string $lang locale ISO-639-1
+ */
+function getCakeLocale($lang) {
+	$langs = availableLocals();
+
+	if (isset($langs[$lang])) {
+		return $langs[$lang];
+	}
+	else {
+		return null;
+	}
+}
+
+/**
+ * Returns locale in format ISO-639-1.
+ *
+ * @param string $lang locale ISO-639-2
+ */
+function getHtmlLocale($lang) {
+	$langs = array_flip(availableLocals());
+
+	if (isset($langs[$lang])) {
+		return $langs[$lang];
+	}
+	else {
+		return null;
+	}
+}
