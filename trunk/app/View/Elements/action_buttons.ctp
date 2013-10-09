@@ -16,7 +16,7 @@
 			'action' => 'delete',
 			$id
 		), array(
-			'class' => 'bs-tooltip',
+			'class' => 'bs-tooltip button-prompt-remove',
 			'escape' => false,
 			'title' => __( 'Trash' )
 		) ); ?>

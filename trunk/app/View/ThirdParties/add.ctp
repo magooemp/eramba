@@ -10,7 +10,7 @@
 							'class' => 'form-horizontal row-border'
 						) );
 
-						echo $this->Form->input( 'tp_id', array( 'type' => 'hidden' ) );
+						echo $this->Form->input( 'id', array( 'type' => 'hidden' ) );
 						$submit_label = __( 'Edit' );
 					}
 					else {
@@ -26,7 +26,7 @@
 				<div class="form-group" style="border-top:none; padding-top:5px;">
 					<label class="col-md-2 control-label"><?php echo __( 'Name' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'tp_name', array(
+						<?php echo $this->Form->input( 'name', array(
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'
@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Description' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'tp_description', array(
+						<?php echo $this->Form->input( 'description', array(
 							'type' => 'textarea',
 							'label' => false,
 							'div' => false,
@@ -51,8 +51,8 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Type' ); ?>:</label>
 					<div class="col-md-3">
-						<?php echo $this->Form->input( 'tp_type_id', array(
-							'options' => $types,
+						<?php echo $this->Form->input( 'third_party_type_id', array(
+							'options' => $tp_types,
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'
@@ -65,7 +65,14 @@
 
 				<div class="form-actions">
 					<?php echo $this->Form->submit( $submit_label, array(
-						'class' => 'btn btn-primary'
+						'class' => 'btn btn-primary',
+						'div' => false
+					) ); ?>
+					&nbsp;
+					<?php echo $this->Html->link( __( 'Cancel' ), array(
+						'action' => 'index'
+					), array(
+						'class' => 'btn btn-inverse'
 					) ); ?>
 				</div>
 

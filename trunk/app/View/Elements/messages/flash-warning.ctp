@@ -1,3 +1,11 @@
-<div class="message-wrapper warning-message">
-	<div class="message"><?php echo $message ?></div>
-</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$(window).on("load", function(e) {
+			noty({
+				text: '<strong><?php echo $message; ?></strong>',
+				type: 'warning',
+				timeout: 3000
+			});
+		});
+	});
+</script>
