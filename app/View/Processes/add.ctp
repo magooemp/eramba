@@ -5,8 +5,8 @@
 
 				<?php
 					if (isset($edit)) {
-						echo $this->Form->create( 'Legal', array(
-							'url' => array( 'controller' => 'legals', 'action' => 'edit' ),
+						echo $this->Form->create( 'Process', array(
+							'url' => array( 'controller' => 'processes', 'action' => 'edit' ),
 							'class' => 'form-horizontal row-border'
 						) );
 
@@ -14,9 +14,14 @@
 						$submit_label = __( 'Edit' );
 					}
 					else {
-						echo $this->Form->create( 'Legal', array(
-							'url' => array( 'controller' => 'legals', 'action' => 'add' ),
+						echo $this->Form->create( 'Process', array(
+							'url' => array( 'controller' => 'processes', 'action' => 'add' ),
 							'class' => 'form-horizontal row-border'
+						) );
+
+						echo $this->Form->input( 'business_unit_id', array(
+							'type' => 'hidden',
+							'value' => $bu_id
 						) );
 						
 						$submit_label = __( 'Add' );
@@ -31,7 +36,6 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'Give a name to this Liability. For example "Contractual Liabilities, Legal Liabilities, Customer Liabilities, Etc' ); ?></span>
 					</div>
 				</div>
 
@@ -44,19 +48,19 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'Give a brief description of what this Liability involves.' ); ?></span>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Risk Magnifier' ); ?>:</label>
-					<div class="col-md-10">
-						<?php echo $this->Form->input( 'risk_magnifier', array(
+					<label class="col-md-2 control-label"><?php echo __( 'RTO' ); ?>:</label>
+					<div class="col-md-5">
+						<?php echo $this->Form->input( 'rto', array(
 							'label' => false,
 							'div' => false,
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'default' => 0
 						) ); ?>
-						<span class="help-block"><?php echo __( 'This value will automatically increase the Risk levels (by multiplicating the Risk Score with this value) every time this Liability is assigned to an Asset or Third Party. This is used to increase the visibility of this Risks.' ); ?></span>
+						<span class="help-block"><?php echo __( 'The period of time within which systems, applications, or functions must be recovered after a disruption has occurred. For example, critical business functions must be restored within 4 hours upon occurrence of a disaster.' ); ?></span>
 					</div>
 				</div>
 
@@ -67,6 +71,7 @@
 					) ); ?>
 					&nbsp;
 					<?php echo $this->Html->link( __( 'Cancel' ), array(
+						'controller' => 'businessUnits',
 						'action' => 'index'
 					), array(
 						'class' => 'btn btn-inverse'

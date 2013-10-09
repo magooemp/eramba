@@ -8,12 +8,14 @@ class ThirdParty extends AppModel {
 			'required' => true
 		),
 		'description' => array(
-			//'rule' => 'notEmpty'
-		),
-		/*'type_id' => array(
-			'rule' => 'notEmpty',
-			'required' => true
-		)*/
+		)
+	);
+
+	public $belongsTo = array(
+		'ThirdPartyType' => array(
+			//'foreignKey'  => 'third_party_type_id',
+			//'fields' => 'name'
+		)
 	);
 }
 ?>

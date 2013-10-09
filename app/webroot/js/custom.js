@@ -69,4 +69,16 @@ $(document).ready(function(){
 	setTimeout(function() {
 		$('#sidebar .notifications.demo-slide-in > li:eq(0)').slideDown(500);
 	}, 7000);
+
+
+
+	$(".button-prompt-remove").on("click", function(e) {
+		var r = confirm( "Are you sure you want to delete this record?" );
+		if ( r == true ) {
+			return true;
+		} else {
+			e.preventDefault();
+			return false;
+		}
+	});
 });

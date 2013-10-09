@@ -2,13 +2,21 @@
 class LegalsController extends AppController {
 	public $helpers = array( 'Html', 'Form' );
 	public $components = array( 'Session' );
-	public $paginate = array(
-		'limit' => 20
-	);
 
 	public function index() {
 		$this->set( 'title_for_layout', __( 'Legal Constrains' ) );
 		$this->set( 'subtitle_for_layout', __( 'Most businesses deal with Legal requirement, either from customers, providers, regulators, etc. Compliance to this requirements is a good idea. ' ) );
+
+		$this->paginate = array(
+			'conditions' => array(
+			),
+			'fields' => array(
+				'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
+			),
+			'order' => array('Legal.id' => 'ASC'),
+			'limit' => $this->getPageLimit(),
+			'recursive' => 0
+		);
 
 		$data = $this->paginate( 'Legal' );
 		$this->set( 'data', $data );
@@ -27,13 +35,13 @@ class LegalsController extends AppController {
 
 		$this->Legal->delete( $id );
 
-		$this->Session->setFlash( __( 'Legal was successfully deleted.' ) );
+		$this->Session->setFlash( __( 'Legal was successfully deleted.' ), FLASH_OK );
 		$this->redirect( array( 'controller' => 'legals', 'action' => 'index' ) );
 	}
 
 	public function add() {
 		$this->set( 'title_for_layout', __( 'Add Legal' ) );
-		$this->set( 'subtitle_for_layout', __( 'It\'s critical to understand the business potential liabilities and regulations to which is subject. In particular this is important at the time of managing a Business Continuity Management (BCM) program and Risk Management.' ) );
+		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
 			unset( $this->request->data['Legal']['id'] );
@@ -42,9 +50,13 @@ class LegalsController extends AppController {
 
 			if ( $this->Legal->validates() ) {
 				if ( $this->Legal->save() ) {
-					$this->Session->setFlash( __( 'Legal was successfully added.' ) );
+					$this->Session->setFlash( __( 'Legal was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'legals', 'action' => 'index' ) );
+				} else {
+					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
+			} else {
+				$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
 			}
 		}
 	}
@@ -69,20 +81,22 @@ class LegalsController extends AppController {
 
 		$this->set( 'edit', true );
 		$this->set( 'title_for_layout', __( 'Edit Legal' ) );
+		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
 			$this->Legal->set( $this->request->data );
 
 			if ( $this->Legal->validates() ) {
-				
 				if ( $this->Legal->save() ) {
-					$this->Session->setFlash( __( 'Legal was successfully edited.' ) );
+					$this->Session->setFlash( __( 'Legal was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'legals', 'action' => 'index', $id ) );
 				}
 				else {
-					$this->Session->setFlash( __( 'Error occured. Try again please.' ) );
+					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
+			} else {
+				$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
 			}
 		}
 		else {
@@ -90,6 +104,10 @@ class LegalsController extends AppController {
 		}
 
 		$this->render( 'add' );
+	}
+
+	private function initAddEditSubtitle() {
+		$this->set( 'subtitle_for_layout', __( 'It\'s critical to understand the business potential liabilities and regulations to which is subject. In particular this is important at the time of managing a Business Continuity Management (BCM) program and Risk Management.' ) );
 	}
 
 }

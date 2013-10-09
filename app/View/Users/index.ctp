@@ -61,7 +61,7 @@ echo $this->element(CORE_ELEMENT_PATH . 'paginatorFilterOptions', array('data' =
 					echo $this->Html->div(
 						'alert alert-info', 
 						'<i class="icon-exclamation-sign"></i>' . __('No users found.')
-					); 
+					);
 					?>
 				<?php endif; ?>
 			</div>

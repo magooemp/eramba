@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header navbar navbar-fixed-top" role="banner">
+<header class="header navbar" role="banner">
 	<!-- Top Navigation Bar -->
 	<div class="container">
 
@@ -20,7 +20,7 @@
 		</a> -->
 		<!-- /Sidebar Toggler -->
 
-		<?php echo $this->element( 'menu' ); ?>
+		<?php echo $this->element( CORE_ELEMENT_PATH . 'menu' ); ?>
 
 		<!-- Top Right Menu -->
 		<ul class="nav navbar-nav navbar-right">

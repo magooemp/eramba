@@ -11,49 +11,53 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		//echo $this->Html->css('cake.generic');
-		echo $this->Html->css( 'bootstrap.min' );
-		echo $this->Html->css( 'main' );
-		echo $this->Html->css( 'plugins' );
-		echo $this->Html->css( 'responsive' );
-		echo $this->Html->css( 'icons' );
-		echo $this->Html->css( 'fontawesome/font-awesome.min' );
+		$cssFiles = array(
+			'bootstrap.min',
+			'main',
+			'plugins',
+			'responsive',
+			'icons',
+			'fontawesome/font-awesome.min',
+			'eramba'
+		);
 
-		echo $this->Html->script( 'libs/jquery-1.10.2.min' );
-		echo $this->Html->script( 'plugins/jquery-ui/jquery-ui-1.10.2.custom.min' );
-		echo $this->Html->script( 'bootstrap.min' );
-		echo $this->Html->script( 'libs/lodash.compat.min' );
-		echo $this->Html->script( 'plugins/touchpunch/jquery.ui.touch-punch.min' );
-		echo $this->Html->script( 'plugins/event.swipe/jquery.event.move' );
-		echo $this->Html->script( 'plugins/event.swipe/jquery.event.swipe' );
-		echo $this->Html->script( 'libs/breakpoints' );
-		echo $this->Html->script( 'plugins/respond/respond.min' );
-		echo $this->Html->script( 'plugins/cookie/jquery.cookie.min' );
-		echo $this->Html->script( 'plugins/slimscroll/jquery.slimscroll.min' );
-		echo $this->Html->script( 'plugins/slimscroll/jquery.slimscroll.horizontal.min' );
-		echo $this->Html->script( 'plugins/sparkline/jquery.sparkline.min' );
+		$jsFiles = array(
+			'libs/jquery-1.10.2.min',
+			'plugins/jquery-ui/jquery-ui-1.10.2.custom.min',
+			'bootstrap.min',
+			'libs/lodash.compat.min',
+			'plugins/touchpunch/jquery.ui.touch-punch.min',
+			'plugins/event.swipe/jquery.event.move',
+			'plugins/event.swipe/jquery.event.swipe',
+			'libs/breakpoints',
+			'plugins/respond/respond.min',
+			'plugins/cookie/jquery.cookie.min',
+			'plugins/slimscroll/jquery.slimscroll.min',
+			'plugins/slimscroll/jquery.slimscroll.horizontal.min',
+			'plugins/sparkline/jquery.sparkline.min',
+			'plugins/flot/jquery.flot.min',
+			'plugins/flot/jquery.flot.tooltip.min',
+			'plugins/flot/jquery.flot.resize.min',
+			'plugins/flot/jquery.flot.time.min',
+			'plugins/flot/jquery.flot.growraf.min',
+			'plugins/easy-pie-chart/jquery.easy-pie-chart.min',
+			'plugins/daterangepicker/moment.min',
+			'plugins/daterangepicker/daterangepicker',
+			'plugins/blockui/jquery.blockUI.min',
+			'plugins/fullcalendar/fullcalendar.min',
+			'plugins/noty/jquery.noty',
+			'plugins/noty/layouts/top',
+			'plugins/noty/themes/default',
+			'plugins/uniform/jquery.uniform.min',
+			'plugins/select2/select2.min',
+			'app',
+			'plugins',
+			'plugins.form-components',
+			'custom'
+		);
 
-		echo $this->Html->script( 'plugins/flot/jquery.flot.min' );
-		echo $this->Html->script( 'plugins/flot/jquery.flot.tooltip.min' );
-		echo $this->Html->script( 'plugins/flot/jquery.flot.resize.min' );
-		echo $this->Html->script( 'plugins/flot/jquery.flot.time.min' );
-		echo $this->Html->script( 'plugins/flot/jquery.flot.growraf.min' );
-		echo $this->Html->script( 'plugins/easy-pie-chart/jquery.easy-pie-chart.min' );
-
-		echo $this->Html->script( 'plugins/daterangepicker/moment.min' );
-		echo $this->Html->script( 'plugins/daterangepicker/daterangepicker' );
-		echo $this->Html->script( 'plugins/blockui/jquery.blockUI.min' );
-		echo $this->Html->script( 'plugins/fullcalendar/fullcalendar.min' );
-		echo $this->Html->script( 'plugins/noty/jquery.noty' );
-		echo $this->Html->script( 'plugins/noty/layouts/top' );
-		echo $this->Html->script( 'plugins/noty/themes/default' );
-		echo $this->Html->script( 'plugins/uniform/jquery.uniform.min' );
-		echo $this->Html->script( 'plugins/select2/select2.min' );
-
-		echo $this->Html->script( 'app' );
-		echo $this->Html->script( 'plugins' );
-		echo $this->Html->script( 'plugins.form-components' );
-
+		echo $this->Html->css( $cssFiles );
+		echo $this->Html->script( $jsFiles );
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -73,19 +77,21 @@
 </head>
 <body>
 
-	<?php echo $this->element( 'header' ); ?>
+	<?php if ($this->Session->check('Message.flash')) : ?>
+		<?php echo $this->Session->flash(); ?>
+	<?php endif; ?>
+
+	<?php echo $this->element( CORE_ELEMENT_PATH . 'header' ); ?>
 	
-	<div id="container" class="fixed-header sidebar-closed">
+	<div id="container" class="sidebar-closed">
 
 		<div id="content">
 
 			<div class="container">
 
-				<?php echo $this->element( 'breadcrumbs' ); ?>
+				<?php echo $this->element( CORE_ELEMENT_PATH . 'breadcrumbs' ); ?>
 
-				<?php echo $this->Session->flash(); ?>
-
-				<?php echo $this->element( 'page_header' ); ?>
+				<?php echo $this->element( CORE_ELEMENT_PATH . 'page_header' ); ?>
 
 				<?php echo $this->fetch('content'); ?>
 
