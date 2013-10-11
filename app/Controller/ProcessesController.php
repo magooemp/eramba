@@ -33,7 +33,7 @@ class ProcessesController extends AppController {
 
 			if ( $this->Process->validates() ) {
 				if ( $this->Process->save() ) {
-					$this->Session->setFlash( __( 'Business Process was successfully added.', FLASH_OK ) );
+					$this->Session->setFlash( __( 'Business Process was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'businessUnits', 'action' => 'index' ) );
 				} else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );

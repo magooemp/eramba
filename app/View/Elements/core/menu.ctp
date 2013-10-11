@@ -8,7 +8,7 @@
 	<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			<?php echo __( 'Organization' ); ?>
-			<i class="icon-caret-down small"></i>
+			&nbsp;<i class="icon-caret-down small"></i>
 		</a>
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Business Units' ), array(
@@ -22,6 +22,18 @@
 			<!--<li class="divider"></li>-->
 			<li><?php echo $this->Html->link( __( 'Third Parties' ), array(
 				'controller' => 'thirdParties',
+				'action' => 'index'
+			) ); ?></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<?php echo __( 'System Management' ); ?>
+			&nbsp;<i class="icon-caret-down small"></i>
+		</a>
+		<ul class="dropdown-menu">
+			<li><?php echo $this->Html->link( __( 'System Authorization' ), array(
+				'controller' => 'users',
 				'action' => 'index'
 			) ); ?></li>
 		</ul>
