@@ -16,6 +16,7 @@
 			'main',
 			'plugins',
 			'responsive',
+			'login',
 			'icons',
 			'fontawesome/font-awesome.min',
 			'eramba'
@@ -75,31 +76,41 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body <?php if ( $logged == null ) echo 'class="login"'; ?>>
 
 	<?php if ($this->Session->check('Message.flash')) : ?>
 		<?php echo $this->Session->flash(); ?>
 	<?php endif; ?>
 
-	<?php echo $this->element( CORE_ELEMENT_PATH . 'header' ); ?>
-	
-	<div id="container" class="sidebar-closed">
+	<?php if ( $logged != null ) : ?>
 
-		<div id="content">
+		<?php echo $this->element( CORE_ELEMENT_PATH . 'header' ); ?>
+		
+		<div id="container" class="sidebar-closed">
 
-			<div class="container">
+			<div id="content">
 
-				<?php echo $this->element( CORE_ELEMENT_PATH . 'breadcrumbs' ); ?>
+				<div class="container">
 
-				<?php echo $this->element( CORE_ELEMENT_PATH . 'page_header' ); ?>
+					<?php echo $this->element( CORE_ELEMENT_PATH . 'breadcrumbs' ); ?>
 
-				<?php echo $this->fetch('content'); ?>
+					<?php echo $this->element( CORE_ELEMENT_PATH . 'page_header' ); ?>
+
+					<?php echo $this->fetch( 'content' ); ?>
+
+				</div>
 
 			</div>
 
 		</div>
 
-	</div>
+	<?php else : ?>
+		<div class="logo">
+			<strong>E</strong>ramba
+		</div>
+
+		<?php echo $this->fetch( 'content' ); ?>
+	<?php endif; ?>
 
 </body>
 </html>
