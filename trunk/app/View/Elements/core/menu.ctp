@@ -36,6 +36,10 @@
 				'controller' => 'assetClassifications',
 				'action' => 'index'
 			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Asset Labeling' ), array(
+				'controller' => 'assetLabels',
+				'action' => 'index'
+			) ); ?></li>
 		</ul>
 	</li>
 	<li class="dropdown">

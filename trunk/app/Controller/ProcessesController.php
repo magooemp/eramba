@@ -23,7 +23,7 @@ class ProcessesController extends AppController {
 	public function add( $bu_id = null ) {
 		$bu_id = (int) $bu_id;
 
-		$this->set( 'title_for_layout', __( 'Add Business Process' ) );
+		$this->set( 'title_for_layout', __( 'Create a Business Process' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
@@ -76,7 +76,7 @@ class ProcessesController extends AppController {
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit Business Process' ) );
+		$this->set( 'title_for_layout', __( 'Edit a Business Process' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {

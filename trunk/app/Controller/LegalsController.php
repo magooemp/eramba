@@ -5,7 +5,7 @@ class LegalsController extends AppController {
 
 	public function index() {
 		$this->set( 'title_for_layout', __( 'Legal Constrains' ) );
-		$this->set( 'subtitle_for_layout', __( 'Most businesses deal with Legal requirement, either from customers, providers, regulators, etc. Compliance to this requirements is a good idea. ' ) );
+		$this->set( 'subtitle_for_layout', __( 'Most businesses deal with Legal requirement, either from customers, providers, regulators, etc. Compliance to this requirements is a good idea.' ) );
 
 		$this->paginate = array(
 			'conditions' => array(
@@ -35,12 +35,12 @@ class LegalsController extends AppController {
 
 		$this->Legal->delete( $id );
 
-		$this->Session->setFlash( __( 'Legal was successfully deleted.' ), FLASH_OK );
+		$this->Session->setFlash( __( 'Legal Constrain was successfully deleted.' ), FLASH_OK );
 		$this->redirect( array( 'controller' => 'legals', 'action' => 'index' ) );
 	}
 
 	public function add() {
-		$this->set( 'title_for_layout', __( 'Add Legal' ) );
+		$this->set( 'title_for_layout', __( 'Create a Legal Constrain' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
@@ -50,7 +50,7 @@ class LegalsController extends AppController {
 
 			if ( $this->Legal->validates() ) {
 				if ( $this->Legal->save() ) {
-					$this->Session->setFlash( __( 'Legal was successfully added.' ), FLASH_OK );
+					$this->Session->setFlash( __( 'Legal Constrain was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'legals', 'action' => 'index' ) );
 				} else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
@@ -68,19 +68,19 @@ class LegalsController extends AppController {
 			$id = (int) $this->request->data['Legal']['id'];
 		}
 
-		$legal = $this->Legal->find( 'first', array(
+		$data = $this->Legal->find( 'first', array(
 			'conditions' => array(
 				'Legal.id' => $id
 			),
 			'recursive' => -1
 		) );
 
-		if ( empty( $legal ) ) {
+		if ( empty( $data ) ) {
 			throw new NotFoundException();
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit Legal' ) );
+		$this->set( 'title_for_layout', __( 'Edit a Legal Constrain' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
@@ -89,7 +89,7 @@ class LegalsController extends AppController {
 
 			if ( $this->Legal->validates() ) {
 				if ( $this->Legal->save() ) {
-					$this->Session->setFlash( __( 'Legal was successfully edited.' ), FLASH_OK );
+					$this->Session->setFlash( __( 'Legal Constrain was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'legals', 'action' => 'index', $id ) );
 				}
 				else {
@@ -100,7 +100,7 @@ class LegalsController extends AppController {
 			}
 		}
 		else {
-			$this->request->data = $legal;
+			$this->request->data = $data;
 		}
 
 		$this->render( 'add' );

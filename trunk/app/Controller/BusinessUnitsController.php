@@ -29,7 +29,7 @@ class BusinessUnitsController extends AppController {
 	}
 
 	public function add() {
-		$this->set( 'title_for_layout', __( 'Add Business Unit' ) );
+		$this->set( 'title_for_layout', __( 'Create a Business Unit' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
@@ -69,7 +69,7 @@ class BusinessUnitsController extends AppController {
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit Business Unit' ) );
+		$this->set( 'title_for_layout', __( 'Edit a Business Unit' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
