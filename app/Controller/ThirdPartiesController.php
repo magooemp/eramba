@@ -39,12 +39,12 @@ class ThirdPartiesController extends AppController {
 
 		$this->ThirdParty->delete( $id );
 
-		$this->Session->setFlash( __( 'ThirdParty was successfully deleted.', FLASH_OK ) );
+		$this->Session->setFlash( __( 'Third Party was successfully deleted.', FLASH_OK ) );
 		$this->redirect( array( 'controller' => 'thirdParties', 'action' => 'index' ) );
 	}
 
 	public function add() {
-		$this->set( 'title_for_layout', __( 'Add Third Party' ) );
+		$this->set( 'title_for_layout', __( 'Create a Third Party' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
@@ -86,7 +86,7 @@ class ThirdPartiesController extends AppController {
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit Third Party' ) );
+		$this->set( 'title_for_layout', __( 'Edit a Third Party' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {

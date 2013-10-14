@@ -43,7 +43,7 @@ class AssetClassificationsController extends AppController {
 	}
 
 	public function add() {
-		$this->set( 'title_for_layout', __( 'Add Asset Classification' ) );
+		$this->set( 'title_for_layout', __( 'Create an Asset Classification' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
@@ -102,42 +102,73 @@ class AssetClassificationsController extends AppController {
 		$id = (int) $id;
 
 		if ( ! empty( $this->request->data ) ) {
-			$id = (int) $this->request->data['Legal']['id'];
+			$id = (int) $this->request->data['AssetClassification']['id'];
 		}
 
-		$legal = $this->Legal->find( 'first', array(
+		$data = $this->AssetClassification->find( 'first', array(
 			'conditions' => array(
-				'Legal.id' => $id
+				'AssetClassification.id' => $id
 			),
 			'recursive' => -1
 		) );
 
-		if ( empty( $legal ) ) {
+		if ( empty( $data ) ) {
 			throw new NotFoundException();
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit Legal' ) );
+		$this->set( 'title_for_layout', __( 'Edit an Asset Classification' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
-			$this->Legal->set( $this->request->data );
+			if ( $this->request->data['AssetClassification']['asset_classification_type_id'] == '' ) {
+				$this->AssetClassification->AssetClassificationType->set( $this->request->data );
 
-			if ( $this->Legal->validates() ) {
-				if ( $this->Legal->save() ) {
-					$this->Session->setFlash( __( 'Legal was successfully edited.' ), FLASH_OK );
-					$this->redirect( array( 'controller' => 'legals', 'action' => 'index', $id ) );
+				if ( $this->AssetClassification->AssetClassificationType->validates() ) {
+
+					if ( $this->AssetClassification->AssetClassificationType->save() ) {
+						$this->request->data['AssetClassification']['asset_classification_type_id'] = $this->AssetClassification->AssetClassificationType->id;
+
+						$this->AssetClassification->set( $this->request->data );
+
+						if ( $this->AssetClassification->validates() ) {
+							if ( $this->AssetClassification->save() ) {
+								$this->Session->setFlash( __( 'Asset Classification was successfully edited.' ), FLASH_OK );
+								$this->redirect( array( 'controller' => 'assetClassifications', 'action' => 'index' ) );
+							} else {
+								$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
+							}
+						} else {
+							$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
+						}
+
+					} else {
+						$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
+					}
+
+				} else {
+					$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
 				}
-				else {
-					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
-				}
+
 			} else {
-				$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
+				$this->AssetClassification->set( $this->request->data );
+
+				if ( $this->AssetClassification->validates() ) {
+					if ( $this->AssetClassification->save() ) {
+						$this->Session->setFlash( __( 'Asset Classification was successfully edited.' ), FLASH_OK );
+						$this->redirect( array( 'controller' => 'assetClassifications', 'action' => 'index' ) );
+					} else {
+						$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
+					}
+				} else {
+					$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
+				}
 			}
+
 		}
 		else {
-			$this->request->data = $legal;
+			$this->request->data = $data;
 		}
 
 		$this->initAcTypes();
