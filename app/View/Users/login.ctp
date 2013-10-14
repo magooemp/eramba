@@ -8,15 +8,8 @@
 
 			<h3 class="form-title"><?php echo __( 'Sign In to your Account' ); ?></h3>
 
-			<!-- Error Message -->
-			<div class="alert fade in alert-danger" style="display: none;">
-				<i class="icon-remove close" data-dismiss="alert"></i>
-				Enter any username and password.
-			</div>
-
 			<!-- Input Fields -->
 			<div class="form-group">
-				<!--<label for="username">Username:</label>-->
 				<div class="input-icon">
 					<i class="icon-user"></i>
 					<?php echo $this->Form->input( 'login', array(
@@ -31,7 +24,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<!--<label for="password">Password:</label>-->
 				<div class="input-icon">
 					<i class="icon-lock"></i>
 					<?php echo $this->Form->input( 'password', array(
