@@ -26,9 +26,9 @@
 					<table class="table table-hover table-striped table-bordered table-highlight-head">
 						<thead>
 							<tr>
-								<th><?php echo __( 'Name' ); ?></th>
-								<th><?php echo __( 'Description' ); ?></th>
-								<th><?php echo __( 'Type' ); ?></th>
+								<th><?php echo $this->Paginator->sort( 'ThirdParty.name', __( 'Name' ) ); ?></th>
+								<th><?php echo $this->Paginator->sort( 'ThirdParty.description', __( 'Description' ) ); ?></th>
+								<th><?php echo $this->Paginator->sort( 'ThirdPartyType.name', __( 'Type' ) ); ?></th>
 								<th class="align-center"><?php echo __( 'Action' ); ?></th>
 							</tr>
 						</thead>
