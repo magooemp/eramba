@@ -23,7 +23,7 @@
 					}
 				?>
 
-				<div class="form-group" style="border-top:none; padding-top:5px;">
+				<div class="form-group" style="border-top:none;">
 					<label class="col-md-2 control-label"><?php echo __( 'Name' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'name', array(
@@ -31,7 +31,7 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'Give a name to this Third Party' ); ?></span>
+						<span class="help-block"><?php echo __( 'Give a name to this Third Party.' ); ?></span>
 					</div>
 				</div>
 
@@ -44,7 +44,7 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'Give a brief description on how your orgnization collaborates with this Third Party' ); ?></span>
+						<span class="help-block"><?php echo __( 'Give a brief description on how your orgnization collaborates with this Third Party.' ); ?></span>
 					</div>
 				</div>
 
@@ -57,7 +57,7 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'Select an applicable type for this Third Party ' ); ?></span>
+						<span class="help-block"><?php echo __( 'Select an applicable type for this Third Party.' ); ?></span>
 					</div>
 				</div>
 
