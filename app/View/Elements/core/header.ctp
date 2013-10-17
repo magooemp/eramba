@@ -147,7 +147,7 @@
 					</li>
 					<li>
 						<a href="javascript:void(0);">
-							<span class="photo"><img src="assets/img/demo/avatar-1.jpg" alt="" /></span>
+							<span class="photo"><!--<img src="assets/img/demo/avatar-1.jpg" alt="" />--></span>
 							<span class="subject">
 								<span class="from">Bob Carter</span>
 								<span class="time">Just Now</span>
@@ -159,7 +159,7 @@
 					</li>
 					<li>
 						<a href="javascript:void(0);">
-							<span class="photo"><img src="assets/img/demo/avatar-2.jpg" alt="" /></span>
+							<span class="photo"><!--<img src="assets/img/demo/avatar-2.jpg" alt="" />--></span>
 							<span class="subject">
 								<span class="from">Jane Doe</span>
 								<span class="time">45 mins</span>
@@ -171,7 +171,7 @@
 					</li>
 					<li>
 						<a href="javascript:void(0);">
-							<span class="photo"><img src="assets/img/demo/avatar-3.jpg" alt="" /></span>
+							<span class="photo"><!--<img src="assets/img/demo/avatar-3.jpg" alt="" />--></span>
 							<span class="subject">
 								<span class="from">Patrick Nilson</span>
 								<span class="time">6 hours</span>

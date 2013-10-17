@@ -36,6 +36,14 @@
 				'controller' => 'assetClassifications',
 				'action' => 'index'
 			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Asset Identification' ), array(
+				'controller' => 'assets',
+				'action' => 'index'
+			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Data Asset Analysis' ), array(
+				'controller' => 'dataAssets',
+				'action' => 'index'
+			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Asset Labeling' ), array(
 				'controller' => 'assetLabels',
 				'action' => 'index'

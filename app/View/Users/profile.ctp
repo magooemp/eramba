@@ -18,7 +18,7 @@ $statuses = array(
 				$submit_label = __( 'Edit' );
 				?>
 
-				<div class="form-group" style="border-top:none; padding-top:5px;">
+				<div class="form-group" style="border-top:none;">
 					<label class="col-md-2 control-label"><?php echo __( 'Name' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'name', array(
