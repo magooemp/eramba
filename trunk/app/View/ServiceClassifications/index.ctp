@@ -5,7 +5,7 @@
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<?php echo $this->Html->link( '<i class="icon-plus-sign"></i>' . __( 'Add New' ), array(
-						'controller' => 'legals',
+						'controller' => 'serviceClassifications',
 						'action' => 'add'
 					), array(
 						'class' => 'btn',
@@ -24,22 +24,20 @@
 				<table class="table table-hover table-striped table-bordered table-highlight-head">
 					<thead>
 						<tr>
-							<th><?php echo $this->Paginator->sort( 'Legal.name', __( 'Name' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'Legal.description', __( 'Description' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'Legal.risk_magnifier', __( 'Risk Magnifier' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'ServiceClassification.name', __( 'Name' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'ServiceClassification.description', __( 'Description' ) ); ?></th>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
-								<td><?php echo $entry['Legal']['name']; ?></td>
-								<td><?php echo $entry['Legal']['description']; ?></td>
-								<td><?php echo $entry['Legal']['risk_magnifier']; ?></td>
+								<td><?php echo $entry['ServiceClassification']['name']; ?></td>
+								<td><?php echo $entry['ServiceClassification']['description']; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
-										'id' => $entry['Legal']['id'],
-										'controller' => 'legals'
+										'id' => $entry['ServiceClassification']['id'],
+										'controller' => 'serviceClassifications'
 									) ); ?>
 								</td>
 							</tr>
@@ -50,7 +48,7 @@
 				<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
 			<?php else : ?>
 				<?php echo $this->element( 'not_found', array(
-					'message' => __( 'No Legal Constrains found.' )
+					'message' => __( 'No Service Classifications found.' )
 				) ); ?>
 			<?php endif; ?>
 
