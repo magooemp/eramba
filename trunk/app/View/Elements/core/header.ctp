@@ -24,7 +24,7 @@
 
 		<!-- Top Right Menu -->
 		<ul class="nav navbar-nav navbar-right">
-			<!-- Notifications -->
+			<!-- Notifications 
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-warning-sign"></i>
@@ -73,9 +73,9 @@
 						<a href="javascript:void(0);">View all notifications</a>
 					</li>
 				</ul>
-			</li>
+			</li>-->
 
-			<!-- Tasks -->
+			<!-- Tasks 
 			<li class="dropdown hidden-xs hidden-sm">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-tasks"></i>
@@ -133,9 +133,9 @@
 						<a href="javascript:void(0);">View all tasks</a>
 					</li>
 				</ul>
-			</li>
+			</li>-->
 
-			<!-- Messages -->
+			<!-- Messages
 			<li class="dropdown hidden-xs hidden-sm">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-envelope"></i>
@@ -147,7 +147,7 @@
 					</li>
 					<li>
 						<a href="javascript:void(0);">
-							<span class="photo"><!--<img src="assets/img/demo/avatar-1.jpg" alt="" />--></span>
+							<span class="photo"><img src="assets/img/demo/avatar-1.jpg" alt="" /></span>
 							<span class="subject">
 								<span class="from">Bob Carter</span>
 								<span class="time">Just Now</span>
@@ -159,7 +159,7 @@
 					</li>
 					<li>
 						<a href="javascript:void(0);">
-							<span class="photo"><!--<img src="assets/img/demo/avatar-2.jpg" alt="" />--></span>
+							<span class="photo"><img src="assets/img/demo/avatar-2.jpg" alt="" /></span>
 							<span class="subject">
 								<span class="from">Jane Doe</span>
 								<span class="time">45 mins</span>
@@ -171,7 +171,7 @@
 					</li>
 					<li>
 						<a href="javascript:void(0);">
-							<span class="photo"><!--<img src="assets/img/demo/avatar-3.jpg" alt="" />--></span>
+							<span class="photo"><img src="assets/img/demo/avatar-3.jpg" alt="" /></span>
 							<span class="subject">
 								<span class="from">Patrick Nilson</span>
 								<span class="time">6 hours</span>
@@ -185,7 +185,7 @@
 						<a href="javascript:void(0);">View all messages</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 
 			<!-- .row .row-bg Toggler
 			<li>
@@ -194,13 +194,13 @@
 				</a>
 			</li> -->
 
-			<!-- Project Switcher Button -->
+			<!-- Project Switcher Button 
 			<li class="dropdown">
 				<a href="#" class="project-switcher-btn dropdown-toggle">
 					<i class="icon-folder-open"></i>
 					<span>Projects</span>
 				</a>
-			</li>
+			</li>-->
 
 			<!-- User Login Dropdown -->
 			<li class="dropdown user">
