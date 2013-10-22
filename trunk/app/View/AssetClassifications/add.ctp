@@ -23,7 +23,7 @@
 					}
 				?>
 
-				<div class="form-group" style="border-top:none;">
+				<div class="form-group form-group-first">
 					<label class="col-md-2 control-label"><?php echo __( 'Classification Type' ); ?>:</label>
 					<div class="col-md-4">
 						<?php echo $this->Form->input( 'asset_classification_type_id', array(

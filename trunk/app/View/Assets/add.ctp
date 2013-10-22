@@ -23,7 +23,7 @@
 					}
 				?>
 
-				<div class="form-group" style="border-top:none;">
+				<div class="form-group form-group-first">
 					<label class="col-md-2 control-label"><?php echo __( 'Name' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'name', array(
@@ -40,8 +40,10 @@
 					<div class="col-md-10">
 						<?php
 							$selected = array();
-							foreach ( $this->request->data['BusinessUnit'] as $bu ) {
-								$selected[] = $bu['id'];
+							if ( isset( $this->request->data['BusinessUnit'] ) ) {
+								foreach ( $this->request->data['BusinessUnit'] as $bu ) {
+									$selected[] = $bu['id'];
+								}
 							}
 						?>
 						<?php echo $this->Form->input( 'business_unit_id', array(

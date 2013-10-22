@@ -56,8 +56,20 @@
 			&nbsp;<i class="icon-caret-down small"></i>
 		</a>
 		<ul class="dropdown-menu">
+			<li><?php echo $this->Html->link( __( 'Security Services' ), array(
+				'controller' => 'securityServices',
+				'action' => 'index'
+			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Services Contracts' ), array(
+				'controller' => 'serviceContracts',
+				'action' => 'index'
+			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Services Classification' ), array(
 				'controller' => 'serviceClassifications',
+				'action' => 'index'
+			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Business Continuity Plans' ), array(
+				'controller' => 'businessContinuityPlans',
 				'action' => 'index'
 			) ); ?></li>
 		</ul>

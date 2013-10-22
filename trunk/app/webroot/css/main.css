@@ -2459,7 +2459,7 @@ label > span.required {
   padding-bottom: 15px;
   margin-bottom: 0;
 }
-.row-border .form-group:first-child {
+.row-border .form-group:first-child, .row-border .form-group.form-group-first {
   padding-top: 5px;
   border-top: none;
 }

@@ -1,8 +1,10 @@
 <?php
 class Process extends AppModel {
-	public $name = 'Process';
-
 	public $validate = array(
+		'name' => array(
+			'rule' => 'notEmpty',
+			'required' => true
+		)
 	);
 
 	public $belongsTo = array(

@@ -28,7 +28,7 @@
 					}
 				?>
 
-				<div class="form-group" style="border-top:none;">
+				<div class="form-group form-group-first">
 					<label class="col-md-2 control-label"><?php echo __( 'Name' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'name', array(
