@@ -12,10 +12,11 @@ class ThirdParty extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'ThirdPartyType' => array(
-			//'foreignKey'  => 'third_party_type_id',
-			//'fields' => 'name'
-		)
+		'ThirdPartyType' => array()
+	);
+
+	public $hasMany = array(
+		'ServiceContract' => array()
 	);
 }
 ?>

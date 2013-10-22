@@ -131,6 +131,8 @@ CakeNumber::addFormat('EUR', array(
 	'escape' => false
 ));
 
+CakeNumber::defaultCurrency( 'USD' );
+
 /**
  * All available languages in format (except the default which is defined in constants.php):
  * ISO-639-1 => ISO-639-2
