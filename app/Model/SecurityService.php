@@ -38,7 +38,7 @@ class SecurityService extends AppModel {
 
 	public $hasAndBelongsToMany = array(
 		'ServiceContract' => array(
-			'joinTable' => 'security_services_service_contracts'
+			//'joinTable' => 'security_services_service_contracts'
 		)
 	);
 }

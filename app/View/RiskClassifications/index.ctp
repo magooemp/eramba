@@ -5,7 +5,7 @@
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<?php echo $this->Html->link( '<i class="icon-plus-sign"></i>' . __( 'Add New' ), array(
-						'controller' => 'assetClassifications',
+						'controller' => 'riskClassifications',
 						'action' => 'add'
 					), array(
 						'class' => 'btn',
@@ -24,22 +24,24 @@
 				<table class="table table-hover table-striped table-bordered table-highlight-head">
 					<thead>
 						<tr>
-							<th><?php echo $this->Paginator->sort( 'AssetClassification.name', __( 'Name' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'AssetClassification.criteria', __( 'Criteria' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'AssetClassificationType.name', __( 'Type' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'RiskClassification.name', __( 'Name' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'RiskClassification.criteria', __( 'Criteria' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'RiskClassification.value', __( 'Value' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'RiskClassificationType.name', __( 'Type' ) ); ?></th>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
-								<td><?php echo $entry['AssetClassification']['name']; ?></td>
-								<td><?php echo $entry['AssetClassification']['criteria']; ?></td>
-								<td><?php echo $entry['AssetClassificationType']['name']; ?></td>
+								<td><?php echo $entry['RiskClassification']['name']; ?></td>
+								<td><?php echo $entry['RiskClassification']['criteria']; ?></td>
+								<td><?php echo $entry['RiskClassification']['value']; ?></td>
+								<td><?php echo $entry['RiskClassificationType']['name']; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
-										'id' => $entry['AssetClassification']['id'],
-										'controller' => 'assetClassifications'
+										'id' => $entry['RiskClassification']['id'],
+										'controller' => 'riskClassifications'
 									) ); ?>
 								</td>
 							</tr>
@@ -50,7 +52,7 @@
 				<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
 			<?php else : ?>
 				<?php echo $this->element( 'not_found', array(
-					'message' => __( 'No Asset Classifications found.' )
+					'message' => __( 'No Risk Classifications found.' )
 				) ); ?>
 			<?php endif; ?>
 

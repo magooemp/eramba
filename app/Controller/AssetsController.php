@@ -134,8 +134,7 @@ class AssetsController extends AppController {
 	}
 
 	private function initOptions() {
-		$this->loadModel( 'BusinessUnit' );
-		$bu_list = $this->BusinessUnit->find('list', array(
+		$bu_list = $this->Asset->BusinessUnit->find('list', array(
 			'order' => array('BusinessUnit.name' => 'ASC'),
 			'recursive' => -1
 		));
