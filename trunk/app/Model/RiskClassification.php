@@ -1,5 +1,5 @@
 <?php
-class AssetClassification extends AppModel {
+class RiskClassification extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
@@ -11,7 +11,7 @@ class AssetClassification extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'AssetClassificationType' => array()
+		'RiskClassificationType' => array()
 	);
 }
 ?>

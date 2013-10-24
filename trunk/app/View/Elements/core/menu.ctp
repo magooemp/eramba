@@ -80,8 +80,20 @@
 			&nbsp;<i class="icon-caret-down small"></i>
 		</a>
 		<ul class="dropdown-menu">
+			<li><?php echo $this->Html->link( __( 'Risk Classifications' ), array(
+				'controller' => 'riskClassifications',
+				'action' => 'index'
+			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Asset Risk Management' ), array(
+				'controller' => 'risks',
+				'action' => 'index'
+			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Risk Exceptions' ), array(
 				'controller' => 'riskExceptions',
+				'action' => 'index'
+			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Third Party Risk Management' ), array(
+				'controller' => 'thirdPartyRisks',
 				'action' => 'index'
 			) ); ?></li>
 		</ul>
