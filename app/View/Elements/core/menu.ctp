@@ -132,6 +132,10 @@
 				'controller' => 'securityIncidentClassifications',
 				'action' => 'index'
 			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Policy Exceptions' ), array(
+				'controller' => 'policyExceptions',
+				'action' => 'index'
+			) ); ?></li>
 		</ul>
 	</li>
 	<li class="dropdown">
