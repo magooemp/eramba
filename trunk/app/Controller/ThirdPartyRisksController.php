@@ -81,12 +81,12 @@ class ThirdPartyRisksController extends AppController {
 		$id = (int) $id;
 
 		if ( ! empty( $this->request->data ) ) {
-			$id = (int) $this->request->data['Risk']['id'];
+			$id = (int) $this->request->data['ThirdPartyRisk']['id'];
 		}
 
-		$data = $this->Risk->find( 'first', array(
+		$data = $this->ThirdPartyRisk->find( 'first', array(
 			'conditions' => array(
-				'Risk.id' => $id
+				'ThirdPartyRisk.id' => $id
 			),
 			'recursive' => 1
 		) );
@@ -101,28 +101,28 @@ class ThirdPartyRisksController extends AppController {
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
-			$this->Risk->set( $this->request->data );
+			$this->ThirdPartyRisk->set( $this->request->data );
 
-			if ( $this->Risk->validates() ) {
-				if ( $this->Risk->save() ) {
+			if ( $this->ThirdPartyRisk->validates() ) {
+				if ( $this->ThirdPartyRisk->save() ) {
 					$this->deleteJoins( $id );
 
-					$this->joinAssetsRisks( $this->request->data['Risk']['asset_id'], $this->Risk->id );
-					$this->joinRisksThreats( $this->request->data['Risk']['threat_id'], $this->Risk->id );
-					$this->joinRisksVulnerabilities( $this->request->data['Risk']['vulnerability_id'], $this->Risk->id );
+					$this->joinRisksThirdParties( $this->request->data['ThirdPartyRisk']['third_party_id'], $this->ThirdPartyRisk->id );
+					$this->joinAssetsRisks( $this->request->data['ThirdPartyRisk']['asset_id'], $this->ThirdPartyRisk->id );
+					$this->joinRisksThreats( $this->request->data['ThirdPartyRisk']['threat_id'], $this->ThirdPartyRisk->id );
+					$this->joinRisksVulnerabilities( $this->request->data['ThirdPartyRisk']['vulnerability_id'], $this->ThirdPartyRisk->id );
 
-					if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['Risk']['security_service_id'], $this->Risk->id );
+					if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
+						$this->joinRisksSecurityServices( $this->request->data['ThirdPartyRisk']['security_service_id'], $this->ThirdPartyRisk->id );
 					}
 
-					if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['Risk']['risk_exception_id'], $this->Risk->id );
+					if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
+						$this->joinRisksRiskExceptions( $this->request->data['ThirdPartyRisk']['risk_exception_id'], $this->ThirdPartyRisk->id );
 					}
 
-					$this->Session->setFlash( __( 'Risk was successfully edited.' ), FLASH_OK );
-					$this->redirect( array( 'controller' => 'risks', 'action' => 'index', $id ) );
-				}
-				else {
+					$this->Session->setFlash( __( 'Third Party Risk was successfully edited.' ), FLASH_OK );
+					$this->redirect( array( 'controller' => 'thirdPartyRisks', 'action' => 'index' ) );
+				} else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
