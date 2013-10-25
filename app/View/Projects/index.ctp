@@ -5,7 +5,7 @@
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<?php echo $this->Html->link( '<i class="icon-plus-sign"></i>' . __( 'Add New' ), array(
-						'controller' => 'thirdParties',
+						'controller' => 'projects',
 						'action' => 'add'
 					), array(
 						'class' => 'btn',
@@ -26,22 +26,20 @@
 					<table class="table table-hover table-striped table-bordered table-highlight-head">
 						<thead>
 							<tr>
-								<th><?php echo $this->Paginator->sort( 'ThirdParty.name', __( 'Name' ) ); ?></th>
-								<th><?php echo $this->Paginator->sort( 'ThirdParty.description', __( 'Description' ) ); ?></th>
-								<th><?php echo $this->Paginator->sort( 'ThirdPartyType.name', __( 'Type' ) ); ?></th>
+								<th><?php echo $this->Paginator->sort( 'Project.title', __( 'Title' ) ); ?></th>
+								<th><?php echo $this->Paginator->sort( 'ProjectStatus.name', __( 'Status' ) ); ?></th>
 								<th class="align-center"><?php echo __( 'Action' ); ?></th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php foreach ( $data as $entry ) : ?>
 								<tr>
-									<td><?php echo $entry['ThirdParty']['name']; ?></td>
-									<td><?php echo $entry['ThirdParty']['description']; ?></td>
-									<td><?php echo $entry['ThirdPartyType']['name']; ?></td>
+									<td><?php echo $entry['Project']['title']; ?></td>
+									<td><?php echo $entry['ProjectStatus']['name']; ?></td>
 									<td class="align-center">
 										<?php echo $this->element( 'action_buttons', array( 
-											'id' => $entry['ThirdParty']['id'],
-											'controller' => 'thirdParties'
+											'id' => $entry['Project']['id'],
+											'controller' => 'projects'
 										) ); ?>
 									</td>
 								</tr>
@@ -52,7 +50,7 @@
 					<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
 				<?php else : ?>
 					<?php echo $this->element( 'not_found', array(
-						'message' => __( 'No Third Parties found.' )
+						'message' => __( 'No Projects found.' )
 					) ); ?>
 				<?php endif; ?>
 				
