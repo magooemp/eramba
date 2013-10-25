@@ -124,6 +124,10 @@
 				'controller' => 'projects',
 				'action' => 'index'
 			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Security Incident Classification' ), array(
+				'controller' => 'securityIncidentClassifications',
+				'action' => 'index'
+			) ); ?></li>
 		</ul>
 	</li>
 	<li class="dropdown">
