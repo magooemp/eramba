@@ -11,7 +11,17 @@ class SecurityIncidentsController extends AppController {
 			'conditions' => array(
 			),
 			'fields' => array(
-				//'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
+				'SecurityIncident.id',
+				'SecurityIncident.title',
+				'SecurityIncident.reporter',
+				'SecurityIncident.victim',
+				'SecurityIncident.owner',
+				'SecurityIncident.open_date',
+				'SecurityIncident.closure_date',
+				'ThirdParty.name',
+				'Asset.name',
+				'SecurityIncidentClassification.name',
+				'SecurityIncidentStatus.name'
 			),
 			'order' => array('SecurityIncident.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
