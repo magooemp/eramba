@@ -96,6 +96,10 @@
 				'controller' => 'thirdPartyRisks',
 				'action' => 'index'
 			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Business Continuity' ), array(
+				'controller' => 'businessContinuities',
+				'action' => 'index'
+			) ); ?></li>
 		</ul>
 	</li>
 	<li class="dropdown">
