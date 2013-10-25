@@ -24,7 +24,7 @@
 									<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
 								</span>
 								<ul class="dropdown-menu pull-right">
-									<li><?php echo $this->Html->link( '<i class="icon-plus-sign"></i> ' . __( 'View Third Party' ), array(
+									<li><?php echo $this->Html->link( '<i class="icon-eye-open"></i> ' . __( 'View Third Party' ), array(
 										'controller' => 'thirdParties',
 										'action' => 'edit',
 										$entry['ThirdParty']['id']

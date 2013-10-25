@@ -25,7 +25,15 @@
 					<thead>
 						<tr>
 							<th><?php echo $this->Paginator->sort( 'SecurityIncident.title', __( 'Title' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'SecurityIncident.description', __( 'Description' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'ThirdParty.name', __( 'Third Party' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncident.reporter', __( 'Reporter' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncident.victim', __( 'Affected' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncident.owner', __( 'Owner' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncidentClassification.name', __( 'Classification' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncidentStatus.name', __( 'Status' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncident.open_date', __( 'Open Date' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'SecurityIncident.closure_date', __( 'Closure Date' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'Asset.name', __( 'Asset' ) ); ?></th>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
@@ -33,7 +41,15 @@
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
 								<td><?php echo $entry['SecurityIncident']['title']; ?></td>
-								<td><?php echo $entry['SecurityIncident']['description']; ?></td>
+								<td><?php echo $entry['ThirdParty']['name']; ?></td>
+								<td><?php echo $entry['SecurityIncident']['reporter']; ?></td>
+								<td><?php echo $entry['SecurityIncident']['victim']; ?></td>
+								<td><?php echo $entry['SecurityIncident']['owner']; ?></td>
+								<td><?php echo $entry['SecurityIncidentClassification']['name']; ?></td>
+								<td><?php echo $entry['SecurityIncidentStatus']['name']; ?></td>
+								<td><?php echo $entry['SecurityIncident']['open_date']; ?></td>
+								<td><?php echo $entry['SecurityIncident']['closure_date']; ?></td>
+								<td><?php echo $entry['Asset']['name']; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
 										'id' => $entry['SecurityIncident']['id'],
