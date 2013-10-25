@@ -1,7 +1,7 @@
 <?php
-class ThirdParty extends AppModel {
+class Project extends AppModel {
 	public $validate = array(
-		'name' => array(
+		'title' => array(
 			'rule' => 'notEmpty',
 			'required' => true
 		),
@@ -10,11 +10,7 @@ class ThirdParty extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'ThirdPartyType' => array()
-	);
-
-	public $hasMany = array(
-		'ServiceContract' => array()
+		'ProjectStatus' => array()
 	);
 }
 ?>

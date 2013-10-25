@@ -50,7 +50,7 @@
 
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Type' ); ?>:</label>
-					<div class="col-md-3">
+					<div class="col-md-10">
 						<?php echo $this->Form->input( 'third_party_type_id', array(
 							'options' => $tp_types,
 							'label' => false,

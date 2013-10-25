@@ -116,6 +116,18 @@
 	</li>
 	<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<?php echo __( 'Security Operations' ); ?>
+			&nbsp;<i class="icon-caret-down small"></i>
+		</a>
+		<ul class="dropdown-menu">
+			<li><?php echo $this->Html->link( __( 'Project Improvements' ), array(
+				'controller' => 'projects',
+				'action' => 'index'
+			) ); ?></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			<?php echo __( 'System Management' ); ?>
 			&nbsp;<i class="icon-caret-down small"></i>
 		</a>
