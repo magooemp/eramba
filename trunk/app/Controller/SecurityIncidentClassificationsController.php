@@ -42,7 +42,7 @@ class SecurityIncidentClassificationsController extends AppController {
 	}
 
 	public function add() {
-		$this->set( 'title_for_layout', __( 'Create a Legal Constrain' ) );
+		$this->set( 'title_for_layout', __( 'Create a Security Incident Classification' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) ) {
@@ -52,7 +52,7 @@ class SecurityIncidentClassificationsController extends AppController {
 
 			if ( $this->SecurityIncidentClassification->validates() ) {
 				if ( $this->SecurityIncidentClassification->save() ) {
-					$this->Session->setFlash( __( 'Security Incident Classification Constrain was successfully added.' ), FLASH_OK );
+					$this->Session->setFlash( __( 'Security Incident Classification was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'securityIncidentClassifications', 'action' => 'index' ) );
 				} else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
