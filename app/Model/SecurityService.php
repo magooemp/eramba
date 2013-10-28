@@ -3,7 +3,8 @@ class SecurityService extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'audit_metric_description' => array(
 			'rule' => 'notEmpty',
@@ -18,15 +19,15 @@ class SecurityService extends AppModel {
 			'required' => true
 		),
 		'opex' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'capex' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'resource_utilization' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		)
 	);
@@ -37,9 +38,7 @@ class SecurityService extends AppModel {
 	);
 
 	public $hasAndBelongsToMany = array(
-		'ServiceContract' => array(
-			//'joinTable' => 'security_services_service_contracts'
-		)
+		'ServiceContract' => array()
 	);
 }
 ?>

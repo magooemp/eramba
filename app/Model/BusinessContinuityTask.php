@@ -3,27 +3,33 @@ class BusinessContinuityTask extends AppModel {
 	public $validate = array(
 		'step' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'when' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'notEmpty',,
+			'allowEmpty' => false
 			'required' => true
 		),
 		'who' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'does' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'where' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'how' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		)
 	);
 

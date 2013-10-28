@@ -1,6 +1,5 @@
 <?php
 class BusinessUnit extends AppModel {
-	public $name = 'BusinessUnit';
 	public $actsAs = array(
 		'Containable'
 	);
@@ -8,9 +7,15 @@ class BusinessUnit extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'description' => array(
+		),
+		'rpo' => array(
+			'rule' => 'numeric',
+			'required' => true,
+			'allowEmpty' => false
 		)
 	);
 

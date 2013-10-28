@@ -3,7 +3,8 @@ class ThirdPartyRisk extends AppModel {
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'third_party_id' => array(
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
@@ -29,7 +30,7 @@ class ThirdPartyRisk extends AppModel {
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
 		),
 		'residual_score' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'risk_exception_id' => array(
@@ -37,10 +38,11 @@ class ThirdPartyRisk extends AppModel {
 		),
 		'owner' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'review' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'date',
 			'required' => true
 		)
 	);

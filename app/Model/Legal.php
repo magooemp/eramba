@@ -3,13 +3,14 @@ class Legal extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'description' => array(
-			//'rule' => 'notEmpty'
 		),
 		'risk_magnifier' => array(
-			'rule' => 'notEmpty'
+			'rule' => 'numeric',
+			'allowEmpty' => true
 		)
 	);
 }

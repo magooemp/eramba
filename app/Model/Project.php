@@ -3,9 +3,23 @@ class Project extends AppModel {
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
-		'description' => array(
+		'start' => array(
+			'rule' => 'date'
+		),
+		'deadline' => array(
+			'rule' => 'date'
+		),
+		'plan_budget' => array(
+			'rule' => 'numeric'
+		),
+		'current_budget' => array(
+			'rule' => 'numeric'
+		),
+		'completion' => array(
+			'rule' => 'numeric'
 		)
 	);
 

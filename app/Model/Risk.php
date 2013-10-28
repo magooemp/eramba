@@ -3,7 +3,8 @@ class Risk extends AppModel {
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'asset_id' => array(
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
@@ -26,7 +27,7 @@ class Risk extends AppModel {
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
 		),
 		'residual_score' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'risk_exception_id' => array(
@@ -34,10 +35,11 @@ class Risk extends AppModel {
 		),
 		'owner' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'review' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'date',
 			'required' => true
 		)
 	);

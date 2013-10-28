@@ -94,7 +94,6 @@
 							'options' => $media_types,
 							'label' => false,
 							'div' => false,
-							'empty' => __( 'Choose one' ),
 							'class' => 'form-control'
 							//'class' => 'select2 col-md-12 full-width-fix'
 						) ); ?>

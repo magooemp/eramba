@@ -3,10 +3,10 @@ class AssetClassification extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'criteria' => array(
-			//'rule' => 'notEmpty'
 		)
 	);
 
