@@ -3,38 +3,42 @@ class BusinessContinuityPlan extends AppModel {
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'objective' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'audit_metric' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'audit_success_criteria' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'security_service_type_id' => array(
 			'rule' => 'notEmpty',
 			'required' => true
 		),
 		'opex' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'capex' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'resource_utilization' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'numeric',
 			'required' => true
 		),
 		'regular_review' => array(
-			'rule' => 'notEmpty',
+			'rule' => 'date',
 			'required' => true
 		)
 	);

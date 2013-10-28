@@ -55,7 +55,8 @@
 							'options' => $tp_types,
 							'label' => false,
 							'div' => false,
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'empty' => __( 'Select one' )
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Select an applicable type for this Third Party.' ); ?></span>
 					</div>

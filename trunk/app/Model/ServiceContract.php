@@ -3,7 +3,8 @@ class ServiceContract extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'value' => array(
 			'rule' => 'numeric',

@@ -3,7 +3,8 @@ class Asset extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
-			'required' => true
+			'required' => true,
+			'allowEmpty' => false
 		),
 		'business_unit_id' => array(
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
@@ -21,9 +22,7 @@ class Asset extends AppModel {
 	);
 
 	public $hasAndBelongsToMany = array(
-		'BusinessUnit' => array(
-			//'joinTable' => 'assets_business_units'
-		)
+		'BusinessUnit' => array()
 	);
 }
 ?>

@@ -5,8 +5,8 @@ class RiskClassification extends AppModel {
 			'rule' => 'notEmpty',
 			'required' => true
 		),
-		'criteria' => array(
-			//'rule' => 'notEmpty'
+		'value' => array(
+			'rule' => 'numeric'
 		)
 	);
 

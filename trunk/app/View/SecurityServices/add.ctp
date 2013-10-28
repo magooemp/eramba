@@ -68,7 +68,8 @@
 							'options' => $classifications,
 							'label' => false,
 							'div' => false,
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'empty' => __( 'Choose one' )
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Use a pre-defined classification criteria as a priotization tool  Select the Service Classification Critical.' ); ?></span>
 					</div>
