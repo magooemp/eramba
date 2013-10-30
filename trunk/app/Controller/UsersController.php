@@ -5,17 +5,13 @@ class UsersController extends AppController {
 	public $components = array('Ticketmaster');
 
 	public function beforeFilter() {
-		$this->Auth->allow('resetpassword', 'useticket');
+		$this->Auth->allow('resetpassword', 'useticket', 'logout');
 		
 		parent::beforeFilter();
 	}
 			
-	public function isAuthorized() {
-		return true;
-	}
-
 	public function index() {
-		$this->set( 'title_for_layout', __('User Authorization') );
+		$this->set( 'title_for_layout', __('User Accounts') );
 		$this->set( 'subtitle_for_layout', __( 'Define which system user can access what. Remember! Only those users listed here can access the system!' ) );
 		
 		$this->paginate = array(
@@ -36,7 +32,7 @@ class UsersController extends AppController {
 	}
 
 	public function add() {
-		$this->set( 'title_for_layout', __('Create a User Authorization') );
+		$this->set( 'title_for_layout', __('Create a User Accounts') );
 		$this->set( 'subtitle_for_layout', __( 'Create system users and assign them the appropiate Group Roles' ) );
 		$this->initData();
 		
@@ -63,7 +59,7 @@ class UsersController extends AppController {
 		$id = (int) $id;
 		$this->initData();
 		$this->set('edit', true);
-		$this->set( 'title_for_layout', __('Edit User Authorization') );
+		$this->set( 'title_for_layout', __('Edit User Accounts') );
 		$this->set( 'subtitle_for_layout', __( 'Edit system users and assign them the appropiate Group Roles' ) );
 
 		if (!empty($this->request->data)) {

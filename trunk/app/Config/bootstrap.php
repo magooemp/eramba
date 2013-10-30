@@ -33,6 +33,13 @@ require_once('shared_constants.php');
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
 
+Cache::config('acl', array(
+	'engine' => 'File',
+	'duration'=> '+1 week',
+	'prefix' => 'cake_acl_',
+	'groups' => array('acl')
+));
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *
@@ -58,6 +65,11 @@ Cache::config('default', array('engine' => 'File'));
  * ));
  *
  */
+
+CakePlugin::load('Acl', array('bootstrap' => true));
+
+Configure::write('CacheDbAclConfig','acl');
+Configure::write('CacheDbAclAro','User.Group');
 
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other

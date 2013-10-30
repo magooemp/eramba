@@ -159,7 +159,7 @@ else {
  *	`manager_index()` and `/manager/controller/index`
  *
  */
-	//Configure::write('Routing.prefixes', array('admin'));
+	Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -271,7 +271,8 @@ else {
  * The class name and database used in CakePHP's
  * access control lists.
  */
-	Configure::write('Acl.classname', 'DbAcl');
+	//Configure::write('Acl.classname', 'DbAcl'); //old configuration, without cache
+	Configure::write('Acl.classname', 'CacheDbAcl');
 	Configure::write('Acl.database', 'default');
 
 /**
