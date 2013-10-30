@@ -1,11 +1,12 @@
 <?php
+App::uses('CacheDbAcl', 'Lib');
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
 	public $uses = array();
 	public $components = array(
 		'Auth' => array(
-			'loginAction' => array('controller' => 'users', 'action' => 'login'),
+			'loginAction' => array('controller' => 'users', 'action' => 'login', 'plugin' => false, 'admin' => false),
 			'loginRedirect' => array('controller' => 'dashboard', 'action' => 'index'),
 			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
 			'authenticate' => array(
@@ -13,9 +14,13 @@ class AppController extends Controller {
 					'fields' => array('username' => 'login'),
 					'scope' => array('User.status' => USER_ACTIVE)
 				)
-			)
+			),
+			'authorize' => array(
+				'Actions' => array('actionPath' => 'controllers/')
+			),
+			'unauthorizedRedirect' => false
 		),
-		'RequestHandler', 'Cookie', 'Session', 'DebugKit.Toolbar'
+		'RequestHandler', 'Cookie', 'Session', 'DebugKit.Toolbar', 'Acl'
 	);
 	public $helpers = array('Html', 'Form');
 	protected $logged = null;
@@ -23,7 +28,7 @@ class AppController extends Controller {
 	
 	public function beforeFilter() {
 		$this->setDefaultCookies();
-	
+
 		//handling the default language
 		//$this->initlanguage();
 	
@@ -39,16 +44,14 @@ class AppController extends Controller {
 		Security::setHash('blowfish');
 		
 		//check login session
-		$this->logged = $this->Auth->user();
+		if ($this->Auth->loggedIn()) {
+			$this->logged = $this->Auth->user();
+		}
 		$this->set('logged', $this->logged);
 		
 		if (!empty($this->logged)) {
 			
 		}
-	}
-	
-	public function isAuthorized() {
-		return true;
 	}
 	
 	/**

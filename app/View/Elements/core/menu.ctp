@@ -13,16 +13,22 @@
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Business Units' ), array(
 				'controller' => 'businessUnits',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Legal Constrains' ), array(
 				'controller' => 'legals',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<!--<li class="divider"></li>-->
 			<li><?php echo $this->Html->link( __( 'Third Parties' ), array(
 				'controller' => 'thirdParties',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 		</ul>
 	</li>
@@ -34,19 +40,27 @@
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Asset Classification' ), array(
 				'controller' => 'assetClassifications',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Asset Identification' ), array(
 				'controller' => 'assets',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Data Asset Analysis' ), array(
 				'controller' => 'dataAssets',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Asset Labeling' ), array(
 				'controller' => 'assetLabels',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 		</ul>
 	</li>
@@ -58,19 +72,27 @@
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Security Services' ), array(
 				'controller' => 'securityServices',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Services Contracts' ), array(
 				'controller' => 'serviceContracts',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Services Classification' ), array(
 				'controller' => 'serviceClassifications',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Business Continuity Plans' ), array(
 				'controller' => 'businessContinuityPlans',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 		</ul>
 	</li>
@@ -82,23 +104,33 @@
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Risk Classifications' ), array(
 				'controller' => 'riskClassifications',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Asset Risk Management' ), array(
 				'controller' => 'risks',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Risk Exceptions' ), array(
 				'controller' => 'riskExceptions',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Third Party Risk Management' ), array(
 				'controller' => 'thirdPartyRisks',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Business Continuity' ), array(
 				'controller' => 'businessContinuities',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 		</ul>
 	</li>
@@ -110,7 +142,9 @@
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Compliance Exception' ), array(
 				'controller' => 'complianceExceptions',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 		</ul>
 	</li>
@@ -122,19 +156,27 @@
 		<ul class="dropdown-menu">
 			<li><?php echo $this->Html->link( __( 'Project Improvements' ), array(
 				'controller' => 'projects',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Security Incidents' ), array(
 				'controller' => 'securityIncidents',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Security Incident Classification' ), array(
 				'controller' => 'securityIncidentClassifications',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 			<li><?php echo $this->Html->link( __( 'Policy Exceptions' ), array(
 				'controller' => 'policyExceptions',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
 			) ); ?></li>
 		</ul>
 	</li>
@@ -144,9 +186,17 @@
 			&nbsp;<i class="icon-caret-down small"></i>
 		</a>
 		<ul class="dropdown-menu">
-			<li><?php echo $this->Html->link( __( 'System Authorization' ), array(
+			<li><?php echo $this->Html->link( __( 'User Accounts' ), array(
 				'controller' => 'users',
-				'action' => 'index'
+				'action' => 'index',
+				'admin' => false,
+				'plugin' => null
+			) ); ?></li>
+			<li><?php echo $this->Html->link( __( 'Role Management' ), array(
+				'controller' => 'aros',
+				'action' => 'ajax_role_permissions',
+				'admin' => true,
+				'plugin' => 'acl'
 			) ); ?></li>
 		</ul>
 	</li>
