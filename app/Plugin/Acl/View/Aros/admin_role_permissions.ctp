@@ -101,13 +101,15 @@ foreach($roles as $role)
     		    		{
     		    			$this->Js->buffer('register_role_toggle_right(true, "' . $this->Html->url('/') . '", "right__' . $role[$role_model_name][$role_pk_name] . '_' . $controller_name . '_' . $ctrl_info['name'] . '", "' . $role[$role_model_name][$role_pk_name] . '", "", "' . $controller_name . '", "' . $ctrl_info['name'] . '")');
         		    
-    		    			echo $this->Html->image('/acl/img/design/tick.png', array('class' => 'pointer'));
+    		    			//echo $this->Html->image('/acl/img/design/tick.png', array('class' => 'pointer'));
+        					echo $this->Html->tag('i', ' ', array('class' => 'icon-ok icon-green icon-2x pointer'));
     		    		}
     		    		else
     		    		{
     		    			$this->Js->buffer('register_role_toggle_right(false, "' . $this->Html->url('/') . '", "right__' . $role[$role_model_name][$role_pk_name] . '_' . $controller_name . '_' . $ctrl_info['name'] . '", "' . $role[$role_model_name][$role_pk_name] . '", "", "' . $controller_name . '", "' . $ctrl_info['name'] . '")');
     		    		    
-    		    		    echo $this->Html->image('/acl/img/design/cross.png', array('class' => 'pointer'));
+    		    		    //echo $this->Html->image('/acl/img/design/cross.png', array('class' => 'pointer'));
+        					echo $this->Html->tag('i', ' ', array('class' => 'icon-remove icon-red icon-2x pointer'));
     		    		}
 		    	    }
 		    	    else
@@ -115,13 +117,15 @@ foreach($roles as $role)
 		    	        /*
 		    	         * The right of the action for the role is unknown
 		    	         */
-		    	        echo $this->Html->image('/acl/img/design/important16.png', array('title' => __d('acl', 'The ACO node is probably missing. Please try to rebuild the ACOs first.')));
+		    	        //echo $this->Html->image('/acl/img/design/important16.png', array('title' => __d('acl', 'The ACO node is probably missing. Please try to rebuild the ACOs first.')));
+        				echo $this->Html->tag('i', ' ', array('class' => 'icon-exclamation-sign icon-orange icon-2x', 'title' => __d('acl', 'The ACO node is probably missing. Please try to rebuild the ACOs first.')));
 		    	    }
 		    		
 		    		echo '</span>';
 	    	
         	    	echo ' ';
-        	    	echo $this->Html->image('/acl/img/ajax/waiting16.gif', array('id' => 'right__' . $role[$role_model_name][$role_pk_name] . '_' . $controller_name . '_' . $ctrl_info['name'] . '_spinner', 'style' => 'display:none;'));
+        	    	//echo $this->Html->image('/acl/img/ajax/waiting16.gif', array('id' => 'right__' . $role[$role_model_name][$role_pk_name] . '_' . $controller_name . '_' . $ctrl_info['name'] . '_spinner', 'style' => 'display:none;'));
+        	    	echo $this->Html->tag('i', ' ', array('class' => 'icon-spinner icon-spin icon-2x', 'id' => 'right__' . $role[$role_model_name][$role_pk_name] . '_' . $controller_name . '_' . $ctrl_info['name'] . '_spinner', 'style' => 'display:none;'));
             		
         	    	echo '</td>';
 		    	}
@@ -181,7 +185,8 @@ foreach($roles as $role)
         		    			
         		    		    $this->Js->buffer('register_role_toggle_right(true, "' . $this->Html->url('/') . '", "right_' . $plugin_name . '_' . $role[$role_model_name][$role_pk_name] . '_' . $plugin_ctrler_name . '_' . $method['name'] . '", "' . $role[$role_model_name][$role_pk_name] . '", "' . $plugin_name . '", "' . $plugin_ctrler_name . '", "' . $method['name'] . '")');
     		    		    
-        		    		    echo $this->Html->image('/acl/img/design/tick.png', array('class' => 'pointer'));
+        		    		    //echo $this->Html->image('/acl/img/design/tick.png', array('class' => 'pointer'));
+        						echo $this->Html->tag('i', ' ', array('class' => 'icon-ok icon-green icon-2x pointer'));
         		    		}
         		    		else
         		    		{
@@ -189,7 +194,8 @@ foreach($roles as $role)
         		    			
         		    		    $this->Js->buffer('register_role_toggle_right(false, "' . $this->Html->url('/') . '", "right_' . $plugin_name . '_' . $role[$role_model_name][$role_pk_name] . '_' . $plugin_ctrler_name . '_' . $method['name'] . '", "' . $role[$role_model_name][$role_pk_name] . '", "' . $plugin_name . '", "' . $plugin_ctrler_name . '", "' . $method['name'] . '")');
     		    			
-        		    		    echo $this->Html->image('/acl/img/design/cross.png', array('class' => 'pointer'));
+        		    		    //echo $this->Html->image('/acl/img/design/cross.png', array('class' => 'pointer'));
+	        					echo $this->Html->tag('i', ' ', array('class' => 'icon-remove icon-red icon-2x pointer'));
         		    		}
     		    	    }
     		    	    else
@@ -197,13 +203,15 @@ foreach($roles as $role)
     		    	        /*
     		    	         * The right of the action for the role is unknown
     		    	         */
-    		    	        echo $this->Html->image('/acl/img/design/important16.png', array('title' => __d('acl', 'The ACO node is probably missing. Please try to rebuild the ACOs first.')));
+    		    	        //echo $this->Html->image('/acl/img/design/important16.png', array('title' => __d('acl', 'The ACO node is probably missing. Please try to rebuild the ACOs first.')));
+    		    	        echo $this->Html->tag('i', ' ', array('class' => 'icon-exclamation-sign icon-orange icon-2x', 'title' => __d('acl', 'The ACO node is probably missing. Please try to rebuild the ACOs first.')));
     		    	    }
     		    		
     		    		echo '</span>';
 	    	
             	    	echo ' ';
-            	    	echo $this->Html->image('/acl/img/ajax/waiting16.gif', array('id' => 'right_' . $plugin_name . '_' . $role[$role_model_name][$role_pk_name] . '_' . $plugin_ctrler_name . '_' . $method['name'] . '_spinner', 'style' => 'display:none;'));
+            	    	//echo $this->Html->image('/acl/img/ajax/waiting16.gif', array('id' => 'right_' . $plugin_name . '_' . $role[$role_model_name][$role_pk_name] . '_' . $plugin_ctrler_name . '_' . $method['name'] . '_spinner', 'style' => 'display:none;'));
+            	    	echo $this->Html->tag('i', ' ', array('class' => 'icon-spinner icon-spin icon-2x', 'id' => 'right_' . $plugin_name . '_' . $role[$role_model_name][$role_pk_name] . '_' . $plugin_ctrler_name . '_' . $method['name'] . '_spinner', 'style' => 'display:none;'));
                 		
             	    	echo '</td>';
     		    	}
@@ -219,9 +227,11 @@ foreach($roles as $role)
     ?>
 	</table>
 	<?php
-    echo $this->Html->image('/acl/img/design/tick.png') . ' ' . __d('acl', 'authorized');
+    //echo $this->Html->image('/acl/img/design/tick.png') . ' ' . __d('acl', 'authorized');
+	echo $this->Html->tag('i', ' ', array('class' => 'icon-ok icon-green icon-2x')) . ' ' . __d('acl', 'authorized');
     echo '&nbsp;&nbsp;&nbsp;';
-    echo $this->Html->image('/acl/img/design/cross.png') . ' ' . __d('acl', 'blocked');
+    //echo $this->Html->image('/acl/img/design/cross.png') . ' ' . __d('acl', 'blocked');
+    echo $this->Html->tag('i', ' ', array('class' => 'icon-remove icon-red icon-2x')) . ' ' . __d('acl', 'blocked');
     ?>
 
 </div>

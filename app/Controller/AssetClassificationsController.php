@@ -4,10 +4,6 @@ class AssetClassificationsController extends AppController {
 	public $components = array( 'Session' );
 
 	public function index() {
-		debug($this->Acl->check(array('Group' => array('id' => 11)), 'AssetClassifications/index'));
-		debug($this->Acl->check(array('Group' => array('id' => 11)), 'BusinessUnits/index'));
-		debug($this->Acl->check(array('Group' => array('id' => 11)), 'BusinessUnits/add'));
-
 		$this->set( 'title_for_layout', __( 'Asset Classification' ) );
 		$this->set( 'subtitle_for_layout', __( 'You\'ll be classifying assets very soon, it\'s very important you decide a classification method that fits you the best. Keep in mind it must be usefull!' ) );
 

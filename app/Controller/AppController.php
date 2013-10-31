@@ -20,7 +20,7 @@ class AppController extends Controller {
 			),
 			'unauthorizedRedirect' => false
 		),
-		'RequestHandler', 'Cookie', 'Session', 'DebugKit.Toolbar', 'Acl'
+		'RequestHandler', 'Cookie', 'Session', 'DebugKit.Toolbar', 'Acl', 'Menu'
 	);
 	public $helpers = array('Html', 'Form');
 	protected $logged = null;
@@ -50,7 +50,7 @@ class AppController extends Controller {
 		$this->set('logged', $this->logged);
 		
 		if (!empty($this->logged)) {
-			
+			$this->set('menuItems', $this->Menu->getMenu($this->logged['group_id']));
 		}
 	}
 	
@@ -260,5 +260,4 @@ class AppController extends Controller {
 		
 		return $limit;
 	}
-	
 }
