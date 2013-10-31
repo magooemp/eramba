@@ -33,12 +33,22 @@ class AssetsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->Asset->delete( $id );
-		$this->Asset->AssetsBusinessUnit->deleteAll( array(
+		$this->Asset->query( 'SET autocommit = 0' );
+		$this->Asset->begin();
+
+		$delete1 = $this->Asset->delete( $id );
+		$delete2 = $this->Asset->AssetsBusinessUnit->deleteAll( array(
 			'AssetsBusinessUnit.asset_id' => $id
 		) );
 
-		$this->Session->setFlash( __( 'Asset was successfully deleted.' ), FLASH_OK );
+		if ( $delete1 && $delete2 ) {
+			$this->Asset->commit();
+			$this->Session->setFlash( __( 'Asset was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+			$this->Asset->rollback();
+		}
+		
 		$this->redirect( array( 'controller' => 'assets', 'action' => 'index' ) );
 	}
 
@@ -52,13 +62,19 @@ class AssetsController extends AppController {
 			$this->Asset->set( $this->request->data );
 
 			if ( $this->Asset->validates() ) {
-				if ( $this->Asset->save() ) {
+				$this->Asset->query( 'SET autocommit = 0' );
+				$this->Asset->begin();
 
-					$this->joinAssetsBusinessUnits( $this->request->data['Asset']['business_unit_id'], $this->Asset->id );
+				$save1 = $this->Asset->save();
+				$save2 = $this->joinAssetsBusinessUnits( $this->request->data['Asset']['business_unit_id'], $this->Asset->id );
+
+				if ( $save1 && $save2 ) {
+					$this->Asset->commit();
 
 					$this->Session->setFlash( __( 'Asset was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'assets', 'action' => 'index' ) );
 				} else {
+					$this->Asset->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -96,17 +112,23 @@ class AssetsController extends AppController {
 			$this->Asset->set( $this->request->data );
 
 			if ( $this->Asset->validates() ) {
-				if ( $this->Asset->save() ) {
-					$this->Asset->AssetsBusinessUnit->deleteAll( array(
-						'AssetsBusinessUnit.asset_id' => $id
-					) );
+				$this->Asset->query( 'SET autocommit = 0' );
+				$this->Asset->begin();
 
-					$this->joinAssetsBusinessUnits( $this->request->data['Asset']['business_unit_id'], $this->Asset->id );
+				$save1 = $this->Asset->save();
+				$delete = $this->Asset->AssetsBusinessUnit->deleteAll( array(
+					'AssetsBusinessUnit.asset_id' => $id
+				) );
+				$save2 = $this->joinAssetsBusinessUnits( $this->request->data['Asset']['business_unit_id'], $this->Asset->id );
+
+				if ( $save1 && $delete && $save2 ) {
+					$this->Asset->commit();
 
 					$this->Session->setFlash( __( 'Asset was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'assets', 'action' => 'index', $id ) );
 				}
 				else {
+					$this->Asset->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -129,8 +151,11 @@ class AssetsController extends AppController {
 			);
 
 			$this->Asset->AssetsBusinessUnit->create();
-			$this->Asset->AssetsBusinessUnit->save( $tmp );
+			if ( ! $this->Asset->AssetsBusinessUnit->save( $tmp ) ) {
+				return false;
+			}
 		}
+		return true;
 	}
 
 	private function initOptions() {

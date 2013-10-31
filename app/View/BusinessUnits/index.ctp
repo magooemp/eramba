@@ -46,13 +46,13 @@
 									), array(
 										'escape' => false
 									) ); ?></li>
-									<!--<li><?php echo $this->Html->link( '<i class="icon-trash"></i> ' . __( 'Delete Unit' ), array(
+									<li><?php echo $this->Html->link( '<i class="icon-trash"></i> ' . __( 'Delete Unit' ), array(
 										'controller' => 'businessUnits',
 										'action' => 'delete',
 										$entry['BusinessUnit']['id']
 									), array(
 										'escape' => false
-									) ); ?></li>-->
+									) ); ?></li>
 								</ul>
 							</div>
 						</div>

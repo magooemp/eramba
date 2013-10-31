@@ -50,23 +50,33 @@ class ThirdPartyRisksController extends AppController {
 			$this->ThirdPartyRisk->set( $this->request->data );
 
 			if ( $this->ThirdPartyRisk->validates() ) {
-				if ( $this->ThirdPartyRisk->save() ) {
-					$this->joinRisksThirdParties( $this->request->data['ThirdPartyRisk']['third_party_id'], $this->ThirdPartyRisk->id );
-					$this->joinAssetsRisks( $this->request->data['ThirdPartyRisk']['asset_id'], $this->ThirdPartyRisk->id );
-					$this->joinRisksThreats( $this->request->data['ThirdPartyRisk']['threat_id'], $this->ThirdPartyRisk->id );
-					$this->joinRisksVulnerabilities( $this->request->data['ThirdPartyRisk']['vulnerability_id'], $this->ThirdPartyRisk->id );
+				$this->ThirdPartyRisk->query( 'SET autocommit = 0' );
+				$this->ThirdPartyRisk->begin();
 
-					if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['ThirdPartyRisk']['security_service_id'], $this->ThirdPartyRisk->id );
-					}
+				$save1 = $this->ThirdPartyRisk->save();
+				$save2 = $this->joinRisksThirdParties( $this->request->data['ThirdPartyRisk']['third_party_id'], $this->ThirdPartyRisk->id );
+				$save3 = $this->joinAssetsRisks( $this->request->data['ThirdPartyRisk']['asset_id'], $this->ThirdPartyRisk->id );
+				$save4 = $this->joinRisksThreats( $this->request->data['ThirdPartyRisk']['threat_id'], $this->ThirdPartyRisk->id );
+				$save5 = $this->joinRisksVulnerabilities( $this->request->data['ThirdPartyRisk']['vulnerability_id'], $this->ThirdPartyRisk->id );
+				if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
+					$save6 = $this->joinRisksSecurityServices( $this->request->data['ThirdPartyRisk']['security_service_id'], $this->ThirdPartyRisk->id );
+				} else {
+					$save6 = true;
+				}
+				if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
+					$save7 = $this->joinRisksRiskExceptions( $this->request->data['ThirdPartyRisk']['risk_exception_id'], $this->ThirdPartyRisk->id );
+				} else {
+					$save7 = true;
+				}
 
-					if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['ThirdPartyRisk']['risk_exception_id'], $this->ThirdPartyRisk->id );
-					}
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
+					$this->ThirdPartyRisk->commit();
 
 					$this->Session->setFlash( __( 'Third Party Risk was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'thirdPartyRisks', 'action' => 'index' ) );
 				} else {
+					$this->ThirdPartyRisk->rollback();
+
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -104,25 +114,34 @@ class ThirdPartyRisksController extends AppController {
 			$this->ThirdPartyRisk->set( $this->request->data );
 
 			if ( $this->ThirdPartyRisk->validates() ) {
-				if ( $this->ThirdPartyRisk->save() ) {
-					$this->deleteJoins( $id );
+				$this->ThirdPartyRisk->query( 'SET autocommit = 0' );
+				$this->ThirdPartyRisk->begin();
 
-					$this->joinRisksThirdParties( $this->request->data['ThirdPartyRisk']['third_party_id'], $this->ThirdPartyRisk->id );
-					$this->joinAssetsRisks( $this->request->data['ThirdPartyRisk']['asset_id'], $this->ThirdPartyRisk->id );
-					$this->joinRisksThreats( $this->request->data['ThirdPartyRisk']['threat_id'], $this->ThirdPartyRisk->id );
-					$this->joinRisksVulnerabilities( $this->request->data['ThirdPartyRisk']['vulnerability_id'], $this->ThirdPartyRisk->id );
+				$delete = $this->deleteJoins( $id );
+				$save1 = $this->ThirdPartyRisk->save();
+				$save2 = $this->joinRisksThirdParties( $this->request->data['ThirdPartyRisk']['third_party_id'], $this->ThirdPartyRisk->id );
+				$save3 = $this->joinAssetsRisks( $this->request->data['ThirdPartyRisk']['asset_id'], $this->ThirdPartyRisk->id );
+				$save4 = $this->joinRisksThreats( $this->request->data['ThirdPartyRisk']['threat_id'], $this->ThirdPartyRisk->id );
+				$save5 = $this->joinRisksVulnerabilities( $this->request->data['ThirdPartyRisk']['vulnerability_id'], $this->ThirdPartyRisk->id );
+				if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
+					$save6 = $this->joinRisksSecurityServices( $this->request->data['ThirdPartyRisk']['security_service_id'], $this->ThirdPartyRisk->id );
+				} else {
+					$save6 = true;
+				}
+				if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
+					$save7 = $this->joinRisksRiskExceptions( $this->request->data['ThirdPartyRisk']['risk_exception_id'], $this->ThirdPartyRisk->id );
+				} else {
+					$save7 = true;
+				}
 
-					if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['ThirdPartyRisk']['security_service_id'], $this->ThirdPartyRisk->id );
-					}
-
-					if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['ThirdPartyRisk']['risk_exception_id'], $this->ThirdPartyRisk->id );
-					}
+				if ( $delete && $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
+					$this->ThirdPartyRisk->commit();
 
 					$this->Session->setFlash( __( 'Third Party Risk was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'thirdPartyRisks', 'action' => 'index' ) );
 				} else {
+					$this->ThirdPartyRisk->rollback();
+
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -151,8 +170,12 @@ class ThirdPartyRisksController extends AppController {
 			);
 
 			$this->ThirdPartyRisk->ThirdPartiesThirdPartyRisk->create();
-			$this->ThirdPartyRisk->ThirdPartiesThirdPartyRisk->save( $tmp );
+			if ( ! $this->ThirdPartyRisk->ThirdPartiesThirdPartyRisk->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -168,8 +191,12 @@ class ThirdPartyRisksController extends AppController {
 			);
 
 			$this->ThirdPartyRisk->AssetsThirdPartyRisk->create();
-			$this->ThirdPartyRisk->AssetsThirdPartyRisk->save( $tmp );
+			if ( ! $this->ThirdPartyRisk->AssetsThirdPartyRisk->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -185,8 +212,12 @@ class ThirdPartyRisksController extends AppController {
 			);
 
 			$this->ThirdPartyRisk->ThirdPartyRisksThreat->create();
-			$this->ThirdPartyRisk->ThirdPartyRisksThreat->save( $tmp );
+			if ( ! $this->ThirdPartyRisk->ThirdPartyRisksThreat->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -202,8 +233,12 @@ class ThirdPartyRisksController extends AppController {
 			);
 
 			$this->ThirdPartyRisk->ThirdPartyRisksVulnerability->create();
-			$this->ThirdPartyRisk->ThirdPartyRisksVulnerability->save( $tmp );
+			if ( ! $this->ThirdPartyRisk->ThirdPartyRisksVulnerability->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -219,8 +254,12 @@ class ThirdPartyRisksController extends AppController {
 			);
 
 			$this->ThirdPartyRisk->SecurityServicesThirdPartyRisk->create();
-			$this->ThirdPartyRisk->SecurityServicesThirdPartyRisk->save( $tmp );
+			if ( ! $this->ThirdPartyRisk->SecurityServicesThirdPartyRisk->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -236,7 +275,11 @@ class ThirdPartyRisksController extends AppController {
 			);
 
 			$this->ThirdPartyRisk->RiskExceptionsThirdPartyRisk->create();
-			$this->ThirdPartyRisk->RiskExceptionsThirdPartyRisk->save( $tmp );
+			if ( ! $this->ThirdPartyRisk->RiskExceptionsThirdPartyRisk->save( $tmp ) ) {
+				return false;
+			}
+
+			return true;
 		}
 	}
 
@@ -245,29 +288,35 @@ class ThirdPartyRisksController extends AppController {
 	 * @param  integer $id Risk ID
 	 */
 	private function deleteJoins( $id ) {
-		$this->ThirdPartyRisk->ThirdPartiesThirdPartyRisk->deleteAll( array(
+		$delete1 = $this->ThirdPartyRisk->ThirdPartiesThirdPartyRisk->deleteAll( array(
 			'ThirdPartiesThirdPartyRisk.third_party_risk_id' => $id
 		) );
 
-		$this->ThirdPartyRisk->AssetsThirdPartyRisk->deleteAll( array(
+		$delete2 = $this->ThirdPartyRisk->AssetsThirdPartyRisk->deleteAll( array(
 			'AssetsThirdPartyRisk.third_party_risk_id' => $id
 		) );
 
-		$this->ThirdPartyRisk->ThirdPartyRisksThreat->deleteAll( array(
+		$delete3 = $this->ThirdPartyRisk->ThirdPartyRisksThreat->deleteAll( array(
 			'ThirdPartyRisksThreat.third_party_risk_id' => $id
 		) );
 
-		$this->ThirdPartyRisk->ThirdPartyRisksVulnerability->deleteAll( array(
+		$delete4 = $this->ThirdPartyRisk->ThirdPartyRisksVulnerability->deleteAll( array(
 			'ThirdPartyRisksVulnerability.third_party_risk_id' => $id
 		) );
 
-		$this->ThirdPartyRisk->SecurityServicesThirdPartyRisk->deleteAll( array(
+		$delete5 = $this->ThirdPartyRisk->SecurityServicesThirdPartyRisk->deleteAll( array(
 			'SecurityServicesThirdPartyRisk.third_party_risk_id' => $id
 		) );
 
-		$this->ThirdPartyRisk->RiskExceptionsThirdPartyRisk->deleteAll( array(
+		$delete6 = $this->ThirdPartyRisk->RiskExceptionsThirdPartyRisk->deleteAll( array(
 			'RiskExceptionsThirdPartyRisk.third_party_risk_id' => $id
 		) );
+
+		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 && $delete6 ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

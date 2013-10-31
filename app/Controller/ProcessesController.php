@@ -14,10 +14,13 @@ class ProcessesController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->Process->delete( $id );
+		if ( $this->Process->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Business Process was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
 
-		$this->Session->setFlash( __( 'Business Process was successfully deleted.' ), FLASH_OK );
-		$this->redirect( array( 'controller' => 'legals', 'action' => 'index' ) );
+		$this->redirect( array( 'controller' => 'businessUnits', 'action' => 'index' ) );
 	}
 
 	public function add( $bu_id = null ) {

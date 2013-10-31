@@ -50,22 +50,31 @@ class RisksController extends AppController {
 			$this->Risk->set( $this->request->data );
 
 			if ( $this->Risk->validates() ) {
-				if ( $this->Risk->save() ) {
-					$this->joinAssetsRisks( $this->request->data['Risk']['asset_id'], $this->Risk->id );
-					$this->joinRisksThreats( $this->request->data['Risk']['threat_id'], $this->Risk->id );
-					$this->joinRisksVulnerabilities( $this->request->data['Risk']['vulnerability_id'], $this->Risk->id );
+				$this->Risk->query( 'SET autocommit = 0' );
+				$this->Risk->begin();
 
-					if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['Risk']['security_service_id'], $this->Risk->id );
-					}
+				$save1 = $this->Risk->save();
+				$save2 = $this->joinAssetsRisks( $this->request->data['Risk']['asset_id'], $this->Risk->id );
+				$save3 = $this->joinRisksThreats( $this->request->data['Risk']['threat_id'], $this->Risk->id );
+				$save4 = $this->joinRisksVulnerabilities( $this->request->data['Risk']['vulnerability_id'], $this->Risk->id );
+				if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
+					$save5 = $this->joinRisksSecurityServices( $this->request->data['Risk']['security_service_id'], $this->Risk->id );
+				} else {
+					$save5 = true;
+				}
+				if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
+					$save6 = $this->joinRisksRiskExceptions( $this->request->data['Risk']['risk_exception_id'], $this->Risk->id );
+				} else {
+					$save6 = true;
+				}
 
-					if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['Risk']['risk_exception_id'], $this->Risk->id );
-					}
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 ) {
+					$this->Risk->commit();
 
 					$this->Session->setFlash( __( 'Risk was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'risks', 'action' => 'index' ) );
 				} else {
+					$this->Risk->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -103,25 +112,34 @@ class RisksController extends AppController {
 			$this->Risk->set( $this->request->data );
 
 			if ( $this->Risk->validates() ) {
-				if ( $this->Risk->save() ) {
-					$this->deleteJoins( $id );
+				$this->Risk->query( 'SET autocommit = 0' );
+				$this->Risk->begin();
 
-					$this->joinAssetsRisks( $this->request->data['Risk']['asset_id'], $this->Risk->id );
-					$this->joinRisksThreats( $this->request->data['Risk']['threat_id'], $this->Risk->id );
-					$this->joinRisksVulnerabilities( $this->request->data['Risk']['vulnerability_id'], $this->Risk->id );
+				$delete = $this->deleteJoins( $id );
+				$save1 = $this->Risk->save();
+				$save2 = $this->joinAssetsRisks( $this->request->data['Risk']['asset_id'], $this->Risk->id );
+				$save3 = $this->joinRisksThreats( $this->request->data['Risk']['threat_id'], $this->Risk->id );
+				$save4 = $this->joinRisksVulnerabilities( $this->request->data['Risk']['vulnerability_id'], $this->Risk->id );
+				if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
+					$save5 = $this->joinRisksSecurityServices( $this->request->data['Risk']['security_service_id'], $this->Risk->id );
+				} else {
+					$save6 = true;
+				}
 
-					if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['Risk']['security_service_id'], $this->Risk->id );
-					}
+				if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
+					$save6 = $this->joinRisksRiskExceptions( $this->request->data['Risk']['risk_exception_id'], $this->Risk->id );
+				} else {
+					$save6 = true;
+				}
 
-					if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['Risk']['risk_exception_id'], $this->Risk->id );
-					}
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $delete ) {
+					$this->Risk->commit();
 
 					$this->Session->setFlash( __( 'Risk was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'risks', 'action' => 'index', $id ) );
 				}
 				else {
+					$this->Risk->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -150,8 +168,12 @@ class RisksController extends AppController {
 			);
 
 			$this->Risk->AssetsRisk->create();
-			$this->Risk->AssetsRisk->save( $tmp );
+			if ( ! $this->Risk->AssetsRisk->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -167,8 +189,12 @@ class RisksController extends AppController {
 			);
 
 			$this->Risk->RisksThreat->create();
-			$this->Risk->RisksThreat->save( $tmp );
+			if ( ! $this->Risk->RisksThreat->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -184,8 +210,12 @@ class RisksController extends AppController {
 			);
 
 			$this->Risk->RisksVulnerability->create();
-			$this->Risk->RisksVulnerability->save( $tmp );
+			if ( ! $this->Risk->RisksVulnerability->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -201,8 +231,12 @@ class RisksController extends AppController {
 			);
 
 			$this->Risk->RisksSecurityService->create();
-			$this->Risk->RisksSecurityService->save( $tmp );
+			if ( ! $this->Risk->RisksSecurityService->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -218,8 +252,12 @@ class RisksController extends AppController {
 			);
 
 			$this->Risk->RiskExceptionsRisk->create();
-			$this->Risk->RiskExceptionsRisk->save( $tmp );
+			if ( ! $this->Risk->RiskExceptionsRisk->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -227,25 +265,31 @@ class RisksController extends AppController {
 	 * @param  integer $id Risk ID
 	 */
 	private function deleteJoins( $id ) {
-		$this->Risk->AssetsRisk->deleteAll( array(
+		$delete1 = $this->Risk->AssetsRisk->deleteAll( array(
 			'AssetsRisk.risk_id' => $id
 		) );
 
-		$this->Risk->RisksThreat->deleteAll( array(
+		$delete2 = $this->Risk->RisksThreat->deleteAll( array(
 			'RisksThreat.risk_id' => $id
 		) );
 
-		$this->Risk->RisksVulnerability->deleteAll( array(
+		$delete3 = $this->Risk->RisksVulnerability->deleteAll( array(
 			'RisksVulnerability.risk_id' => $id
 		) );
 
-		$this->Risk->RisksSecurityService->deleteAll( array(
+		$delete4 = $this->Risk->RisksSecurityService->deleteAll( array(
 			'RisksSecurityService.risk_id' => $id
 		) );
 
-		$this->Risk->RiskExceptionsRisk->deleteAll( array(
+		$delete5 = $this->Risk->RiskExceptionsRisk->deleteAll( array(
 			'RiskExceptionsRisk.risk_id' => $id
 		) );
+
+		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

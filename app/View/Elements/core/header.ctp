@@ -215,7 +215,7 @@
 						<?php 
 						echo $this->Html->link(
 							'<i class="icon-user"></i> '. __('My Profile'),
-							array('controller' => 'users', 'action' => 'profile'),
+							array('controller' => 'users', 'action' => 'profile', 'admin' => false, 'plugin' => null),
 							array('escape' => false)
 						);
 						?>

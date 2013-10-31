@@ -60,6 +60,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['BusinessContinuity']['business_unit_id'] ) ) {
+								foreach ( $this->request->data['BusinessContinuity']['business_unit_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'business_unit_id', array(
 							'options' => $business_units,
@@ -97,6 +103,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['BusinessContinuity']['threat_id'] ) ) {
+								foreach ( $this->request->data['BusinessContinuity']['threat_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'threat_id', array(
 							'options' => $threats,
@@ -132,6 +144,12 @@
 							if ( isset( $this->request->data['Vulnerability'] ) ) {
 								foreach ( $this->request->data['Vulnerability'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['BusinessContinuity']['vulnerability_id'] ) ) {
+								foreach ( $this->request->data['BusinessContinuity']['vulnerability_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
@@ -198,6 +216,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['BusinessContinuity']['security_service_id'] ) ) {
+								foreach ( $this->request->data['BusinessContinuity']['security_service_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'security_service_id', array(
 							'options' => $services,
@@ -233,6 +257,12 @@
 							if ( isset( $this->request->data['RiskException'] ) ) {
 								foreach ( $this->request->data['RiskException'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['BusinessContinuity']['risk_exception_id'] ) ) {
+								foreach ( $this->request->data['BusinessContinuity']['risk_exception_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>

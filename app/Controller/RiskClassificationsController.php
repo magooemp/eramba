@@ -53,7 +53,7 @@ class RiskClassificationsController extends AppController {
 			$this->processSubmit( __( 'Risk Classification was successfully added.' ) );
 		}
 
-		$this->initTypes();
+		$this->initOptions();
 	}
 
 	public function edit( $id = null ) {
@@ -85,33 +85,38 @@ class RiskClassificationsController extends AppController {
 			$this->request->data = $data;
 		}
 
-		$this->initTypes();
+		$this->initOptions();
 		$this->render( 'add' );
 	}
 
 	private function processSubmit( $flashMessage = '' ) {
 		if ( $this->request->data['RiskClassification']['risk_classification_type_id'] == '' ) {
+
+			$this->RiskClassification->set( $this->request->data );
 			$this->RiskClassification->RiskClassificationType->set( $this->request->data );
 
-			if ( $this->RiskClassification->RiskClassificationType->validates() ) {
+			if ( $this->RiskClassification->RiskClassificationType->validates() &&
+				$this->RiskClassification->validates()	) {
+
+				$this->RiskClassification->query( 'SET autocommit = 0' );
+				$this->RiskClassification->begin();
 
 				if ( $this->RiskClassification->RiskClassificationType->save() ) {
-					$this->request->data['RiskClassification']['risk_classification_type_id'] = $this->RiskClassification->RiskClassificationType->id;
 
+					$this->request->data['RiskClassification']['risk_classification_type_id'] = $this->RiskClassification->RiskClassificationType->id;
 					$this->RiskClassification->set( $this->request->data );
 
-					if ( $this->RiskClassification->validates() ) {
-						if ( $this->RiskClassification->save() ) {
-							$this->Session->setFlash( $flashMessage, FLASH_OK );
-							$this->redirect( array( 'controller' => 'riskClassifications', 'action' => 'index' ) );
-						} else {
-							$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
-						}
-					} else {
-						$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
-					}
+					if ( $this->RiskClassification->save() ) {
+						$this->RiskClassification->commit();
 
+						$this->Session->setFlash( $flashMessage, FLASH_OK );
+						$this->redirect( array( 'controller' => 'riskClassifications', 'action' => 'index' ) );
+					} else {
+						$this->RiskClassification->rollback();
+						$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
+					}
 				} else {
+					$this->RiskClassification->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 
@@ -139,7 +144,7 @@ class RiskClassificationsController extends AppController {
 		$this->set( 'subtitle_for_layout', __( 'Usually there\'s many assets around in a organization. Trough classification (according to your needs) you will be able to set priorities and profile them in a way their treatment and handling is systematic. Btw, this is a basic requirement for most Security related regulations.' ) );
 	}
 
-	private function initTypes() {
+	private function initOptions() {
 		$types = $this->RiskClassification->RiskClassificationType->find('list', array(
 			'order' => array('RiskClassificationType.name' => 'ASC'),
 			'recursive' => -1
