@@ -16,11 +16,13 @@ echo '<span id="right_' . $plugin . '_' . $user_id . '_' . $controller_name . '_
     		$title = __d('acl', 'The ARO or the ACO node is probably missing. Please try to rebuild the ACOs first.');
     	}
     	
-        echo $this->Html->image('/acl/img/design/important16.png', array('class' => 'pointer', 'alt' => $title, 'title' => $title));
+        //echo $this->Html->image('/acl/img/design/important16.png', array('class' => 'pointer', 'alt' => $title, 'title' => $title));
+        echo $this->Html->tag('i', ' ', array('class' => 'icon-exclamation-sign icon-orange icon-2x pointer', 'title' => $title));
     }
     else
     {
-        echo $this->Html->image('/acl/img/design/tick.png', array('class' => 'pointer'));
+        //echo $this->Html->image('/acl/img/design/tick.png', array('class' => 'pointer'));
+        echo $this->Html->tag('i', ' ', array('class' => 'icon-ok icon-green icon-2x pointer'));
     }
 
 echo '</span>';

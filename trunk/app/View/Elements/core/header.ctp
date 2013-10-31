@@ -227,7 +227,7 @@
 						<?php 
 						echo $this->Html->link(
 							'<i class="icon-key"></i> '. __('Log Out'),
-							array('controller' => 'users', 'action' => 'logout'),
+							array('controller' => 'users', 'action' => 'logout', 'admin' => false, 'plugin' => null),
 							array('escape' => false)
 						);
 						?>
