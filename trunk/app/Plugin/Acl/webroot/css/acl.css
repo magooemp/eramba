@@ -88,7 +88,7 @@ ul.acl_links li a.selected
 {
 	background-color:#e3e2e2;
 }
-tr.title
+#plugin_acl tr.title td
 {
 	background-color:#444444;
 	color:#ffffff;
@@ -103,11 +103,14 @@ tr.title
 }
 .warning
 {
-	background-image: url('../img/design/warning_medium.gif');
+	/*background-image: url('../img/design/warning_medium.gif');
 	background-repeat: no-repeat;
-	padding-left:40px;
+	padding-left:40px;*/
 	color:red;
 	line-height:32px;
+}
+.warning i {
+	margin-right: 15px;
 }
 #pluginAclflashMessage.message
 {

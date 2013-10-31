@@ -37,9 +37,12 @@ class ThirdPartiesController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->ThirdParty->delete( $id );
+		if ( $this->ThirdParty->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Third Party was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
 
-		$this->Session->setFlash( __( 'Third Party was successfully deleted.', FLASH_OK ) );
 		$this->redirect( array( 'controller' => 'thirdParties', 'action' => 'index' ) );
 	}
 
@@ -64,7 +67,7 @@ class ThirdPartiesController extends AppController {
 			}
 		}
 
-		$this->initTpTypes();
+		$this->initOptions();
 	}
 
 	public function edit( $id = null ) {
@@ -110,12 +113,12 @@ class ThirdPartiesController extends AppController {
 			$this->request->data = $tp;
 		}
 
-		$this->initTpTypes();
+		$this->initOptions();
 
 		$this->render( 'add' );
 	}
 
-	private function initTpTypes() {
+	private function initOptions() {
 		$tp_types = $this->ThirdParty->ThirdPartyType->find('list', array(
 			'order' => array('ThirdPartyType.name' => 'ASC'),
 			'recursive' => -1

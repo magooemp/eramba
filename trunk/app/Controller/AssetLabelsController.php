@@ -33,9 +33,12 @@ class AssetLabelsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->AssetLabel->delete( $id );
+		if ( $this->AssetLabel->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Asset Label was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
 
-		$this->Session->setFlash( __( 'Asset Label was successfully deleted.' ), FLASH_OK );
 		$this->redirect( array( 'controller' => 'assetLabels', 'action' => 'index' ) );
 	}
 

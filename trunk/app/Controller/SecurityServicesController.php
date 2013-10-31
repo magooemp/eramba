@@ -33,9 +33,12 @@ class SecurityServicesController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->SecurityService->delete( $id );
-
-		$this->Session->setFlash( __( 'Security Service was successfully deleted.' ), FLASH_OK );
+		if ( $this->SecurityService->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Security Service was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
+		
 		$this->redirect( array( 'controller' => 'securityServices', 'action' => 'index' ) );
 	}
 
@@ -49,12 +52,19 @@ class SecurityServicesController extends AppController {
 			$this->SecurityService->set( $this->request->data );
 
 			if ( $this->SecurityService->validates() ) {
-				if ( $this->SecurityService->save() ) {
-					$this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
+				$this->SecurityService->query( 'SET autocommit = 0' );
+				$this->SecurityService->begin();
+
+				$save1 = $this->SecurityService->save();
+				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
+
+				if ( $save1 && $save2 ) {
+					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'securityServices', 'action' => 'index' ) );
 				} else {
+					$this->SecurityService->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -92,17 +102,23 @@ class SecurityServicesController extends AppController {
 			$this->SecurityService->set( $this->request->data );
 
 			if ( $this->SecurityService->validates() ) {
-				if ( $this->SecurityService->save() ) {
-					$this->SecurityService->SecurityServicesServiceContract->deleteAll( array(
-						'SecurityServicesServiceContract.security_service_id' => $id
-					) );
+				$this->SecurityService->query( 'SET autocommit = 0' );
+				$this->SecurityService->begin();
 
-					$this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
+				$save1 = $this->SecurityService->save();
+				$delete = $this->SecurityService->SecurityServicesServiceContract->deleteAll( array(
+					'SecurityServicesServiceContract.security_service_id' => $id
+				) );
+				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
+
+				if ( $save1 && $delete && $save2 ) {
+					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'securityServices', 'action' => 'index', $id ) );
 				}
 				else {
+					$this->SecurityService->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -125,8 +141,12 @@ class SecurityServicesController extends AppController {
 			);
 
 			$this->SecurityService->SecurityServicesServiceContract->create();
-			$this->SecurityService->SecurityServicesServiceContract->save( $tmp );
+			if ( ! $this->SecurityService->SecurityServicesServiceContract->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	private function initOptions() {

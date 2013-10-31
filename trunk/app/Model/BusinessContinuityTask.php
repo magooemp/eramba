@@ -7,8 +7,8 @@ class BusinessContinuityTask extends AppModel {
 			'allowEmpty' => false
 		),
 		'when' => array(
-			'rule' => 'notEmpty',,
-			'allowEmpty' => false
+			'rule' => 'notEmpty',
+			'allowEmpty' => false,
 			'required' => true
 		),
 		'who' => array(

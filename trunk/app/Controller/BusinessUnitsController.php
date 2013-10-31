@@ -28,6 +28,36 @@ class BusinessUnitsController extends AppController {
 		$this->set( 'data', $data );
 	}
 
+	public function delete( $id = null ) {
+		$data = $this->BusinessUnit->find( 'count', array(
+			'conditions' => array(
+				'BusinessUnit.id' => $id
+			)
+		) );
+
+		if ( empty( $data ) ) {
+			throw new NotFoundException();
+		}
+
+		$this->BusinessUnit->query( 'SET autocommit = 0' );
+		$this->BusinessUnit->begin();
+
+		$delete1 = $this->BusinessUnit->delete( $id );
+		$delete2 = $this->BusinessUnit->Process->deleteAll( array(
+			'Process.business_unit_id' => $id
+		) );
+
+		if ( $delete1 && $delete2 ) {
+			$this->BusinessUnit->commit();
+			$this->Session->setFlash( __( 'Business Unit was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->BusinessUnit->rollback();
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
+
+		$this->redirect( array( 'controller' => 'businessUnits', 'action' => 'index' ) );
+	}
+
 	public function add() {
 		$this->set( 'title_for_layout', __( 'Create a Business Unit' ) );
 		$this->initAddEditSubtitle();

@@ -35,9 +35,12 @@ class ServiceContractsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->ServiceContract->delete( $id );
+		if ( $this->ServiceContract->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Service Contract was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
 
-		$this->Session->setFlash( __( 'Service Contract was successfully deleted.' ), FLASH_OK );
 		$this->redirect( array( 'controller' => 'serviceContracts', 'action' => 'index' ) );
 	}
 

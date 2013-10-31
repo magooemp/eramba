@@ -60,6 +60,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['ThirdPartyRisk']['third_party_id'] ) ) {
+								foreach ( $this->request->data['ThirdPartyRisk']['third_party_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'third_party_id', array(
 							'options' => $third_parties,
@@ -82,6 +88,12 @@
 							if ( isset( $this->request->data['Asset'] ) ) {
 								foreach ( $this->request->data['Asset'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['ThirdPartyRisk']['asset_id'] ) ) {
+								foreach ( $this->request->data['ThirdPartyRisk']['asset_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
@@ -134,6 +146,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['ThirdPartyRisk']['threat_id'] ) ) {
+								foreach ( $this->request->data['ThirdPartyRisk']['threat_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'threat_id', array(
 							'options' => $threats,
@@ -169,6 +187,12 @@
 							if ( isset( $this->request->data['Vulnerability'] ) ) {
 								foreach ( $this->request->data['Vulnerability'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['ThirdPartyRisk']['vulnerability_id'] ) ) {
+								foreach ( $this->request->data['ThirdPartyRisk']['vulnerability_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
@@ -235,6 +259,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
+								foreach ( $this->request->data['ThirdPartyRisk']['security_service_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'security_service_id', array(
 							'options' => $services,
@@ -270,6 +300,12 @@
 							if ( isset( $this->request->data['RiskException'] ) ) {
 								foreach ( $this->request->data['RiskException'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
+								foreach ( $this->request->data['ThirdPartyRisk']['risk_exception_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>

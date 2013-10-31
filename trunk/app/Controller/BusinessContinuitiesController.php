@@ -50,22 +50,32 @@ class BusinessContinuitiesController extends AppController {
 			$this->BusinessContinuity->set( $this->request->data );
 
 			if ( $this->BusinessContinuity->validates() ) {
-				if ( $this->BusinessContinuity->save() ) {
-					$this->joinBusinessUnits( $this->request->data['BusinessContinuity']['business_unit_id'], $this->BusinessContinuity->id );
-					$this->joinRisksThreats( $this->request->data['BusinessContinuity']['threat_id'], $this->BusinessContinuity->id );
-					$this->joinRisksVulnerabilities( $this->request->data['BusinessContinuity']['vulnerability_id'], $this->BusinessContinuity->id );
+				$this->BusinessContinuity->query( 'SET autocommit = 0' );
+				$this->BusinessContinuity->begin();
 
-					if ( isset( $this->request->data['BusinessContinuity']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['BusinessContinuity']['security_service_id'], $this->BusinessContinuity->id );
-					}
+				$save1 = $this->BusinessContinuity->save();
+				$save2 = $this->joinBusinessUnits( $this->request->data['BusinessContinuity']['business_unit_id'], $this->BusinessContinuity->id );
+				$save3 = $this->joinRisksThreats( $this->request->data['BusinessContinuity']['threat_id'], $this->BusinessContinuity->id );
+				$save4 = $this->joinRisksVulnerabilities( $this->request->data['BusinessContinuity']['vulnerability_id'], $this->BusinessContinuity->id );
+				if ( isset( $this->request->data['BusinessContinuity']['security_service_id'] ) ) {
+					$save5 = $this->joinRisksSecurityServices( $this->request->data['BusinessContinuity']['security_service_id'], $this->BusinessContinuity->id );
+				} else {
+					$save5 = true;
+				}
+				if ( isset( $this->request->data['BusinessContinuity']['risk_exception_id'] ) ) {
+					$save6 = $this->joinRisksRiskExceptions( $this->request->data['BusinessContinuity']['risk_exception_id'], $this->BusinessContinuity->id );
+				} else {
+					$save6 = true;
+				}
 
-					if ( isset( $this->request->data['BusinessContinuity']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['BusinessContinuity']['risk_exception_id'], $this->BusinessContinuity->id );
-					}
-
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 ) {
+					$this->BusinessContinuity->commit();				
+	
 					$this->Session->setFlash( __( 'Business Continuity was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'businessContinuities', 'action' => 'index' ) );
 				} else {
+					$this->BusinessContinuity->rollback();
+
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -103,25 +113,33 @@ class BusinessContinuitiesController extends AppController {
 			$this->BusinessContinuity->set( $this->request->data );
 
 			if ( $this->BusinessContinuity->validates() ) {
-				if ( $this->BusinessContinuity->save() ) {
-					$this->deleteJoins( $id );
+				$this->BusinessContinuity->query( 'SET autocommit = 0' );
+				$this->BusinessContinuity->begin();
 
-					$this->joinBusinessUnits( $this->request->data['BusinessContinuity']['business_unit_id'], $this->BusinessContinuity->id );
-					$this->joinRisksThreats( $this->request->data['BusinessContinuity']['threat_id'], $this->BusinessContinuity->id );
-					$this->joinRisksVulnerabilities( $this->request->data['BusinessContinuity']['vulnerability_id'], $this->BusinessContinuity->id );
-
-					if ( isset( $this->request->data['BusinessContinuity']['security_service_id'] ) ) {
-						$this->joinRisksSecurityServices( $this->request->data['BusinessContinuity']['security_service_id'], $this->BusinessContinuity->id );
-					}
-
-					if ( isset( $this->request->data['BusinessContinuity']['risk_exception_id'] ) ) {
-						$this->joinRisksRiskExceptions( $this->request->data['BusinessContinuity']['risk_exception_id'], $this->BusinessContinuity->id );
-					}
+				$delete = $this->deleteJoins( $id );
+				$save1 = $this->BusinessContinuity->save();
+				$save2 = $this->joinBusinessUnits( $this->request->data['BusinessContinuity']['business_unit_id'], $this->BusinessContinuity->id );
+				$save3 = $this->joinRisksThreats( $this->request->data['BusinessContinuity']['threat_id'], $this->BusinessContinuity->id );
+				$save4 = $this->joinRisksVulnerabilities( $this->request->data['BusinessContinuity']['vulnerability_id'], $this->BusinessContinuity->id );
+				if ( isset( $this->request->data['BusinessContinuity']['security_service_id'] ) ) {
+					$save5 = $this->joinRisksSecurityServices( $this->request->data['BusinessContinuity']['security_service_id'], $this->BusinessContinuity->id );
+				} else {
+					$save5 = true;
+				}
+				if ( isset( $this->request->data['BusinessContinuity']['risk_exception_id'] ) ) {
+					$save6 = $this->joinRisksRiskExceptions( $this->request->data['BusinessContinuity']['risk_exception_id'], $this->BusinessContinuity->id );
+				} else {
+					$save6 = true;
+				}
+				if ( $delete && $save1 && $save2 && $save3 && $save4 && $save5 && $save6 ) {
+					$this->BusinessContinuity->commit();
 
 					$this->Session->setFlash( __( 'Business Continuity was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'businessContinuities', 'action' => 'index', $id ) );
 				}
 				else {
+					$this->BusinessContinuity->rollback();
+					
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -150,8 +168,12 @@ class BusinessContinuitiesController extends AppController {
 			);
 
 			$this->BusinessContinuity->BusinessContinuitiesBusinessUnit->create();
-			$this->BusinessContinuity->BusinessContinuitiesBusinessUnit->save( $tmp );
+			if ( ! $this->BusinessContinuity->BusinessContinuitiesBusinessUnit->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -167,8 +189,12 @@ class BusinessContinuitiesController extends AppController {
 			);
 
 			$this->BusinessContinuity->BusinessContinuitiesThreat->create();
-			$this->BusinessContinuity->BusinessContinuitiesThreat->save( $tmp );
+			if ( ! $this->BusinessContinuity->BusinessContinuitiesThreat->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -184,8 +210,12 @@ class BusinessContinuitiesController extends AppController {
 			);
 
 			$this->BusinessContinuity->BusinessContinuitiesVulnerability->create();
-			$this->BusinessContinuity->BusinessContinuitiesVulnerability->save( $tmp );
+			if ( ! $this->BusinessContinuity->BusinessContinuitiesVulnerability->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -201,8 +231,12 @@ class BusinessContinuitiesController extends AppController {
 			);
 
 			$this->BusinessContinuity->BusinessContinuitiesSecurityService->create();
-			$this->BusinessContinuity->BusinessContinuitiesSecurityService->save( $tmp );
+			if ( ! $this->BusinessContinuity->BusinessContinuitiesSecurityService->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -218,8 +252,12 @@ class BusinessContinuitiesController extends AppController {
 			);
 
 			$this->BusinessContinuity->BusinessContinuitiesRiskException->create();
-			$this->BusinessContinuity->BusinessContinuitiesRiskException->save( $tmp );
+			if ( ! $this->BusinessContinuity->BusinessContinuitiesRiskException->save( $tmp ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -227,25 +265,31 @@ class BusinessContinuitiesController extends AppController {
 	 * @param  integer $id Risk ID
 	 */
 	private function deleteJoins( $id ) {
-		$this->BusinessContinuity->BusinessContinuitiesBusinessUnit->deleteAll( array(
+		$delete1 = $this->BusinessContinuity->BusinessContinuitiesBusinessUnit->deleteAll( array(
 			'BusinessContinuitiesBusinessUnit.business_continuity_id' => $id
 		) );
 
-		$this->BusinessContinuity->BusinessContinuitiesThreat->deleteAll( array(
+		$delete2 = $this->BusinessContinuity->BusinessContinuitiesThreat->deleteAll( array(
 			'BusinessContinuitiesThreat.business_continuity_id' => $id
 		) );
 
-		$this->BusinessContinuity->BusinessContinuitiesVulnerability->deleteAll( array(
+		$delete3 = $this->BusinessContinuity->BusinessContinuitiesVulnerability->deleteAll( array(
 			'BusinessContinuitiesVulnerability.business_continuity_id' => $id
 		) );
 
-		$this->BusinessContinuity->BusinessContinuitiesSecurityService->deleteAll( array(
+		$delete4 = $this->BusinessContinuity->BusinessContinuitiesSecurityService->deleteAll( array(
 			'BusinessContinuitiesSecurityService.business_continuity_id' => $id
 		) );
 
-		$this->BusinessContinuity->BusinessContinuitiesRiskException->deleteAll( array(
+		$delete5 = $this->BusinessContinuity->BusinessContinuitiesRiskException->deleteAll( array(
 			'BusinessContinuitiesRiskException.business_continuity_id' => $id
 		) );
+
+		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

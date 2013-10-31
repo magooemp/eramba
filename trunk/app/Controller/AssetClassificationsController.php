@@ -36,9 +36,12 @@ class AssetClassificationsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->AssetClassification->delete( $id );
+		if ( $this->AssetClassification->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Asset Classification was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
 
-		$this->Session->setFlash( __( 'Asset Classification was successfully deleted.' ), FLASH_OK );
 		$this->redirect( array( 'controller' => 'assetClassifications', 'action' => 'index' ) );
 	}
 
@@ -52,7 +55,7 @@ class AssetClassificationsController extends AppController {
 			$this->processSubmit( __( 'Asset Classification was successfully added.' ) );
 		}
 
-		$this->initAcTypes();
+		$this->initOptions();
 	}
 
 	public function edit( $id = null ) {
@@ -84,33 +87,38 @@ class AssetClassificationsController extends AppController {
 			$this->request->data = $data;
 		}
 
-		$this->initAcTypes();
+		$this->initOptions();
 		$this->render( 'add' );
 	}
 
 	private function processSubmit( $flashMessage = '' ) {
 		if ( $this->request->data['AssetClassification']['asset_classification_type_id'] == '' ) {
+
+			$this->AssetClassification->set( $this->request->data );
 			$this->AssetClassification->AssetClassificationType->set( $this->request->data );
 
-			if ( $this->AssetClassification->AssetClassificationType->validates() ) {
+			if ( $this->AssetClassification->AssetClassificationType->validates() &&
+				$this->AssetClassification->validates()	) {
+
+				$this->AssetClassification->query( 'SET autocommit = 0' );
+				$this->AssetClassification->begin();
 
 				if ( $this->AssetClassification->AssetClassificationType->save() ) {
-					$this->request->data['AssetClassification']['asset_classification_type_id'] = $this->AssetClassification->AssetClassificationType->id;
 
+					$this->request->data['AssetClassification']['asset_classification_type_id'] = $this->AssetClassification->AssetClassificationType->id;
 					$this->AssetClassification->set( $this->request->data );
 
-					if ( $this->AssetClassification->validates() ) {
-						if ( $this->AssetClassification->save() ) {
-							$this->Session->setFlash( $flashMessage, FLASH_OK );
-							$this->redirect( array( 'controller' => 'assetClassifications', 'action' => 'index' ) );
-						} else {
-							$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
-						}
-					} else {
-						$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
-					}
+					if ( $this->AssetClassification->save() ) {
+						$this->AssetClassification->commit();
 
+						$this->Session->setFlash( $flashMessage, FLASH_OK );
+						$this->redirect( array( 'controller' => 'assetClassifications', 'action' => 'index' ) );
+					} else {
+						$this->AssetClassification->rollback();
+						$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
+					}
 				} else {
+					$this->AssetClassification->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 
@@ -138,7 +146,7 @@ class AssetClassificationsController extends AppController {
 		$this->set( 'subtitle_for_layout', __( 'Usually there\'s many assets around in a organization. Trough classification (according to your needs) you will be able to set priorities and profile them in a way their treatment and handling is systematic. Btw, this is a basic requirement for most Security related regulations.' ) );
 	}
 
-	private function initAcTypes() {
+	private function initOptions() {
 		$ac_types = $this->AssetClassification->AssetClassificationType->find('list', array(
 			'order' => array('AssetClassificationType.name' => 'ASC'),
 			'recursive' => -1

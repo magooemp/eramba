@@ -320,7 +320,7 @@ class UsersController extends AppController {
 					}
 				}
 				else{
-					$this->Session->setFlash(__('Requested ticekt is invalid. Please try the password recovery process again.'), FLASH_ERROR);
+					$this->Session->setFlash(__('Requested ticket is invalid. Please try the password recovery process again.'), FLASH_ERROR);
 					$this->redirect(array('controller' => 'users', 'action' => 'login'));
 				}
 			}
@@ -345,12 +345,12 @@ class UsersController extends AppController {
 					$this->request->data['User']['hash'] = $hash;
 				}
 				else {
-					$this->Session->setFlash(__('Requested ticekt is invalid. Please try the password recovery process again.'), FLASH_ERROR);
+					$this->Session->setFlash(__('Requested ticket is invalid. Please try the password recovery process again.'), FLASH_ERROR);
 					$this->redirect(array('controller' => 'users', 'action' => 'login'));
 				}
 			}
 			else {
-				$this->Session->setFlash(__('Requested ticekt is invalid. Please try the password recovery process again.'), FLASH_ERROR);
+				$this->Session->setFlash(__('Requested ticket is invalid. Please try the password recovery process again.'), FLASH_ERROR);
 				$this->redirect(array('controller' => 'users', 'action' => 'login'));
 			}
 		}

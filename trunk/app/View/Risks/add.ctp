@@ -60,6 +60,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['Risk']['asset_id'] ) ) {
+								foreach ( $this->request->data['Risk']['asset_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'asset_id', array(
 							'options' => $assets,
@@ -82,6 +88,12 @@
 							if ( isset( $this->request->data['Threat'] ) ) {
 								foreach ( $this->request->data['Threat'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['Risk']['threat_id'] ) ) {
+								foreach ( $this->request->data['Risk']['threat_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
@@ -119,6 +131,12 @@
 							if ( isset( $this->request->data['Vulnerability'] ) ) {
 								foreach ( $this->request->data['Vulnerability'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['Risk']['vulnerability_id'] ) ) {
+								foreach ( $this->request->data['Risk']['vulnerability_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
@@ -185,6 +203,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
+								foreach ( $this->request->data['Risk']['security_service_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'security_service_id', array(
 							'options' => $services,
@@ -220,6 +244,12 @@
 							if ( isset( $this->request->data['RiskException'] ) ) {
 								foreach ( $this->request->data['RiskException'] as $entry ) {
 									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
+								foreach ( $this->request->data['Risk']['risk_exception_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
