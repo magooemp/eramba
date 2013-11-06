@@ -135,7 +135,7 @@ class MenuComponent extends Component {
 				)
 			),
 			array(
-				'name' => __('Compliance Analysis'),
+				'name' => __('Compliance Management'),
 				'children' => array(
 					array(
 						'name' => __('Compliance Exception'),
@@ -143,6 +143,24 @@ class MenuComponent extends Component {
 							'controller' => 'complianceExceptions', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
 					),
+					array(
+						'name' => __('Compliance Packages'),
+						'url' => array(
+							'controller' => 'compliancePackages', 'action' => 'index', 'admin' => false, 'plugin' => null
+						)
+					),
+					array(
+						'name' => __('Compliance Analysis'),
+						'url' => array(
+							'controller' => 'complianceManagements', 'action' => 'index', 'admin' => false, 'plugin' => null
+						)
+					),
+					array(
+						'name' => __('Audit Management'),
+						'url' => array(
+							'controller' => 'complianceAudits', 'action' => 'index', 'admin' => false, 'plugin' => null
+						)
+					)
 				)
 			),
 			array(

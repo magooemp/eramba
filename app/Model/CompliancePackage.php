@@ -1,26 +1,24 @@
 <?php
-class ThirdParty extends AppModel {
-	public $actsAs = array(
-		'Containable'
-	);
-
+class CompliancePackage extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
 			'required' => true,
 			'allowEmpty' => false
 		),
-		'description' => array(
+		'package_id' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'allowEmpty' => false
 		)
 	);
 
 	public $belongsTo = array(
-		'ThirdPartyType' => array()
+		'ThirdParty' => array()
 	);
 
 	public $hasMany = array(
-		'ServiceContract' => array(),
-		'CompliancePackage' => array()
+		'CompliancePackageItem' => array()
 	);
 }
 ?>

@@ -31,19 +31,21 @@ $(document).ready(function(){
 
 	//===== Sparklines =====//
 
-	$("#sparkline-bar").sparkline('html', {
-		type: 'bar',
-		height: '35px',
-		zeroAxis: false,
-		barColor: App.getLayoutColorCode('red')
-	});
+	if ( typeof $.fn.sparkline != 'undefined' ) {
+		$("#sparkline-bar").sparkline('html', {
+			type: 'bar',
+			height: '35px',
+			zeroAxis: false,
+			barColor: App.getLayoutColorCode('red')
+		});
 
-	$("#sparkline-bar2").sparkline('html', {
-		type: 'bar',
-		height: '35px',
-		zeroAxis: false,
-		barColor: App.getLayoutColorCode('green')
-	});
+		$("#sparkline-bar2").sparkline('html', {
+			type: 'bar',
+			height: '35px',
+			zeroAxis: false,
+			barColor: App.getLayoutColorCode('green')
+		});
+	}
 
 	//===== Refresh-Button on Widgets =====//
 
