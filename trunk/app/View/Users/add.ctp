@@ -153,7 +153,14 @@ $statuses = array(
 
 				<div class="form-actions">
 					<?php echo $this->Form->submit( $submit_label, array(
-						'class' => 'btn btn-primary'
+						'class' => 'btn btn-primary',
+						'div' => false
+					) ); ?>
+					&nbsp;
+					<?php echo $this->Html->link( __( 'Cancel' ), array(
+						'action' => 'index'
+					), array(
+						'class' => 'btn btn-inverse'
 					) ); ?>
 				</div>
 
