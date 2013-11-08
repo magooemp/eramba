@@ -2,6 +2,8 @@
 define('USER_NOTACTIVE', 0);
 define('USER_ACTIVE', 1);
 
+define('CURRENCY_SYMBOL', '$');
+
 define('MEDIA_BASE_DIR', '\\media');
 define('DATE_FORMAT', 'd.m.Y h:i');
 

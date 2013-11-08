@@ -114,7 +114,8 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Owner' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'owner', array(
+						<?php echo $this->Form->input( 'user_id', array(
+							'options' => $users,
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'

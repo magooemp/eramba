@@ -24,7 +24,13 @@ class Project extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'ProjectStatus' => array()
+		'ProjectStatus' => array(),
+		'User' => array()
+	);
+
+	public $hasMany = array(
+		'ProjectAchievement' => array(),
+		'ProjectExpense' => array()
 	);
 }
 ?>

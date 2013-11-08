@@ -11,18 +11,19 @@ class ProjectsController extends AppController {
 			'conditions' => array(
 			),
 			'fields' => array(
-				'Project.id',
+				/*'Project.id',
 				'Project.title',
-				'ProjectStatus.name'
+				'ProjectStatus.name'*/
 			),
 			'order' => array( 'Project.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 0
+			'recursive' => 1
 		);
 
 		$data = $this->paginate( 'Project' );
 		$this->set( 'data', $data );
 
+		//debug( $data );
 	}
 
 	public function delete( $id = null ) {
@@ -119,8 +120,14 @@ class ProjectsController extends AppController {
 			'order' => array('ProjectStatus.name' => 'ASC'),
 			'recursive' => -1
 		));
+
+		$users = $this->Project->User->find('list', array(
+			'order' => array('User.name' => 'ASC'),
+			'recursive' => -1
+		));
 		
 		$this->set( 'statuses', $statuses );
+		$this->set( 'users', $users );
 	}
 
 	private function initAddEditSubtitle() {

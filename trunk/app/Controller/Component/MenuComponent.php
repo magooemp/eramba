@@ -167,7 +167,7 @@ class MenuComponent extends Component {
 				'name' => __('Security Operations'),
 				'children' => array(
 					array(
-						'name' => __('Project Improvements'),
+						'name' => __('Project Management'),
 						'url' => array(
 							'controller' => 'projects', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
