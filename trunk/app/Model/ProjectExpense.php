@@ -10,5 +10,9 @@ class ProjectExpense extends AppModel {
 			'required' => true
 		)
 	);
+
+	public $belongsTo = array(
+		'Project' => array()
+	);
 }
 ?>

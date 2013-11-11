@@ -25,6 +25,7 @@
 				<table class="table table-hover table-striped table-bordered table-highlight-head">
 					<thead>
 						<tr>
+							<th><?php echo $this->Paginator->sort( 'Project.title', __( 'Project Name' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ProjectExpense.amount', __( 'Amount' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ProjectExpense.description', __( 'Description' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ProjectExpense.date', __( 'Date' ) ); ?></th>
@@ -34,6 +35,7 @@
 					<tbody>
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
+								<td><?php echo $entry['Project']['title']; ?></td>
 								<td><?php echo CakeNumber::currency( $entry['ProjectExpense']['amount'] ); ?></td>
 								<td><?php echo $entry['ProjectExpense']['description']; ?></td>
 								<td><?php echo $entry['ProjectExpense']['date']; ?></td>

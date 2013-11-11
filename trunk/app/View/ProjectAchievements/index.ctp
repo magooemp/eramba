@@ -25,16 +25,22 @@
 				<table class="table table-hover table-striped table-bordered table-highlight-head">
 					<thead>
 						<tr>
+							<th><?php echo $this->Paginator->sort( 'Project.title', __( 'Project Name' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'User.name', __( 'Update Owner' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ProjectAchievement.description', __( 'Description' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ProjectAchievement.date', __( 'Date' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'ProjectAchievement.completion', __( 'Completion' ) ); ?></th>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
+								<td><?php echo $entry['Project']['title']; ?></td>
+								<td><?php echo $entry['User']['name'] . ' ' . $entry['User']['surname']; ?></td>
 								<td><?php echo $entry['ProjectAchievement']['description']; ?></td>
 								<td><?php echo $entry['ProjectAchievement']['date']; ?></td>
+								<td><?php echo CakeNumber::toPercentage( $entry['ProjectAchievement']['completion'], 0 ); ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
 										'id' => $entry['ProjectAchievement']['id'],
