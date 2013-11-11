@@ -14,12 +14,6 @@ class Project extends AppModel {
 		),
 		'plan_budget' => array(
 			'rule' => 'numeric'
-		),
-		'current_budget' => array(
-			'rule' => 'numeric'
-		),
-		'completion' => array(
-			'rule' => 'numeric'
 		)
 	);
 

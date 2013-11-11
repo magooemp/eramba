@@ -137,30 +137,6 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Current Budget' ); ?>:</label>
-					<div class="col-md-10">
-						<?php echo $this->Form->input( 'current_budget', array(
-							'label' => false,
-							'div' => false,
-							'class' => 'form-control'
-						) ); ?>
-						<span class="help-block"><?php echo __( 'This is the current level of investment based on the inputs' ); ?></span>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Completion Percentage' ); ?>:</label>
-					<div class="col-md-10">
-						<?php echo $this->Form->input( 'completion', array(
-							'label' => false,
-							'div' => false,
-							'class' => 'form-control'
-						) ); ?>
-						<span class="help-block"><?php echo __( 'This is the current project completion based on the input achievements.' ); ?></span>
-					</div>
-				</div>
-
-				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Status' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'project_status_id', array(

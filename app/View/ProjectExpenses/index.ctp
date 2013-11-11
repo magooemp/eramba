@@ -34,7 +34,7 @@
 					<tbody>
 						<?php foreach ( $data as $entry ) : ?>
 							<tr>
-								<td><?php echo $entry['ProjectExpense']['amount']; ?></td>
+								<td><?php echo CakeNumber::currency( $entry['ProjectExpense']['amount'] ); ?></td>
 								<td><?php echo $entry['ProjectExpense']['description']; ?></td>
 								<td><?php echo $entry['ProjectExpense']['date']; ?></td>
 								<td class="align-center">
