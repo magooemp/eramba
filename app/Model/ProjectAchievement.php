@@ -16,7 +16,8 @@ class ProjectAchievement extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'User' => array()
+		'User' => array(),
+		'Project' => array()
 	);
 }
 ?>

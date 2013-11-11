@@ -14,11 +14,19 @@ class ProjectAchievementsController extends AppController {
 				'ProjectAchievement.project_id' => $project_id
 			),
 			'fields' => array(
-				//'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
+				'ProjectAchievement.id',
+				'ProjectAchievement.description',
+				'ProjectAchievement.date',
+				'ProjectAchievement.completion',
+				'User.id',
+				'User.name',
+				'User.surname',
+				'Project.id',
+				'Project.title'
 			),
 			'order' => array('ProjectAchievement.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 0
+			'recursive' => 1
 		);
 
 		$data = $this->paginate( 'ProjectAchievement' );
