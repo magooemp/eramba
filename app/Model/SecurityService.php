@@ -38,7 +38,8 @@ class SecurityService extends AppModel {
 	);
 
 	public $hasAndBelongsToMany = array(
-		'ServiceContract' => array()
+		'ServiceContract' => array(),
+		'SecurityPolicy' => array()
 	);
 }
 ?>

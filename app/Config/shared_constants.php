@@ -21,6 +21,9 @@ define('DEFAULT_PAGE_LIMIT', 20);
 //asset_media_types
 define('ASSET_MEDIA_TYPE_DATA', 1);
 
+//security_policy
+define('SECURITY_POLICY_RELEASED', 1);
+
 //risk_mitigation_strategies
 define('RISK_MITIGATION_MITIGATE', 1);
 define('RISK_MITIGATION_ACCEPT', 2);

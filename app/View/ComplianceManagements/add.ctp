@@ -63,7 +63,34 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
+							'selected' => $selected
+						) ); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Security Policy Items' ); ?>:</label>
+					<div class="col-md-10">
+						<?php
+							$selected = array();
+							if ( isset( $this->request->data['SecurityPolicy'] ) ) {
+								foreach ( $this->request->data['SecurityPolicy'] as $entry ) {
+									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['ComplianceManagement']['security_policy_id'] ) ) {
+								foreach ( $this->request->data['ComplianceManagement']['security_policy_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
+						?>
+						<?php echo $this->Form->input( 'security_policy_id', array(
+							'options' => $security_policies,
+							'label' => false,
+							'div' => false,
+							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
+							'multiple' => true,
 							'selected' => $selected
 						) ); ?>
 					</div>
@@ -74,6 +101,24 @@
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'compliance_exception_id', array(
 							'options' => $exceptions,
+							'label' => false,
+							'div' => false,
+							'class' => 'form-control'
+						) ); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Compliance Efficacy' ); ?>:</label>
+					<div class="col-md-10">
+						<?php
+							$percentages = array();
+							for ( $i = 0; $i <= 10; $i++ ) {
+								$percentages[ $i*10 ] = $i*10;
+							}
+						?>
+						<?php echo $this->Form->input( 'efficacy', array(
+							'options' => $percentages,
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'

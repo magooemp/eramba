@@ -9,7 +9,8 @@ class ComplianceManagement extends AppModel {
 	);
 
 	public $hasAndBelongsToMany = array(
-		'SecurityService' => array()
+		'SecurityService' => array(),
+		'SecurityPolicy' => array()
 	);
 
 	public $belongsTo = array(

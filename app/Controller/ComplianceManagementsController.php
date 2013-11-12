@@ -66,8 +66,9 @@ class ComplianceManagementsController extends AppController {
 
 				$save1 = $this->ComplianceManagement->save();
 				$save2 = $this->joinSecurityServices( $this->request->data['ComplianceManagement']['security_service_id'], $this->ComplianceManagement->id );
+				$save3 = $this->joinSecurityPolicies( $this->request->data['ComplianceManagement']['security_policy_id'], $this->ComplianceManagement->id );
 
-				if ( $save1 && $save2 ) {
+				if ( $save1 && $save2 && $save3 ) {
 					$this->ComplianceManagement->commit();
 
 					$this->Session->setFlash( __( 'Compliance Management was successfully added.' ), FLASH_OK );
@@ -121,8 +122,9 @@ class ComplianceManagementsController extends AppController {
 				$delete = $this->deleteJoins( $id );
 				$save1 = $this->ComplianceManagement->save();
 				$save2 = $this->joinSecurityServices( $this->request->data['ComplianceManagement']['security_service_id'], $this->ComplianceManagement->id );
+				$save3 = $this->joinSecurityPolicies( $this->request->data['ComplianceManagement']['security_policy_id'], $this->ComplianceManagement->id );
 
-				if ( $delete && $save1 && $save2 ) {
+				if ( $delete && $save1 && $save2 && $save3 ) {
 					$this->ComplianceManagement->commit();
 
 					$this->Session->setFlash( __( 'Compliance Management was successfully edited.' ), FLASH_OK );
@@ -146,6 +148,10 @@ class ComplianceManagementsController extends AppController {
 	}
 
 	private function joinSecurityServices( $list, $compliance_management_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+
 		foreach ( $list as $id ) {
 			$tmp = array(
 				'compliance_management_id' => $compliance_management_id,
@@ -154,6 +160,26 @@ class ComplianceManagementsController extends AppController {
 
 			$this->ComplianceManagement->ComplianceManagementsSecurityService->create();
 			if ( ! $this->ComplianceManagement->ComplianceManagementsSecurityService->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function joinSecurityPolicies( $list, $compliance_management_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+
+		foreach ( $list as $id ) {
+			$tmp = array(
+				'compliance_management_id' => $compliance_management_id,
+				'security_policy_id' => $id
+			);
+
+			$this->ComplianceManagement->ComplianceManagementsSecurityPolicy->create();
+			if ( ! $this->ComplianceManagement->ComplianceManagementsSecurityPolicy->save( $tmp ) ) {
 				return false;
 			}
 		}
@@ -170,7 +196,11 @@ class ComplianceManagementsController extends AppController {
 			'ComplianceManagementsSecurityService.compliance_management_id' => $id
 		) );
 
-		if ( $delete1 ) {
+		$delete2 = $this->ComplianceManagement->ComplianceManagementsSecurityPolicy->deleteAll( array(
+			'ComplianceManagementsSecurityPolicy.compliance_management_id' => $id
+		) );
+
+		if ( $delete1 && $delete2 ) {
 			return true;
 		}
 
@@ -204,10 +234,19 @@ class ComplianceManagementsController extends AppController {
 			'recursive' => -1
 		));
 
+		$security_policies = $this->ComplianceManagement->SecurityPolicy->find('list', array(
+			'conditions' => array(
+				'SecurityPolicy.status' => SECURITY_POLICY_RELEASED
+			),
+			'order' => array('SecurityPolicy.index' => 'ASC'),
+			'recursive' => -1
+		));
+
 		$this->set( 'strategies', $strategies );
 		$this->set( 'statuses', $statuses );
 		$this->set( 'exceptions', $exceptions );
 		$this->set( 'security_services', $security_services );
+		$this->set( 'security_policies', $security_policies );
 	}
 
 	private function initAddEditSubtitle() {
