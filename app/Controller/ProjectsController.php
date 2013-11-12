@@ -10,10 +10,28 @@ class ProjectsController extends AppController {
 		$this->paginate = array(
 			'conditions' => array(
 			),
+			'contain' => array(
+				'ProjectStatus' => array( 'id', 'name' ),
+				'User' => array(
+					'fields' => array( 'id', 'name', 'surname' )
+				),
+				'ProjectAchievement' => array(
+					'fields' => array( 'id', 'date', 'completion' )
+				),
+				'ProjectExpense' => array(
+					'fields' => array( 'id', 'amount' )
+				)
+			),
 			'fields' => array(
-				/*'Project.id',
+				'Project.id',
 				'Project.title',
-				'ProjectStatus.name'*/
+				'Project.goal',
+				'Project.rca',
+				'Project.proactive',
+				'Project.reactive',
+				'Project.start',
+				'Project.deadline',
+				'Project.plan_budget',
 			),
 			'order' => array( 'Project.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),

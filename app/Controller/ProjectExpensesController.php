@@ -20,7 +20,6 @@ class ProjectExpensesController extends AppController {
 				'ProjectExpense.date',
 				'Project.id',
 				'Project.title',
-				//'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
 			),
 			'order' => array('ProjectExpense.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),

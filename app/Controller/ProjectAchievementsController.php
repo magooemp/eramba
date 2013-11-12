@@ -26,7 +26,7 @@ class ProjectAchievementsController extends AppController {
 			),
 			'order' => array('ProjectAchievement.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 1
+			'recursive' => 0
 		);
 
 		$data = $this->paginate( 'ProjectAchievement' );

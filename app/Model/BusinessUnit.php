@@ -20,5 +20,9 @@ class BusinessUnit extends AppModel {
 	public $hasMany = array(
 		'Process' => array()
 	);
+
+	public $hasAndBelongsToMany = array(
+		'Asset' => array()
+	);
 }
 ?>

@@ -7,19 +7,38 @@ class AssetsController extends AppController {
 		$this->set( 'title_for_layout', __( 'Asset Identification' ) );
 		$this->set( 'subtitle_for_layout', __( 'Build a list of significant assets for your security program.' ) );
 
+		$this->loadModel( 'BusinessUnit' );
 		$this->paginate = array(
 			'conditions' => array(
 			),
-			'fields' => array(
-				//'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
+			'contain' => array(
+				'Asset' => array(
+					'fields' => array( 'id', 'name', 'description' ),
+					'AssetMediaType' => array(
+						'fields' => array( 'name' )
+					),
+					'AssetLabel' => array(
+						'fields' => array( 'name' )
+					),
+					'Legal' => array(
+						'fields' => array( 'name' )
+					)
+				),
+				
 			),
-			'order' => array('Asset.id' => 'ASC'),
-			'limit' => $this->getPageLimit(),
-			'recursive' => 0
+			'fields' => array(
+				'BusinessUnit.id',
+				'BusinessUnit.name'
+			),
+			'order' => array('BusinessUnit.id' => 'ASC'),
+			//'limit' => $this->getPageLimit(),
+			'recursive' => 2
 		);
 
-		$data = $this->paginate( 'Asset' );
+		$data = $this->paginate( 'BusinessUnit' );
 		$this->set( 'data', $data );
+
+		//debug( $data );
 	}
 
 	public function delete( $id = null ) {
