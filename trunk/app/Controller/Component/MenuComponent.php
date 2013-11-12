@@ -38,7 +38,7 @@ class MenuComponent extends Component {
 						'url' => array(
 							'controller' => 'thirdParties', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
-					),
+					)
 				)
 			),
 			array(
@@ -97,6 +97,12 @@ class MenuComponent extends Component {
 							'controller' => 'businessContinuityPlans', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
 					),
+					array(
+						'name' => __('Security Policies'),
+						'url' => array(
+							'controller' => 'securityPolicies', 'action' => 'index', 'admin' => false, 'plugin' => null
+						)
+					)
 				)
 			),
 			array(
@@ -131,7 +137,7 @@ class MenuComponent extends Component {
 						'url' => array(
 							'controller' => 'businessContinuities', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
-					),
+					)
 				)
 			),
 			array(
@@ -189,7 +195,7 @@ class MenuComponent extends Component {
 						'url' => array(
 							'controller' => 'policyExceptions', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
-					),
+					)
 				)
 			),
 			array(
@@ -206,9 +212,9 @@ class MenuComponent extends Component {
 						'url' => array(
 							'controller' => 'aros', 'action' => 'ajax_role_permissions', 'admin' => true, 'plugin' => 'acl'
 						)
-					),
+					)
 				)
-			),
+			)
 		);
 	}
 	

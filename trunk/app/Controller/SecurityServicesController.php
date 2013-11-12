@@ -57,8 +57,9 @@ class SecurityServicesController extends AppController {
 
 				$save1 = $this->SecurityService->save();
 				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
+				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $this->SecurityService->id );
 
-				if ( $save1 && $save2 ) {
+				if ( $save1 && $save2 && $save3 ) {
 					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully added.' ), FLASH_OK );
@@ -106,12 +107,16 @@ class SecurityServicesController extends AppController {
 				$this->SecurityService->begin();
 
 				$save1 = $this->SecurityService->save();
-				$delete = $this->SecurityService->SecurityServicesServiceContract->deleteAll( array(
+				$delete1 = $this->SecurityService->SecurityServicesServiceContract->deleteAll( array(
 					'SecurityServicesServiceContract.security_service_id' => $id
 				) );
+				$delete2 = $this->SecurityService->SecurityPoliciesSecurityService->deleteAll( array(
+					'SecurityPoliciesSecurityService.security_service_id' => $id
+				) );
 				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
+				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $this->SecurityService->id );
 
-				if ( $save1 && $delete && $save2 ) {
+				if ( $save1 && $delete1 && $delete2 && $save2 ) {
 					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully edited.' ), FLASH_OK );
@@ -134,6 +139,10 @@ class SecurityServicesController extends AppController {
 	}
 
 	private function joinServicesContracts( $contracts_list, $service_id ) {
+		if ( ! is_array( $contracts_list ) ) {
+			return true;
+		}
+		
 		foreach ( $contracts_list as $id ) {
 			$tmp = array(
 				'security_service_id' => $service_id,
@@ -142,6 +151,26 @@ class SecurityServicesController extends AppController {
 
 			$this->SecurityService->SecurityServicesServiceContract->create();
 			if ( ! $this->SecurityService->SecurityServicesServiceContract->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function joinSecurityPolicies( $list, $service_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $id ) {
+			$tmp = array(
+				'security_service_id' => $service_id,
+				'security_policy_id' => $id
+			);
+
+			$this->SecurityService->SecurityPoliciesSecurityService->create();
+			if ( ! $this->SecurityService->SecurityPoliciesSecurityService->save( $tmp ) ) {
 				return false;
 			}
 		}
@@ -165,9 +194,18 @@ class SecurityServicesController extends AppController {
 			'recursive' => -1
 		));
 
+		$security_policies = $this->SecurityService->SecurityPolicy->find('list', array(
+			'conditions' => array(
+				'SecurityPolicy.status' => SECURITY_POLICY_RELEASED
+			),
+			'order' => array('SecurityPolicy.index' => 'ASC'),
+			'recursive' => -1
+		));
+
 		$this->set( 'types', $types );
 		$this->set( 'classifications', $classifications );
 		$this->set( 'contracts', $contracts );
+		$this->set( 'security_policies', $security_policies );
 	}
 
 	private function initAddEditSubtitle() {

@@ -14,5 +14,9 @@ class PolicyException extends AppModel {
 	public $belongsTo = array(
 		'PolicyExceptionStatus' => array()
 	);
+
+	public $hasAndBelongsToMany = array(
+		'SecurityPolicy' => array()
+	);
 }
 ?>

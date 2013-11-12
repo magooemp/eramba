@@ -88,6 +88,35 @@
 				</div>
 
 				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Security Policy Items' ); ?>:</label>
+					<div class="col-md-10">
+						<?php
+							$selected = array();
+							if ( isset( $this->request->data['SecurityPolicy'] ) ) {
+								foreach ( $this->request->data['SecurityPolicy'] as $entry ) {
+									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['SecurityService']['security_policy_id'] ) ) {
+								foreach ( $this->request->data['SecurityService']['security_policy_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
+						?>
+						<?php echo $this->Form->input( 'security_policy_id', array(
+							'options' => $security_policies,
+							'label' => false,
+							'div' => false,
+							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
+							'multiple' => true,
+							'hiddenField' => false,
+							'selected' => $selected
+						) ); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Documentation URL' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'documentation_url', array(
@@ -182,6 +211,12 @@
 							if ( isset( $this->request->data['ServiceContract'] ) ) {
 								foreach ( $this->request->data['ServiceContract'] as $sc ) {
 									$selected[] = $sc['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['SecurityService']['service_contract_id'] ) ) {
+								foreach ( $this->request->data['SecurityService']['service_contract_id'] as $entry ) {
+									$selected[] = $entry;
 								}
 							}
 						?>
