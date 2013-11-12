@@ -1,5 +1,9 @@
 <?php
 class Project extends AppModel {
+	public $actsAs = array(
+		'Containable'
+	);
+
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',

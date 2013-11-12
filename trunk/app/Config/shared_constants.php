@@ -18,9 +18,13 @@ define('CORE_ELEMENT_PATH', 'core/');
 //default page limit for all paginate sites
 define('DEFAULT_PAGE_LIMIT', 20);
 
-//risk mitigation types
+//asset_media_types
+define('ASSET_MEDIA_TYPE_DATA', 1);
+
+//risk_mitigation_strategies
 define('RISK_MITIGATION_MITIGATE', 1);
 define('RISK_MITIGATION_ACCEPT', 2);
 define('RISK_MITIGATION_TRANSFER', 3);
 
+//security_service_types
 define('SECURITY_SERVICE_PRODUCTION', 4);

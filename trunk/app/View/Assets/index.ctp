@@ -19,7 +19,98 @@
 				</div>
 			</div>
 		</div>
-		<div class="widget">
+
+		<?php if ( ! empty( $data ) ) : ?>
+			<?php foreach ( $data as $entry ) : ?>
+				<div class="widget box">
+					<div class="widget-header">
+						<h4><?php echo __( 'BU Asset Name' ); ?>: <?php echo $entry['BusinessUnit']['name']; ?></h4>
+					</div>
+					<div class="widget-content">
+						<?php if ( ! empty( $entry['Asset'] ) ) : ?>
+							<?php foreach ( $entry['Asset'] as $asset ) : ?>
+								<div class="widget box widget-closed">
+									<div class="widget-header">
+										<h4><?php echo __( 'Asset' ); ?>: <?php echo $asset['name']; ?></h4>
+										<div class="toolbar no-padding">
+											<div class="btn-group">
+												<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
+												<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+													<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
+												</span>
+												<ul class="dropdown-menu pull-right">
+													<li><?php echo $this->Html->link( '<i class="icon-pencil"></i> ' . __( 'Edit' ), array(
+														'controller' => 'assets',
+														'action' => 'edit',
+														$asset['id']
+													), array(
+														'escape' => false
+													) ); ?></li>
+													<li><?php echo $this->Html->link( '<i class="icon-trash"></i> ' . __( 'Delete' ), array(
+														'controller' => 'assets',
+														'action' => 'delete',
+														$asset['id']
+													), array(
+														'escape' => false
+													) ); ?></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="widget-content" style="display:none;">
+										<table class="table table-hover table-striped table-bordered table-highlight-head">
+											<thead>
+												<tr>
+													<th><?php echo __( 'Description' ); ?></th>
+													<th><?php echo __( 'Type' ); ?></th>
+													<th><?php echo __( 'Label' ); ?></th>
+													<th><?php echo __( 'Legal Constrain' ); ?></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><?php echo $asset['description']; ?></td>
+													<td><?php echo isset( $asset['AssetMediaType']['name'] ) ? $asset['AssetMediaType']['name'] : ''; ?></td>
+													<td><?php echo isset( $asset['AssetLabel']['name'] ) ? $asset['AssetLabel']['name'] : ''; ?></td>
+													<td><?php echo isset( $asset['Legal']['name'] ) ? $asset['Legal']['name'] : ''; ?></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							<?php endforeach; ?>
+
+						<?php else : ?>
+							<?php echo $this->element( 'not_found', array(
+								'message' => __( 'No Assets related to Business Units found.' )
+							) ); ?>
+						<?php endif; ?>
+
+					</div>
+				</div>
+
+			<?php endforeach; ?>
+
+			<?php //echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
+		<?php else : ?>
+			<?php echo $this->element( 'not_found', array(
+				'message' => __( 'No Business Units found.' )
+			) ); ?>
+		<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--<div class="widget">
 			<?php if ( ! empty( $data ) ) : ?>
 				<table class="table table-hover table-striped table-bordered table-highlight-head">
 					<thead>
@@ -52,7 +143,7 @@
 				) ); ?>
 			<?php endif; ?>
 
-		</div>
+		</div>-->
 	</div>
 
 </div>

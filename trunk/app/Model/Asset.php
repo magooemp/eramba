@@ -1,5 +1,9 @@
 <?php
 class Asset extends AppModel {
+	public $actsAs = array(
+		'Containable'
+	);
+
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
@@ -19,6 +23,10 @@ class Asset extends AppModel {
 		'AssetMediaType' => array(),
 		'AssetLabel' => array(),
 		'Legal' => array()
+	);
+
+	public $hasMany = array(
+		'DataAsset' => array()
 	);
 
 	public $hasAndBelongsToMany = array(
