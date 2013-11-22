@@ -24,7 +24,6 @@ class AssetsController extends AppController {
 						'fields' => array( 'name' )
 					)
 				),
-				
 			),
 			'fields' => array(
 				'BusinessUnit.id',
@@ -86,8 +85,9 @@ class AssetsController extends AppController {
 
 				$save1 = $this->Asset->save();
 				$save2 = $this->joinAssetsBusinessUnits( $this->request->data['Asset']['business_unit_id'], $this->Asset->id );
+				$save3 = $this->joinAssetClassifications( $this->request->data['Asset']['asset_classification_id'], $this->Asset->id );
 
-				if ( $save1 && $save2 ) {
+				if ( $save1 && $save2 & $save3 ) {
 					$this->Asset->commit();
 
 					$this->Session->setFlash( __( 'Asset was successfully added.' ), FLASH_OK );
@@ -127,7 +127,6 @@ class AssetsController extends AppController {
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
-
 			$this->Asset->set( $this->request->data );
 
 			if ( $this->Asset->validates() ) {
@@ -138,9 +137,13 @@ class AssetsController extends AppController {
 				$delete = $this->Asset->AssetsBusinessUnit->deleteAll( array(
 					'AssetsBusinessUnit.asset_id' => $id
 				) );
+				$delete2 = $this->Asset->AssetClassificationsAsset->deleteAll( array(
+					'AssetClassificationsAsset.asset_id' => $id
+				) );
 				$save2 = $this->joinAssetsBusinessUnits( $this->request->data['Asset']['business_unit_id'], $this->Asset->id );
+				$save3 = $this->joinAssetClassifications( $this->request->data['Asset']['asset_classification_id'], $this->Asset->id );
 
-				if ( $save1 && $delete && $save2 ) {
+				if ( $save1 && $delete && $delete2 && $save2 && $save3 ) {
 					$this->Asset->commit();
 
 					$this->Session->setFlash( __( 'Asset was successfully edited.' ), FLASH_OK );
@@ -162,8 +165,12 @@ class AssetsController extends AppController {
 		$this->render( 'add' );
 	}
 
-	private function joinAssetsBusinessUnits( $bu_list, $asset_id ) {
-		foreach ( $bu_list as $bu_id ) {
+	private function joinAssetsBusinessUnits( $list, $asset_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $bu_id ) {
 			$tmp = array(
 				'asset_id' => $asset_id,
 				'business_unit_id' => $bu_id
@@ -171,6 +178,28 @@ class AssetsController extends AppController {
 
 			$this->Asset->AssetsBusinessUnit->create();
 			if ( ! $this->Asset->AssetsBusinessUnit->save( $tmp ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private function joinAssetClassifications( $list, $asset_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $asset_classification_id ) {
+			if ( ! $asset_classification_id )
+				continue;
+
+			$tmp = array(
+				'asset_id' => $asset_id,
+				'asset_classification_id' => $asset_classification_id
+			);
+
+			$this->Asset->AssetClassificationsAsset->create();
+			if ( ! $this->Asset->AssetClassificationsAsset->save( $tmp ) ) {
 				return false;
 			}
 		}
@@ -197,11 +226,24 @@ class AssetsController extends AppController {
 			'order' => array('Legal.name' => 'ASC'),
 			'recursive' => -1
 		));
+
+		$this->loadModel( 'AssetClassificationType' );
+		$classifications = $this->AssetClassificationType->find('all', array(
+			'order' => array('AssetClassificationType.name' => 'ASC'),
+			'recursive' => 1
+		));
+
+		$assets = $this->Asset->find('list', array(
+			'order' => array('Asset.name' => 'ASC'),
+			'recursive' => -1
+		));
 		
 		$this->set( 'bu_list', $bu_list );
 		$this->set( 'media_types', $media_types );
 		$this->set( 'labels', $labels );
 		$this->set( 'legals', $legals );
+		$this->set( 'classifications', $classifications );
+		$this->set( 'assets', $assets );
 	}
 
 	private function initAddEditSubtitle() {

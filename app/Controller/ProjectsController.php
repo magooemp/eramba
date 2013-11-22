@@ -139,10 +139,7 @@ class ProjectsController extends AppController {
 			'recursive' => -1
 		));
 
-		$users = $this->Project->User->find('list', array(
-			'order' => array('User.name' => 'ASC'),
-			'recursive' => -1
-		));
+		$users = $this->getUsersList();
 		
 		$this->set( 'statuses', $statuses );
 		$this->set( 'users', $users );

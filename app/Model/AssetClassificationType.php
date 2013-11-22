@@ -6,5 +6,9 @@ class AssetClassificationType extends AppModel {
 			'required' => true
 		)
 	);
+
+	public $hasMany = array(
+		'AssetClassification' => array()
+	);
 }
 ?>

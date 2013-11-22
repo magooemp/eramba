@@ -260,4 +260,49 @@ class AppController extends Controller {
 		
 		return $limit;
 	}
+
+	/**
+	 * Returns array of users with full names used in select inputs.
+	 * @return array User list.
+	 */
+	protected function getUsersList() {
+		$this->loadModel( 'User' );
+
+		$users_all = $this->User->find('all', array(
+			'order' => array('User.name' => 'ASC'),
+			'fields' => array('User.id', 'User.name', 'User.surname'),
+			'recursive' => -1
+		));
+
+		$users = array();
+		foreach ( $users_all as $user ) {
+			$users[ $user['User']['id'] ] = $user['User']['name'] . ' ' . $user['User']['surname'];
+		}
+
+		return $users;
+	}
+
+	/**
+	 * Returns array of only Released security policies.
+	 * @return array Security policy list.
+	 */
+	protected function getSecurityPoliciesList() {
+		$this->loadModel( 'SecurityPolicy' );
+
+		$security_policies_all = $this->SecurityPolicy->find('all', array(
+			'conditions' => array(
+				'SecurityPolicy.status' => SECURITY_POLICY_RELEASED
+			),
+			'order' => array('SecurityPolicy.index' => 'ASC'),
+			'fields' => array('SecurityPolicy.id', 'SecurityPolicy.index'),
+			'recursive' => -1
+		));
+
+		$security_policies = array();
+		foreach ( $security_policies_all as $security_policy ) {
+			$security_policies[ $security_policy['SecurityPolicy']['id'] ] = $security_policy['SecurityPolicy']['index'];
+		}
+
+		return $security_policies;
+	}
 }

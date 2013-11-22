@@ -48,7 +48,7 @@
 					</div>
 				</div>
 
-				<div class="form-group form-group-first">
+				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Author' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'author', array(
@@ -60,7 +60,35 @@
 					</div>
 				</div>
 
-				<div class="form-group form-group-first">
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Security Policy Items' ); ?>:</label>
+					<div class="col-md-10">
+						<?php
+							$selected = array();
+							if ( isset( $this->request->data['SecurityPolicy'] ) ) {
+								foreach ( $this->request->data['SecurityPolicy'] as $entry ) {
+									$selected[] = $entry['id'];
+								}
+							}
+
+							if ( isset( $this->request->data['RiskException']['security_policy_id'] ) && is_array( $this->request->data['RiskException']['security_policy_id'] ) ) {
+								foreach ( $this->request->data['RiskException']['security_policy_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
+						?>
+						<?php echo $this->Form->input( 'security_policy_id', array(
+							'options' => $security_policies,
+							'label' => false,
+							'div' => false,
+							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
+							'multiple' => true,
+							'selected' => $selected
+						) ); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Expiration' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'expiration', array(

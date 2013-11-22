@@ -15,11 +15,12 @@ class SecurityIncidentsController extends AppController {
 				'SecurityIncident.title',
 				'SecurityIncident.reporter',
 				'SecurityIncident.victim',
-				'SecurityIncident.owner',
 				'SecurityIncident.open_date',
 				'SecurityIncident.closure_date',
 				'ThirdParty.name',
 				'Asset.name',
+				'User.name',
+				'User.surname',
 				'SecurityIncidentClassification.name',
 				'SecurityIncidentStatus.name'
 			),
@@ -177,11 +178,14 @@ class SecurityIncidentsController extends AppController {
 			'recursive' => -1
 		));
 
+		$users = $this->getUsersList();
+
 		$this->set( 'statuses', $statuses );
 		$this->set( 'third_parties', $third_parties );
 		$this->set( 'classifications', $classifications );
 		$this->set( 'assets', $assets );
 		$this->set( 'services', $services );
+		$this->set( 'users', $users );
 	}
 
 	private function initAddEditSubtitle() {

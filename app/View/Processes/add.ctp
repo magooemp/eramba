@@ -64,6 +64,19 @@
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'RPO' ); ?>:</label>
+					<div class="col-md-10">
+						<?php echo $this->Form->input( 'rpo', array(
+							'label' => false,
+							'div' => false,
+							'class' => 'form-control',
+							'default' => 0
+						) ); ?>
+						<span class="help-block"><?php echo __( 'How often you need to Backup your data to ensure that suffiecnt data exist for the business to operate after an incident. This is measured in hours. For example, my banking application can not loose transactions otherwise the business is severly impacted. This means RPO is 0 hs (continuos backup).' ); ?></span>
+					</div>
+				</div>
+
 				<div class="form-actions">
 					<?php echo $this->Form->submit( $submit_label, array(
 						'class' => 'btn btn-primary',

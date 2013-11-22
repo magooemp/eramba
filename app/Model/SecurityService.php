@@ -34,7 +34,13 @@ class SecurityService extends AppModel {
 
 	public $belongsTo = array(
 		'SecurityServiceType' => array(),
-		'ServiceClassification' => array()
+		'ServiceClassification' => array(),
+		'User' => array()
+	);
+
+	public $hasMany = array(
+		'SecurityServiceAudit' => array(),
+		'SecurityServiceAuditDate' => array()
 	);
 
 	public $hasAndBelongsToMany = array(

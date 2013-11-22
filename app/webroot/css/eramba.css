@@ -3,3 +3,28 @@
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+
+.help-block {
+	clear: both;
+}
+
+.input.date {
+	clear: both;
+	float: left;
+	margin-bottom: 5px;
+}
+
+.select-wrapper {
+	float: left;
+	margin-right: 5px;
+}
+
+.add-dynamic {
+	margin-bottom: 10px;
+	float: left;
+}
+
+.remove-parent {
+	cursor: pointer;
+	line-height: 30px;
+}

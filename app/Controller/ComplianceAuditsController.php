@@ -7,18 +7,23 @@ class ComplianceAuditsController extends AppController {
 		$this->set( 'title_for_layout', __( 'Audit Calendar' ) );
 		$this->set( 'subtitle_for_layout', __( 'Keeping tidy a calendar of Audits is helpful for prepation and planning. In this section you can keep track all audit findings (non-compliances) in order to work on their mitigation plans.' ) );
 
+		$this->loadModel( 'ThirdParty' );
 		$this->paginate = array(
 			'conditions' => array(
 			),
-			'fields' => array(
-				//'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
+			'contain' => array(
+				'ComplianceAudit' => array(
+					'ComplianceFinding' => array()
+				)
 			),
-			'order' => array('ComplianceAudit.id' => 'ASC'),
+			'fields' => array(
+			),
+			'order' => array('ThirdParty.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 1
+			'recursive' => 2
 		);
 
-		$data = $this->paginate( 'ComplianceAudit' );
+		$data = $this->paginate( 'ThirdParty' );
 		$this->set( 'data', $data );
 
 		//debug( $data );

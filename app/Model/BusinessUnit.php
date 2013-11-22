@@ -10,10 +10,9 @@ class BusinessUnit extends AppModel {
 			'required' => true,
 			'allowEmpty' => false
 		),
-		'rpo' => array(
-			'rule' => 'numeric',
-			'required' => true,
-			'allowEmpty' => false
+		'revenue' => array(
+			'rule' => 'notEmpty',
+			'required' => true
 		)
 	);
 

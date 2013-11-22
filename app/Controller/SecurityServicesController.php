@@ -93,12 +93,16 @@ class SecurityServicesController extends AppController {
 		if ( empty( $data ) ) {
 			throw new NotFoundException();
 		}
+		//debug( $data );
 		
 		$this->set( 'edit', true );
 		$this->set( 'title_for_layout', __( 'Edit a Security Service' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
+
+			//debug($this->request->data );
+			//die();
 
 			$this->SecurityService->set( $this->request->data );
 
@@ -107,16 +111,24 @@ class SecurityServicesController extends AppController {
 				$this->SecurityService->begin();
 
 				$save1 = $this->SecurityService->save();
+				$service_id = $this->SecurityService->id;
+
 				$delete1 = $this->SecurityService->SecurityServicesServiceContract->deleteAll( array(
 					'SecurityServicesServiceContract.security_service_id' => $id
 				) );
 				$delete2 = $this->SecurityService->SecurityPoliciesSecurityService->deleteAll( array(
 					'SecurityPoliciesSecurityService.security_service_id' => $id
 				) );
-				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
-				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $this->SecurityService->id );
+				$delete3 = $this->SecurityService->SecurityServiceAuditDate->deleteAll( array(
+					'SecurityServiceAuditDate.security_service_id' => $id
+				) );
+				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $service_id );
+				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $service_id );
 
-				if ( $save1 && $delete1 && $delete2 && $save2 ) {
+				$save4 = $this->saveAuditDates( $this->request->data['SecurityService']['audit_calendar'], $service_id );
+				$save5 = $this->saveAudits( $this->request->data['SecurityService']['audit_calendar'], $service_id );
+
+				if ( $save1 && $delete1 && $delete2 && $delete3 && $save2 && $save3 && $save4 ) {
 					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully edited.' ), FLASH_OK );
@@ -133,6 +145,8 @@ class SecurityServicesController extends AppController {
 		else {
 			$this->request->data = $data;
 		}
+
+		$this->set( 'data', $data );
 
 		$this->initOptions();
 		$this->render( 'add' );
@@ -178,6 +192,54 @@ class SecurityServicesController extends AppController {
 		return true;
 	}
 
+	private function saveAuditDates( $list, $service_id ) {
+		foreach ( $list as $date ) {
+			$tmp = array(
+				'security_service_id' => $service_id,
+				'day' => $date['day'],
+				'month' => $date['month']
+			);
+
+			$this->SecurityService->SecurityServiceAuditDate->create();
+			if ( ! $this->SecurityService->SecurityServiceAuditDate->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function saveAudits( $list, $service_id ) {
+		foreach ( $list as $date ) {
+			$tmp = array(
+				'security_service_id' => $service_id,
+				'planned_date' =>  date('Y') . '-' . $date['month'] . '-' . $date['day'],
+				'audit_metric_description' => $this->request->data['SecurityService']['audit_metric_description'],
+				'audit_success_criteria' => $this->request->data['SecurityService']['audit_success_criteria'],
+			);
+
+			$this->SecurityService->SecurityServiceAudit->create();
+			if ( ! $this->SecurityService->SecurityServiceAudit->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	public function auditCalendarFormEntry() {
+		if ( ! $this->request->is( 'ajax' ) ) {
+			exit;
+		}
+
+		$data = $this->request->data;
+
+		$this->set( 'formKey', $data['formKey'] );
+		$this->set( 'model', 'SecurityService' );
+
+		$this->render( '/Elements/ajax/audit_calendar_entry' );
+	}
+
 	private function initOptions() {
 		$types = $this->SecurityService->SecurityServiceType->find('list', array(
 			'order' => array('SecurityServiceType.name' => 'ASC'),
@@ -194,18 +256,14 @@ class SecurityServicesController extends AppController {
 			'recursive' => -1
 		));
 
-		$security_policies = $this->SecurityService->SecurityPolicy->find('list', array(
-			'conditions' => array(
-				'SecurityPolicy.status' => SECURITY_POLICY_RELEASED
-			),
-			'order' => array('SecurityPolicy.index' => 'ASC'),
-			'recursive' => -1
-		));
+		$users = $this->getUsersList();
+		$security_policies = $this->getSecurityPoliciesList();
 
 		$this->set( 'types', $types );
 		$this->set( 'classifications', $classifications );
 		$this->set( 'contracts', $contracts );
 		$this->set( 'security_policies', $security_policies );
+		$this->set( 'users', $users );
 	}
 
 	private function initAddEditSubtitle() {

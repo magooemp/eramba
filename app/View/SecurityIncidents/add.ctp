@@ -95,6 +95,12 @@
 									$selected[] = $entry['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['SecurityIncident']['security_service_id'] ) && is_array( $this->request->data['SecurityIncident']['security_service_id'] ) ) {
+								foreach ( $this->request->data['SecurityIncident']['security_service_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'security_service_id', array(
 							'options' => $services,
@@ -102,7 +108,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Select those controls involved on this incident' ); ?></span>
@@ -112,7 +117,8 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Owner' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'owner', array(
+						<?php echo $this->Form->input( 'user_id', array(
+							'options' => $users,
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'

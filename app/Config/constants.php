@@ -2,6 +2,7 @@
 define('LINK_DOMAIN', 'eramba.localhost');
 define('NAME_SERVICE', 'Eramba');
 define('DEFAULT_NAME', 'Ermaba');
+define('VERSION', '0.6');
 
 //used protocol
 if (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS'])) {

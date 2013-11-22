@@ -347,6 +347,10 @@ span.red {
   margin-left: 0 !important;
   margin-right: 0;
 }
+.navbar .navbar-brand .version {
+  font-size: 0.6em;
+  line-height: 1;
+}
 .navbar .toggle-sidebar {
   float: left;
   margin-left: -50px;

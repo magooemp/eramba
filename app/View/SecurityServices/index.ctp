@@ -39,6 +39,16 @@
 										'id' => $entry['SecurityService']['id'],
 										'controller' => 'securityServices'
 									) ); ?>
+
+									<?php echo $this->Html->link( '<i class="icon-search"></i>', array(
+										'controller' => 'securityServiceAudits',
+										'action' => 'index',
+										$entry['SecurityService']['id']
+									), array(
+										'class' => 'bs-tooltip',
+										'escape' => false,
+										'title' => __( 'audits' )
+									) ); ?>
 								</td>
 							</tr>
 						<?php endforeach; ?>

@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__) . '/Vendor/autoload.php';
 /**
  * This is core configuration file.
  *

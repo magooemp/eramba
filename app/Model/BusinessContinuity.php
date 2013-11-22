@@ -33,10 +33,9 @@ class BusinessContinuity extends AppModel {
 		'risk_exception_id' => array(
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
 		),
-		'owner' => array(
+		'user_id' => array(
 			'rule' => 'notEmpty',
-			'required' => true,
-			'allowEmpty' => false
+			'required' => true
 		),
 		'review' => array(
 			'rule' => 'date',
@@ -46,7 +45,8 @@ class BusinessContinuity extends AppModel {
 
 	public $belongsTo = array(
 		'RiskClassification' => array(),
-		'RiskMitigationStrategy' => array()
+		'RiskMitigationStrategy' => array(),
+		'User' => array()
 	);
 
 	public $hasAndBelongsToMany = array(
