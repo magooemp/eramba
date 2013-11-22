@@ -61,7 +61,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ThirdPartyRisk']['third_party_id'] ) ) {
+							if ( isset( $this->request->data['ThirdPartyRisk']['third_party_id'] ) && is_array( $this->request->data['ThirdPartyRisk']['third_party_id'] ) ) {
 								foreach ( $this->request->data['ThirdPartyRisk']['third_party_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -73,7 +73,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Which Third Parties are you Risk Analysing?' ); ?></span>
@@ -91,7 +90,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ThirdPartyRisk']['asset_id'] ) ) {
+							if ( isset( $this->request->data['ThirdPartyRisk']['asset_id'] ) && is_array( $this->request->data['ThirdPartyRisk']['asset_id'] ) ) {
 								foreach ( $this->request->data['ThirdPartyRisk']['asset_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -103,7 +102,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'What Assets (Information) is shared with this Third Party?' ); ?></span>
@@ -147,7 +145,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ThirdPartyRisk']['threat_id'] ) ) {
+							if ( isset( $this->request->data['ThirdPartyRisk']['threat_id'] ) && is_array( $this->request->data['ThirdPartyRisk']['threat_id'] ) ) {
 								foreach ( $this->request->data['ThirdPartyRisk']['threat_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -159,7 +157,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Select all Applicable Threats' ); ?></span>
@@ -190,7 +187,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ThirdPartyRisk']['vulnerability_id'] ) ) {
+							if ( isset( $this->request->data['ThirdPartyRisk']['vulnerability_id'] ) && is_array( $this->request->data['ThirdPartyRisk']['vulnerability_id'] ) ) {
 								foreach ( $this->request->data['ThirdPartyRisk']['vulnerability_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -202,7 +199,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Select all Applicable Vulnerabilities' ); ?></span>
@@ -260,7 +256,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
+							if ( isset( $this->request->data['ThirdPartyRisk']['security_service_id'] ) && is_array( $this->request->data['ThirdPartyRisk']['security_service_id'] ) ) {
 								foreach ( $this->request->data['ThirdPartyRisk']['security_service_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -272,7 +268,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'id' => 'compensating_controls',
 							'selected' => $selected
 						) ); ?>
@@ -303,7 +298,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
+							if ( isset( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) && is_array( $this->request->data['ThirdPartyRisk']['risk_exception_id'] ) ) {
 								foreach ( $this->request->data['ThirdPartyRisk']['risk_exception_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -315,7 +310,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'id' => 'risk_exceptions',
 							'selected' => $selected
 						) ); ?>
@@ -326,7 +320,8 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Owner' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'owner', array(
+						<?php echo $this->Form->input( 'user_id', array(
+							'options' => $users,
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'

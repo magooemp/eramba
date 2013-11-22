@@ -162,12 +162,24 @@
 
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Regular Reviews' ); ?>:</label>
-					<div class="col-md-10">
-						<?php echo $this->Form->input( 'regular_review', array(
-							'label' => false,
-							'div' => false,
-							'class' => 'form-control'
-						) ); ?>
+					<div class="col-md-5">
+						<div id="audit-inputs-wrapper">
+							<button class="btn add-dynamic" id="add_service_audit_calendar"><?php echo __( 'Add Date' ); ?></button>
+							<?php
+								$formKey = 0;
+								if ( isset( $data ) ) {
+									foreach ( $data['BusinessContinuityPlanAuditDate'] as $key => $audit_date ) {
+										echo $this->element( 'ajax/audit_calendar_entry', array(
+											'model' => 'BusinessContinuityPlan',
+											'formKey' => $key,
+											'day' => $audit_date['day'],
+											'month' => $audit_date['month']
+										) );
+										$formKey++;
+									}
+								}
+							?>
+						</div>
 						<span class="help-block"><?php echo __( 'Describe the resources implementing, operating and auditing this control requires in Days/Year.' ); ?></span>
 					</div>
 				</div>
@@ -191,3 +203,34 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	var formKey = <?php echo $formKey + 1; ?>;
+	<?php if ( ! $formKey ) : ?>
+		load_new_entry();
+	<?php endif; ?>
+	function load_new_entry() {
+		$.ajax({
+			type: "POST",
+			dataType: "html",
+			async: true,
+			url: "/businessContinuityPlans/auditCalendarFormEntry",
+			data: { formKey: formKey },
+			beforeSend: function () {
+			},
+			complete: function (XMLHttpRequest, textStatus) {
+			},
+			success: function (data, textStatus) {
+				formKey++;
+				$("#audit-inputs-wrapper").append(data);	
+			}
+		});
+	}
+
+	$("#add_service_audit_calendar").on("click", function(e) {
+		e.preventDefault();
+		load_new_entry();
+	});
+});
+</script>

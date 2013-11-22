@@ -28,7 +28,7 @@
 							<th><?php echo $this->Paginator->sort( 'ThirdParty.name', __( 'Third Party' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'SecurityIncident.reporter', __( 'Reporter' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'SecurityIncident.victim', __( 'Affected' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'SecurityIncident.owner', __( 'Owner' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'User.name', __( 'Owner' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'SecurityIncidentClassification.name', __( 'Classification' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'SecurityIncidentStatus.name', __( 'Status' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'SecurityIncident.open_date', __( 'Open Date' ) ); ?></th>
@@ -44,7 +44,7 @@
 								<td><?php echo $entry['ThirdParty']['name']; ?></td>
 								<td><?php echo $entry['SecurityIncident']['reporter']; ?></td>
 								<td><?php echo $entry['SecurityIncident']['victim']; ?></td>
-								<td><?php echo $entry['SecurityIncident']['owner']; ?></td>
+								<td><?php echo $entry['User']['name'] . ' ' . $entry['User']['surname']; ?></td>
 								<td><?php echo $entry['SecurityIncidentClassification']['name']; ?></td>
 								<td><?php echo $entry['SecurityIncidentStatus']['name']; ?></td>
 								<td><?php echo $entry['SecurityIncident']['open_date']; ?></td>

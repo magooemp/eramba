@@ -30,7 +30,8 @@ class Asset extends AppModel {
 	);
 
 	public $hasAndBelongsToMany = array(
-		'BusinessUnit' => array()
+		'BusinessUnit' => array(),
+		'AssetClassification' => array()
 	);
 }
 ?>

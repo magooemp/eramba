@@ -1,11 +1,10 @@
 <?php
 class ComplianceManagement extends AppModel {
 	public $validate = array(
-		/*'name' => array(
+		'efficacy' => array(
 			'rule' => 'notEmpty',
-			'required' => true,
-			'allowEmpty' => false
-		)*/
+			'required' => true
+		)
 	);
 
 	public $hasAndBelongsToMany = array(
@@ -15,8 +14,7 @@ class ComplianceManagement extends AppModel {
 
 	public $belongsTo = array(
 		'ComplianceTreatmentStrategy' => array(),
-		'ComplianceException' => array(),
-		'ComplianceStatus' => array()
+		'ComplianceException' => array()
 	);
 }
 ?>

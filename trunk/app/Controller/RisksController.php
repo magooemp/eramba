@@ -352,6 +352,8 @@ class RisksController extends AppController {
 			'recursive' => -1
 		) );
 
+		$users = $this->getUsersList();
+
 		$this->set( 'types', $types );
 		$this->set( 'strategies', $strategies );
 		$this->set( 'assets', $assets );
@@ -362,6 +364,7 @@ class RisksController extends AppController {
 		$this->set( 'mitigate_id', $mitigate_id['RiskMitigationStrategy']['id'] );
 		$this->set( 'accept_id', $accept_id['RiskMitigationStrategy']['id'] );
 		$this->set( 'transfer_id', $transfer_id['RiskMitigationStrategy']['id'] );
+		$this->set( 'users', $users );
 	}
 
 	private function initAddEditSubtitle() {

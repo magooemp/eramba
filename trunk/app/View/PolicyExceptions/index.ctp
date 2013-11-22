@@ -27,7 +27,7 @@
 							<th><?php echo $this->Paginator->sort( 'PolicyException.title', __( 'Title' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'PolicyException.description', __( 'Description' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'PolicyExceptionStatus.name', __( 'Status' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'PolicyException.owner', __( 'Owner' ) ); ?></th>
+							<th><?php echo $this->Paginator->sort( 'User.name', __( 'Owner' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'PolicyException.expiration', __( 'Expiration' ) ); ?></th>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
@@ -38,7 +38,7 @@
 								<td><?php echo $entry['PolicyException']['title']; ?></td>
 								<td><?php echo $entry['PolicyException']['description']; ?></td>
 								<td><?php echo $entry['PolicyExceptionStatus']['name']; ?></td>
-								<td><?php echo $entry['PolicyException']['owner']; ?></td>
+								<td><?php echo $entry['User']['name'] . ' ' . $entry['User']['surname']; ?></td>
 								<td><?php echo $entry['PolicyException']['expiration']; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 

@@ -39,19 +39,9 @@ class BusinessUnitsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->BusinessUnit->query( 'SET autocommit = 0' );
-		$this->BusinessUnit->begin();
-
-		$delete1 = $this->BusinessUnit->delete( $id );
-		$delete2 = $this->BusinessUnit->Process->deleteAll( array(
-			'Process.business_unit_id' => $id
-		) );
-
-		if ( $delete1 && $delete2 ) {
-			$this->BusinessUnit->commit();
+		if ( $this->BusinessUnit->delete( $id ) ) {
 			$this->Session->setFlash( __( 'Business Unit was successfully deleted.' ), FLASH_OK );
 		} else {
-			$this->BusinessUnit->rollback();
 			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
 		}
 

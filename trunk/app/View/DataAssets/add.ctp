@@ -65,7 +65,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['DataAsset']['business_unit_id'] ) ) {
+							if ( isset( $this->request->data['DataAsset']['business_unit_id'] ) && is_array( $this->request->data['DataAsset']['business_unit_id'] ) ) {
 								foreach ( $this->request->data['DataAsset']['business_unit_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -93,7 +93,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['DataAsset']['third_party_id'] ) ) {
+							if ( isset( $this->request->data['DataAsset']['third_party_id'] ) && is_array( $this->request->data['DataAsset']['third_party_id'] ) ) {
 								foreach ( $this->request->data['DataAsset']['third_party_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -121,7 +121,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['DataAsset']['security_service_id'] ) ) {
+							if ( isset( $this->request->data['DataAsset']['security_service_id'] ) && is_array( $this->request->data['DataAsset']['security_service_id'] ) ) {
 								foreach ( $this->request->data['DataAsset']['security_service_id'] as $entry ) {
 									$selected[] = $entry;
 								}

@@ -21,7 +21,8 @@ class SecurityIncident extends AppModel {
 		'SecurityIncidentStatus' => array(),
 		'ThirdParty' => array(),
 		'SecurityIncidentClassification' => array(),
-		'Asset' => array()
+		'Asset' => array(),
+		'User' => array()
 	);
 
 	public $hasAndBelongsToMany = array(

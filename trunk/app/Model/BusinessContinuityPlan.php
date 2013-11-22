@@ -1,5 +1,9 @@
 <?php
 class BusinessContinuityPlan extends AppModel {
+	public $actsAs = array(
+		'Containable'
+	);
+
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',
@@ -48,7 +52,9 @@ class BusinessContinuityPlan extends AppModel {
 	);
 
 	public $hasMany = array(
-		'BusinessContinuityTask' => array()
+		'BusinessContinuityTask' => array(),
+		'BusinessContinuityPlanAudit' => array(),
+		'BusinessContinuityPlanAuditDate' => array()
 	);
 }
 ?>

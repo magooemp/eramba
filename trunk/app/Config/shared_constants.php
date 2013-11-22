@@ -31,3 +31,8 @@ define('RISK_MITIGATION_TRANSFER', 3);
 
 //security_service_types
 define('SECURITY_SERVICE_PRODUCTION', 4);
+
+//compliance_treatment_strategy
+define('COMPLIANCE_TREATMENT_MITIGATE', 1);
+define('COMPLIANCE_TREATMENT_NOT_APPLICABLE', 2);
+define('COMPLIANCE_TREATMENT_IGNORE', 3);

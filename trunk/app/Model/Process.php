@@ -13,6 +13,11 @@ class Process extends AppModel {
 			'required' => true,
 			'allowEmpty' => false
 		),
+		'rpo' => array(
+			'rule' => 'numeric',
+			'required' => true,
+			'allowEmpty' => false
+		)
 	);
 
 	public $belongsTo = array(

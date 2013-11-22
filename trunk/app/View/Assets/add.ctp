@@ -45,6 +45,12 @@
 									$selected[] = $bu['id'];
 								}
 							}
+
+							if ( isset( $this->request->data['Asset']['business_unit_id'] ) && is_array( $this->request->data['Asset']['business_unit_id'] ) ) {
+								foreach ( $this->request->data['Asset']['business_unit_id'] as $entry ) {
+									$selected[] = $entry;
+								}
+							}
 						?>
 						<?php echo $this->Form->input( 'business_unit_id', array(
 							'options' => $bu_list,
@@ -52,7 +58,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Which Business Unit is connected to this asset? You can select more than one.' ); ?></span>
@@ -158,6 +163,55 @@
 							//'class' => 'select2 col-md-12 full-width-fix'
 						) ); ?>
 						<span class="help-block"></span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Classification' ); ?>:</label>
+					<div class="col-md-10">
+						<?php
+
+						foreach ( $classifications as $classification_type ) :
+							$options = array();
+							$options_ids = array();
+							foreach ( $classification_type['AssetClassification'] as $asset_classification ) {
+								$options[ $asset_classification['id'] ] = $asset_classification['name'];
+								$options_ids[] = $asset_classification['id'];
+							}
+
+							$selected = null;
+							foreach ( $this->request->data['AssetClassification'] as $ac ) {
+								if ( in_array( $ac['id'], $options_ids ) ) {
+									$selected = $ac['id'];
+								}
+							}
+
+							echo $this->Form->input( 'asset_classification_id][', array(
+								'options' => $options,
+								'label' => false,
+								'div' => false,
+								'style' => 'margin-bottom:5px;',
+								'empty' => __( 'Classification' ) . ': ' . $classification_type['AssetClassificationType']['name'],
+								'class' => 'form-control',
+								'selected' => $selected
+							) );
+						endforeach;
+						?>
+						<span class="help-block"><?php echo __( 'Use the previously defined asset classification criterias and choose the appropiate classification profile for this asset.' ); ?></span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Main Container' ); ?>:</label>
+					<div class="col-md-10">
+						<?php echo $this->Form->input( 'asset_id', array(
+							'options' => $assets,
+							'label' => false,
+							'div' => false,
+							'empty' => __( 'Select a Container' ),
+							'class' => 'form-control'
+						) ); ?>
+						<span class="help-block"><?php echo __( 'Most assets are contained at some point in time within another asset. Example: Financial Data might be contained in another asset, called "Financial SpreadSheets".' ); ?></span>
 					</div>
 				</div>
 

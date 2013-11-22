@@ -35,7 +35,8 @@
 							'options' => $strategies,
 							'label' => false,
 							'div' => false,
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'id' => 'compliance_treatment_strategy'
 						) ); ?>
 					</div>
 				</div>
@@ -51,7 +52,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ComplianceManagement']['security_service_id'] ) ) {
+							if ( isset( $this->request->data['ComplianceManagement']['security_service_id'] ) && is_array( $this->request->data['ComplianceManagement']['security_service_id'] ) ) {
 								foreach ( $this->request->data['ComplianceManagement']['security_service_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -63,7 +64,8 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'selected' => $selected
+							'selected' => $selected,
+							'id' => 'security_service'
 						) ); ?>
 					</div>
 				</div>
@@ -79,7 +81,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['ComplianceManagement']['security_policy_id'] ) ) {
+							if ( isset( $this->request->data['ComplianceManagement']['security_policy_id'] ) && is_array( $this->request->data['ComplianceManagement']['security_policy_id'] ) ) {
 								foreach ( $this->request->data['ComplianceManagement']['security_policy_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -103,7 +105,8 @@
 							'options' => $exceptions,
 							'label' => false,
 							'div' => false,
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'id' => 'compliance_exception'
 						) ); ?>
 					</div>
 				</div>
@@ -119,18 +122,6 @@
 						?>
 						<?php echo $this->Form->input( 'efficacy', array(
 							'options' => $percentages,
-							'label' => false,
-							'div' => false,
-							'class' => 'form-control'
-						) ); ?>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Status' ); ?>:</label>
-					<div class="col-md-10">
-						<?php echo $this->Form->input( 'compliance_status_id', array(
-							'options' => $statuses,
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'
@@ -157,3 +148,34 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	jQuery(function($) {
+		var $compliance_treatment_strategy = $("#compliance_treatment_strategy");
+		var $security_service = $("#security_service");
+		var $compliance_exception = $("#compliance_exception");
+
+		var mitigate_id = <?php echo COMPLIANCE_TREATMENT_MITIGATE; ?>;
+		var not_applicable_id = <?php echo COMPLIANCE_TREATMENT_NOT_APPLICABLE; ?>;
+		var ignore_id = <?php echo COMPLIANCE_TREATMENT_IGNORE; ?>;
+
+		$compliance_treatment_strategy.on("change", function(e) {
+			var val = parseInt( $(this).val() );
+
+			if ( val == mitigate_id ) {
+				$security_service.prop('disabled', false);
+				$compliance_exception.prop('disabled', true);
+			}
+
+			if ( val == ignore_id ) {
+				$security_service.prop('disabled', true);
+				$compliance_exception.prop('disabled', false);
+			}
+
+			if ( val == not_applicable_id ) {
+				$security_service.prop('disabled', true);
+				$compliance_exception.prop('disabled', true);
+			}
+		}).trigger("change");;
+	})
+</script>

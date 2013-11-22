@@ -71,6 +71,14 @@ CakePlugin::load('Acl', array('bootstrap' => true));
 Configure::write('CacheDbAclConfig','acl');
 Configure::write('CacheDbAclAro','User.Group');
 
+/*
+ * Moja uprava v app/Vendor/mjohnson/transit/src/Transit/Transformer/Image/ResizeTransformer.php
+ * fix pre resize pri zachovanom aspect ration, riadok 70-71, odstranenie round()
+ * 	$widthScale = round($width / $baseWidth);
+ * 	$heightScale = round($height / $baseHeight);
+ */
+CakePlugin::load('Uploader');
+
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other
  * string is passed to the inflection functions

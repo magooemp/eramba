@@ -49,16 +49,27 @@ class RiskExceptionsController extends AppController {
 			$this->RiskException->set( $this->request->data );
 
 			if ( $this->RiskException->validates() ) {
-				if ( $this->RiskException->save() ) {
+				$this->RiskException->query( 'SET autocommit = 0' );
+				$this->RiskException->begin();
+
+				$save1 = $this->RiskException->save();
+				$save2 = $this->joinSecurityPolicies( $this->request->data['RiskException']['security_policy_id'], $this->RiskException->id );
+
+				if ( $save1 && $save2 ) {
+					$this->RiskException->commit();
+
 					$this->Session->setFlash( __( 'Risk Exception was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'riskExceptions', 'action' => 'index' ) );
 				} else {
+					$this->RiskException->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
 				$this->Session->setFlash( __( 'One or more inputs you entered are invalid. Please try again.' ), FLASH_ERROR );
 			}
 		}
+
+		$this->initOptions();
 	}
 
 	public function edit( $id = null ) {
@@ -72,7 +83,7 @@ class RiskExceptionsController extends AppController {
 			'conditions' => array(
 				'RiskException.id' => $id
 			),
-			'recursive' => -1
+			'recursive' => 1
 		) );
 
 		if ( empty( $data ) ) {
@@ -88,11 +99,23 @@ class RiskExceptionsController extends AppController {
 			$this->RiskException->set( $this->request->data );
 
 			if ( $this->RiskException->validates() ) {
-				if ( $this->RiskException->save() ) {
+				$this->RiskException->query( 'SET autocommit = 0' );
+				$this->RiskException->begin();
+
+				$delete = $this->RiskException->RiskExceptionsSecurityPolicy->deleteAll( array(
+					'RiskExceptionsSecurityPolicy.risk_exception_id' => $id
+				) );
+				$save1 = $this->RiskException->save();
+				$save2 = $this->joinSecurityPolicies( $this->request->data['RiskException']['security_policy_id'], $this->RiskException->id );
+
+				if ( $delete && $save1 && $save2 ) {
+					$this->RiskException->commit();
+
 					$this->Session->setFlash( __( 'Risk Exception was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'riskExceptions', 'action' => 'index', $id ) );
 				}
 				else {
+					$this->RiskException->rollback();
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -103,7 +126,35 @@ class RiskExceptionsController extends AppController {
 			$this->request->data = $data;
 		}
 
+		$this->initOptions();
+
 		$this->render( 'add' );
+	}
+
+	private function joinSecurityPolicies( $list, $risk_exception_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $id ) {
+			$tmp = array(
+				'risk_exception_id' => $risk_exception_id,
+				'security_policy_id' => $id
+			);
+
+			$this->RiskException->RiskExceptionsSecurityPolicy->create();
+			if ( ! $this->RiskException->RiskExceptionsSecurityPolicy->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function initOptions() {
+		$security_policies = $this->getSecurityPoliciesList();
+
+		$this->set( 'security_policies', $security_policies );
 	}
 
 	private function initAddEditSubtitle() {

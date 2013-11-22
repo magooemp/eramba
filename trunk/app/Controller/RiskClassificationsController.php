@@ -37,9 +37,13 @@ class RiskClassificationsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$this->RiskClassification->delete( $id );
+		if ( $this->RiskClassification->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Risk Classification was successfully deleted.' ), FLASH_OK );
+		} else {
+			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
+		}
 
-		$this->Session->setFlash( __( 'Risk Classification was successfully deleted.' ), FLASH_OK );
+		
 		$this->redirect( array( 'controller' => 'riskClassifications', 'action' => 'index' ) );
 	}
 

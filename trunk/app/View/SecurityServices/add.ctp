@@ -78,10 +78,12 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Service Owner' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'owner', array(
+						<?php echo $this->Form->input( 'user_id', array(
+							'options' => $users,
 							'label' => false,
 							'div' => false,
-							'class' => 'form-control'
+							'class' => 'form-control',
+							'empty' => __( 'Select an owner' )
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Describe the name of the owner of this Service. The owner typically is a person, group, Etc and is fully accountable for the service maintenance, Etc.' ); ?></span>
 					</div>
@@ -98,7 +100,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['SecurityService']['security_policy_id'] ) ) {
+							if ( isset( $this->request->data['SecurityService']['security_policy_id'] ) && is_array( $this->request->data['SecurityService']['security_policy_id'] ) ) {
 								foreach ( $this->request->data['SecurityService']['security_policy_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -110,7 +112,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 					</div>
@@ -155,7 +156,31 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Audit Success Criteria' ); ?>:</label>
+					<label class="col-md-2 control-label"><?php echo __( 'Service Audit Calendar' ); ?>:</label>
+					<div class="col-md-5">
+						<div id="audit-inputs-wrapper">
+							<button class="btn add-dynamic" id="add_service_audit_calendar"><?php echo __( 'Add Date' ); ?></button>
+							<?php
+								$formKey = 0;
+								if ( isset( $data ) ) {
+									foreach ( $data['SecurityServiceAuditDate'] as $key => $audit_date ) {
+										echo $this->element( 'ajax/audit_calendar_entry', array(
+											'model' => 'SecurityService',
+											'formKey' => $key,
+											'day' => $audit_date['day'],
+											'month' => $audit_date['month']
+										) );
+										$formKey++;
+									}
+								}
+							?>
+						</div>
+						<span class="help-block"><?php echo __( 'Select the months in the year where this audit must take place. At least once a year this control should receive Audits.' ); ?></span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Maintenance Metric Description' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'maintenance_metric_description', array(
 							'type' => 'textarea',
@@ -214,7 +239,7 @@
 								}
 							}
 
-							if ( isset( $this->request->data['SecurityService']['service_contract_id'] ) ) {
+							if ( isset( $this->request->data['SecurityService']['service_contract_id'] ) && is_array( $this->request->data['SecurityService']['service_contract_id'] ) ) {
 								foreach ( $this->request->data['SecurityService']['service_contract_id'] as $entry ) {
 									$selected[] = $entry;
 								}
@@ -226,7 +251,6 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
-							'hiddenField' => false,
 							'selected' => $selected
 						) ); ?>
 						<span class="help-block"><?php echo __( 'Select all applicable Support Contracts for this Security Service.' ); ?></span>
@@ -253,3 +277,34 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	var formKey = <?php echo $formKey + 1; ?>;
+	<?php if ( ! $formKey ) : ?>
+		load_new_entry();
+	<?php endif; ?>
+	function load_new_entry() {
+		$.ajax({
+			type: "POST",
+			dataType: "html",
+			async: true,
+			url: "/securityServices/auditCalendarFormEntry",
+			data: { formKey: formKey },
+			beforeSend: function () {
+			},
+			complete: function (XMLHttpRequest, textStatus) {
+			},
+			success: function (data, textStatus) {
+				formKey++;
+				$("#audit-inputs-wrapper").append(data);	
+			}
+		});
+	}
+
+	$("#add_service_audit_calendar").on("click", function(e) {
+		e.preventDefault();
+		load_new_entry();
+	});
+});
+</script>

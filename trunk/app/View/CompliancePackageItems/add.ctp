@@ -63,6 +63,18 @@
 					</div>
 				</div>
 
+				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Audit Questionaire' ); ?>:</label>
+					<div class="col-md-10">
+						<?php echo $this->Form->input( 'audit_questionaire', array(
+							'type' => 'textarea',
+							'label' => false,
+							'div' => false,
+							'class' => 'form-control'
+						) ); ?>
+					</div>
+				</div>
+
 				<div class="form-actions">
 					<?php echo $this->Form->submit( $submit_label, array(
 						'class' => 'btn btn-primary',

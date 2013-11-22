@@ -112,6 +112,8 @@ class ComplianceManagementsController extends AppController {
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
+			//debug($this->request->data );
+			//die();
 
 			$this->ComplianceManagement->set( $this->request->data );
 
@@ -216,11 +218,6 @@ class ComplianceManagementsController extends AppController {
 			'recursive' => -1
 		));
 
-		$statuses = $this->ComplianceManagement->ComplianceStatus->find('list', array(
-			'order' => array('ComplianceStatus.name' => 'ASC'),
-			'recursive' => -1
-		));
-
 		$exceptions = $this->ComplianceManagement->ComplianceException->find('list', array(
 			'order' => array('ComplianceException.title' => 'ASC'),
 			'recursive' => -1
@@ -243,7 +240,6 @@ class ComplianceManagementsController extends AppController {
 		));
 
 		$this->set( 'strategies', $strategies );
-		$this->set( 'statuses', $statuses );
 		$this->set( 'exceptions', $exceptions );
 		$this->set( 'security_services', $security_services );
 		$this->set( 'security_policies', $security_policies );

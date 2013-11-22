@@ -10,9 +10,15 @@ class BusinessContinuityPlansController extends AppController {
 		$this->paginate = array(
 			'conditions' => array(
 			),
+			'contain' => array(
+				'BusinessContinuityTask' => array(
+					'fields' => array( 'id', 'step', 'when', 'who', 'does', 'where', 'how' ),
+					'order' => 'BusinessContinuityTask.step ASC' 
+				)
+			),
 			'fields' => array(
-				//'BusinessUnit.id',
-				//'BusinessUnit.name'
+				'BusinessContinuityPlan.id',
+				'BusinessContinuityPlan.title'
 			),
 			'order' => array( 'BusinessContinuityPlan.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),
@@ -33,10 +39,20 @@ class BusinessContinuityPlansController extends AppController {
 			$this->BusinessContinuityPlan->set( $this->request->data );
 
 			if ( $this->BusinessContinuityPlan->validates() ) {
-				if ( $this->BusinessContinuityPlan->save() ) {
+				$this->BusinessContinuityPlan->query( 'SET autocommit = 0' );
+				$this->BusinessContinuityPlan->begin();
+
+				$save1 = $this->BusinessContinuityPlan->save();
+				$save2 = $this->saveAuditDates( $this->request->data['BusinessContinuityPlan']['audit_calendar'], $bcm_id );
+				$save3 = $this->saveAudits( $this->request->data['BusinessContinuityPlan']['audit_calendar'], $bcm_id );
+				if ( $save1 && $save2 && $save3 ) {
+					$this->BusinessContinuityPlan->commit();
+
 					$this->Session->setFlash( __( 'Business Continuity Plan was successfully added.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'businessContinuityPlans', 'action' => 'index' ) );
 				} else {
+					$this->BusinessContinuityPlan->rollback();
+
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -74,12 +90,28 @@ class BusinessContinuityPlansController extends AppController {
 			$this->BusinessContinuityPlan->set( $this->request->data );
 
 			if ( $this->BusinessContinuityPlan->validates() ) {
+				$this->BusinessContinuityPlan->query( 'SET autocommit = 0' );
+				$this->BusinessContinuityPlan->begin();
+
+				$save1 = $this->BusinessContinuityPlan->save();
+				$bcm_id = $this->BusinessContinuityPlan->id;
+
+				$delete1 = $this->BusinessContinuityPlan->BusinessContinuityPlanAuditDate->deleteAll( array(
+					'BusinessContinuityPlanAuditDate.business_continuity_plan_id' => $id
+				) );
+
+				$save2 = $this->saveAuditDates( $this->request->data['BusinessContinuityPlan']['audit_calendar'], $bcm_id );
+				$save3 = $this->saveAudits( $this->request->data['BusinessContinuityPlan']['audit_calendar'], $bcm_id );
 				
-				if ( $this->BusinessContinuityPlan->save() ) {
+				if ( $delete1 && $save1 && $save2 && $save3 ) {
+					$this->BusinessContinuityPlan->commit();
+
 					$this->Session->setFlash( __( 'Business Continuity Plan was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'businessContinuityPlans', 'action' => 'index', $id ) );
 				}
 				else {
+					$this->BusinessContinuityPlan->rollback();
+
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
 			} else {
@@ -94,6 +126,41 @@ class BusinessContinuityPlansController extends AppController {
 		$this->render( 'add' );
 	}
 
+	private function saveAuditDates( $list, $bcm_id ) {
+		foreach ( $list as $date ) {
+			$tmp = array(
+				'business_continuity_plan_id' => $bcm_id,
+				'day' => $date['day'],
+				'month' => $date['month']
+			);
+
+			$this->BusinessContinuityPlan->BusinessContinuityPlanAuditDate->create();
+			if ( ! $this->BusinessContinuityPlan->BusinessContinuityPlanAuditDate->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function saveAudits( $list, $bcm_id ) {
+		foreach ( $list as $date ) {
+			$tmp = array(
+				'business_continuity_plan_id' => $bcm_id,
+				'planned_date' =>  date('Y') . '-' . $date['month'] . '-' . $date['day'],
+				'audit_metric_description' => $this->request->data['BusinessContinuityPlan']['audit_metric_description'],
+				'audit_success_criteria' => $this->request->data['BusinessContinuityPlan']['audit_success_criteria'],
+			);
+
+			$this->BusinessContinuityPlan->BusinessContinuityPlanAudit->create();
+			if ( ! $this->BusinessContinuityPlan->BusinessContinuityPlanAudit->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	private function initOptions() {
 		$types = $this->BusinessContinuityPlan->SecurityServiceType->find('list', array(
 			'order' => array('SecurityServiceType.name' => 'ASC'),
@@ -101,6 +168,19 @@ class BusinessContinuityPlansController extends AppController {
 		));
 		
 		$this->set( 'types', $types );
+	}
+
+	public function auditCalendarFormEntry() {
+		if ( ! $this->request->is( 'ajax' ) ) {
+			exit;
+		}
+
+		$data = $this->request->data;
+
+		$this->set( 'formKey', $data['formKey'] );
+		$this->set( 'model', 'BusinessContinuityPlan' );
+
+		$this->render( '/Elements/ajax/audit_calendar_entry' );
 	}
 
 	private function initAddEditSubtitle() {

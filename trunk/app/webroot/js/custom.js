@@ -72,7 +72,12 @@ $(document).ready(function(){
 		$('#sidebar .notifications.demo-slide-in > li:eq(0)').slideDown(500);
 	}, 7000);
 
-
+	$( ".datepicker" ).datepicker({
+		defaultDate: +7,
+		showOtherMonths:true,
+		autoSize: true,
+		dateFormat: 'dd-mm-yy'
+	});
 
 	$(".button-prompt-remove").on("click", function(e) {
 		var r = confirm( "Are you sure you want to delete this record?" );
@@ -85,3 +90,7 @@ $(document).ready(function(){
 	});
 
 });
+
+function removeParent(ele) {
+	$(ele).parent().remove();
+}

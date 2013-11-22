@@ -20,7 +20,8 @@ class ThirdParty extends AppModel {
 
 	public $hasMany = array(
 		'ServiceContract' => array(),
-		'CompliancePackage' => array()
+		'CompliancePackage' => array(),
+		'ComplianceAudit' => array()
 	);
 }
 ?>

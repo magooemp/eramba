@@ -179,8 +179,11 @@ class PolicyExceptionsController extends AppController {
 			'recursive' => -1
 		));
 
+		$users = $this->getUsersList();
+
 		$this->set( 'statuses', $statuses );
 		$this->set( 'security_policies', $security_policies );
+		$this->set( 'users', $users );
 	}
 
 	private function initAddEditSubtitle() {

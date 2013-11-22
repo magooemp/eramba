@@ -99,7 +99,7 @@
 					) ); ?>
 					&nbsp;
 					<?php echo $this->Html->link( __( 'Cancel' ), array(
-						'controller' => 'businessUnits',
+						'controller' => 'serviceContracts',
 						'action' => 'index'
 					), array(
 						'class' => 'btn btn-inverse'

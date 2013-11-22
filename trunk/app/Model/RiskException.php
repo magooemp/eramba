@@ -11,5 +11,9 @@ class RiskException extends AppModel {
 			'required' => true
 		)
 	);
+
+	public $hasAndBelongsToMany = array(
+		'SecurityPolicy' => array()
+	);
 }
 ?>

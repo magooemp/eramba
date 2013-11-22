@@ -49,7 +49,8 @@ class ThirdPartyRisk extends AppModel {
 
 	public $belongsTo = array(
 		'RiskClassification' => array(),
-		'RiskMitigationStrategy' => array()
+		'RiskMitigationStrategy' => array(),
+		'User' => array()
 	);
 
 	public $hasAndBelongsToMany = array(
