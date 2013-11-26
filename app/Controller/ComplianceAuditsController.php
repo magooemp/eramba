@@ -7,26 +7,54 @@ class ComplianceAuditsController extends AppController {
 		$this->set( 'title_for_layout', __( 'Audit Calendar' ) );
 		$this->set( 'subtitle_for_layout', __( 'Keeping tidy a calendar of Audits is helpful for prepation and planning. In this section you can keep track all audit findings (non-compliances) in order to work on their mitigation plans.' ) );
 
-		$this->loadModel( 'ThirdParty' );
+		//$this->loadModel( 'ThirdParty' );
 		$this->paginate = array(
 			'conditions' => array(
 			),
-			'contain' => array(
+			/*'contain' => array(
 				'ComplianceAudit' => array(
 					'ComplianceFinding' => array()
 				)
-			),
+			),*/
 			'fields' => array(
 			),
-			'order' => array('ThirdParty.id' => 'ASC'),
+			'order' => array('ComplianceAudit.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
 			'recursive' => 2
 		);
 
-		$data = $this->paginate( 'ThirdParty' );
+		$data = $this->paginate( 'ComplianceAudit' );
 		$this->set( 'data', $data );
 
 		//debug( $data );
+		//die();
+	}
+
+	public function analyze( $tp_id = null, $audit_id = null ) {
+		$this->loadModel( 'ThirdParty' );
+
+		$data = $this->ThirdParty->find( 'first', array(
+			'conditions' => array(
+				'ThirdParty.id' => $tp_id
+			),
+			'fields' => array( 'ThirdParty.id', 'ThirdParty.name' ),
+			'contain' => array(
+				'CompliancePackage' => array(
+					'CompliancePackageItem' => array(
+						'ComplianceManagement' => array()
+					)
+				)
+			),
+			'recursive' => 2
+		) );
+
+		if ( empty( $data ) ) {
+			throw new NotFoundException();
+		}
+
+		$this->set( 'title_for_layout', __( 'Compliance Management:' ) . ' ' . $data['ThirdParty']['name'] );
+		$this->set( 'data', $data );
+		$this->set( 'audit_id', $audit_id );
 	}
 
 	public function delete( $id = null ) {

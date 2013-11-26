@@ -166,13 +166,39 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Risk Classification' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'risk_classification_id', array(
-							'options' => $types,
-							'label' => false,
-							'div' => false,
-							'class' => 'form-control'
-						) ); ?>
-						<span class="help-block"><?php echo __( 'Based on the Classification Scheme you have previously defined, classify this Risk.' ); ?></span>
+						<?php
+						foreach ( $classifications as $classification_type ) :
+							$options = array();
+							$options_ids = array();
+							if ( empty( $classification_type['RiskClassification'] ) )
+								continue;
+
+							foreach ( $classification_type['RiskClassification'] as $risk_classification ) {
+								$options[ $risk_classification['id'] ] = $risk_classification['name'];
+								$options_ids[] = $risk_classification['id'];
+							}
+
+							$selected = null;
+							if ( isset( $this->request->data['RiskClassification'] ) ) {
+								foreach ( $this->request->data['RiskClassification'] as $ac ) {
+									if ( in_array( $ac['id'], $options_ids ) ) {
+										$selected = $ac['id'];
+									}
+								}
+							}
+
+							echo $this->Form->input( 'risk_classification_id][', array(
+								'options' => $options,
+								'label' => false,
+								'div' => false,
+								'style' => 'margin-bottom:5px;',
+								'empty' => __( 'Classification' ) . ': ' . $classification_type['RiskClassificationType']['name'],
+								'class' => 'form-control',
+								'selected' => $selected
+							) );
+						endforeach;
+						?>
+						<span class="help-block"><?php echo __( 'Use the previously defined asset classification criterias and choose the appropiate classification profile for this asset.' ); ?></span>
 					</div>
 				</div>
 
@@ -213,6 +239,7 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
+							'hiddenField' => false,
 							'id' => 'compensating_controls',
 							'selected' => $selected
 						) ); ?>
@@ -255,6 +282,7 @@
 							'div' => false,
 							'class' => 'select2 col-md-12 full-width-fix select2-offscreen',
 							'multiple' => true,
+							'hiddenField' => false,
 							'id' => 'risk_exceptions',
 							'selected' => $selected
 						) ); ?>
