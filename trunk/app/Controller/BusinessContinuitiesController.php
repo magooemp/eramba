@@ -67,8 +67,9 @@ class BusinessContinuitiesController extends AppController {
 				} else {
 					$save6 = true;
 				}
+				$save7 = $this->joinRiskClassifications( $this->request->data['BusinessContinuity']['risk_classification_id'], $this->BusinessContinuity->id );
 
-				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 ) {
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
 					$this->BusinessContinuity->commit();				
 	
 					$this->Session->setFlash( __( 'Business Continuity was successfully added.' ), FLASH_OK );
@@ -131,7 +132,9 @@ class BusinessContinuitiesController extends AppController {
 				} else {
 					$save6 = true;
 				}
-				if ( $delete && $save1 && $save2 && $save3 && $save4 && $save5 && $save6 ) {
+				$save7 = $this->joinRiskClassifications( $this->request->data['BusinessContinuity']['risk_classification_id'], $this->BusinessContinuity->id );
+
+				if ( $delete && $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
 					$this->BusinessContinuity->commit();
 
 					$this->Session->setFlash( __( 'Business Continuity was successfully edited.' ), FLASH_OK );
@@ -260,6 +263,28 @@ class BusinessContinuitiesController extends AppController {
 		return true;
 	}
 
+	private function joinRiskClassifications( $list, $business_continuity_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $risk_classification_id ) {
+			if ( ! $risk_classification_id )
+				continue;
+
+			$tmp = array(
+				'business_continuity_id' => $business_continuity_id,
+				'risk_classification_id' => $risk_classification_id
+			);
+
+			$this->BusinessContinuity->BusinessContinuitiesRiskClassification->create();
+			if ( ! $this->BusinessContinuity->BusinessContinuitiesRiskClassification->save( $tmp ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/**
 	 * Delete all many to many joins in related tables.
 	 * @param  integer $id Risk ID
@@ -285,7 +310,11 @@ class BusinessContinuitiesController extends AppController {
 			'BusinessContinuitiesRiskException.business_continuity_id' => $id
 		) );
 
-		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 ) {
+		$delete6 = $this->BusinessContinuity->BusinessContinuitiesRiskClassification->deleteAll( array(
+			'BusinessContinuitiesRiskClassification.business_continuity_id' => $id
+		) );
+
+		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 && $delete6 ) {
 			return true;
 		}
 
@@ -296,9 +325,10 @@ class BusinessContinuitiesController extends AppController {
 	 * Initialize options for join elements.
 	 */
 	private function initOptions() {
-		$types = $this->BusinessContinuity->RiskClassification->find('list', array(
-			'order' => array('RiskClassification.name' => 'ASC'),
-			'recursive' => -1
+		$this->loadModel( 'RiskClassificationType' );
+		$classifications = $this->RiskClassificationType->find('all', array(
+			'order' => array('RiskClassificationType.name' => 'ASC'),
+			'recursive' => 1
 		));
 
 		$strategies = $this->BusinessContinuity->RiskMitigationStrategy->find('list', array(
@@ -354,7 +384,7 @@ class BusinessContinuitiesController extends AppController {
 
 		$users = $this->getUsersList();
 
-		$this->set( 'types', $types );
+		$this->set( 'classifications', $classifications );
 		$this->set( 'strategies', $strategies );
 		$this->set( 'business_units', $business_units );
 		$this->set( 'threats', $threats );

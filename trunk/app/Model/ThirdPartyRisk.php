@@ -18,10 +18,6 @@ class ThirdPartyRisk extends AppModel {
 		'vulnerability_id' => array(
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
 		),
-		'risk_classification_id' => array(
-			'rule' => 'notEmpty',
-			'required' => true
-		),
 		'risk_mitigation_strategy_id' => array(
 			'rule' => 'notEmpty',
 			'required' => true
@@ -36,10 +32,9 @@ class ThirdPartyRisk extends AppModel {
 		'risk_exception_id' => array(
 			'rule' => array( 'multiple', array( 'min' => 1 ) )
 		),
-		'owner' => array(
+		'user_id' => array(
 			'rule' => 'notEmpty',
-			'required' => true,
-			'allowEmpty' => false
+			'required' => true
 		),
 		'review' => array(
 			'rule' => 'date',
@@ -48,7 +43,6 @@ class ThirdPartyRisk extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'RiskClassification' => array(),
 		'RiskMitigationStrategy' => array(),
 		'User' => array()
 	);
@@ -59,7 +53,8 @@ class ThirdPartyRisk extends AppModel {
 		'Threat' => array(),
 		'Vulnerability' => array(),
 		'SecurityService' => array(),
-		'RiskException' => array()
+		'RiskException' => array(),
+		'RiskClassification' => array()
 	);
 }
 ?>

@@ -75,7 +75,7 @@
 				<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
 			<?php else : ?>
 				<?php echo $this->element( 'not_found', array(
-					'message' => __( 'No Legal Constrains found.' )
+					'message' => __( 'No Third Parties found.' )
 				) ); ?>
 			<?php endif; ?>
 

@@ -68,7 +68,9 @@ class RisksController extends AppController {
 					$save6 = true;
 				}
 
-				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 ) {
+				$save7 = $this->joinRiskClassifications( $this->request->data['Risk']['risk_classification_id'], $this->Risk->id );
+
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
 					$this->Risk->commit();
 
 					$this->Session->setFlash( __( 'Risk was successfully added.' ), FLASH_OK );
@@ -123,7 +125,7 @@ class RisksController extends AppController {
 				if ( isset( $this->request->data['Risk']['security_service_id'] ) ) {
 					$save5 = $this->joinRisksSecurityServices( $this->request->data['Risk']['security_service_id'], $this->Risk->id );
 				} else {
-					$save6 = true;
+					$save5 = true;
 				}
 
 				if ( isset( $this->request->data['Risk']['risk_exception_id'] ) ) {
@@ -132,7 +134,9 @@ class RisksController extends AppController {
 					$save6 = true;
 				}
 
-				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $delete ) {
+				$save7 = $this->joinRiskClassifications( $this->request->data['Risk']['risk_classification_id'], $this->Risk->id );
+
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 && $delete ) {
 					$this->Risk->commit();
 
 					$this->Session->setFlash( __( 'Risk was successfully edited.' ), FLASH_OK );
@@ -260,6 +264,28 @@ class RisksController extends AppController {
 		return true;
 	}
 
+	private function joinRiskClassifications( $list, $risk_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $risk_classification_id ) {
+			if ( ! $risk_classification_id )
+				continue;
+
+			$tmp = array(
+				'risk_id' => $risk_id,
+				'risk_classification_id' => $risk_classification_id
+			);
+
+			$this->Risk->RiskClassificationsRisk->create();
+			if ( ! $this->Risk->RiskClassificationsRisk->save( $tmp ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/**
 	 * Delete all many to many joins in related tables.
 	 * @param  integer $id Risk ID
@@ -285,7 +311,11 @@ class RisksController extends AppController {
 			'RiskExceptionsRisk.risk_id' => $id
 		) );
 
-		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 ) {
+		$delete6 = $this->Risk->RiskClassificationsRisk->deleteAll( array(
+			'RiskClassificationsRisk.risk_id' => $id
+		) );
+
+		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 && $delete6 ) {
 			return true;
 		}
 
@@ -296,9 +326,10 @@ class RisksController extends AppController {
 	 * Initialize options for join elements.
 	 */
 	private function initOptions() {
-		$types = $this->Risk->RiskClassification->find('list', array(
-			'order' => array('RiskClassification.name' => 'ASC'),
-			'recursive' => -1
+		$this->loadModel( 'RiskClassificationType' );
+		$classifications = $this->RiskClassificationType->find('all', array(
+			'order' => array('RiskClassificationType.name' => 'ASC'),
+			'recursive' => 1
 		));
 
 		$strategies = $this->Risk->RiskMitigationStrategy->find('list', array(
@@ -354,7 +385,7 @@ class RisksController extends AppController {
 
 		$users = $this->getUsersList();
 
-		$this->set( 'types', $types );
+		$this->set( 'classifications', $classifications );
 		$this->set( 'strategies', $strategies );
 		$this->set( 'assets', $assets );
 		$this->set( 'threats', $threats );

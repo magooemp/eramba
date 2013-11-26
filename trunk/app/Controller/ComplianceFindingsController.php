@@ -26,10 +26,10 @@ class ComplianceFindingsController extends AppController {
 		//debug( $data );
 	}
 
-	/*public function delete( $id = null ) {
-		$data = $this->ComplianceAudit->find( 'count', array(
+	public function delete( $id = null ) {
+		$data = $this->ComplianceFinding->find( 'count', array(
 			'conditions' => array(
-				'ComplianceAudit.id' => $id
+				'ComplianceFinding.id' => $id
 			)
 		) );
 
@@ -37,16 +37,16 @@ class ComplianceFindingsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		if ( $this->ComplianceAudit->delete( $id ) ) {
-			$this->Session->setFlash( __( 'Compliance Audit was successfully deleted.' ), FLASH_OK );
+		if ( $this->ComplianceFinding->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Compliance Finding was successfully deleted.' ), FLASH_OK );
 		} else {
 			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
 		}
 
 		$this->redirect( array( 'controller' => 'complianceAudits', 'action' => 'index' ) );
-	}*/
+	}
 
-	public function add( $compliance_audit_id = null ) {
+	public function add( $compliance_audit_id = null, $compliance_package_item_id = null ) {
 		$this->set( 'title_for_layout', __( 'Create a Compliance Audit' ) );
 		$this->initAddEditSubtitle();
 		
@@ -58,7 +58,7 @@ class ComplianceFindingsController extends AppController {
 			if ( $this->ComplianceFinding->validates() ) {
 				if ( $this->ComplianceFinding->save() ) {
 					$this->Session->setFlash( __( 'Compliance Finding was successfully added.' ), FLASH_OK );
-					$this->redirect( array( 'controller' => 'complianceFindings', 'action' => 'index', $compliance_audit_id ) );
+					$this->redirect( array( 'controller' => 'complianceAudits', 'action' => 'index' ) );
 				} else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
 				}
@@ -68,6 +68,8 @@ class ComplianceFindingsController extends AppController {
 		}
 
 		$this->set( 'compliance_audit_id', $compliance_audit_id );
+		$this->set( 'compliance_package_item_id', $compliance_package_item_id );
+		$this->set( 'compliance_package_item_name', $this->getCompliancePackageItemName( $compliance_package_item_id ) );
 
 		$this->initOptions();
 	}
@@ -90,9 +92,6 @@ class ComplianceFindingsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		$compliance_audit_id = $data['ComplianceFinding']['compliance_audit_id'];
-		$this->set( 'compliance_audit_id', $compliance_audit_id );
-
 		$this->set( 'edit', true );
 		$this->set( 'title_for_layout', __( 'Edit a Compliance Audit' ) );
 		$this->initAddEditSubtitle();
@@ -104,7 +103,7 @@ class ComplianceFindingsController extends AppController {
 			if ( $this->ComplianceFinding->validates() ) {
 				if ( $this->ComplianceFinding->save() ) {
 					$this->Session->setFlash( __( 'Compliance Finding was successfully edited.' ), FLASH_OK );
-					$this->redirect( array( 'controller' => 'complianceFindings', 'action' => 'index', $compliance_audit_id ) );
+					$this->redirect( array( 'controller' => 'complianceAudits', 'action' => 'index' ) );
 				}
 				else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
@@ -117,9 +116,32 @@ class ComplianceFindingsController extends AppController {
 			$this->request->data = $data;
 		}
 
+		$compliance_audit_id = $data['ComplianceFinding']['compliance_audit_id'];
+		$compliance_package_item_id = $data['ComplianceFinding']['compliance_package_item_id'];
+		$this->set( 'compliance_audit_id', $compliance_audit_id );
+		$this->set( 'compliance_package_item_id', $compliance_package_item_id );
+		$this->set( 'compliance_package_item_name', $this->getCompliancePackageItemName( $compliance_package_item_id ) );
+
 		$this->initOptions();
 
 		$this->render( 'add' );
+	}
+
+	private function getCompliancePackageItemName( $id = null ) {
+		if ( $id == null ) {
+			return false;
+		}
+		$id = (int) $id;
+
+		$this->loadModel('CompliancePackageItem');
+		$data = $this->CompliancePackageItem->find('first', array(
+			'conditions' => array(
+				'CompliancePackageItem.id' => $id
+			),
+			'fields' => array( 'CompliancePackageItem.name' )
+		) );
+
+		return $data['CompliancePackageItem']['name'];
 	}
 
 	private function initOptions() {

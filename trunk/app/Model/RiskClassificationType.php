@@ -6,5 +6,9 @@ class RiskClassificationType extends AppModel {
 			'required' => true
 		)
 	);
+
+	public $hasMany = array(
+		'RiskClassification' => array()
+	);
 }
 ?>

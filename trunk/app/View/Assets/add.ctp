@@ -174,18 +174,26 @@
 						foreach ( $classifications as $classification_type ) :
 							$options = array();
 							$options_ids = array();
+
+							if ( empty( $classification_type['AssetClassification'] ) ) {
+								continue;
+							}
+
 							foreach ( $classification_type['AssetClassification'] as $asset_classification ) {
 								$options[ $asset_classification['id'] ] = $asset_classification['name'];
 								$options_ids[] = $asset_classification['id'];
 							}
 
 							$selected = null;
-							foreach ( $this->request->data['AssetClassification'] as $ac ) {
-								if ( in_array( $ac['id'], $options_ids ) ) {
-									$selected = $ac['id'];
+
+							if ( isset( $this->request->data['AssetClassification'] ) ) {
+								foreach ( $this->request->data['AssetClassification'] as $ac ) {
+									if ( in_array( $ac['id'], $options_ids ) ) {
+										$selected = $ac['id'];
+									}
 								}
 							}
-
+							
 							echo $this->Form->input( 'asset_classification_id][', array(
 								'options' => $options,
 								'label' => false,

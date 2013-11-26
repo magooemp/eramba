@@ -28,7 +28,25 @@
 					'value' => $compliance_audit_id
 				) ); ?>
 
+				<?php echo $this->Form->input( 'compliance_package_item_id', array(
+					'type' => 'hidden',
+					'value' => $compliance_package_item_id
+				) ); ?>
+				
 				<div class="form-group form-group-first">
+					<label class="col-md-2 control-label"><?php echo __( 'Compliance Package Item' ); ?>:</label>
+					<div class="col-md-10">
+						<?php echo $this->Form->input( 'null', array(
+							'label' => false,
+							'div' => false,
+							'class' => 'form-control',
+							'disabled' => true,
+							'value' => $compliance_package_item_name
+						) ); ?>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Title' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'title', array(
@@ -82,6 +100,7 @@
 					) ); ?>
 					&nbsp;
 					<?php echo $this->Html->link( __( 'Cancel' ), array(
+						'controller' => 'complianceAudits',
 						'action' => 'index'
 					), array(
 						'class' => 'btn btn-inverse'

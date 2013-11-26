@@ -68,8 +68,9 @@ class ThirdPartyRisksController extends AppController {
 				} else {
 					$save7 = true;
 				}
+				$save8 = $this->joinRiskClassifications( $this->request->data['ThirdPartyRisk']['risk_classification_id'], $this->ThirdPartyRisk->id );
 
-				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 && $save8 ) {
 					$this->ThirdPartyRisk->commit();
 
 					$this->Session->setFlash( __( 'Third Party Risk was successfully added.' ), FLASH_OK );
@@ -134,7 +135,9 @@ class ThirdPartyRisksController extends AppController {
 					$save7 = true;
 				}
 
-				if ( $delete && $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
+				$save8 = $this->joinRiskClassifications( $this->request->data['ThirdPartyRisk']['risk_classification_id'], $this->ThirdPartyRisk->id );
+
+				if ( $delete && $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 && $save8 ) {
 					$this->ThirdPartyRisk->commit();
 
 					$this->Session->setFlash( __( 'Third Party Risk was successfully edited.' ), FLASH_OK );
@@ -283,6 +286,28 @@ class ThirdPartyRisksController extends AppController {
 		}
 	}
 
+	private function joinRiskClassifications( $list, $risk_id ) {
+		if ( ! is_array( $list ) ) {
+			return true;
+		}
+		
+		foreach ( $list as $risk_classification_id ) {
+			if ( ! $risk_classification_id )
+				continue;
+
+			$tmp = array(
+				'third_party_risk_id' => $risk_id,
+				'risk_classification_id' => $risk_classification_id
+			);
+
+			$this->ThirdPartyRisk->RiskClassificationsThirdPartyRisk->create();
+			if ( ! $this->ThirdPartyRisk->RiskClassificationsThirdPartyRisk->save( $tmp ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/**
 	 * Delete all many to many joins in related tables.
 	 * @param  integer $id Risk ID
@@ -312,6 +337,10 @@ class ThirdPartyRisksController extends AppController {
 			'RiskExceptionsThirdPartyRisk.third_party_risk_id' => $id
 		) );
 
+		$delete7 = $this->ThirdPartyRisk->RiskClassificationsThirdPartyRisk->deleteAll( array(
+			'RiskClassificationsThirdPartyRisk.third_party_risk_id' => $id
+		) );
+
 		if ( $delete1 && $delete2 && $delete3 && $delete4 && $delete5 && $delete6 ) {
 			return true;
 		}
@@ -323,9 +352,10 @@ class ThirdPartyRisksController extends AppController {
 	 * Initialize options for join elements.
 	 */
 	private function initOptions() {
-		$types = $this->ThirdPartyRisk->RiskClassification->find('list', array(
-			'order' => array('RiskClassification.name' => 'ASC'),
-			'recursive' => -1
+		$this->loadModel( 'RiskClassificationType' );
+		$classifications = $this->RiskClassificationType->find('all', array(
+			'order' => array('RiskClassificationType.name' => 'ASC'),
+			'recursive' => 1
 		));
 
 		$strategies = $this->ThirdPartyRisk->RiskMitigationStrategy->find('list', array(
@@ -386,7 +416,7 @@ class ThirdPartyRisksController extends AppController {
 
 		$users = $this->getUsersList();
 
-		$this->set( 'types', $types );
+		$this->set( 'classifications', $classifications );
 		$this->set( 'strategies', $strategies );
 		$this->set( 'third_parties', $third_parties );
 		$this->set( 'assets', $assets );
