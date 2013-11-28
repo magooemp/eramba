@@ -19,50 +19,216 @@
 				</div>
 			</div>
 		</div>
-		<div class="widget">
-			<?php if ( ! empty( $data ) ) : ?>
-				<table class="table table-hover table-striped table-bordered table-highlight-head">
-					<thead>
-						<tr>
-							<th><?php echo $this->Paginator->sort( 'SecurityService.name', __( 'Name' ) ); ?></th>
-							<th><?php echo $this->Paginator->sort( 'SecurityService.objective', __( 'Objective' ) ); ?></th>
-							<th class="align-center"><?php echo __( 'Action' ); ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ( $data as $entry ) : ?>
-							<tr>
-								<td><?php echo $entry['SecurityService']['name']; ?></td>
-								<td><?php echo $entry['SecurityService']['objective']; ?></td>
-								<td class="align-center">
-									<?php echo $this->element( 'action_buttons', array( 
-										'id' => $entry['SecurityService']['id'],
-										'controller' => 'securityServices'
-									) ); ?>
 
-									<?php echo $this->Html->link( '<i class="icon-search"></i>', array(
+		<?php if ( ! empty( $data ) ) : ?>
+			<?php foreach ( $data as $entry ) : ?>
+				<div class="widget box widget-closed">
+					<div class="widget-header">
+						<h4><?php echo $entry['SecurityService']['name']; ?></h4>
+						<div class="toolbar no-padding">
+							<div class="btn-group">
+								<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
+								<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+									<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
+								</span>
+								<ul class="dropdown-menu pull-right">
+									<li><?php echo $this->Html->link( '<i class="icon-pencil"></i> ' . __( 'Edit' ), array(
+										'controller' => 'securityServices',
+										'action' => 'edit',
+										$entry['SecurityService']['id']
+									), array(
+										'escape' => false
+									) ); ?></li>
+									<li><?php echo $this->Html->link( '<i class="icon-trash"></i> ' . __( 'Delete' ), array(
+										'controller' => 'securityServices',
+										'action' => 'delete',
+										$entry['SecurityService']['id']
+									), array(
+										'escape' => false
+									) ); ?></li>
+									<li><?php echo $this->Html->link( '<i class="icon-search"></i> ' . __( 'Audits' ), array(
 										'controller' => 'securityServiceAudits',
 										'action' => 'index',
 										$entry['SecurityService']['id']
 									), array(
-										'class' => 'bs-tooltip',
-										'escape' => false,
-										'title' => __( 'audits' )
+										'escape' => false
+									) ); ?></li>
+									<li><?php echo $this->Html->link( '<i class="icon-search"></i> ' . __( 'Maintenances' ), array(
+										'controller' => 'securityServiceMaintenances',
+										'action' => 'index',
+										$entry['SecurityService']['id']
+									), array(
+										'escape' => false
+									) ); ?></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="widget-content" style="display:none;">
+						
+						<table class="table table-hover table-striped table-bordered table-highlight-head">
+							<thead>
+								<tr>
+									<th><?php echo __( 'Classification' ); ?></th>
+									<th><?php echo __( 'Status' ); ?></th>
+									<th><?php echo __( 'Owner' ); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo $entry['ServiceClassification']['name']; ?></td>
+									<td><?php echo $entry['SecurityServiceType']['name']; ?></td>
+									<td><?php echo $entry['User']['name'] . ' ' . $entry['User']['surname']; ?></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table class="table table-hover table-striped table-bordered table-highlight-head">
+							<thead>
+								<tr>
+									<th><?php echo __( 'Opex' ); ?></th>
+									<th><?php echo __( 'Capex' ); ?></th>
+									<th><?php echo __( 'Resource Utilization' ); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo CakeNumber::currency( $entry['SecurityService']['opex'] ); ?></td>
+									<td><?php echo CakeNumber::currency( $entry['SecurityService']['capex'] ); ?></td>
+									<td><?php echo $entry['SecurityService']['resource_utilization']; ?></td>
+								</th>
+							</tbody>
+						</table>
+
+						<table class="table table-hover table-striped table-bordered table-highlight-head">
+							<thead>
+								<tr>
+									<th><?php echo __( 'Objective' ); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo $entry['SecurityService']['objective']; ?></td>
+								</th>
+							</tbody>
+						</table>
+
+						<table class="table table-hover table-striped table-bordered table-highlight-head">
+							<thead>
+								<tr>
+									<th><?php echo __( 'URL' ); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo $entry['SecurityService']['documentation_url']; ?></td>
+								</th>
+							</tbody>
+						</table>
+
+						<div class="widget box widget-closed">
+							<div class="widget-header">
+								<h4><?php echo __( 'Security Policies Items' ); ?></h4>
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="widget-content" style="display:none;">
+								<?php if ( ! empty( $entry['SecurityPolicy'] ) ) : ?>
+									<table class="table table-hover table-striped">
+										<thead>
+											<tr>
+												<th><?php echo __( 'Name' ); ?></th>
+												<th><?php echo __( 'Description' ); ?></th>
+												<th><?php echo __( 'Status' ); ?></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php foreach ( $entry['SecurityPolicy'] as $securityPolicy ) : ?>
+											<tr>
+												<td><?php echo $securityPolicy['index']; ?></td>
+												<td><?php echo $securityPolicy['description']; ?></td>
+												<?php
+												$statuses = array(
+													0 => __( 'Draft' ),
+													1 => __( 'Released' )
+												);
+												?>
+												<td><?php echo $statuses[ $securityPolicy['status'] ]; ?></td>
+											</tr>
+											<?php endforeach ; ?>
+										</tbody>
+									</table>
+								<?php else : ?>
+									<?php echo $this->element( 'not_found', array(
+										'message' => __( 'No Security Policies found.' )
 									) ); ?>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
+								<?php endif; ?>
+							</div>
+						</div>
 
-				<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
-			<?php else : ?>
-				<?php echo $this->element( 'not_found', array(
-					'message' => __( 'No Security Services found.' )
-				) ); ?>
-			<?php endif; ?>
+						<table class="table table-hover table-striped table-bordered table-highlight-head">
+							<thead>
+								<tr>
+									<th><?php echo __( 'Audit Metric' ); ?></th>
+									<th><?php echo __( 'Audit Success Criteria' ); ?></th>
+									<th><?php echo __( 'Audit Status' ); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo $entry['SecurityService']['audit_metric_description']; ?></td>
+									<td><?php echo $entry['SecurityService']['audit_success_criteria']; ?></td>
+									<?php
+									$is_audit_ok = true;
+									foreach ( $entry['SecurityServiceAudit'] as $audit ) {
+										if ( ! $audit['result'] ) {
+											$is_audit_ok = false;
+										}
+									}
+									?>
+									<td><?php echo $is_audit_ok ? __( 'Ok' ) : __( 'Not Ok' ); ?></td>
+								</th>
+							</tbody>
+						</table>
 
-		</div>
+						<table class="table table-hover table-striped table-bordered table-highlight-head">
+							<thead>
+								<tr>
+									<th><?php echo __( 'Maintenance Metric' ); ?></th>
+									<th><?php echo __( 'Maintenance Status' ); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><?php echo $entry['SecurityService']['maintenance_metric_description']; ?></td>
+									<?php
+									$is_maintenance_ok = true;
+									foreach ( $entry['SecurityServiceMaintenance'] as $maintenance ) {
+										if ( ! $maintenance['result'] ) {
+											$is_maintenance_ok = false;
+										}
+									}
+									?>
+									<td><?php echo $is_maintenance_ok ? __( 'Ok' ) : __( 'Not Ok' ); ?></td>
+								</th>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+
+			<?php endforeach; ?>
+
+			<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
+		<?php else : ?>
+			<?php echo $this->element( 'not_found', array(
+				'message' => __( 'No Security Services found.' )
+			) ); ?>
+		<?php endif; ?>
+
 	</div>
 
 </div>

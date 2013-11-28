@@ -193,6 +193,31 @@
 				</div>
 
 				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Service Maintenance Calendar' ); ?>:</label>
+					<div class="col-md-5">
+						<div id="maintenance-inputs-wrapper">
+							<button class="btn add-dynamic" id="add_service_maintenance_calendar"><?php echo __( 'Add Date' ); ?></button>
+							<?php
+								$maintenanceFormKey = 0;
+								if ( isset( $data ) ) {
+									foreach ( $data['SecurityServiceMaintenanceDate'] as $key => $audit_date ) {
+										echo $this->element( 'ajax/audit_calendar_entry', array(
+											'model' => 'SecurityService',
+											'formKey' => $key,
+											'field' => 'maintenance_calendar',
+											'day' => $audit_date['day'],
+											'month' => $audit_date['month']
+										) );
+										$maintenanceFormKey++;
+									}
+								}
+							?>
+						</div>
+						<span class="help-block"><?php echo __( 'Select the months in the year where this maintenance must take place.' ); ?></span>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Cost (OPEX)' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'opex', array(
@@ -280,7 +305,7 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-	var formKey = <?php echo $formKey + 1; ?>;
+	var formKey = <?php echo $formKey; ?>;
 	<?php if ( ! $formKey ) : ?>
 		load_new_entry();
 	<?php endif; ?>
@@ -305,6 +330,33 @@ jQuery(document).ready(function($) {
 	$("#add_service_audit_calendar").on("click", function(e) {
 		e.preventDefault();
 		load_new_entry();
+	});
+
+	var maintenanceFormKey = <?php echo $maintenanceFormKey; ?>;
+	<?php if ( ! $maintenanceFormKey ) : ?>
+		load_new_maintenance_entry();
+	<?php endif; ?>
+	function load_new_maintenance_entry() {
+		$.ajax({
+			type: "POST",
+			dataType: "html",
+			async: true,
+			url: "/securityServices/auditCalendarFormEntry",
+			data: { formKey: maintenanceFormKey, field: 'maintenance_calendar' },
+			beforeSend: function () {
+			},
+			complete: function (XMLHttpRequest, textStatus) {
+			},
+			success: function (data, textStatus) {
+				maintenanceFormKey++;
+				$("#maintenance-inputs-wrapper").append(data);	
+			}
+		});
+	}
+
+	$("#add_service_maintenance_calendar").on("click", function(e) {
+		e.preventDefault();
+		load_new_maintenance_entry();
 	});
 });
 </script>

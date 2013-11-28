@@ -101,11 +101,12 @@
 									<?php
 									$completion = 0;
 									foreach ( $entry['ProjectAchievement'] as $achievement ) {
-										$time = CakeTime::fromString( $achievement['date'] );
+										/*$time = CakeTime::fromString( $achievement['date'] );
 										if ( ! isset( $time_tmp ) || $time > $time_tmp ) {
 											$completion = $achievement['completion'];
 											$time_tmp = $time;
-										}
+										}*/
+										$completion += $achievement['completion'];
 									}
 									?>
 									<td><?php echo CakeNumber::toPercentage( $completion, 0 ); ?></td>
@@ -186,44 +187,6 @@
 		<?php endif; ?>
 
 
-		<!--<div class="widget">
-
-			<div class="widget-content">
-				<?php if ( ! empty( $data ) ) : ?>
-					<table class="table table-hover table-striped table-bordered table-highlight-head">
-						<thead>
-							<tr>
-								<th><?php echo $this->Paginator->sort( 'Project.title', __( 'Title' ) ); ?></th>
-								<th><?php echo $this->Paginator->sort( 'ProjectStatus.name', __( 'Status' ) ); ?></th>
-								<th class="align-center"><?php echo __( 'Action' ); ?></th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ( $data as $entry ) : ?>
-								<tr>
-									<td><?php echo $entry['Project']['title']; ?></td>
-									<td><?php echo $entry['ProjectStatus']['name']; ?></td>
-									<td class="align-center">
-										<?php echo $this->element( 'action_buttons', array( 
-											'id' => $entry['Project']['id'],
-											'controller' => 'projects'
-										) ); ?>
-									</td>
-								</tr>
-							<?php endforeach; ?>
-						</tbody>
-					</table>
-
-					<?php echo $this->element( CORE_ELEMENT_PATH . 'pagination' ); ?>
-				<?php else : ?>
-					<?php echo $this->element( 'not_found', array(
-						'message' => __( 'No Projects found.' )
-					) ); ?>
-				<?php endif; ?>
-				
-			</div>
-
-		</div>-->
 	</div>
 
 </div>

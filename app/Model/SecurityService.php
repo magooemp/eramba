@@ -40,7 +40,9 @@ class SecurityService extends AppModel {
 
 	public $hasMany = array(
 		'SecurityServiceAudit' => array(),
-		'SecurityServiceAuditDate' => array()
+		'SecurityServiceAuditDate' => array(),
+		'SecurityServiceMaintenance' => array(),
+		'SecurityServiceMaintenanceDate' => array()
 	);
 
 	public $hasAndBelongsToMany = array(

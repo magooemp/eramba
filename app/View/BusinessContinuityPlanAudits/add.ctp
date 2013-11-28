@@ -5,8 +5,8 @@
 
 				<?php
 					if (isset($edit)) {
-						echo $this->Form->create( 'SecurityServiceAudit', array(
-							'url' => array( 'controller' => 'securityServiceAudits', 'action' => 'edit' ),
+						echo $this->Form->create( 'BusinessContinuityPlanAudit', array(
+							'url' => array( 'controller' => 'businessContinuityPlanAudits', 'action' => 'edit' ),
 							'class' => 'form-horizontal row-border'
 						) );
 
@@ -14,8 +14,8 @@
 						$submit_label = __( 'Edit' );
 					}
 					else {
-						echo $this->Form->create( 'SecurityServiceAudit', array(
-							'url' => array( 'controller' => 'securityServiceAudits', 'action' => 'add' ),
+						echo $this->Form->create( 'BusinessContinuityPlanAudit', array(
+							'url' => array( 'controller' => 'businessContinuityPlanAudits', 'action' => 'add' ),
 							'class' => 'form-horizontal row-border'
 						) );
 						
@@ -125,7 +125,7 @@
 					) ); ?>
 					&nbsp;
 					<?php echo $this->Html->link( __( 'Cancel' ), array(
-						'controller' => 'securityServices',
+						'controller' => 'businessContinuityPlans',
 						'action' => 'index'
 					), array(
 						'class' => 'btn btn-inverse'

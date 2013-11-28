@@ -7,12 +7,16 @@ if ( isset( $day ) && isset( $month ) ) {
 	);
 }
 
+if ( ! isset( $field ) ) {
+	$field = 'audit_calendar';
+}
+
 $after = '</div>';
-if ( $formKey != '0' ) {
+if ( $formKey != 0 ) {
 	$after .= '<i class="icon icon-remove remove-parent" onClick="removeParent(this);" title="' . __( 'Remove' ) . '"></i>';
 }
 ?>
-<?php echo $this->Form->input( $model . '.audit_calendar.' . $formKey, array(
+<?php echo $this->Form->input( $model . '.' . $field . '.' . $formKey, array(
 	'type' => 'date',
 	'dateFormat' => 'DM',
 	'label' => false,

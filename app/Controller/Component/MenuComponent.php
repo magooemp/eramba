@@ -102,6 +102,12 @@ class MenuComponent extends Component {
 						'url' => array(
 							'controller' => 'securityPolicies', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
+					),
+					array(
+						'name' => __('Policy Exceptions'),
+						'url' => array(
+							'controller' => 'policyExceptions', 'action' => 'index', 'admin' => false, 'plugin' => null
+						)
 					)
 				)
 			),
@@ -188,12 +194,6 @@ class MenuComponent extends Component {
 						'name' => __('Security Incident Classification'),
 						'url' => array(
 							'controller' => 'securityIncidentClassifications', 'action' => 'index', 'admin' => false, 'plugin' => null
-						)
-					),
-					array(
-						'name' => __('Policy Exceptions'),
-						'url' => array(
-							'controller' => 'policyExceptions', 'action' => 'index', 'admin' => false, 'plugin' => null
 						)
 					)
 				)
