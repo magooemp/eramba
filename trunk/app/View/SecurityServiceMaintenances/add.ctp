@@ -5,8 +5,8 @@
 
 				<?php
 					if (isset($edit)) {
-						echo $this->Form->create( 'SecurityServiceAudit', array(
-							'url' => array( 'controller' => 'securityServiceAudits', 'action' => 'edit' ),
+						echo $this->Form->create( 'SecurityServiceMaintenance', array(
+							'url' => array( 'controller' => 'securityServiceMaintenances', 'action' => 'edit' ),
 							'class' => 'form-horizontal row-border'
 						) );
 
@@ -14,8 +14,8 @@
 						$submit_label = __( 'Edit' );
 					}
 					else {
-						echo $this->Form->create( 'SecurityServiceAudit', array(
-							'url' => array( 'controller' => 'securityServiceAudits', 'action' => 'add' ),
+						echo $this->Form->create( 'SecurityServiceMaintenance', array(
+							'url' => array( 'controller' => 'securityServiceMaintenances', 'action' => 'add' ),
 							'class' => 'form-horizontal row-border'
 						) );
 						
@@ -24,41 +24,28 @@
 				?>
 
 				<div class="form-group form-group-first">
-					<label class="col-md-2 control-label"><?php echo __( 'Audit Metric' ); ?>:</label>
+					<label class="col-md-2 control-label"><?php echo __( 'Maintenance Task' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'audit_metric_description', array(
+						<?php echo $this->Form->input( 'task', array(
 							'type' => 'textarea',
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'At the time of creating the Security Service, a metric was defined in order to be able to measure the level of efficacy of the control. This should be utilized as the base for this audit review.' ); ?></span>
+						<span class="help-block"><?php echo __( 'What is required to do in order to execute this maintenance task?' ); ?></span>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Metric Success Criteria' ); ?>:</label>
+					<label class="col-md-2 control-label"><?php echo __( 'Task Conclusion' ); ?>:</label>
 					<div class="col-md-10">
-						<?php echo $this->Form->input( 'audit_success_criteria', array(
+						<?php echo $this->Form->input( 'task_conclusion', array(
 							'type' => 'textarea',
 							'label' => false,
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'At the time of creating the Security Service, a success criteria was defined in order to evaluate if the metric results are within acceptable threasholds (audit pass) or not (audit not pass).' ); ?></span>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Audit Conclusion' ); ?>:</label>
-					<div class="col-md-10">
-						<?php echo $this->Form->input( 'result_description', array(
-							'type' => 'textarea',
-							'label' => false,
-							'div' => false,
-							'class' => 'form-control'
-						) ); ?>
-						<span class="help-block"><?php echo __( 'Describe what evidence was avilable, the accuracy and integrity of the metrics taken and if the metrics are within the expected threasholds or not.' ); ?></span>
+						<span class="help-block"><?php echo __( 'How did the task go?' ); ?></span>
 					</div>
 				</div>
 
@@ -71,12 +58,12 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'Register the person who has worked on this audit (the auditor name)' ); ?></span>
+						<span class="help-block"><?php echo __( 'Who did the task?' ); ?></span>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Audit Start Date' ); ?>:</label>
+					<label class="col-md-2 control-label"><?php echo __( 'Maintenance Start Date' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'start_date', array(
 							'label' => false,
@@ -90,7 +77,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Audit End Date' ); ?>:</label>
+					<label class="col-md-2 control-label"><?php echo __( 'Maintenance End Date' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'end_date', array(
 							'label' => false,
@@ -102,7 +89,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label"><?php echo __( 'Audit Result' ); ?>:</label>
+					<label class="col-md-2 control-label"><?php echo __( 'Task Result' ); ?>:</label>
 					<div class="col-md-10">
 						<?php $options = array(
 							0 => __( 'Fail' ),
@@ -114,7 +101,7 @@
 							'div' => false,
 							'class' => 'form-control'
 						) ); ?>
-						<span class="help-block"><?php echo __( 'After evluating the audit evidence, success criteria, etc you are able to conclude with the audit result. Pass or Fail are the available options.' ); ?></span>
+						<span class="help-block"><?php echo __( 'Altough this is not strictly an audit, this maintenance task are a good indication to know if services are working or not.' ); ?></span>
 					</div>
 				</div>
 

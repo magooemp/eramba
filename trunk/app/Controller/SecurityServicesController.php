@@ -15,11 +15,12 @@ class SecurityServicesController extends AppController {
 			),
 			'order' => array('SecurityService.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 0
+			'recursive' => 2
 		);
 
 		$data = $this->paginate( 'SecurityService' );
 		$this->set( 'data', $data );
+		//debug( $data );
 	}
 
 	public function delete( $id = null ) {
@@ -55,11 +56,19 @@ class SecurityServicesController extends AppController {
 				$this->SecurityService->query( 'SET autocommit = 0' );
 				$this->SecurityService->begin();
 
-				$save1 = $this->SecurityService->save();
-				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $this->SecurityService->id );
-				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $this->SecurityService->id );
+				$service_id = $this->SecurityService->id;
 
-				if ( $save1 && $save2 && $save3 ) {
+				$save1 = $this->SecurityService->save();
+				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $service_id );
+				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $service_id );
+
+				$save4 = $this->saveAuditDates( $this->request->data['SecurityService']['audit_calendar'], $service_id );
+				$save5 = $this->saveAudits( $this->request->data['SecurityService']['audit_calendar'], $service_id );
+
+				$save6 = $this->saveMaintenanceDates( $this->request->data['SecurityService']['maintenance_calendar'], $service_id );
+				$save7 = $this->saveMaintenances( $this->request->data['SecurityService']['maintenance_calendar'], $service_id );
+
+				if ( $save1 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
 					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully added.' ), FLASH_OK );
@@ -122,13 +131,19 @@ class SecurityServicesController extends AppController {
 				$delete3 = $this->SecurityService->SecurityServiceAuditDate->deleteAll( array(
 					'SecurityServiceAuditDate.security_service_id' => $id
 				) );
+				$delete4 = $this->SecurityService->SecurityServiceMaintenanceDate->deleteAll( array(
+					'SecurityServiceMaintenanceDate.security_service_id' => $id
+				) );
 				$save2 = $this->joinServicesContracts( $this->request->data['SecurityService']['service_contract_id'], $service_id );
 				$save3 = $this->joinSecurityPolicies( $this->request->data['SecurityService']['security_policy_id'], $service_id );
 
 				$save4 = $this->saveAuditDates( $this->request->data['SecurityService']['audit_calendar'], $service_id );
 				$save5 = $this->saveAudits( $this->request->data['SecurityService']['audit_calendar'], $service_id );
 
-				if ( $save1 && $delete1 && $delete2 && $delete3 && $save2 && $save3 && $save4 ) {
+				$save6 = $this->saveMaintenanceDates( $this->request->data['SecurityService']['maintenance_calendar'], $service_id );
+				$save7 = $this->saveMaintenances( $this->request->data['SecurityService']['maintenance_calendar'], $service_id );
+
+				if ( $save1 && $delete1 && $delete2 && $delete3 && $delete4 && $save2 && $save3 && $save4 && $save5 && $save6 && $save7 ) {
 					$this->SecurityService->commit();
 
 					$this->Session->setFlash( __( 'Security Service was successfully edited.' ), FLASH_OK );
@@ -227,6 +242,39 @@ class SecurityServicesController extends AppController {
 		return true;
 	}
 
+	private function saveMaintenanceDates( $list, $service_id ) {
+		foreach ( $list as $date ) {
+			$tmp = array(
+				'security_service_id' => $service_id,
+				'day' => $date['day'],
+				'month' => $date['month']
+			);
+
+			$this->SecurityService->SecurityServiceMaintenanceDate->create();
+			if ( ! $this->SecurityService->SecurityServiceMaintenanceDate->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	private function saveMaintenances( $list, $service_id ) {
+		foreach ( $list as $date ) {
+			$tmp = array(
+				'security_service_id' => $service_id,
+				'planned_date' =>  date('Y') . '-' . $date['month'] . '-' . $date['day']
+			);
+
+			$this->SecurityService->SecurityServiceMaintenance->create();
+			if ( ! $this->SecurityService->SecurityServiceMaintenance->save( $tmp ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	public function auditCalendarFormEntry() {
 		if ( ! $this->request->is( 'ajax' ) ) {
 			exit;
@@ -234,8 +282,12 @@ class SecurityServicesController extends AppController {
 
 		$data = $this->request->data;
 
-		$this->set( 'formKey', $data['formKey'] );
+		$this->set( 'formKey', (int) $data['formKey'] );
 		$this->set( 'model', 'SecurityService' );
+		if ( ! isset( $data['field'] ) ) {
+			$data['field'] = 'audit_calednar';
+		}
+		$this->set( 'field', $data['field'] );
 
 		$this->render( '/Elements/ajax/audit_calendar_entry' );
 	}

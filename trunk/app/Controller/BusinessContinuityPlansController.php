@@ -10,23 +10,24 @@ class BusinessContinuityPlansController extends AppController {
 		$this->paginate = array(
 			'conditions' => array(
 			),
-			'contain' => array(
+			/*'contain' => array(
 				'BusinessContinuityTask' => array(
 					'fields' => array( 'id', 'step', 'when', 'who', 'does', 'where', 'how' ),
 					'order' => 'BusinessContinuityTask.step ASC' 
 				)
-			),
+			),*/
 			'fields' => array(
-				'BusinessContinuityPlan.id',
-				'BusinessContinuityPlan.title'
+				/*'BusinessContinuityPlan.id',
+				'BusinessContinuityPlan.title'*/
 			),
 			'order' => array( 'BusinessContinuityPlan.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 1
+			'recursive' => 2
 		);
 
 		$data = $this->paginate( 'BusinessContinuityPlan' );
 		$this->set( 'data', $data );
+		//debug( $data );
 	}
 
 	public function add() {
@@ -74,7 +75,7 @@ class BusinessContinuityPlansController extends AppController {
 			'conditions' => array(
 				'BusinessContinuityPlan.id' => $id
 			),
-			'recursive' => -1
+			'recursive' => 1
 		) );
 
 		if ( empty( $data ) ) {
@@ -122,6 +123,8 @@ class BusinessContinuityPlansController extends AppController {
 			$this->request->data = $data;
 		}
 
+		$this->set( 'data', $data );
+
 		$this->initOptions();
 		$this->render( 'add' );
 	}
@@ -148,7 +151,7 @@ class BusinessContinuityPlansController extends AppController {
 			$tmp = array(
 				'business_continuity_plan_id' => $bcm_id,
 				'planned_date' =>  date('Y') . '-' . $date['month'] . '-' . $date['day'],
-				'audit_metric_description' => $this->request->data['BusinessContinuityPlan']['audit_metric_description'],
+				'audit_metric_description' => $this->request->data['BusinessContinuityPlan']['audit_metric'],
 				'audit_success_criteria' => $this->request->data['BusinessContinuityPlan']['audit_success_criteria'],
 			);
 
@@ -177,7 +180,7 @@ class BusinessContinuityPlansController extends AppController {
 
 		$data = $this->request->data;
 
-		$this->set( 'formKey', $data['formKey'] );
+		$this->set( 'formKey', (int) $data['formKey'] );
 		$this->set( 'model', 'BusinessContinuityPlan' );
 
 		$this->render( '/Elements/ajax/audit_calendar_entry' );

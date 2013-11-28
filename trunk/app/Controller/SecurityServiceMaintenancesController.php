@@ -1,32 +1,32 @@
 <?php
-class SecurityServiceAuditsController extends AppController {
+class SecurityServiceMaintenancesController extends AppController {
 	public $helpers = array( 'Html', 'Form' );
 	public $components = array( 'Session' );
 
 	public function index( $id = null ) {
-		$this->set( 'title_for_layout', __( 'Security Services Audit Report' ) );
-		$this->set( 'subtitle_for_layout', __( 'This is a report of all the audits registed for this service.' ) );
+		$this->set( 'title_for_layout', __( 'Security Services Maintenance Report' ) );
+		$this->set( 'subtitle_for_layout', __( 'This is a report of all maintenance records for this service.' ) );
 
 		$this->paginate = array(
 			'conditions' => array(
-				'SecurityServiceAudit.security_service_id' => $id
+				'SecurityServiceMaintenance.security_service_id' => $id
 			),
 			'fields' => array(
 			),
-			'order' => array('SecurityServiceAudit.id' => 'ASC'),
+			'order' => array('SecurityServiceMaintenance.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
 			'recursive' => 0
 		);
 
-		$data = $this->paginate( 'SecurityServiceAudit' );
+		$data = $this->paginate( 'SecurityServiceMaintenance' );
 		$this->set( 'data', $data );
 		//debug( $data );
 	}
 
 	public function delete( $id = null ) {
-		$data = $this->SecurityServiceAudit->find( 'count', array(
+		$data = $this->SecurityServiceMaintenance->find( 'count', array(
 			'conditions' => array(
-				'SecurityServiceAudit.id' => $id
+				'SecurityServiceMaintenance.id' => $id
 			)
 		) );
 
@@ -34,8 +34,8 @@ class SecurityServiceAuditsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		if ( $this->SecurityServiceAudit->delete( $id ) ) {
-			$this->Session->setFlash( __( 'Security Service Audit was successfully deleted.' ), FLASH_OK );
+		if ( $this->SecurityServiceMaintenance->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Security Service Maintenance was successfully deleted.' ), FLASH_OK );
 		} else {
 			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
 		}
@@ -69,12 +69,12 @@ class SecurityServiceAuditsController extends AppController {
 		$id = (int) $id;
 
 		if ( ! empty( $this->request->data ) ) {
-			$id = (int) $this->request->data['SecurityServiceAudit']['id'];
+			$id = (int) $this->request->data['SecurityServiceMaintenance']['id'];
 		}
 
-		$data = $this->SecurityServiceAudit->find( 'first', array(
+		$data = $this->SecurityServiceMaintenance->find( 'first', array(
 			'conditions' => array(
-				'SecurityServiceAudit.id' => $id
+				'SecurityServiceMaintenance.id' => $id
 			),
 			'recursive' => -1
 		) );
@@ -84,16 +84,16 @@ class SecurityServiceAuditsController extends AppController {
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit a Security Service Audit' ) );
+		$this->set( 'title_for_layout', __( 'Edit a Security Service Maintenance' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
-			$this->SecurityServiceAudit->set( $this->request->data );
+			$this->SecurityServiceMaintenance->set( $this->request->data );
 
-			if ( $this->SecurityServiceAudit->validates() ) {
-				if ( $this->SecurityServiceAudit->save() ) {
-					$this->Session->setFlash( __( 'Security Service Audit was successfully edited.' ), FLASH_OK );
+			if ( $this->SecurityServiceMaintenance->validates() ) {
+				if ( $this->SecurityServiceMaintenance->save() ) {
+					$this->Session->setFlash( __( 'Security Service Maintenance was successfully edited.' ), FLASH_OK );
 					$this->redirect( array( 'controller' => 'securityServices', 'action' => 'index' ) );
 				}
 				else {
@@ -120,7 +120,7 @@ class SecurityServiceAuditsController extends AppController {
 
 
 	private function initAddEditSubtitle() {
-		$this->set( 'subtitle_for_layout', __( 'The objective is to audit the security control for efficiency utilizing the metrics reviews and success criteria defined on the control. You should be able to add evidence that suppors the audit.' ) );
+		$this->set( 'subtitle_for_layout', __( 'The objective is to keep track of the regular tasks Service Controls require in order to function properly.' ) );
 	}
 
 }

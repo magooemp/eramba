@@ -167,7 +167,9 @@
 							<button class="btn add-dynamic" id="add_service_audit_calendar"><?php echo __( 'Add Date' ); ?></button>
 							<?php
 								$formKey = 0;
+								
 								if ( isset( $data ) ) {
+									
 									foreach ( $data['BusinessContinuityPlanAuditDate'] as $key => $audit_date ) {
 										echo $this->element( 'ajax/audit_calendar_entry', array(
 											'model' => 'BusinessContinuityPlan',
@@ -206,7 +208,7 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-	var formKey = <?php echo $formKey + 1; ?>;
+	var formKey = <?php echo $formKey; ?>;
 	<?php if ( ! $formKey ) : ?>
 		load_new_entry();
 	<?php endif; ?>

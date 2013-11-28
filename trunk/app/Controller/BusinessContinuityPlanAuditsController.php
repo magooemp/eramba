@@ -1,32 +1,32 @@
 <?php
-class SecurityServiceAuditsController extends AppController {
+class BusinessContinuityPlanAuditsController extends AppController {
 	public $helpers = array( 'Html', 'Form' );
 	public $components = array( 'Session' );
 
 	public function index( $id = null ) {
-		$this->set( 'title_for_layout', __( 'Security Services Audit Report' ) );
+		$this->set( 'title_for_layout', __( 'Business Continuity Plans Audit Report' ) );
 		$this->set( 'subtitle_for_layout', __( 'This is a report of all the audits registed for this service.' ) );
 
 		$this->paginate = array(
 			'conditions' => array(
-				'SecurityServiceAudit.security_service_id' => $id
+				'BusinessContinuityPlanAudit.business_continuity_plan_id' => $id
 			),
 			'fields' => array(
 			),
-			'order' => array('SecurityServiceAudit.id' => 'ASC'),
+			'order' => array('BusinessContinuityPlanAudit.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
 			'recursive' => 0
 		);
 
-		$data = $this->paginate( 'SecurityServiceAudit' );
+		$data = $this->paginate( 'BusinessContinuityPlanAudit' );
 		$this->set( 'data', $data );
 		//debug( $data );
 	}
 
 	public function delete( $id = null ) {
-		$data = $this->SecurityServiceAudit->find( 'count', array(
+		$data = $this->BusinessContinuityPlanAudit->find( 'count', array(
 			'conditions' => array(
-				'SecurityServiceAudit.id' => $id
+				'BusinessContinuityPlanAudit.id' => $id
 			)
 		) );
 
@@ -34,13 +34,13 @@ class SecurityServiceAuditsController extends AppController {
 			throw new NotFoundException();
 		}
 
-		if ( $this->SecurityServiceAudit->delete( $id ) ) {
-			$this->Session->setFlash( __( 'Security Service Audit was successfully deleted.' ), FLASH_OK );
+		if ( $this->BusinessContinuityPlanAudit->delete( $id ) ) {
+			$this->Session->setFlash( __( 'Business Continuity Plan Audit was successfully deleted.' ), FLASH_OK );
 		} else {
 			$this->Session->setFlash( __( 'Error while deleting the data. Please try it again.' ), FLASH_ERROR );
 		}
 
-		$this->redirect( array( 'controller' => 'securityServices', 'action' => 'index' ) );
+		$this->redirect( array( 'controller' => 'businessContinuityPlans', 'action' => 'index' ) );
 	}
 
 	/*public function add() {
@@ -69,12 +69,12 @@ class SecurityServiceAuditsController extends AppController {
 		$id = (int) $id;
 
 		if ( ! empty( $this->request->data ) ) {
-			$id = (int) $this->request->data['SecurityServiceAudit']['id'];
+			$id = (int) $this->request->data['BusinessContinuityPlanAudit']['id'];
 		}
 
-		$data = $this->SecurityServiceAudit->find( 'first', array(
+		$data = $this->BusinessContinuityPlanAudit->find( 'first', array(
 			'conditions' => array(
-				'SecurityServiceAudit.id' => $id
+				'BusinessContinuityPlanAudit.id' => $id
 			),
 			'recursive' => -1
 		) );
@@ -84,17 +84,18 @@ class SecurityServiceAuditsController extends AppController {
 		}
 
 		$this->set( 'edit', true );
-		$this->set( 'title_for_layout', __( 'Edit a Security Service Audit' ) );
+		$this->set( 'title_for_layout', __( 'Edit a Business Continuity Plan Audit' ) );
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
-			$this->SecurityServiceAudit->set( $this->request->data );
+			$this->BusinessContinuityPlanAudit->set( $this->request->data );
 
-			if ( $this->SecurityServiceAudit->validates() ) {
-				if ( $this->SecurityServiceAudit->save() ) {
-					$this->Session->setFlash( __( 'Security Service Audit was successfully edited.' ), FLASH_OK );
-					$this->redirect( array( 'controller' => 'securityServices', 'action' => 'index' ) );
+			if ( $this->BusinessContinuityPlanAudit->validates() ) {
+				if ( $this->BusinessContinuityPlanAudit->save() ) {
+					$this->Session->setFlash( __( 'Business Continuity Plan Audit was successfully edited.' ), FLASH_OK );
+					$bcm_id = $data['BusinessContinuityPlanAudit']['business_continuity_plan_id'];
+					$this->redirect( array( 'controller' => 'businessContinuityPlanAudits', 'action' => 'index', $bcm_id ) );
 				}
 				else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );
@@ -120,7 +121,7 @@ class SecurityServiceAuditsController extends AppController {
 
 
 	private function initAddEditSubtitle() {
-		$this->set( 'subtitle_for_layout', __( 'The objective is to audit the security control for efficiency utilizing the metrics reviews and success criteria defined on the control. You should be able to add evidence that suppors the audit.' ) );
+		$this->set( 'subtitle_for_layout', __( 'The objective is to audit the security control for efficiency utilizing the metrics reviews and success criteria defined on the continuity plan. You should be able to add evidence that suppors the audit.' ) );
 	}
 
 }

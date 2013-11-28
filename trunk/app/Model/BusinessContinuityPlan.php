@@ -40,10 +40,6 @@ class BusinessContinuityPlan extends AppModel {
 		'resource_utilization' => array(
 			'rule' => 'numeric',
 			'required' => true
-		),
-		'regular_review' => array(
-			'rule' => 'date',
-			'required' => true
 		)
 	);
 
