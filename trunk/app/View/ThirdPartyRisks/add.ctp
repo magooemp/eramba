@@ -258,6 +258,19 @@
 				</div>
 
 				<div class="form-group">
+					<label class="col-md-2 control-label"><?php echo __( 'Risk Score' ); ?>:</label>
+					<div class="col-md-10">
+						<?php echo $this->Form->input( 'risk_score', array(
+							'label' => false,
+							'div' => false,
+							'class' => 'form-control',
+							'disabled' => 'disabled'
+						) ); ?>
+						<span class="help-block"><?php echo __( 'The Risk Score is automatically calculated using the Classification Schemas and Asset Liabilities Amplifier if they exist.' ); ?></span>
+					</div>
+				</div>
+
+				<div class="form-group">
 					<label class="col-md-2 control-label"><?php echo __( 'Risk Mitigation' ); ?>:</label>
 					<div class="col-md-10">
 						<?php echo $this->Form->input( 'risk_mitigation_strategy_id', array(

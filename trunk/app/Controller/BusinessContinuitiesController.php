@@ -47,6 +47,11 @@ class BusinessContinuitiesController extends AppController {
 		if ( $this->request->is( 'post' ) ) {
 			unset( $this->request->data['BusinessContinuity']['id'] );
 
+			$this->request->data['BusinessContinuity']['risk_classification_id'] = $this->fixClassificationIds();
+
+			$risk_score = $this->calculateRiskScore();
+			$this->request->data['BusinessContinuity']['risk_score'] = $risk_score;
+
 			$this->BusinessContinuity->set( $this->request->data );
 
 			if ( $this->BusinessContinuity->validates() ) {
@@ -111,6 +116,11 @@ class BusinessContinuitiesController extends AppController {
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
+			$this->request->data['BusinessContinuity']['risk_classification_id'] = $this->fixClassificationIds();
+
+			$risk_score = $this->calculateRiskScore();
+			$this->request->data['BusinessContinuity']['risk_score'] = $risk_score;
+
 			$this->BusinessContinuity->set( $this->request->data );
 
 			if ( $this->BusinessContinuity->validates() ) {
@@ -156,6 +166,45 @@ class BusinessContinuitiesController extends AppController {
 		$this->initOptions();
 
 		$this->render( 'add' );
+	}
+
+	private function fixClassificationIds() {
+		$tmp = array();
+		foreach ( $this->request->data['BusinessContinuity']['risk_classification_id'] as $classification_id ) {
+			if ( $classification_id ) {
+				$tmp[] = $classification_id;
+			}
+		}
+
+		return $tmp;
+	}
+
+	/**
+	 * Calculate Risk Score for this Risk from given classification values.
+	 * @return int Risk Score.
+	 */
+	private function calculateRiskScore() {
+		$classification_ids = $this->request->data['BusinessContinuity']['risk_classification_id'];
+		if ( empty( $classification_ids ) ) {
+			return 0;
+		}
+
+		$classifications = $this->BusinessContinuity->RiskClassification->find('all', array(
+			'conditions' => array(
+				'RiskClassification.id' => $classification_ids
+			),
+			'fields' => array( 'id', 'value' ),
+			'recursive' => -1
+		));
+
+
+		$classification_sum = 0;
+		foreach ( $classifications as $classification ) {
+			$classification_sum += $classification['RiskClassification']['value'];
+		}
+
+
+		return $classification_sum;
 	}
 
 	/**
@@ -264,7 +313,7 @@ class BusinessContinuitiesController extends AppController {
 	}
 
 	private function joinRiskClassifications( $list, $business_continuity_id ) {
-		if ( ! is_array( $list ) ) {
+		if ( ! is_array( $list ) || empty( $list ) ) {
 			return true;
 		}
 		

@@ -47,6 +47,11 @@ class ThirdPartyRisksController extends AppController {
 		if ( $this->request->is( 'post' ) ) {
 			unset( $this->request->data['ThirdPartyRisk']['id'] );
 
+			$this->request->data['ThirdPartyRisk']['risk_classification_id'] = $this->fixClassificationIds();
+
+			$risk_score = $this->calculateRiskScore();
+			$this->request->data['ThirdPartyRisk']['risk_score'] = $risk_score;
+
 			$this->ThirdPartyRisk->set( $this->request->data );
 
 			if ( $this->ThirdPartyRisk->validates() ) {
@@ -111,6 +116,10 @@ class ThirdPartyRisksController extends AppController {
 		$this->initAddEditSubtitle();
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
+			$this->request->data['ThirdPartyRisk']['risk_classification_id'] = $this->fixClassificationIds();
+
+			$risk_score = $this->calculateRiskScore();
+			$this->request->data['ThirdPartyRisk']['risk_score'] = $risk_score;
 
 			$this->ThirdPartyRisk->set( $this->request->data );
 
@@ -158,6 +167,66 @@ class ThirdPartyRisksController extends AppController {
 		$this->initOptions();
 
 		$this->render( 'add' );
+	}
+
+	private function fixClassificationIds() {
+		$tmp = array();
+		foreach ( $this->request->data['ThirdPartyRisk']['risk_classification_id'] as $classification_id ) {
+			if ( $classification_id ) {
+				$tmp[] = $classification_id;
+			}
+		}
+
+		return $tmp;
+	}
+
+	/**
+	 * Calculate Risk Score for this Risk from given classification values.
+	 * @return int Risk Score.
+	 */
+	private function calculateRiskScore() {
+		$classification_ids = $this->request->data['ThirdPartyRisk']['risk_classification_id'];
+		if ( empty( $classification_ids ) ) {
+			return 0;
+		}
+
+		$classifications = $this->ThirdPartyRisk->RiskClassification->find('all', array(
+			'conditions' => array(
+				'RiskClassification.id' => $classification_ids
+			),
+			'fields' => array( 'id', 'value' ),
+			'recursive' => -1
+		));
+
+		$asset_ids = $this->request->data['ThirdPartyRisk']['asset_id'];
+		$assets = $this->ThirdPartyRisk->Asset->find('all', array(
+			'conditions' => array(
+				'Asset.id' => $asset_ids
+			),
+			'fields' => array( 'id' ),
+			'contain' => array(
+				'Legal' => array(
+					'fields' => array( 'id', 'risk_magnifier' )
+				)
+			),
+			'recursive' => 0
+		));
+
+		$classification_sum = 0;
+		foreach ( $classifications as $classification ) {
+			$classification_sum += $classification['RiskClassification']['value'];
+		}
+
+		$asset_sum = 0;
+		foreach ( $assets as $asset ) {
+			$asset_sum += $asset['Legal']['risk_magnifier'];
+		}
+
+		if ( $asset_sum ) {
+			return $classification_sum * $asset_sum;
+		}
+
+		return $classification_sum;
 	}
 
 	/**
@@ -287,7 +356,7 @@ class ThirdPartyRisksController extends AppController {
 	}
 
 	private function joinRiskClassifications( $list, $risk_id ) {
-		if ( ! is_array( $list ) ) {
+		if ( ! is_array( $list ) || empty( $list ) ) {
 			return true;
 		}
 		
