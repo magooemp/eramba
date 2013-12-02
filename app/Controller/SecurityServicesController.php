@@ -63,7 +63,7 @@ class SecurityServicesController extends AppController {
 		$data = $this->addAuditStatuses( $data );
 		$this->set( 'data', $data );
 		
-		debug( $data );
+		//debug( $data );
 	}
 
 	private function addAuditStatuses( $data ) {
