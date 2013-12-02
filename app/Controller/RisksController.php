@@ -400,7 +400,6 @@ class RisksController extends AppController {
 			'order' => array('RiskClassificationType.name' => 'ASC'),
 			'recursive' => 1
 		));
-		debug($classifications);
 
 		$strategies = $this->Risk->RiskMitigationStrategy->find('list', array(
 			'order' => array('RiskMitigationStrategy.name' => 'ASC'),

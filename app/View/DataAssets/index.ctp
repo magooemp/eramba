@@ -14,8 +14,27 @@
 
 		<?php if ( ! empty( $data ) ) : ?>
 			<?php foreach ( $data as $entry ) : ?>
+				<?php
+				$extra_class = '';
+				foreach ( $entry['DataAsset'] as $data_asset ) {
+					foreach ( $data_asset['SecurityService'] as $security_service ) {
+						if ( $extra_class != 'widget-header-alert' ) {
+							if ( $extra_class != 'widget-header-warning' ) {
+								if ( $security_service['status']['status'] == 1 || ! $security_service['status']['all_done'] ) {
+									$extra_class = 'widget-header-warning';
+								}
+							}
+							
+							if ( $security_service['status']['status'] == 2 || ! $security_service['status']['last_passed'] ) {
+								$extra_class = 'widget-header-alert';
+							}
+						}
+					}
+				}
+				
+				?>
 				<div class="widget box widget-closed">
-					<div class="widget-header">
+					<div class="widget-header <?php echo $extra_class; ?>">
 						<h4><?php echo __( 'Asset' ); ?>: <?php echo $entry['Asset']['name']; ?></h4>
 						<div class="toolbar no-padding">
 							<div class="btn-group">
@@ -44,7 +63,91 @@
 					</div>
 					<div class="widget-content" style="display:none;">
 						<?php if ( ! empty( $entry['DataAsset'] ) ) : ?>
-							<table class="table table-hover table-striped">
+							<?php foreach ( $entry['DataAsset'] as $data_asset ) : ?>
+							
+								<div class="widget box widget-closed">
+									<div class="widget-header">
+										<h4><?php echo $data_asset['DataAssetStatus']['name']; ?> <?php if ( $data_asset['description'] ) echo '(' . $data_asset['description'] . ')'; ?></h4>
+										<div class="toolbar no-padding">
+											<div class="btn-group">
+												<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
+												<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+													<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
+												</span>
+												<ul class="dropdown-menu pull-right">
+													<li><?php echo $this->Html->link( '<i class="icon-pencil"></i> ' . __( 'Edit' ), array(
+														'controller' => 'dataAssets',
+														'action' => 'edit',
+														$data_asset['id']
+													), array(
+														'escape' => false
+													) ); ?></li>
+													<li><?php echo $this->Html->link( '<i class="icon-trash"></i> ' . __( 'Delete' ), array(
+														'controller' => 'dataAssets',
+														'action' => 'delete',
+														$data_asset['id']
+													), array(
+														'escape' => false
+													) ); ?></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="widget-content" style="display:none;">
+										<?php if ( ! empty( $data_asset['SecurityService'] ) ) : ?>
+											<table class="table table-hover table-striped table-bordered table-highlight-head">
+												<thead>
+													<tr>
+														<th><?php echo __( 'Security Control' ); ?></th>
+														<th><?php echo __( 'Status' ); ?></th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php foreach ( $data_asset['SecurityService'] as $security_service ) : ?>
+														<?php
+															$extra_class = '';
+															if ( $security_service['status']['status'] == 1 || ! $security_service['status']['all_done'] ) {
+																$extra_class = 'row-warning';
+															}
+															if ( $security_service['status']['status'] == 2 || ! $security_service['status']['last_passed'] ) {
+																$extra_class = 'row-alert';
+															}
+														?>
+														<tr class="<?php //echo $extra_class; ?>">
+															<td><?php echo $this->Html->link( $security_service['name'], array(
+																'controller' => 'securityServices',
+																'action' => 'edit',
+																$security_service['id']
+															) ); ?></td>
+															<td><?php
+																$msg = array();
+																if ( ! $security_service['status']['all_done'] ) {
+																	$msg[] = '<span class="label label-warning">' . __( 'Missing audits.' ) . '</span>';
+																}
+																if ( ! $security_service['status']['last_passed'] ) {
+																	$msg[] = '<span class="label label-danger">' . __( 'Last audit failed.' ) . '</span>';
+																}
+
+																if ( $security_service['status']['all_done'] && $security_service['status']['last_passed'] ) {
+																	$msg[] = '<span class="label label-success">' . __( 'No audit issues.' ) . '</span>';
+																}
+
+																echo implode( '<br />', $msg );
+															?></td>
+														</tr>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										<?php else : ?>
+											<?php echo $this->element( 'not_found', array(
+												'message' => __( 'No Security Controls found.' )
+											) ); ?>
+										<?php endif; ?>
+									</div>
+								</div>
+							<?php endforeach; ?>
+
+							<!--<table class="table table-hover table-striped">
 								<thead>
 									<tr>
 										<th><?php echo __( 'Data State' ); ?></th>
@@ -77,7 +180,7 @@
 									</tr>
 									<?php endforeach ; ?>
 								</tbody>
-							</table>
+							</table>-->
 						<?php else : ?>
 							<?php echo $this->element( 'not_found', array(
 								'message' => __( 'No Data Assets found.' )

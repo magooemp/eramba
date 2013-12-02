@@ -12,7 +12,7 @@ class BusinessUnitsController extends AppController {
 			),
 			'contain' => array(
 				'Process' => array(
-					'fields' => array( 'id', 'name', 'description', 'rto' )
+					'fields' => array( 'id', 'name', 'description', 'rto', 'rpo' )
 				)
 			),
 			'fields' => array(

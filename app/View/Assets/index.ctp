@@ -65,6 +65,7 @@
 													<th><?php echo __( 'Type' ); ?></th>
 													<th><?php echo __( 'Label' ); ?></th>
 													<th><?php echo __( 'Legal Constrain' ); ?></th>
+													<th><?php echo __( 'Main Container' ); ?></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -73,9 +74,46 @@
 													<td><?php echo isset( $asset['AssetMediaType']['name'] ) ? $asset['AssetMediaType']['name'] : ''; ?></td>
 													<td><?php echo isset( $asset['AssetLabel']['name'] ) ? $asset['AssetLabel']['name'] : ''; ?></td>
 													<td><?php echo isset( $asset['Legal']['name'] ) ? $asset['Legal']['name'] : ''; ?></td>
+													<td><?php echo ( ! empty( $asset['AssetMainContainer'] ) ) ? $asset['AssetMainContainer']['name'] : ''; ?></td>
 												</tr>
 											</tbody>
 										</table>
+
+										<table class="table table-hover table-striped table-bordered table-highlight-head">
+											<thead>
+												<tr>
+													<th><?php echo __( 'Owner' ); ?></th>
+													<th><?php echo __( 'Guardian' ); ?></th>
+													<th><?php echo __( 'User' ); ?></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><?php echo ( ! empty( $asset['AssetOwner'] ) ) ? $asset['AssetOwner']['name'] : ''; ?></td>
+													<td><?php echo ( ! empty( $asset['AssetGuardian'] ) ) ? $asset['AssetGuardian']['name'] : ''; ?></td>
+													<td><?php echo ( ! empty( $asset['AssetUser'] ) ) ? $asset['AssetUser']['name'] : ''; ?></td>
+												</tr>
+											</tbody>
+										</table>
+
+										<?php if ( ! empty( $asset['AssetClassification'] ) ) : ?>
+											<table class="table table-hover table-striped table-bordered table-highlight-head">
+												<thead>
+													<tr>
+														<?php foreach ( $asset['AssetClassification'] as $classification ) : ?>
+															<th><?php echo $classification['AssetClassificationType']['name']; ?></th>
+														<?php endforeach; ?>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<?php foreach ( $asset['AssetClassification'] as $classification ) : ?>
+															<td><?php echo $classification['name']; ?></td>
+														<?php endforeach; ?>
+													</tr>
+												</tbody>
+											</table>
+										<?php endif; ?>
 									</div>
 								</div>
 							<?php endforeach; ?>
