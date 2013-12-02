@@ -22,8 +22,22 @@
 
 		<?php if ( ! empty( $data ) ) : ?>
 			<?php foreach ( $data as $entry ) : ?>
+				<?php
+				$extra_class = '';
+				if ( $extra_class != 'widget-header-alert' ) {
+					if ( $extra_class != 'widget-header-warning' ) {
+						if ( ! $entry['SecurityService']['status']['all_done'] || ! $entry['SecurityService']['maintenanceStatus']['all_done'] ) {
+							$extra_class = 'widget-header-warning';
+						}
+					}
+					
+					if ( ! $entry['SecurityService']['status']['last_passed'] || ! $entry['SecurityService']['maintenanceStatus']['last_passed'] ) {
+						$extra_class = 'widget-header-alert';
+					}
+				}
+				?>
 				<div class="widget box widget-closed">
-					<div class="widget-header">
+					<div class="widget-header <?php echo $extra_class; ?>">
 						<h4><?php echo $entry['SecurityService']['name']; ?></h4>
 						<div class="toolbar no-padding">
 							<div class="btn-group">
@@ -182,14 +196,30 @@
 									<td><?php echo $entry['SecurityService']['audit_metric_description']; ?></td>
 									<td><?php echo $entry['SecurityService']['audit_success_criteria']; ?></td>
 									<?php
-									$is_audit_ok = true;
-									foreach ( $entry['SecurityServiceAudit'] as $audit ) {
-										if ( ! $audit['result'] ) {
-											$is_audit_ok = false;
-										}
+									$extra_class = '';
+									if ( ! $entry['SecurityService']['status']['all_done'] ) {
+										$extra_class = 'cell-warning';
+									}
+									if ( ! $entry['SecurityService']['status']['last_passed'] ) {
+										$extra_class = 'cell-alert';
 									}
 									?>
-									<td><?php echo $is_audit_ok ? __( 'Ok' ) : __( 'Not Ok' ); ?></td>
+									<td class="<?php //echo $extra_class; ?>"><?php
+										$msg = array();
+										if ( ! $entry['SecurityService']['status']['all_done'] ) {
+											$msg[] = '<span class="label label-warning">' . __( 'Missing audits.' ) . '</span>';
+											
+										}
+										if ( ! $entry['SecurityService']['status']['last_passed'] ) {
+											$msg[] = '<span class="label label-danger">' . __( 'Last audit failed.' ) . '</span>';
+										}
+
+										if ( $entry['SecurityService']['status']['all_done'] && $entry['SecurityService']['status']['last_passed'] ) {
+											$msg[] = '<span class="label label-success">' . __( 'No audit issues.' ) . '</span>';
+										}
+
+										echo implode( '<br />', $msg );
+									?></td>
 								</th>
 							</tbody>
 						</table>
@@ -205,17 +235,110 @@
 								<tr>
 									<td><?php echo $entry['SecurityService']['maintenance_metric_description']; ?></td>
 									<?php
-									$is_maintenance_ok = true;
-									foreach ( $entry['SecurityServiceMaintenance'] as $maintenance ) {
-										if ( ! $maintenance['result'] ) {
-											$is_maintenance_ok = false;
-										}
+									$extra_class = '';
+									if ( ! $entry['SecurityService']['maintenanceStatus']['all_done'] ) {
+										$extra_class = 'cell-warning';
+									}
+									if ( ! $entry['SecurityService']['maintenanceStatus']['last_passed'] ) {
+										$extra_class = 'cell-alert';
 									}
 									?>
-									<td><?php echo $is_maintenance_ok ? __( 'Ok' ) : __( 'Not Ok' ); ?></td>
+									<td class="<?php //echo $extra_class; ?>"><?php
+										$msg = array();
+										if ( ! $entry['SecurityService']['maintenanceStatus']['all_done'] ) {
+											$msg[] = '<span class="label label-warning">' . __( 'Missing maintenances.' ) . '</span>';
+											
+										}
+										if ( ! $entry['SecurityService']['maintenanceStatus']['last_passed'] ) {
+											$msg[] = '<span class="label label-danger">' . __( 'Last maintenance failed.' ) . '</span>';
+										}
+
+										if ( $entry['SecurityService']['maintenanceStatus']['all_done'] && $entry['SecurityService']['maintenanceStatus']['last_passed'] ) {
+											$msg[] = '<span class="label label-success">' . __( 'No maintenance issues.' ) . '</span>';
+										}
+
+										echo implode( '<br />', $msg );
+									?></td>
 								</th>
 							</tbody>
 						</table>
+
+						<div class="widget box widget-closed">
+							<div class="widget-header">
+								<h4><?php echo __( 'Mitigation' ); ?></h4>
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="widget-content" style="display:none;">
+								<table class="table table-hover table-striped table-bordered table-highlight-head">
+									<thead>
+										<tr>
+											<th><?php echo __( 'Mitigation Type' ); ?></th>
+											<th><?php echo __( 'Description' ); ?></th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach ( $entry['Risk'] as $risk ) : ?>
+										<tr>
+											<td><?php echo __( 'Asset based Risk' ) ?></td>
+											<td><?php echo $this->Html->link( $risk['title'], array(
+												'controller' => 'risks',
+												'action' => 'edit',
+												$risk['id']
+											) ); ?></td>
+										</tr>
+										<?php endforeach ; ?>
+
+										<?php foreach ( $entry['ThirdPartyRisk'] as $risk ) : ?>
+										<tr>
+											<td><?php echo __( 'Third Party Risk' ) ?></td>
+											<td><?php echo $this->Html->link( $risk['title'], array(
+												'controller' => 'thirdPartyRisks',
+												'action' => 'edit',
+												$risk['id']
+											) ); ?></td>
+										</tr>
+										<?php endforeach ; ?>
+
+										<?php foreach ( $entry['SecurityIncident'] as $security_incident ) : ?>
+										<tr>
+											<td><?php echo __( 'Security Incident' ) ?></td>
+											<td><?php echo $this->Html->link( $security_incident['title'], array(
+												'controller' => 'securityIncidents',
+												'action' => 'edit',
+												$security_incident['id']
+											) ); ?></td>
+										</tr>
+										<?php endforeach ; ?>
+
+										<?php foreach ( $entry['DataAsset'] as $data_asset ) : ?>
+										<tr>
+											<td><?php echo __( 'Data Asset' ) ?></td>
+											<td><?php echo $this->Html->link( $data_asset['description'], array(
+												'controller' => 'dataAssets',
+												'action' => 'edit',
+												$data_asset['id']
+											) ); ?></td>
+										</tr>
+										<?php endforeach ; ?>
+
+										<?php foreach ( $entry['ComplianceManagement'] as $compliance ) : ?>
+										<tr>
+											<td><?php echo __( 'Compliance' ) ?></td>
+											<td><?php echo $this->Html->link( $compliance['CompliancePackageItem']['name'], array(
+												'controller' => 'compliancePackageItems',
+												'action' => 'edit',
+												$compliance['CompliancePackageItem']['id']
+											) ); ?></td>
+										</tr>
+										<?php endforeach ; ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
 
 					</div>
 				</div>

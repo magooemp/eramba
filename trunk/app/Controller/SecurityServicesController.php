@@ -11,7 +11,48 @@ class SecurityServicesController extends AppController {
 			'conditions' => array(
 			),
 			'fields' => array(
-				//'Legal.id', 'Legal.name', 'Legal.description', 'Legal.risk_magnifier'
+				'SecurityService.id',
+				'SecurityService.name',
+				'SecurityService.objective',
+				'SecurityService.documentation_url',
+				'SecurityService.audit_metric_description',
+				'SecurityService.audit_success_criteria',
+				'SecurityService.maintenance_metric_description',
+				'SecurityService.opex',
+				'SecurityService.capex',
+				'SecurityService.resource_utilization'
+			),
+			'contain' => array(
+				'SecurityServiceType' => array(
+					'fields' => array( 'id', 'name' )
+				),
+				'ServiceClassification' => array(
+					'fields' => array( 'id', 'name' )
+				),
+				'User' => array(
+					'fields' => array( 'id', 'name', 'surname' )
+				),
+				'SecurityPolicy' => array(
+					'fields' => array( 'id', 'index', 'description', 'status' )
+				),
+				'Risk' => array(
+					'fields' => array( 'id', 'title' )
+				),
+				'ThirdPartyRisk' => array(
+					'fields' => array( 'id', 'title' )
+				),
+				'SecurityIncident' => array(
+					'fields' => array( 'id', 'title' )
+				),
+				'DataAsset' => array(
+					'fields' => array( 'id', 'description' )
+				),
+				'ComplianceManagement' => array(
+					'fields' => array( 'id' ),
+					'CompliancePackageItem' => array(
+						'fields' => array( 'name' )
+					)
+				)
 			),
 			'order' => array('SecurityService.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
@@ -19,8 +60,19 @@ class SecurityServicesController extends AppController {
 		);
 
 		$data = $this->paginate( 'SecurityService' );
+		$data = $this->addAuditStatuses( $data );
 		$this->set( 'data', $data );
-		//debug( $data );
+		
+		debug( $data );
+	}
+
+	private function addAuditStatuses( $data ) {
+		foreach ( $data as $key => $security_service ) {
+			$data[ $key ]['SecurityService']['status'] = $this->auditCheck( $security_service['SecurityService']['id'] );
+			$data[ $key ]['SecurityService']['maintenanceStatus'] = $this->maintenanceCheck( $security_service['SecurityService']['id'] );
+		}
+
+		return $data;
 	}
 
 	public function delete( $id = null ) {
@@ -110,7 +162,7 @@ class SecurityServicesController extends AppController {
 		
 		if ( $this->request->is( 'post' ) || $this->request->is( 'put' ) ) {
 
-			//debug($this->request->data );
+			//debug($this->request->data);
 			//die();
 
 			$this->SecurityService->set( $this->request->data );
@@ -233,9 +285,18 @@ class SecurityServicesController extends AppController {
 				'audit_success_criteria' => $this->request->data['SecurityService']['audit_success_criteria'],
 			);
 
-			$this->SecurityService->SecurityServiceAudit->create();
-			if ( ! $this->SecurityService->SecurityServiceAudit->save( $tmp ) ) {
-				return false;
+			$exist = $this->SecurityService->SecurityServiceAudit->find( 'count', array(
+				'conditions' => array(
+					'SecurityServiceAudit.planned_date' => date('Y') . '-' . $date['month'] . '-' . $date['day']
+				),
+				'recursive' => -1
+			) );
+
+			if ( ! $exist ) {
+				$this->SecurityService->SecurityServiceAudit->create();
+				if ( ! $this->SecurityService->SecurityServiceAudit->save( $tmp ) ) {
+					return false;
+				}
 			}
 		}
 
@@ -266,9 +327,18 @@ class SecurityServicesController extends AppController {
 				'planned_date' =>  date('Y') . '-' . $date['month'] . '-' . $date['day']
 			);
 
-			$this->SecurityService->SecurityServiceMaintenance->create();
-			if ( ! $this->SecurityService->SecurityServiceMaintenance->save( $tmp ) ) {
-				return false;
+			$exist = $this->SecurityService->SecurityServiceMaintenance->find( 'count', array(
+				'conditions' => array(
+					'SecurityServiceMaintenance.planned_date' => date('Y') . '-' . $date['month'] . '-' . $date['day']
+				),
+				'recursive' => -1
+			) );
+
+			if ( ! $exist ) {
+				$this->SecurityService->SecurityServiceMaintenance->create();
+				if ( ! $this->SecurityService->SecurityServiceMaintenance->save( $tmp ) ) {
+					return false;
+				}
 			}
 		}
 
@@ -285,7 +355,7 @@ class SecurityServicesController extends AppController {
 		$this->set( 'formKey', (int) $data['formKey'] );
 		$this->set( 'model', 'SecurityService' );
 		if ( ! isset( $data['field'] ) ) {
-			$data['field'] = 'audit_calednar';
+			$data['field'] = 'audit_calendar';
 		}
 		$this->set( 'field', $data['field'] );
 

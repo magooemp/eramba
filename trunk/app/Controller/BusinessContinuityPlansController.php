@@ -155,9 +155,18 @@ class BusinessContinuityPlansController extends AppController {
 				'audit_success_criteria' => $this->request->data['BusinessContinuityPlan']['audit_success_criteria'],
 			);
 
-			$this->BusinessContinuityPlan->BusinessContinuityPlanAudit->create();
-			if ( ! $this->BusinessContinuityPlan->BusinessContinuityPlanAudit->save( $tmp ) ) {
-				return false;
+			$exist = $this->BusinessContinuityPlan->BusinessContinuityPlanAudit->find( 'count', array(
+				'conditions' => array(
+					'BusinessContinuityPlanAudit.planned_date' => date('Y') . '-' . $date['month'] . '-' . $date['day']
+				),
+				'recursive' => -1
+			) );
+
+			if ( ! $exist ) {
+				$this->BusinessContinuityPlan->BusinessContinuityPlanAudit->create();
+				if ( ! $this->BusinessContinuityPlan->BusinessContinuityPlanAudit->save( $tmp ) ) {
+					return false;
+				}
 			}
 		}
 

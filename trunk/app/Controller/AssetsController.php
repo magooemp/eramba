@@ -13,7 +13,7 @@ class AssetsController extends AppController {
 			),
 			'contain' => array(
 				'Asset' => array(
-					'fields' => array( 'id', 'name', 'description' ),
+					'fields' => array( 'id', 'name', 'description', 'asset_owner_id', 'asset_guardian_id', 'asset_user_id' ),
 					'AssetMediaType' => array(
 						'fields' => array( 'name' )
 					),
@@ -21,6 +21,21 @@ class AssetsController extends AppController {
 						'fields' => array( 'name' )
 					),
 					'Legal' => array(
+						'fields' => array( 'name' )
+					),
+					'AssetClassification' => array(
+						'AssetClassificationType' => array()
+					),
+					'AssetOwner' => array(
+						'fields' => array( 'name' )
+					),
+					'AssetGuardian' => array(
+						'fields' => array( 'name' )
+					),
+					'AssetUser' => array(
+						'fields' => array( 'name' )
+					),
+					'AssetMainContainer' => array(
 						'fields' => array( 'name' )
 					)
 				),

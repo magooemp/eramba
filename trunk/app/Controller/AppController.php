@@ -305,4 +305,130 @@ class AppController extends Controller {
 
 		return $security_policies;
 	}
+
+	/**
+	 * Check audits completion. 
+	 * @param  int $id   Security Service ID.
+	 * @return array     Result.
+	 */
+	protected function auditCheck( $id = null ) {
+		$this->loadModel( 'SecurityService' );
+
+		$data = $this->SecurityService->find( 'first', array(
+			'conditions' => array(
+				'SecurityService.id' => $id,
+			),
+			'contain' => array(
+				'SecurityServiceAudit' => array(
+					'conditions' => array(
+						'SecurityServiceAudit.result' => null,
+						'SecurityServiceAudit.planned_date <' => date( 'Y-m-d', strtotime('now') )
+					)
+				)
+			), 
+			'recursive' => 2
+		) );
+
+		$all_done = false;
+		if ( empty( $data['SecurityServiceAudit'] ) ) {
+			$all_done = true;
+		}
+
+		$data = $this->SecurityService->find( 'first', array(
+			'conditions' => array(
+				'SecurityService.id' => $id,
+			),
+			'contain' => array(
+				'SecurityServiceAudit' => array(
+					'order' => 'SecurityServiceAudit.planned_date DESC',
+				)
+			), 
+			'recursive' => 2
+		) );
+
+		$last_passed = false;
+		if ( isset( $data['SecurityServiceAudit'][0] ) && $data['SecurityServiceAudit'][0]['result'] == 1 ) {
+			$last_passed = true;
+		}
+		
+		return array(
+			'all_done' => $all_done,
+			'last_passed' => $last_passed,
+			'status' => $this->auditStatus( $id )
+		);
+	}
+
+	protected function auditStatus( $id = null ) {
+		$this->loadModel( 'SecurityService' );
+
+		$data = $this->SecurityService->find( 'first', array(
+			'conditions' => array(
+				'SecurityService.id' => $id,
+			),
+			'fields' => array( 'id', 'security_service_type_id' ),
+			'recursive' => -1
+		) );
+
+
+		if ( $data['SecurityService']['security_service_type_id'] == SECURITY_SERVICE_RETIRED ) {
+			return 2;
+		}
+
+		if ( $data['SecurityService']['security_service_type_id'] != SECURITY_SERVICE_PRODUCTION ) {
+			return 1;
+		}
+
+		return 0;
+	}
+
+	/**
+	 * Check maintenance completion. 
+	 * @param  int $id   Security Service ID.
+	 * @return array     Result.
+	 */
+	protected function maintenanceCheck( $id = null ) {
+		$this->loadModel( 'SecurityService' );
+
+		$data = $this->SecurityService->find( 'first', array(
+			'conditions' => array(
+				'SecurityService.id' => $id,
+			),
+			'contain' => array(
+				'SecurityServiceMaintenance' => array(
+					'conditions' => array(
+						'SecurityServiceMaintenance.result' => null,
+						'SecurityServiceMaintenance.planned_date <' => date( 'Y-m-d', strtotime('now') )
+					)
+				)
+			), 
+			'recursive' => 2
+		) );
+
+		$all_done = false;
+		if ( empty( $data['SecurityServiceMaintenance'] ) ) {
+			$all_done = true;
+		}
+
+		$data = $this->SecurityService->find( 'first', array(
+			'conditions' => array(
+				'SecurityService.id' => $id,
+			),
+			'contain' => array(
+				'SecurityServiceMaintenance' => array(
+					'order' => 'SecurityServiceMaintenance.planned_date DESC',
+				)
+			), 
+			'recursive' => 2
+		) );
+
+		$last_passed = false;
+		if ( isset( $data['SecurityServiceMaintenance'][0] ) && $data['SecurityServiceMaintenance'][0]['result'] == 1 ) {
+			$last_passed = true;
+		}
+		
+		return array(
+			'all_done' => $all_done,
+			'last_passed' => $last_passed
+		);
+	}
 }

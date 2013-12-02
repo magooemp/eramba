@@ -32,7 +32,22 @@ class DataAssetsController extends AppController {
 		);
 
 		$data = $this->paginate( 'Asset' );
+		$data = $this->addStatuses( $data );
 		$this->set( 'data', $data );
+
+		//debug( $data );
+	}
+
+	private function addStatuses( $data ) {
+		foreach ( $data as $key => $entry ) {
+			foreach ( $entry['DataAsset'] as $key2 => $data_asset ) {
+				foreach ( $data_asset['SecurityService'] as $key3 => $security_service ) {
+					$data[ $key ]['DataAsset'][ $key2 ]['SecurityService'][ $key3 ]['status'] = $this->auditCheck( $security_service['id'] );
+				}
+				
+			}
+		}
+		return $data;
 	}
 
 	public function add( $asset_id = null ) {

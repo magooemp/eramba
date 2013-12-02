@@ -28,3 +28,16 @@
 	cursor: pointer;
 	line-height: 30px;
 }
+
+.row-warning td, .widget-header-warning, .cell-warning {
+	background-color: #FDD9A5 !important;
+}
+
+.row-alert td, .widget-header-alert, .cell-alert {
+	background-color: #f2dede !important;
+}
+
+td .label {
+	display: inline-block;
+	font-size: 84%;
+}

@@ -22,7 +22,23 @@ class Asset extends AppModel {
 	public $belongsTo = array(
 		'AssetMediaType' => array(),
 		'AssetLabel' => array(),
-		'Legal' => array()
+		'Legal' => array(),
+		'AssetOwner' => array(
+			'className' => 'BusinessUnit',
+			'foreignKey' => 'asset_owner_id'
+		),
+		'AssetGuardian' => array(
+			'className' => 'BusinessUnit',
+			'foreignKey' => 'asset_guardian_id'
+		),
+		'AssetUser' => array(
+			'className' => 'BusinessUnit',
+			'foreignKey' => 'asset_user_id'
+		),
+		'AssetMainContainer' => array(
+			'className' => 'Asset',
+			'foreignKey' => 'asset_id'
+		)
 	);
 
 	public $hasMany = array(

@@ -14,7 +14,8 @@ class ComplianceManagement extends AppModel {
 
 	public $belongsTo = array(
 		'ComplianceTreatmentStrategy' => array(),
-		'ComplianceException' => array()
+		'ComplianceException' => array(),
+		'CompliancePackageItem' => array()
 	);
 }
 ?>

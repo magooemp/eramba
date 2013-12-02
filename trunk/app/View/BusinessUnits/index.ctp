@@ -22,12 +22,12 @@
 
 		<?php if ( ! empty( $data ) ) : ?>
 			<?php foreach ( $data as $entry ) : ?>
-				<div class="widget box">
+				<div class="widget box widget-closed">
 					<div class="widget-header">
-						<h4><?php echo $entry['BusinessUnit']['name']; ?></h4>
+						<h4><?php echo __( 'Business Unit Name:' ) . ' ' . $entry['BusinessUnit']['name']; ?></h4>
 						<div class="toolbar no-padding">
 							<div class="btn-group">
-								<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+								<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
 								<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
 									<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
 								</span>
@@ -57,7 +57,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="widget-content">
+					<div class="widget-content" style="display:none;">
 						<?php if ( ! empty( $entry['Process'] ) ) : ?>
 							<table class="table table-hover table-striped">
 								<thead>
@@ -65,6 +65,7 @@
 										<th><?php echo __( 'Process Name' ); ?></th>
 										<th><?php echo __( 'Process Description' ); ?></th>
 										<th><?php echo __( 'RTO' ); ?></th>
+										<th><?php echo __( 'RPO' ); ?></th>
 										<th class="align-center"><?php echo __( 'Action' ); ?></th>
 									</tr>
 								</thead>
@@ -73,7 +74,8 @@
 									<tr>
 										<td><?php echo $process['name']; ?></td>
 										<td><?php echo $process['description']; ?></td>
-										<td><?php echo $process['rto']; ?></td>
+										<td><?php echo __n( '%d Hour', '%d Hours', $process['rto'], $process['rto'] ); ?></td>
+										<td><?php echo __n( '%d Hour', '%d Hours', $process['rpo'], $process['rpo'] ); ?></td>
 										<td class="align-center">
 											<?php echo $this->element( 'action_buttons', array( 
 												'id' => $process['id'],
