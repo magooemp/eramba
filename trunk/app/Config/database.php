@@ -64,10 +64,11 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'internal.adbee.sk',
-		'login' => 'eramba',
-		'password' => 'W6NX56LztUmLktWbI',
-		'database' => 'eramba',
+		'host' => 'dev.eramba.org',
+		'port' => 65123,
+		'login' => 'eramba_v2_dev',
+		'password' => 'n3wp4ssw0rd!@',
+		'database' => 'eramba_v2_dev',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

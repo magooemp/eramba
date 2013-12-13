@@ -45,7 +45,8 @@
 										<td><?php echo $item['name']; ?></td>
 										<td><?php echo $item['description']; ?></td>
 										<td><?php echo $item['audit_questionaire']; ?></td>
-										<td><?php echo count( $item['ComplianceFinding'] ); ?>
+										<?php $count = count( $item['ComplianceFinding'] ); ?>
+										<td><?php echo __n( '%d Item', '%d Items', $count, $count ); ?></td>
 										<td class="align-center">
 											<ul class="table-controls">
 												<!--<li>

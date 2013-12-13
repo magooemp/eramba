@@ -283,7 +283,7 @@
 								</div>
 							</div>
 							<div class="widget-content" style="display:none;">
-								<table class="table table-hover table-striped table-bordered table-highlight-head">
+								<table class="table table-hover table-striped">
 									<thead>
 										<tr>
 											<th><?php echo __( 'Mitigation Type' ); ?></th>

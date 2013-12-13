@@ -265,7 +265,7 @@
 											</div>
 											<div class="widget-content" style="display:none;">
 												<?php if ( ! empty( $risk['RiskException'] ) ) : ?>
-												<table class="table table-hover table-striped table-bordered table-highlight-head">
+												<table class="table table-hover table-striped">
 													<thead>
 														<tr>
 															<th><?php echo __( 'Name' ); ?></th>
@@ -313,7 +313,7 @@
 											</div>
 											<div class="widget-content" style="display:none;">
 												<?php if ( ! empty( $risk['SecurityService'] ) ) : ?>
-												<table class="table table-hover table-striped table-bordered table-highlight-head">
+												<table class="table table-hover table-striped">
 													<thead>
 														<tr>
 															<th><?php echo __( 'Name' ); ?></th>
