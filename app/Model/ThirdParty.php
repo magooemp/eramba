@@ -21,7 +21,8 @@ class ThirdParty extends AppModel {
 	public $hasMany = array(
 		'ServiceContract' => array(),
 		'CompliancePackage' => array(),
-		'ComplianceAudit' => array()
+		'ComplianceAudit' => array(),
+		'SecurityIncident' => array()
 	);
 
 	public $hasAndBelongsToMany = array(

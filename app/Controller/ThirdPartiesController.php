@@ -14,16 +14,22 @@ class ThirdPartiesController extends AppController {
 				'ThirdParty.id',
 				'ThirdParty.name',
 				'ThirdParty.description',
-				'ThirdPartyType.name'
+			),
+			'contain' => array(
+				'ThirdPartyType' => array(
+					'fields' => array( 'name' )
+				),
+				'SecurityIncident' => array(
+					'fields' => array( 'id' )
+				)
 			),
 			'order' => array( 'ThirdParty.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 0
+			'recursive' => 1
 		);
 
 		$data = $this->paginate( 'ThirdParty' );
 		$this->set( 'data', $data );
-
 	}
 
 	public function delete( $id = null ) {

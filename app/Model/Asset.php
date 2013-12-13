@@ -42,7 +42,8 @@ class Asset extends AppModel {
 	);
 
 	public $hasMany = array(
-		'DataAsset' => array()
+		'DataAsset' => array(),
+		'SecurityIncident' => array()
 	);
 
 	public $hasAndBelongsToMany = array(

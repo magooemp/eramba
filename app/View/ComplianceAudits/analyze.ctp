@@ -29,9 +29,11 @@
 							<table class="table table-hover table-striped">
 								<thead>
 									<tr>
+										<th><?php echo __( 'Item ID' ); ?></th>
 										<th><?php echo __( 'Item Name' ); ?></th>
 										<th><?php echo __( 'Description' ); ?></th>
 										<th><?php echo __( 'Audit Questionaire' ); ?></th>
+										<th><?php echo __( 'Current Findings' ); ?>
 										<th class="align-center"><?php echo __( 'Findings Action' ); ?></th>
 										<th class="align-center"><?php echo __( 'Attachments Action' ); ?></th>
 									</tr>
@@ -39,9 +41,11 @@
 								<tbody>
 									<?php foreach ( $entry['CompliancePackageItem'] as $item ) : ?>
 									<tr>
+										<td><?php echo $item['item_id']; ?></td>
 										<td><?php echo $item['name']; ?></td>
 										<td><?php echo $item['description']; ?></td>
 										<td><?php echo $item['audit_questionaire']; ?></td>
+										<td><?php echo count( $item['ComplianceFinding'] ); ?>
 										<td class="align-center">
 											<ul class="table-controls">
 												<!--<li>

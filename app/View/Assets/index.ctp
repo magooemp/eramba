@@ -66,6 +66,7 @@
 													<th><?php echo __( 'Label' ); ?></th>
 													<th><?php echo __( 'Legal Constrain' ); ?></th>
 													<th><?php echo __( 'Main Container' ); ?></th>
+													<th><?php echo __( 'Incidents' ); ?></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -75,6 +76,15 @@
 													<td><?php echo isset( $asset['AssetLabel']['name'] ) ? $asset['AssetLabel']['name'] : ''; ?></td>
 													<td><?php echo isset( $asset['Legal']['name'] ) ? $asset['Legal']['name'] : ''; ?></td>
 													<td><?php echo ( ! empty( $asset['AssetMainContainer'] ) ) ? $asset['AssetMainContainer']['name'] : ''; ?></td>
+													<?php
+													$incidents = count( $asset['SecurityIncident'] );
+													if ( $incidents ) {
+														$notification = $incidents . '&nbsp;<span class="label label-danger">' . __( 'Warning' ) . '</span>';
+													} else {
+														$notification = '<span class="label label-success">' . __( 'No Incident' ) . '</span>';
+													}
+													?>
+													<td><?php echo $notification; ?></td>
 												</tr>
 											</tbody>
 										</table>

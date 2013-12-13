@@ -231,13 +231,7 @@ class ComplianceManagementsController extends AppController {
 			'recursive' => -1
 		));
 
-		$security_policies = $this->ComplianceManagement->SecurityPolicy->find('list', array(
-			'conditions' => array(
-				'SecurityPolicy.status' => SECURITY_POLICY_RELEASED
-			),
-			'order' => array('SecurityPolicy.index' => 'ASC'),
-			'recursive' => -1
-		));
+		$security_policies = $this->getSecurityPoliciesList();
 
 		$this->set( 'strategies', $strategies );
 		$this->set( 'exceptions', $exceptions );
