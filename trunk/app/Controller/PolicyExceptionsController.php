@@ -171,13 +171,7 @@ class PolicyExceptionsController extends AppController {
 			'recursive' => -1
 		));
 
-		$security_policies = $this->PolicyException->SecurityPolicy->find('list', array(
-			'conditions' => array(
-				'SecurityPolicy.status' => SECURITY_POLICY_RELEASED
-			),
-			'order' => array('SecurityPolicy.index' => 'ASC'),
-			'recursive' => -1
-		));
+		$security_policies = $this->getSecurityPoliciesList();
 
 		$users = $this->getUsersList();
 

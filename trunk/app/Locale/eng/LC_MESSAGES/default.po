@@ -1,0 +1,4192 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Eramba\n"
+"POT-Creation-Date: 2013-12-13 11:33+0100\n"
+"PO-Revision-Date: 2013-12-13 11:34+0100\n"
+"Last-Translator: Martin Horvath <martin.horvath@adbee.sk>\n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: ../..\n"
+"X-Poedit-SearchPath-2: ../../..\n"
+
+#: ../../../Controller/AssetClassificationsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:48
+msgid "Asset Classification"
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:8
+msgid ""
+"You'll be classifying assets very soon, it's very important you decide a "
+"classification method that fits you the best. Keep in mind it must be "
+"usefull!"
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:40
+msgid "Asset Classification was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:42
+#: ../../../Controller/AssetLabelsController.php:39
+#: ../../../Controller/AssetsController.php:81
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:40
+#: ../../../Controller/BusinessContinuityTasksController.php:20
+#: ../../../Controller/BusinessUnitsController.php:45
+#: ../../../Controller/ComplianceAuditsController.php:74
+#: ../../../Controller/ComplianceFindingsController.php:43
+#: ../../../Controller/CompliancePackageItemsController.php:20
+#: ../../../Controller/CompliancePackagesController.php:46
+#: ../../../Controller/GroupsController.php:112
+#: ../../../Controller/LegalsController.php:39
+#: ../../../Controller/ProcessesController.php:20
+#: ../../../Controller/ProjectExpensesController.php:48
+#: ../../../Controller/RiskClassificationsController.php:43
+#: ../../../Controller/SecurityPoliciesController.php:40
+#: ../../../Controller/SecurityServiceAuditsController.php:40
+#: ../../../Controller/SecurityServiceMaintenancesController.php:40
+#: ../../../Controller/SecurityServicesController.php:98
+#: ../../../Controller/ServiceClassificationsController.php:39
+#: ../../../Controller/ServiceContractsController.php:41
+#: ../../../Controller/ThirdPartiesController.php:43
+#: ../../../Controller/UsersController.php:155
+msgid "Error while deleting the data. Please try it again."
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:49
+msgid "Create an Asset Classification"
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:55
+#: ../../../Controller/AssetClassificationsController.php:134
+msgid "Asset Classification was successfully added."
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:80
+msgid "Edit an Asset Classification"
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:84
+msgid "Asset Classification was successfully edited."
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:118
+#: ../../../Controller/AssetClassificationsController.php:122
+#: ../../../Controller/AssetClassificationsController.php:137
+#: ../../../Controller/AssetLabelsController.php:59
+#: ../../../Controller/AssetLabelsController.php:99
+#: ../../../Controller/AssetsController.php:112
+#: ../../../Controller/AssetsController.php:169
+#: ../../../Controller/BusinessContinuitiesController.php:189
+#: ../../../Controller/BusinessContinuitiesController.php:260
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:101
+#: ../../../Controller/BusinessContinuityPlansController.php:128
+#: ../../../Controller/BusinessContinuityPlansController.php:187
+#: ../../../Controller/BusinessContinuityTasksController.php:42
+#: ../../../Controller/BusinessContinuityTasksController.php:96
+#: ../../../Controller/BusinessUnitsController.php:65
+#: ../../../Controller/BusinessUnitsController.php:106
+#: ../../../Controller/ComplianceAuditsController.php:94
+#: ../../../Controller/ComplianceAuditsController.php:136
+#: ../../../Controller/ComplianceExceptionsController.php:56
+#: ../../../Controller/ComplianceExceptionsController.php:96
+#: ../../../Controller/ComplianceFindingsController.php:63
+#: ../../../Controller/ComplianceFindingsController.php:109
+#: ../../../Controller/ComplianceManagementsController.php:78
+#: ../../../Controller/ComplianceManagementsController.php:137
+#: ../../../Controller/CompliancePackageItemsController.php:42
+#: ../../../Controller/CompliancePackageItemsController.php:96
+#: ../../../Controller/CompliancePackagesController.php:66
+#: ../../../Controller/CompliancePackagesController.php:110
+#: ../../../Controller/DataAssetsController.php:81
+#: ../../../Controller/DataAssetsController.php:139
+#: ../../../Controller/GroupsController.php:47
+#: ../../../Controller/GroupsController.php:83
+#: ../../../Controller/LegalsController.php:59
+#: ../../../Controller/LegalsController.php:99
+#: ../../../Controller/PolicyExceptionsController.php:65
+#: ../../../Controller/PolicyExceptionsController.php:118
+#: ../../../Controller/ProcessesController.php:42
+#: ../../../Controller/ProcessesController.php:96
+#: ../../../Controller/ProjectAchievementsController.php:74
+#: ../../../Controller/ProjectAchievementsController.php:120
+#: ../../../Controller/ProjectExpensesController.php:70
+#: ../../../Controller/ProjectExpensesController.php:114
+#: ../../../Controller/ProjectsController.php:78
+#: ../../../Controller/ProjectsController.php:121
+#: ../../../Controller/RiskClassificationsController.php:120
+#: ../../../Controller/RiskClassificationsController.php:124
+#: ../../../Controller/RiskClassificationsController.php:139
+#: ../../../Controller/RiskExceptionsController.php:65
+#: ../../../Controller/RiskExceptionsController.php:119
+#: ../../../Controller/RisksController.php:189
+#: ../../../Controller/RisksController.php:260
+#: ../../../Controller/SecurityIncidentClassificationsController.php:58
+#: ../../../Controller/SecurityIncidentClassificationsController.php:98
+#: ../../../Controller/SecurityIncidentsController.php:70
+#: ../../../Controller/SecurityIncidentsController.php:115
+#: ../../../Controller/SecurityPoliciesController.php:60
+#: ../../../Controller/SecurityPoliciesController.php:102
+#: ../../../Controller/SecurityServiceAuditsController.php:100
+#: ../../../Controller/SecurityServiceMaintenancesController.php:100
+#: ../../../Controller/SecurityServicesController.php:136
+#: ../../../Controller/SecurityServicesController.php:212
+#: ../../../Controller/ServiceClassificationsController.php:59
+#: ../../../Controller/ServiceClassificationsController.php:99
+#: ../../../Controller/ServiceContractsController.php:63
+#: ../../../Controller/ServiceContractsController.php:117
+#: ../../../Controller/ThirdPartiesController.php:63
+#: ../../../Controller/ThirdPartiesController.php:106
+#: ../../../Controller/ThirdPartyRisksController.php:156
+#: ../../../Controller/ThirdPartyRisksController.php:227
+#: ../../../Controller/UsersController.php:51
+#: ../../../Controller/UsersController.php:97
+#: ../../../Controller/UsersController.php:200
+#: ../../../Controller/UsersController.php:263
+msgid "Error while saving the data. Please try it again."
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:126
+#: ../../../Controller/AssetClassificationsController.php:140
+#: ../../../Controller/AssetLabelsController.php:62
+#: ../../../Controller/AssetLabelsController.php:102
+#: ../../../Controller/AssetsController.php:115
+#: ../../../Controller/AssetsController.php:172
+#: ../../../Controller/BusinessContinuitiesController.php:192
+#: ../../../Controller/BusinessContinuitiesController.php:263
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:104
+#: ../../../Controller/BusinessContinuityPlansController.php:131
+#: ../../../Controller/BusinessContinuityPlansController.php:190
+#: ../../../Controller/BusinessContinuityTasksController.php:45
+#: ../../../Controller/BusinessContinuityTasksController.php:99
+#: ../../../Controller/BusinessUnitsController.php:68
+#: ../../../Controller/BusinessUnitsController.php:109
+#: ../../../Controller/ComplianceAuditsController.php:97
+#: ../../../Controller/ComplianceAuditsController.php:139
+#: ../../../Controller/ComplianceExceptionsController.php:59
+#: ../../../Controller/ComplianceExceptionsController.php:99
+#: ../../../Controller/ComplianceFindingsController.php:66
+#: ../../../Controller/ComplianceFindingsController.php:112
+#: ../../../Controller/ComplianceManagementsController.php:81
+#: ../../../Controller/ComplianceManagementsController.php:140
+#: ../../../Controller/CompliancePackageItemsController.php:45
+#: ../../../Controller/CompliancePackageItemsController.php:99
+#: ../../../Controller/CompliancePackagesController.php:69
+#: ../../../Controller/CompliancePackagesController.php:113
+#: ../../../Controller/DataAssetsController.php:84
+#: ../../../Controller/DataAssetsController.php:142
+#: ../../../Controller/LegalsController.php:62
+#: ../../../Controller/LegalsController.php:102
+#: ../../../Controller/PolicyExceptionsController.php:68
+#: ../../../Controller/PolicyExceptionsController.php:121
+#: ../../../Controller/ProcessesController.php:45
+#: ../../../Controller/ProcessesController.php:99
+#: ../../../Controller/ProjectAchievementsController.php:77
+#: ../../../Controller/ProjectAchievementsController.php:123
+#: ../../../Controller/ProjectExpensesController.php:73
+#: ../../../Controller/ProjectExpensesController.php:117
+#: ../../../Controller/ProjectsController.php:81
+#: ../../../Controller/ProjectsController.php:124
+#: ../../../Controller/RiskClassificationsController.php:128
+#: ../../../Controller/RiskClassificationsController.php:142
+#: ../../../Controller/RiskExceptionsController.php:68
+#: ../../../Controller/RiskExceptionsController.php:122
+#: ../../../Controller/RisksController.php:192
+#: ../../../Controller/RisksController.php:263
+#: ../../../Controller/SecurityIncidentClassificationsController.php:61
+#: ../../../Controller/SecurityIncidentClassificationsController.php:101
+#: ../../../Controller/SecurityIncidentsController.php:73
+#: ../../../Controller/SecurityIncidentsController.php:118
+#: ../../../Controller/SecurityPoliciesController.php:63
+#: ../../../Controller/SecurityPoliciesController.php:105
+#: ../../../Controller/SecurityServiceAuditsController.php:103
+#: ../../../Controller/SecurityServiceMaintenancesController.php:103
+#: ../../../Controller/SecurityServicesController.php:139
+#: ../../../Controller/SecurityServicesController.php:215
+#: ../../../Controller/ServiceClassificationsController.php:62
+#: ../../../Controller/ServiceClassificationsController.php:102
+#: ../../../Controller/ServiceContractsController.php:66
+#: ../../../Controller/ServiceContractsController.php:120
+#: ../../../Controller/ThirdPartiesController.php:66
+#: ../../../Controller/ThirdPartiesController.php:109
+#: ../../../Controller/ThirdPartyRisksController.php:159
+#: ../../../Controller/ThirdPartyRisksController.php:230
+msgid "One or more inputs you entered are invalid. Please try again."
+msgstr ""
+
+#: ../../../Controller/AssetClassificationsController.php:146
+#: ../../../Controller/RiskClassificationsController.php:148
+msgid ""
+"Usually there's many assets around in a organization. Trough classification "
+"(according to your needs) you will be able to set priorities and profile "
+"them in a way their treatment and handling is systematic. Btw, this is a "
+"basic requirement for most Security related regulations."
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:7
+msgid "Asset Labeling Classifications"
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:8
+msgid "Define how you would like assets to be labeled."
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:37
+msgid "Asset Label was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:46
+msgid "Create an Asset Label Classification"
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:56
+msgid "Asset Label Classification was successfully added."
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:86
+msgid "Edit an Asset Label Classification"
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:95
+msgid "Asset Label Classification was successfully edited."
+msgstr ""
+
+#: ../../../Controller/AssetLabelsController.php:113
+#: ../../../Controller/SecurityIncidentClassificationsController.php:112
+#: ../../../Controller/ServiceClassificationsController.php:113
+msgid "Define your Security Incident Classification."
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:54
+msgid "Asset Identification"
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:8
+msgid "Build a list of significant assets for your security program."
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:79
+msgid "Asset was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:89
+msgid "Create an Asset"
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:108
+msgid "Asset was successfully added."
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:141
+msgid "Edit an Asset"
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:164
+msgid "Asset was successfully edited."
+msgstr ""
+
+#: ../../../Controller/AssetsController.php:265
+msgid ""
+"Identifing assets is perhaps one of the most important tasks for a Security "
+"Program. It all revolves around understanding what is that the program "
+"intends to protect. You might need to ask yourselfeve the 5w + 1H (Why, "
+"Where, What, When, Who and How!) for each single piece of assets it's "
+"reasonable to spend time with."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:7
+msgid "Business Based - Risk Analysis"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:8
+msgid ""
+"Identifying and analysing Business Risks can be usefull if executed in a "
+"simple and practical way. For each Business line, identify and analyse "
+"risks. You will later have the option to mitigate them by the use of "
+"controls or Continuity Plans."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:143
+msgid "Business Continuity was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:148
+msgid "Create a Business Continuity"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:184
+msgid "Business Continuity was successfully added."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:218
+msgid "Edit a Business Continuity"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:254
+msgid "Business Continuity was successfully edited."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuitiesController.php:554
+#: ../../../Controller/RisksController.php:575
+#: ../../../Controller/ThirdPartyRisksController.php:573
+msgid ""
+"Feared by many, impractical for others, loved for some. Most regulations are "
+"very strict in requesting a Risk Management framework being tailor made "
+"developed and used by any Security Program. This sections aims to aid on "
+"keeping track of such program, at least in it's most minimalistic way."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:7
+msgid "Business Continuity Plans Audit Report"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:8
+#: ../../../Controller/SecurityServiceAuditsController.php:8
+msgid "This is a report of all the audits registed for this service."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:38
+msgid "Business Continuity Plan Audit was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:87
+msgid "Edit a Business Continuity Plan Audit"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:96
+msgid "Business Continuity Plan Audit was successfully edited."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlanAuditsController.php:124
+msgid ""
+"The objective is to audit the security control for efficiency utilizing the "
+"metrics reviews and success criteria defined on the continuity plan. You "
+"should be able to add evidence that suppors the audit."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:7
+#: ../../../Controller/Component/MenuComponent.php:95
+msgid "Business Continuity Plans"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:8
+msgid "Manage your continuity plans catalogue."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:105
+msgid "Create a Business Continuity Plan"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:123
+msgid "Business Continuity Plan was successfully added."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:157
+msgid "Edit a Business Continuity Plan"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:181
+msgid "Business Continuity Plan was successfully edited."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityPlansController.php:270
+msgid "Use this form to create or edit a Continuity Plan."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityTasksController.php:18
+msgid "Business Continuity Task was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityTasksController.php:29
+msgid "Create a Business Continuity Task"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityTasksController.php:39
+msgid "Business Continuity Task was successfully added."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityTasksController.php:82
+msgid "Edit a Business Continuity Task"
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityTasksController.php:92
+msgid "Business Continuity Task was successfully edited."
+msgstr ""
+
+#: ../../../Controller/BusinessContinuityTasksController.php:110
+msgid ""
+"This is the tools used to create an emergency plan. Emergency plans are "
+"short and very much to the point. Have you noticed aircraft emergency plans? "
+"there's no point in writing long manuals since at emergency times there's no "
+"time to read. Keep it to the point and you'll do fine."
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:25
+msgid "Business Units"
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:8
+msgid ""
+"Describing the organiational units and their main processes is a basic "
+"component on any Security Program. After all it might be a good idea to know "
+"what is that you are protecting! "
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:43
+msgid "Business Unit was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:52
+msgid "Create a Business Unit"
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:62
+msgid "Business Unit was successfully added."
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:92
+msgid "Edit a Business Unit"
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:102
+msgid "Business Unit was successfully edited."
+msgstr ""
+
+#: ../../../Controller/BusinessUnitsController.php:120
+msgid ""
+"This is the very first step to split your organization in to manageable bits "
+"for later analysis."
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:7
+msgid "Audit Calendar"
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:8
+msgid ""
+"Keeping tidy a calendar of Audits is helpful for prepation and planning. In "
+"this section you can keep track all audit findings (non-compliances) in "
+"order to work on their mitigation plans."
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:55
+#: ../../../Controller/ComplianceManagementsController.php:50
+msgid "Compliance Management:"
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:72
+msgid "Compliance Audit was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:81
+#: ../../../Controller/ComplianceFindingsController.php:50
+msgid "Create a Compliance Audit"
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:91
+msgid "Compliance Audit was successfully added."
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:123
+#: ../../../Controller/ComplianceFindingsController.php:96
+msgid "Edit a Compliance Audit"
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:132
+msgid "Compliance Audit was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ComplianceAuditsController.php:173
+msgid "Record your next audits."
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:7
+msgid "Compliance Exception Management"
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:8
+msgid ""
+"Sometimes compliance is not possible and Compliance Exceptions are required "
+"in order to assess the impact of non-compliance."
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:38
+msgid "Compliance Exception was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:43
+msgid "Create a Compliance Exception"
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:53
+msgid "Compliance Exception was successfully added."
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:83
+msgid "Edit a Compliance Exception"
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:92
+msgid "Compliance Exception was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ComplianceExceptionsController.php:110
+msgid ""
+"Compliance Exceptions are very usefull at the time of accepting a known non-"
+"compliancy. Once approved, they provide substantiation to Compliance items."
+msgstr ""
+
+#: ../../../Controller/ComplianceFindingsController.php:7
+#: ../../../Controller/ProjectExpensesController.php:9
+msgid "List of Expenses"
+msgstr ""
+
+#: ../../../Controller/ComplianceFindingsController.php:8
+msgid "This is the list of audit findings for a given audit."
+msgstr ""
+
+#: ../../../Controller/ComplianceFindingsController.php:41
+msgid "Compliance Finding was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ComplianceFindingsController.php:60
+msgid "Compliance Finding was successfully added."
+msgstr ""
+
+#: ../../../Controller/ComplianceFindingsController.php:105
+msgid "Compliance Finding was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ComplianceFindingsController.php:157
+msgid "Use this form to create or edit an audit finding"
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:150
+msgid "Compliance Management"
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:8
+msgid "Select the third party who wish to work with."
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:55
+#: ../../../Controller/CompliancePackagesController.php:53
+msgid "Create a Compliance Package"
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:74
+msgid "Compliance Management was successfully added."
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:111
+#: ../../../Controller/CompliancePackagesController.php:97
+msgid "Edit a Compliance Package"
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:132
+msgid "Compliance Management was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ComplianceManagementsController.php:249
+msgid ""
+"Select which mitigation strategy (response) you'll provide to this "
+"compliance package item and what's the regulator feedback on this particular "
+"item (status)"
+msgstr ""
+
+#: ../../../Controller/CompliancePackageItemsController.php:18
+msgid "Compliance Package Item was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/CompliancePackageItemsController.php:29
+msgid "Create a Compliance Package Item"
+msgstr ""
+
+#: ../../../Controller/CompliancePackageItemsController.php:39
+msgid "Compliance Package Item was successfully added."
+msgstr ""
+
+#: ../../../Controller/CompliancePackageItemsController.php:82
+msgid "Edit a Compliance Package Item"
+msgstr ""
+
+#: ../../../Controller/CompliancePackageItemsController.php:92
+msgid "Compliance Package Item was successfully edited."
+msgstr ""
+
+#: ../../../Controller/CompliancePackagesController.php:7
+msgid "Compliance Package Database"
+msgstr ""
+
+#: ../../../Controller/CompliancePackagesController.php:8
+msgid ""
+"Most security organizations are subject to multiple compliances (or they set "
+"regulations to other partners). A key starting point in defining a "
+"Compliance Program is defining what exact regulations (compliance packages) "
+"and requirements (compliance packages items) your security program is "
+"subject to."
+msgstr ""
+
+#: ../../../Controller/CompliancePackagesController.php:44
+msgid "Compliance Package was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/CompliancePackagesController.php:63
+msgid "Compliance Package was successfully added."
+msgstr ""
+
+#: ../../../Controller/CompliancePackagesController.php:106
+msgid "Compliance Package was successfully edited."
+msgstr ""
+
+#: ../../../Controller/DataAssetsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:60
+msgid "Data Asset Analysis"
+msgstr ""
+
+#: ../../../Controller/DataAssetsController.php:8
+msgid ""
+"For those sensitive data assets, describe the process on how they are "
+"created, used, transmited and disposed in order to ensure correct controls "
+"are in place for each one of those phases of the lifecycle of an asset."
+msgstr ""
+
+#: ../../../Controller/DataAssetsController.php:56
+#: ../../../Controller/DataAssetsController.php:114
+msgid "Analyse a Data Asset"
+msgstr ""
+
+#: ../../../Controller/DataAssetsController.php:76
+msgid "Data Asset was successfully added."
+msgstr ""
+
+#: ../../../Controller/DataAssetsController.php:134
+msgid "Data Asset was successfully edited."
+msgstr ""
+
+#: ../../../Controller/DataAssetsController.php:275
+msgid ""
+"In the end, is your core data assets that you struggle to protect every day, "
+"isnt it?. It's important you identify for each data asset status (creation, "
+"modification, storage, transit and deletion) how those assets are protected."
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:12
+#: ../../../Controller/Component/MenuComponent.php:211
+#: ../../../Plugin/Acl/Controller/AclAppController.php:21
+msgid "Role Management"
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:13
+msgid "This is the current list of roles defined on the system."
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:33
+msgid "Create a Role"
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:34
+#: ../../../Controller/GroupsController.php:57
+msgid ""
+"You can control user access to eramba by defining roles and later assigning "
+"them to user accounts. For each role, you must define to which sections of "
+"the system groups are allowed to access and edit information."
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:43
+msgid "Role was successfully added."
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:56
+msgid "Edit Role"
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:79
+msgid "Role was successfully edited."
+msgstr ""
+
+#: ../../../Controller/GroupsController.php:109
+msgid "Role was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:31
+msgid "Legal Constrains"
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:8
+msgid ""
+"Most businesses deal with Legal requirement, either from customers, "
+"providers, regulators, etc. Compliance to this requirements is a good idea."
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:37
+msgid "Legal Constrain was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:46
+msgid "Create a Legal Constrain"
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:56
+msgid "Legal Constrain was successfully added."
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:86
+msgid "Edit a Legal Constrain"
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:95
+msgid "Legal Constrain was successfully edited."
+msgstr ""
+
+#: ../../../Controller/LegalsController.php:113
+#: ../../../Controller/SecurityIncidentsController.php:192
+msgid ""
+"It's critical to understand the business potential liabilities and "
+"regulations to which is subject. In particular this is important at the time "
+"of managing a Business Continuity Management (BCM) program and Risk "
+"Management."
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:107
+msgid "Policy Exceptions"
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:8
+msgid "Records for all reported Policy Exceptions."
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:37
+msgid "Policy Exception was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:42
+msgid "Create a Policy Exception"
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:60
+msgid "Policy Exception was successfully added."
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:94
+msgid "Edit a Policy Exception"
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:112
+msgid "Policy Exception was successfully edited."
+msgstr ""
+
+#: ../../../Controller/PolicyExceptionsController.php:184
+msgid "Use this form to create or edit a Policy Exception."
+msgstr ""
+
+#: ../../../Controller/ProcessesController.php:18
+msgid "Business Process was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ProcessesController.php:29
+msgid "Create a Business Process"
+msgstr ""
+
+#: ../../../Controller/ProcessesController.php:39
+msgid "Business Process was successfully added."
+msgstr ""
+
+#: ../../../Controller/ProcessesController.php:82
+msgid "Edit a Business Process"
+msgstr ""
+
+#: ../../../Controller/ProcessesController.php:92
+msgid "Business Process was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ProcessesController.php:110
+msgid ""
+"Describe the main functions of each Business Unit. There shouldnt be more "
+"than three or four. If you dare going too much in detail you might "
+"exponentially increase the task of understanding your organization and all "
+"that level of detail might not bring substantial value. Start small."
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:9
+msgid "List of Project Updates"
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:10
+msgid "This is the list of project updates."
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:61
+msgid "Create a Project Update"
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:71
+msgid "Project Update was successfully added."
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:107
+#: ../../../Controller/ProjectExpensesController.php:101
+msgid "Edit a Project Update"
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:116
+msgid "Project Update was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ProjectAchievementsController.php:144
+msgid "Use this form to update news on the project."
+msgstr ""
+
+#: ../../../Controller/ProjectExpensesController.php:10
+msgid "This is the list of expenses for a given project."
+msgstr ""
+
+#: ../../../Controller/ProjectExpensesController.php:46
+msgid "Project Expense was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ProjectExpensesController.php:57
+msgid "Create a Project Expense"
+msgstr ""
+
+#: ../../../Controller/ProjectExpensesController.php:67
+msgid "Project Expense was successfully added."
+msgstr ""
+
+#: ../../../Controller/ProjectExpensesController.php:110
+msgid "Project Expense was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ProjectExpensesController.php:128
+msgid ""
+"Use this form to create or edit new improvement expense. In this way you can "
+"control financial expenses on your projects."
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:182
+msgid "Project Management"
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:8
+msgid "Manage your projects priorities, assignations, etc."
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:60
+msgid "Project was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:65
+#: ../../../Controller/ThirdPartiesController.php:50
+msgid "Create a Third Party"
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:75
+msgid "Project was successfully added."
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:107
+msgid "Edit a Project"
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:117
+msgid "Project was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ProjectsController.php:149
+msgid "Use this form to create or edit new improvement projects."
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:7
+#: ../../../View/BusinessContinuities/add.ctp:180
+#: ../../../View/Risks/add.ctp:167 ../../../View/ThirdPartyRisks/add.ctp:222
+msgid "Risk Classification"
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:8
+msgid ""
+"As part of the process of managing Risks, the classification of them is a "
+"critical componenent to set clear priorities and leverage from the Risk "
+"analsys. Define your Risk classification criterias in a usefull way!"
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:41
+msgid "Risk Classification was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:51
+msgid "Create a Risk Classification"
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:57
+#: ../../../Controller/RiskClassificationsController.php:136
+msgid "Risk Classification was successfully added."
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:82
+msgid "Edit a Risk Classification"
+msgstr ""
+
+#: ../../../Controller/RiskClassificationsController.php:86
+msgid "Risk Classification was successfully edited."
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:7
+msgid "Risk Exception Management"
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:8
+msgid ""
+"Defining Risk Exceptions is one way to accept Risks when their mitigation is "
+"not viable."
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:38
+msgid "Risk Exception was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:43
+msgid "Create a Risk Exception"
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:61
+msgid "Risk Exception was successfully added."
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:94
+msgid "Edit a Risk Exception"
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:114
+msgid "Risk Exception was successfully edited."
+msgstr ""
+
+#: ../../../Controller/RiskExceptionsController.php:161
+msgid ""
+"Risk Exceptions are very usefull at the time of accepting a known risk. Once "
+"approved, they provide substantiation to Risk items."
+msgstr ""
+
+#: ../../../Controller/RisksController.php:7
+msgid "Asset based - Risk Analysis"
+msgstr ""
+
+#: ../../../Controller/RisksController.php:8
+msgid ""
+"Identifying and analysing Risks can be usefull if executed in a simple and "
+"practical way. For each asset identify and analyse risks."
+msgstr ""
+
+#: ../../../Controller/RisksController.php:143
+msgid "Risk was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/RisksController.php:148
+msgid "Create a Risk"
+msgstr ""
+
+#: ../../../Controller/RisksController.php:185
+msgid "Risk was successfully added."
+msgstr ""
+
+#: ../../../Controller/RisksController.php:218
+#: ../../../Controller/ThirdPartyRisksController.php:185
+msgid "Edit a Risk"
+msgstr ""
+
+#: ../../../Controller/RisksController.php:255
+msgid "Risk was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:7
+msgid "Security Incident Classification Scheme"
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:8
+msgid ""
+"Define how you would like Security Incidents to be classied at the time of "
+"creating them."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:40
+msgid "Security Incident Classification was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:45
+msgid "Create a Security Incident Classification"
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:55
+msgid "Security Incident Classification was successfully added."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:85
+msgid "Edit a Security Incident Classification"
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentClassificationsController.php:94
+msgid "Security Incident Classification was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:7
+#: ../../../Controller/Component/MenuComponent.php:188
+msgid "Security Incidents"
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:8
+msgid "Records for all reported Security Incidents."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:50
+msgid "Security Incident was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:55
+msgid "Create a Security Incident"
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:67
+msgid "Security Incident was successfully added."
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:99
+msgid "Edit a Security Incident"
+msgstr ""
+
+#: ../../../Controller/SecurityIncidentsController.php:111
+msgid "Security Incident was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:7
+#: ../../../Controller/Component/MenuComponent.php:101
+msgid "Security Policies"
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:38
+msgid "Security Policy was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:47
+msgid "Create a Security Policy"
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:57
+msgid "Security Policy was successfully added."
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:89
+msgid "Edit a Security Policy"
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:98
+msgid "Security Policy was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:119
+#: ../../../View/SecurityServices/index.ctp:169
+msgid "Draft"
+msgstr ""
+
+#: ../../../Controller/SecurityPoliciesController.php:120
+#: ../../../View/SecurityServices/index.ctp:170
+msgid "Released"
+msgstr ""
+
+#: ../../../Controller/SecurityServiceAuditsController.php:7
+msgid "Security Services Audit Report"
+msgstr ""
+
+#: ../../../Controller/SecurityServiceAuditsController.php:38
+msgid "Security Service Audit was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/SecurityServiceAuditsController.php:87
+msgid "Edit a Security Service Audit"
+msgstr ""
+
+#: ../../../Controller/SecurityServiceAuditsController.php:96
+msgid "Security Service Audit was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityServiceAuditsController.php:123
+msgid ""
+"The objective is to audit the security control for efficiency utilizing the "
+"metrics reviews and success criteria defined on the control. You should be "
+"able to add evidence that suppors the audit."
+msgstr ""
+
+#: ../../../Controller/SecurityServiceMaintenancesController.php:7
+msgid "Security Services Maintenance Report"
+msgstr ""
+
+#: ../../../Controller/SecurityServiceMaintenancesController.php:8
+msgid "This is a report of all maintenance records for this service."
+msgstr ""
+
+#: ../../../Controller/SecurityServiceMaintenancesController.php:38
+msgid "Security Service Maintenance was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/SecurityServiceMaintenancesController.php:87
+msgid "Edit a Security Service Maintenance"
+msgstr ""
+
+#: ../../../Controller/SecurityServiceMaintenancesController.php:96
+msgid "Security Service Maintenance was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityServiceMaintenancesController.php:123
+msgid ""
+"The objective is to keep track of the regular tasks Service Controls require "
+"in order to function properly."
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:7
+msgid "Security Services Catalogue"
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:8
+msgid ""
+"If Security Controls are one of the main deliverables of a Security "
+"Organization, it's highgly recommended to keep them well identified."
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:96
+msgid "Security Service was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:105
+msgid "Create a Security Service"
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:132
+msgid "Security Service was successfully added."
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:166
+msgid "Edit a Security Service"
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:207
+msgid "Security Service was successfully edited."
+msgstr ""
+
+#: ../../../Controller/SecurityServicesController.php:398
+msgid ""
+"Pretty much the same way a restaurant has a menu, a security program has a "
+"menu of services and even sometimes products. It's very important to know "
+"what security services your program has, since it's the core of it's "
+"delivery and must be well understood and managed."
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:7
+msgid "Security Services Classification Scheme"
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:8
+msgid ""
+"Define how you would like Security Services to be classied at the time of "
+"creating them."
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:37
+msgid "Service Classification was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:46
+msgid "Create a Security Service Classification"
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:56
+msgid "Service Classification was successfully added."
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:86
+msgid "Edit a Security Service Classification"
+msgstr ""
+
+#: ../../../Controller/ServiceClassificationsController.php:95
+msgid "Service Classification was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:7
+#: ../../../View/SecurityServices/add.ctp:257
+msgid "Service Contracts"
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:8
+msgid ""
+"Of particular importance for those Security Organizations with many controls "
+"and providers, keeping an inventory of support contracts is vital at the "
+"times of budget planning!"
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:39
+msgid "Service Contract was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:50
+msgid "Create a Service Contract"
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:60
+msgid "Service Contract was successfully added."
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:103
+msgid "Edit a Service Contract"
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:113
+msgid "Service Contract was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ServiceContractsController.php:131
+msgid ""
+"Describe the support contracts you have with this providers. You can at a "
+"later stage, asociate this support contracts with security services as well."
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:7
+#: ../../../Controller/Component/MenuComponent.php:37
+msgid "Third Parties"
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:8
+msgid ""
+"Most organization partners and executes busineses with many other parties. "
+"Understanding this links is necesary in order to develop a full picture of "
+"hte scope of your security program."
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:41
+msgid "Third Party was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:60
+msgid "Third Party was successfully added."
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:92
+msgid "Edit a Third Party"
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:102
+msgid "Third Party was successfully edited."
+msgstr ""
+
+#: ../../../Controller/ThirdPartiesController.php:131
+msgid ""
+"No bussiness operates alone. There's always customers (well, hopefully), "
+"providers, regulators, etc. It's important to define them clearly from the "
+"begining since we'll be using them in order to control support contracts, "
+"compliances, audits, etc."
+msgstr ""
+
+#: ../../../Controller/ThirdPartyRisksController.php:7
+msgid "Third Party - Risk Analysis"
+msgstr ""
+
+#: ../../../Controller/ThirdPartyRisksController.php:8
+msgid ""
+"Identifying and analysing Risks can be usefull if executed in a simple and "
+"practical way. For each Third Party identify and analyse risks."
+msgstr ""
+
+#: ../../../Controller/ThirdPartyRisksController.php:109
+msgid "Third Party Risk was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/ThirdPartyRisksController.php:114
+msgid "Create a Third Party Risk"
+msgstr ""
+
+#: ../../../Controller/ThirdPartyRisksController.php:151
+msgid "Third Party Risk was successfully added."
+msgstr ""
+
+#: ../../../Controller/ThirdPartyRisksController.php:222
+msgid "Third Party Risk was successfully edited."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:14
+#: ../../../Controller/Component/MenuComponent.php:205
+msgid "User Accounts"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:15
+msgid ""
+"Define which system user can access what. Remember! Only those users listed "
+"here can access the system!"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:35
+msgid "Create a User Accounts"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:36
+msgid "Create system users and assign them the appropiate Group Roles"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:47
+msgid "User was successfully added."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:62
+msgid "Edit User Accounts"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:63
+msgid "Edit system users and assign them the appropiate Group Roles"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:93
+msgid "User was successfully edited."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:128
+msgid "Old password is wrong."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:152
+msgid "User was successfully deleted."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:162
+msgid "My profile"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:163
+msgid "Edit your profile"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:196
+msgid "Profile was successfully updated."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:215
+#: ../../../View/Users/resetpassword.ctp:9
+msgid "Did you forgot your password?"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:239
+msgid "Reset your password"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:252
+#: ../../../View/Users/resetpassword.ctp:36
+msgid "Reset Your Password"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:258
+msgid ""
+"We have sent to your email address the link to change your password. Please "
+"check your email."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:275
+msgid "Password change"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:310
+msgid "Your password was successfully changed. Now you can login again."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:314
+msgid "Error happened while processing your request. Please try again."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:318
+msgid "Requested ticket is invalid. Please contact the support center."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:323
+#: ../../../Controller/UsersController.php:348
+#: ../../../Controller/UsersController.php:353
+msgid ""
+"Requested ticket is invalid. Please try the password recovery process again."
+msgstr ""
+
+#: ../../../Controller/UsersController.php:360
+#: ../../../View/Users/index.ctp:32 ../../../View/Users/login.ctp:52
+msgid "Login"
+msgstr ""
+
+#: ../../../Controller/UsersController.php:373
+msgid "Email or password was incorrect."
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:22
+msgid "Organization"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:45
+msgid "Asset Management"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:66
+msgid "Asset Labeling"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:74
+msgid "Controls Catalogue"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:77
+msgid "Security Services"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:83
+msgid "Services Contracts"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:89
+msgid "Services Classification"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:115
+msgid "Risk Management"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:118
+msgid "Risk Classifications"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:124
+msgid "Asset Risk Management"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:130
+#: ../../../View/BusinessContinuities/index.ctp:259
+#: ../../../View/Risks/index.ctp:235
+#: ../../../View/ThirdPartyRisks/index.ctp:242
+msgid "Risk Exceptions"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:136
+msgid "Third Party Risk Management"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:142
+#: ../../../View/BusinessContinuities/index.ctp:68
+msgid "Business Continuity"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:153
+#: ../../../View/ComplianceManagements/add.ctp:102
+msgid "Compliance Exception"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:159
+msgid "Compliance Packages"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:165
+msgid "Compliance Analysis"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:171
+msgid "Audit Management"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:179
+msgid "Security Operations"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:194
+msgid "Security Incident Classification"
+msgstr ""
+
+#: ../../../Controller/Component/MenuComponent.php:202
+msgid "System Management"
+msgstr ""
+
+#: ../../../Plugin/Acl/Controller/AclAppController.php:22
+msgid ""
+"Manage Group Roles by defining the roles assigned to a given role. You can "
+"assign them later to your system users."
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:14
+#: ../../../View/AssetLabels/add.ctp:14 ../../../View/Assets/add.ctp:14
+#: ../../../View/Assets/index.ctp:42
+#: ../../../View/BusinessContinuities/add.ctp:14
+#: ../../../View/BusinessContinuities/index.ctp:76
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:14
+#: ../../../View/BusinessContinuityPlans/add.ctp:14
+#: ../../../View/BusinessContinuityTasks/add.ctp:14
+#: ../../../View/BusinessUnits/add.ctp:14
+#: ../../../View/ComplianceAudits/add.ctp:14
+#: ../../../View/ComplianceExceptions/add.ctp:14
+#: ../../../View/ComplianceFindings/add.ctp:14
+#: ../../../View/ComplianceManagements/add.ctp:14
+#: ../../../View/CompliancePackageItems/add.ctp:14
+#: ../../../View/CompliancePackages/add.ctp:14
+#: ../../../View/CompliancePackages/index.ctp:67
+#: ../../../View/DataAssets/add.ctp:14 ../../../View/DataAssets/index.ctp:78
+#: ../../../View/Elements/action_buttons.ctp:10
+#: ../../../View/Groups/add.ctp:14 ../../../View/Legals/add.ctp:14
+#: ../../../View/PolicyExceptions/add.ctp:14
+#: ../../../View/Processes/add.ctp:14
+#: ../../../View/ProjectAchievements/add.ctp:14
+#: ../../../View/ProjectExpenses/add.ctp:14 ../../../View/Projects/add.ctp:14
+#: ../../../View/RiskClassifications/add.ctp:14
+#: ../../../View/RiskExceptions/add.ctp:14 ../../../View/Risks/add.ctp:14
+#: ../../../View/Risks/index.ctp:77
+#: ../../../View/SecurityIncidentClassifications/add.ctp:14
+#: ../../../View/SecurityIncidents/add.ctp:14
+#: ../../../View/SecurityPolicies/add.ctp:14
+#: ../../../View/SecurityServiceAudits/add.ctp:14
+#: ../../../View/SecurityServiceMaintenances/add.ctp:14
+#: ../../../View/SecurityServices/add.ctp:14
+#: ../../../View/SecurityServices/index.ctp:49
+#: ../../../View/ServiceClassifications/add.ctp:14
+#: ../../../View/ServiceContracts/add.ctp:14
+#: ../../../View/ThirdParties/add.ctp:14
+#: ../../../View/ThirdPartyRisks/add.ctp:14
+#: ../../../View/ThirdPartyRisks/index.ctp:76 ../../../View/Users/add.ctp:20
+#: ../../../View/Users/profile.ctp:18
+msgid "Edit"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:22
+#: ../../../View/AssetLabels/add.ctp:22 ../../../View/Assets/add.ctp:22
+#: ../../../View/BusinessContinuities/add.ctp:22
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:22
+#: ../../../View/BusinessContinuityPlans/add.ctp:22
+#: ../../../View/BusinessContinuityTasks/add.ctp:27
+#: ../../../View/BusinessUnits/add.ctp:22
+#: ../../../View/ComplianceAudits/add.ctp:22
+#: ../../../View/ComplianceExceptions/add.ctp:22
+#: ../../../View/ComplianceFindings/add.ctp:22
+#: ../../../View/ComplianceManagements/add.ctp:22
+#: ../../../View/CompliancePackageItems/add.ctp:27
+#: ../../../View/CompliancePackages/add.ctp:22
+#: ../../../View/DataAssets/add.ctp:22 ../../../View/Groups/add.ctp:22
+#: ../../../View/Legals/add.ctp:22 ../../../View/PolicyExceptions/add.ctp:22
+#: ../../../View/Processes/add.ctp:27
+#: ../../../View/ProjectAchievements/add.ctp:22
+#: ../../../View/ProjectExpenses/add.ctp:22 ../../../View/Projects/add.ctp:22
+#: ../../../View/RiskClassifications/add.ctp:22
+#: ../../../View/RiskExceptions/add.ctp:22 ../../../View/Risks/add.ctp:22
+#: ../../../View/SecurityIncidentClassifications/add.ctp:22
+#: ../../../View/SecurityIncidents/add.ctp:22
+#: ../../../View/SecurityPolicies/add.ctp:22
+#: ../../../View/SecurityServiceAudits/add.ctp:22
+#: ../../../View/SecurityServiceMaintenances/add.ctp:22
+#: ../../../View/SecurityServices/add.ctp:22
+#: ../../../View/ServiceClassifications/add.ctp:22
+#: ../../../View/ServiceContracts/add.ctp:27
+#: ../../../View/ThirdParties/add.ctp:22
+#: ../../../View/ThirdPartyRisks/add.ctp:22 ../../../View/Users/add.ctp:28
+msgid "Add"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:27
+#: ../../../View/RiskClassifications/add.ctp:27
+msgid "Classification Type"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:34
+#: ../../../View/RiskClassifications/add.ctp:34
+msgid "Choose one or create new below"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:36
+msgid ""
+"This is the begining of the classification of assets. Let's say you are "
+"clasifying cars, a classification example could be \"Size\". Later, you will "
+"name several options (names) for that Type of classification, such as \"Big"
+"\". \"Small\", Etc. Most regulations and standards require classifications "
+"such as \"Confidentiality, Sensibility or Integrity\" level, Etc."
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:41
+#: ../../../View/RiskClassifications/add.ctp:41
+msgid "New Classification Type"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:48
+#: ../../../View/RiskClassifications/add.ctp:48
+msgid ""
+"If you havent created a Classification type before, you will need to create "
+"one."
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:53
+#: ../../../View/AssetClassifications/index.ctp:27
+#: ../../../View/AssetLabels/add.ctp:27 ../../../View/AssetLabels/index.ctp:27
+#: ../../../View/Assets/add.ctp:27 ../../../View/Assets/index.ctp:156
+#: ../../../View/BusinessContinuities/index.ctp:158
+#: ../../../View/BusinessContinuities/index.ctp:271
+#: ../../../View/BusinessContinuities/index.ctp:319
+#: ../../../View/BusinessUnits/add.ctp:27
+#: ../../../View/ComplianceAudits/add.ctp:27
+#: ../../../View/ComplianceManagements/index.ctp:27
+#: ../../../View/CompliancePackageItems/add.ctp:44
+#: ../../../View/CompliancePackages/add.ctp:52 ../../../View/Groups/add.ctp:27
+#: ../../../View/Groups/index.ctp:32 ../../../View/Legals/add.ctp:27
+#: ../../../View/Legals/index.ctp:27 ../../../View/Processes/add.ctp:32
+#: ../../../View/RiskClassifications/add.ctp:53
+#: ../../../View/RiskClassifications/index.ctp:27
+#: ../../../View/Risks/index.ctp:159 ../../../View/Risks/index.ctp:247
+#: ../../../View/Risks/index.ctp:295
+#: ../../../View/SecurityIncidentClassifications/add.ctp:27
+#: ../../../View/SecurityIncidentClassifications/index.ctp:27
+#: ../../../View/SecurityServices/add.ctp:27
+#: ../../../View/SecurityServices/index.ctp:157
+#: ../../../View/ServiceClassifications/add.ctp:27
+#: ../../../View/ServiceClassifications/index.ctp:27
+#: ../../../View/ServiceContracts/add.ctp:32
+#: ../../../View/ThirdParties/add.ctp:27
+#: ../../../View/ThirdParties/index.ctp:29
+#: ../../../View/ThirdPartyRisks/index.ctp:158
+#: ../../../View/ThirdPartyRisks/index.ctp:254
+#: ../../../View/ThirdPartyRisks/index.ctp:302 ../../../View/Users/add.ctp:33
+#: ../../../View/Users/index.ctp:33 ../../../View/Users/profile.ctp:22
+msgid "Name"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:60
+#: ../../../View/RiskClassifications/add.ctp:60
+#: ../../../View/SecurityIncidentClassifications/add.ctp:34
+msgid ""
+"You will need to create a name for your classification. Examples could be "
+"\"High\", \"Low\", etc."
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:65
+#: ../../../View/AssetClassifications/index.ctp:28
+#: ../../../View/RiskClassifications/add.ctp:65
+#: ../../../View/RiskClassifications/index.ctp:28
+#: ../../../View/SecurityIncidentClassifications/add.ctp:39
+#: ../../../View/SecurityIncidentClassifications/index.ctp:28
+msgid "Criteria"
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:73
+#: ../../../View/RiskClassifications/add.ctp:73
+msgid ""
+"Very important. It's crucial when classifying to be consistent with the "
+"criteria you use. Ideally your criteria should be simple and practical. Dont "
+"get too creative here. Examples: \"The asset worth is higher than a 40k EUR"
+"\", \"The disclosure of this asset could mean legal actions against the "
+"company\", Etc."
+msgstr ""
+
+#: ../../../View/AssetClassifications/add.ctp:83
+#: ../../../View/AssetLabels/add.ctp:57 ../../../View/Assets/add.ctp:232
+#: ../../../View/BusinessContinuities/add.ctp:350
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:127
+#: ../../../View/BusinessContinuityPlans/add.ctp:195
+#: ../../../View/BusinessContinuityTasks/add.ctp:114
+#: ../../../View/BusinessUnits/add.ctp:76
+#: ../../../View/ComplianceAudits/add.ctp:66
+#: ../../../View/ComplianceExceptions/add.ctp:81
+#: ../../../View/ComplianceFindings/add.ctp:102
+#: ../../../View/ComplianceManagements/add.ctp:138
+#: ../../../View/CompliancePackageItems/add.ctp:84
+#: ../../../View/CompliancePackages/add.ctp:80
+#: ../../../View/DataAssets/add.ctp:148 ../../../View/Legals/add.ctp:69
+#: ../../../View/PolicyExceptions/add.ctp:123
+#: ../../../View/Processes/add.ctp:86
+#: ../../../View/ProjectAchievements/add.ctp:96
+#: ../../../View/ProjectExpenses/add.ctp:71 ../../../View/Projects/add.ctp:158
+#: ../../../View/RiskClassifications/add.ctp:95
+#: ../../../View/RiskExceptions/add.ctp:109 ../../../View/Risks/add.ctp:346
+#: ../../../View/SecurityIncidentClassifications/add.ctp:57
+#: ../../../View/SecurityIncidents/add.ctp:191
+#: ../../../View/SecurityPolicies/add.ctp:70
+#: ../../../View/SecurityServiceAudits/add.ctp:127
+#: ../../../View/SecurityServiceMaintenances/add.ctp:114
+#: ../../../View/SecurityServices/add.ctp:292
+#: ../../../View/ServiceClassifications/add.ctp:57
+#: ../../../View/ServiceContracts/add.ctp:101
+#: ../../../View/ThirdParties/add.ctp:73
+#: ../../../View/ThirdPartyRisks/add.ctp:392 ../../../View/Users/add.ctp:160
+msgid "Cancel"
+msgstr ""
+
+#: ../../../View/AssetClassifications/index.ctp:7
+#: ../../../View/AssetLabels/index.ctp:7 ../../../View/Assets/index.ctp:7
+#: ../../../View/BusinessContinuities/index.ctp:7
+#: ../../../View/BusinessContinuityPlans/index.ctp:7
+#: ../../../View/BusinessUnits/index.ctp:7
+#: ../../../View/ComplianceAudits/index.ctp:7
+#: ../../../View/ComplianceExceptions/index.ctp:7
+#: ../../../View/ComplianceFindings/index.ctp:7
+#: ../../../View/ComplianceManagements/index.ctp:7
+#: ../../../View/CompliancePackages/index.ctp:7
+#: ../../../View/Groups/index.ctp:10 ../../../View/Legals/index.ctp:7
+#: ../../../View/PolicyExceptions/index.ctp:7
+#: ../../../View/ProjectAchievements/index.ctp:7
+#: ../../../View/ProjectExpenses/index.ctp:7
+#: ../../../View/Projects/index.ctp:7
+#: ../../../View/RiskClassifications/index.ctp:7
+#: ../../../View/RiskExceptions/index.ctp:7 ../../../View/Risks/index.ctp:7
+#: ../../../View/SecurityIncidentClassifications/index.ctp:7
+#: ../../../View/SecurityIncidents/index.ctp:7
+#: ../../../View/SecurityPolicies/index.ctp:7
+#: ../../../View/SecurityServices/index.ctp:7
+#: ../../../View/ServiceClassifications/index.ctp:7
+#: ../../../View/ThirdParties/index.ctp:7
+#: ../../../View/ThirdPartyRisks/index.ctp:7 ../../../View/Users/index.ctp:10
+msgid "Add New"
+msgstr ""
+
+#: ../../../View/AssetClassifications/index.ctp:15
+#: ../../../View/AssetLabels/index.ctp:15 ../../../View/Assets/index.ctp:15
+#: ../../../View/BusinessContinuities/index.ctp:15
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:6
+#: ../../../View/BusinessContinuityPlans/index.ctp:15
+#: ../../../View/BusinessUnits/index.ctp:15
+#: ../../../View/ComplianceAudits/analyze.ctp:7
+#: ../../../View/ComplianceAudits/index.ctp:15
+#: ../../../View/ComplianceExceptions/index.ctp:15
+#: ../../../View/ComplianceFindings/index.ctp:16
+#: ../../../View/ComplianceManagements/analyze.ctp:7
+#: ../../../View/ComplianceManagements/index.ctp:15
+#: ../../../View/CompliancePackages/index.ctp:15
+#: ../../../View/DataAssets/index.ctp:7 ../../../View/Groups/index.ctp:18
+#: ../../../View/Legals/index.ctp:15
+#: ../../../View/PolicyExceptions/index.ctp:15
+#: ../../../View/ProjectAchievements/index.ctp:16
+#: ../../../View/ProjectExpenses/index.ctp:16
+#: ../../../View/Projects/index.ctp:15
+#: ../../../View/RiskClassifications/index.ctp:15
+#: ../../../View/RiskExceptions/index.ctp:15 ../../../View/Risks/index.ctp:15
+#: ../../../View/SecurityIncidentClassifications/index.ctp:15
+#: ../../../View/SecurityIncidents/index.ctp:15
+#: ../../../View/SecurityPolicies/index.ctp:15
+#: ../../../View/SecurityServiceAudits/index.ctp:6
+#: ../../../View/SecurityServiceMaintenances/index.ctp:6
+#: ../../../View/SecurityServices/index.ctp:15
+#: ../../../View/ServiceClassifications/index.ctp:15
+#: ../../../View/ServiceContracts/index.ctp:7
+#: ../../../View/ThirdParties/index.ctp:15
+#: ../../../View/ThirdPartyRisks/index.ctp:15 ../../../View/Users/index.ctp:18
+msgid "Actions"
+msgstr ""
+
+#: ../../../View/AssetClassifications/index.ctp:17
+#: ../../../View/AssetLabels/index.ctp:17 ../../../View/Assets/index.ctp:17
+#: ../../../View/BusinessContinuities/index.ctp:17
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:8
+#: ../../../View/BusinessContinuityPlans/index.ctp:17
+#: ../../../View/BusinessUnits/index.ctp:17
+#: ../../../View/ComplianceAudits/analyze.ctp:9
+#: ../../../View/ComplianceAudits/index.ctp:17
+#: ../../../View/ComplianceExceptions/index.ctp:17
+#: ../../../View/ComplianceFindings/index.ctp:18
+#: ../../../View/ComplianceManagements/analyze.ctp:9
+#: ../../../View/ComplianceManagements/index.ctp:17
+#: ../../../View/CompliancePackages/index.ctp:17
+#: ../../../View/DataAssets/index.ctp:9 ../../../View/Groups/index.ctp:20
+#: ../../../View/Legals/index.ctp:17
+#: ../../../View/PolicyExceptions/index.ctp:17
+#: ../../../View/ProjectAchievements/index.ctp:18
+#: ../../../View/ProjectExpenses/index.ctp:18
+#: ../../../View/Projects/index.ctp:17
+#: ../../../View/RiskClassifications/index.ctp:17
+#: ../../../View/RiskExceptions/index.ctp:17 ../../../View/Risks/index.ctp:17
+#: ../../../View/SecurityIncidentClassifications/index.ctp:17
+#: ../../../View/SecurityIncidents/index.ctp:17
+#: ../../../View/SecurityPolicies/index.ctp:17
+#: ../../../View/SecurityServiceAudits/index.ctp:8
+#: ../../../View/SecurityServiceMaintenances/index.ctp:8
+#: ../../../View/SecurityServices/index.ctp:17
+#: ../../../View/ServiceClassifications/index.ctp:17
+#: ../../../View/ServiceContracts/index.ctp:9
+#: ../../../View/ThirdParties/index.ctp:17
+#: ../../../View/ThirdPartyRisks/index.ctp:17 ../../../View/Users/index.ctp:20
+msgid "Export"
+msgstr ""
+
+#: ../../../View/AssetClassifications/index.ctp:29
+#: ../../../View/Assets/add.ctp:96 ../../../View/Assets/index.ctp:65
+#: ../../../View/RiskClassifications/index.ctp:30
+#: ../../../View/ThirdParties/add.ctp:52
+#: ../../../View/ThirdParties/index.ctp:31
+msgid "Type"
+msgstr ""
+
+#: ../../../View/AssetClassifications/index.ctp:30
+#: ../../../View/AssetLabels/index.ctp:29 ../../../View/Assets/index.ctp:158
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:24
+#: ../../../View/BusinessContinuityPlans/index.ctp:190
+#: ../../../View/BusinessUnits/index.ctp:69
+#: ../../../View/ComplianceAudits/index.ctp:46
+#: ../../../View/ComplianceAudits/index.ctp:97
+#: ../../../View/ComplianceExceptions/index.ctp:31
+#: ../../../View/ComplianceFindings/index.ctp:32
+#: ../../../View/ComplianceManagements/analyze.ctp:34
+#: ../../../View/ComplianceManagements/index.ctp:38
+#: ../../../View/CompliancePackages/index.ctp:100
+#: ../../../View/DataAssets/index.ctp:156 ../../../View/Groups/index.ctp:33
+#: ../../../View/Legals/index.ctp:30
+#: ../../../View/PolicyExceptions/index.ctp:33
+#: ../../../View/ProjectAchievements/index.ctp:33
+#: ../../../View/ProjectExpenses/index.ctp:32
+#: ../../../View/RiskClassifications/index.ctp:31
+#: ../../../View/RiskExceptions/index.ctp:32
+#: ../../../View/SecurityIncidentClassifications/index.ctp:29
+#: ../../../View/SecurityIncidents/index.ctp:37
+#: ../../../View/SecurityPolicies/index.ctp:30
+#: ../../../View/SecurityServiceAudits/index.ctp:24
+#: ../../../View/SecurityServiceMaintenances/index.ctp:24
+#: ../../../View/ServiceClassifications/index.ctp:29
+#: ../../../View/ServiceContracts/index.ctp:65
+#: ../../../View/ThirdParties/index.ctp:32 ../../../View/Users/index.ctp:36
+msgid "Action"
+msgstr ""
+
+#: ../../../View/AssetClassifications/index.ctp:53
+msgid "No Asset Classifications found."
+msgstr ""
+
+#: ../../../View/AssetLabels/add.ctp:34
+msgid "Set a name for your Asset Label."
+msgstr ""
+
+#: ../../../View/AssetLabels/add.ctp:39 ../../../View/AssetLabels/index.ctp:28
+#: ../../../View/Assets/add.ctp:68 ../../../View/Assets/index.ctp:64
+#: ../../../View/Assets/index.ctp:157
+#: ../../../View/BusinessContinuities/index.ctp:159
+#: ../../../View/BusinessContinuities/index.ctp:272
+#: ../../../View/BusinessUnits/add.ctp:39
+#: ../../../View/ComplianceAudits/analyze.ctp:33
+#: ../../../View/ComplianceAudits/index.ctp:95
+#: ../../../View/ComplianceExceptions/add.ctp:39
+#: ../../../View/ComplianceExceptions/index.ctp:28
+#: ../../../View/ComplianceFindings/add.ctp:61
+#: ../../../View/ComplianceFindings/index.ctp:29
+#: ../../../View/CompliancePackageItems/add.ctp:55
+#: ../../../View/CompliancePackages/add.ctp:63
+#: ../../../View/DataAssets/index.ctp:154 ../../../View/Groups/add.ctp:43
+#: ../../../View/Legals/add.ctp:39 ../../../View/Legals/index.ctp:28
+#: ../../../View/PolicyExceptions/add.ctp:39
+#: ../../../View/PolicyExceptions/index.ctp:28
+#: ../../../View/Processes/add.ctp:43
+#: ../../../View/ProjectAchievements/add.ctp:50
+#: ../../../View/ProjectAchievements/index.ctp:30
+#: ../../../View/ProjectExpenses/add.ctp:43
+#: ../../../View/ProjectExpenses/index.ctp:30
+#: ../../../View/RiskExceptions/add.ctp:39
+#: ../../../View/RiskExceptions/index.ctp:28 ../../../View/Risks/index.ctp:160
+#: ../../../View/Risks/index.ctp:248
+#: ../../../View/SecurityIncidents/add.ctp:39
+#: ../../../View/SecurityPolicies/add.ctp:39
+#: ../../../View/SecurityPolicies/index.ctp:28
+#: ../../../View/SecurityServices/index.ctp:158
+#: ../../../View/SecurityServices/index.ctp:280
+#: ../../../View/ServiceClassifications/add.ctp:39
+#: ../../../View/ServiceClassifications/index.ctp:28
+#: ../../../View/ServiceContracts/add.ctp:44
+#: ../../../View/ThirdParties/add.ctp:39
+#: ../../../View/ThirdParties/index.ctp:30
+#: ../../../View/ThirdPartyRisks/index.ctp:159
+#: ../../../View/ThirdPartyRisks/index.ctp:255
+msgid "Description"
+msgstr ""
+
+#: ../../../View/AssetLabels/add.ctp:47
+msgid ""
+"Very important. It's crucial when classifying to be consistent with the "
+"criteria you use to say a given risk is one or another type. Ideally your "
+"criteria should be simple and practical. I wouldnt get too creative here."
+msgstr ""
+
+#: ../../../View/AssetLabels/index.ctp:51
+msgid "No Asset Labeling found."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:34
+msgid "Give a name to the asset you have identified."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:39
+msgid "Related Business Units"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:63
+msgid ""
+"Which Business Unit is connected to this asset? You can select more than one."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:76
+msgid "Give a brief description on what the asset is."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:81 ../../../View/Assets/index.ctp:66
+#: ../../../View/Risks/index.ctp:161
+#: ../../../View/ThirdPartyRisks/index.ctp:160
+msgid "Label"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:87 ../../../View/Assets/add.ctp:116
+#: ../../../View/SecurityServices/add.ctp:72
+msgid "Choose one"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:91
+msgid "Choose a label from your asset label classification."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:105
+msgid ""
+"This one is important. There's an obvious difference in between what data "
+"and an asset is. Data is an asset. An asset is not necesarily data. "
+"Examples: Credit Card Numbers, Invoices, Personal Information, Project "
+"Names, Etc are data (and potentially assets too). Windows servers, chairs, "
+"computers, etc are most likely assets for your program."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:110
+msgid "Liabilities"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:120
+msgid ""
+"In the unlikely case of un-authorized disclosure or questionable integrity, "
+"confidentialiy or availability it might be that some liabilities might "
+"affect the asset. List the most significant (previously defined under "
+"Organization)."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:125 ../../../View/Assets/index.ctp:85
+#: ../../../View/BusinessContinuities/add.ctp:320
+#: ../../../View/BusinessContinuities/index.ctp:102
+#: ../../../View/BusinessContinuities/index.ctp:321
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:23
+#: ../../../View/PolicyExceptions/add.ctp:65
+#: ../../../View/PolicyExceptions/index.ctp:30
+#: ../../../View/Projects/add.ctp:115 ../../../View/Projects/index.ctp:89
+#: ../../../View/Risks/add.ctp:316 ../../../View/Risks/index.ctp:103
+#: ../../../View/Risks/index.ctp:297
+#: ../../../View/SecurityIncidents/add.ctp:118
+#: ../../../View/SecurityIncidents/index.ctp:31
+#: ../../../View/SecurityServiceAudits/index.ctp:23
+#: ../../../View/SecurityServiceMaintenances/index.ctp:23
+#: ../../../View/SecurityServices/index.ctp:88
+#: ../../../View/ThirdPartyRisks/add.ctp:362
+#: ../../../View/ThirdPartyRisks/index.ctp:102
+#: ../../../View/ThirdPartyRisks/index.ctp:304
+msgid "Owner"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:131
+msgid "Select an Owner"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:135
+msgid ""
+"Try to define, under which bussiness organizations the Owners, Guardians (On "
+"whom's responsability is the adequated availability of the asset) of the "
+"assets and Users."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:140 ../../../View/Assets/index.ctp:86
+msgid "Guardian"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:146
+msgid "Select a Guardian"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:155 ../../../View/Assets/index.ctp:87
+msgid "User"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:161
+msgid "Select a User"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:170 ../../../View/Assets/add.ctp:202
+#: ../../../View/BusinessContinuities/add.ctp:208
+#: ../../../View/Risks/add.ctp:195
+#: ../../../View/SecurityIncidents/index.ctp:32
+#: ../../../View/SecurityServices/index.ctp:86
+#: ../../../View/ThirdPartyRisks/add.ctp:250
+msgid "Classification"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:208 ../../../View/Risks/add.ctp:201
+msgid ""
+"Use the previously defined asset classification criterias and choose the "
+"appropiate classification profile for this asset."
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:213 ../../../View/Assets/index.ctp:68
+msgid "Main Container"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:219
+msgid "Select a Container"
+msgstr ""
+
+#: ../../../View/Assets/add.ctp:222
+msgid ""
+"Most assets are contained at some point in time within another asset. "
+"Example: Financial Data might be contained in another asset, called "
+"\"Financial SpreadSheets\"."
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:27
+msgid "BU Asset Name"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:34 ../../../View/DataAssets/index.ctp:38
+#: ../../../View/Risks/index.ctp:27
+#: ../../../View/SecurityIncidents/index.ctp:36
+msgid "Asset"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:39
+#: ../../../View/BusinessContinuities/index.ctp:73
+#: ../../../View/BusinessContinuityPlans/index.ctp:46
+#: ../../../View/BusinessUnits/index.ctp:32
+#: ../../../View/CompliancePackages/index.ctp:33
+#: ../../../View/CompliancePackages/index.ctp:64
+#: ../../../View/DataAssets/index.ctp:43 ../../../View/DataAssets/index.ctp:75
+#: ../../../View/Projects/index.ctp:32 ../../../View/Risks/index.ctp:74
+#: ../../../View/SecurityServices/index.ctp:46
+#: ../../../View/ServiceContracts/index.ctp:33
+#: ../../../View/ThirdPartyRisks/index.ctp:73
+msgid "Manage"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:49
+#: ../../../View/BusinessContinuities/index.ctp:83
+#: ../../../View/CompliancePackages/index.ctp:74
+#: ../../../View/DataAssets/index.ctp:85 ../../../View/Risks/index.ctp:84
+#: ../../../View/SecurityServices/index.ctp:56
+#: ../../../View/ThirdPartyRisks/index.ctp:83
+msgid "Delete"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:67 ../../../View/Risks/index.ctp:162
+#: ../../../View/ThirdPartyRisks/index.ctp:161
+msgid "Legal Constrain"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:123
+msgid "No Assets related to Business Units found."
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:135
+#: ../../../View/BusinessContinuities/index.ctp:189
+#: ../../../View/BusinessUnits/index.ctp:103
+msgid "No Business Units found."
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:180
+msgid "No Asset Indentification found."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:42
+#: ../../../View/BusinessContinuities/index.ctp:98
+#: ../../../View/BusinessContinuityPlans/add.ctp:27
+#: ../../../View/ComplianceAudits/index.ctp:93
+#: ../../../View/ComplianceExceptions/add.ctp:27
+#: ../../../View/ComplianceExceptions/index.ctp:27
+#: ../../../View/ComplianceFindings/add.ctp:50
+#: ../../../View/ComplianceFindings/index.ctp:28
+#: ../../../View/PolicyExceptions/add.ctp:27
+#: ../../../View/PolicyExceptions/index.ctp:27
+#: ../../../View/Projects/add.ctp:27 ../../../View/RiskExceptions/add.ctp:27
+#: ../../../View/RiskExceptions/index.ctp:27 ../../../View/Risks/add.ctp:42
+#: ../../../View/Risks/index.ctp:99 ../../../View/SecurityIncidents/add.ctp:27
+#: ../../../View/SecurityIncidents/index.ctp:27
+#: ../../../View/ThirdPartyRisks/add.ctp:42
+#: ../../../View/ThirdPartyRisks/index.ctp:98
+msgid "Title"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:49
+#: ../../../View/Risks/add.ctp:49 ../../../View/ThirdPartyRisks/add.ctp:49
+msgid "Give this risk a descriptive title"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:54
+msgid "Applicable Business Units"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:78
+msgid "Which Business Processes are you Risk Analysing?"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:83
+#: ../../../View/BusinessContinuities/index.ctp:221
+msgid "Business Impact"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:91
+msgid "What is the Business Impact if this Risk materializes?"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:96
+#: ../../../View/Risks/add.ctp:83 ../../../View/ThirdPartyRisks/add.ctp:138
+msgid "Threats Tags"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:120
+#: ../../../View/Risks/add.ctp:107 ../../../View/ThirdPartyRisks/add.ctp:162
+msgid "Select all Applicable Threats"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:125
+#: ../../../View/BusinessContinuities/index.ctp:234
+#: ../../../View/Risks/add.ctp:112 ../../../View/Risks/index.ctp:210
+#: ../../../View/ThirdPartyRisks/add.ctp:167
+#: ../../../View/ThirdPartyRisks/index.ctp:217
+msgid "Threat Description"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:133
+#: ../../../View/Risks/add.ctp:120 ../../../View/ThirdPartyRisks/add.ctp:175
+msgid "Describe the Threats context if you wish."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:138
+#: ../../../View/Risks/add.ctp:125 ../../../View/ThirdPartyRisks/add.ctp:180
+msgid "Vulnerabilities Tags"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:162
+#: ../../../View/Risks/add.ctp:149 ../../../View/ThirdPartyRisks/add.ctp:204
+msgid "Select all Applicable Vulnerabilities"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:167
+#: ../../../View/Risks/add.ctp:154 ../../../View/ThirdPartyRisks/add.ctp:209
+msgid "Vulnerabilities Description"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:175
+#: ../../../View/Risks/add.ctp:162 ../../../View/ThirdPartyRisks/add.ctp:217
+msgid "Describe the Vulnerabiliites context if you wish."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:214
+#: ../../../View/ThirdPartyRisks/add.ctp:256
+msgid ""
+"Based on the Classification Scheme you have previously defined, classify "
+"this Risk."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:219
+#: ../../../View/BusinessContinuities/index.ctp:100
+#: ../../../View/Risks/add.ctp:206 ../../../View/Risks/index.ctp:101
+#: ../../../View/ThirdPartyRisks/add.ctp:261
+#: ../../../View/ThirdPartyRisks/index.ctp:100
+msgid "Risk Score"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:227
+#: ../../../View/Risks/add.ctp:223 ../../../View/ThirdPartyRisks/add.ctp:269
+msgid ""
+"The Risk Score is automatically calculated using the Classification Schemas "
+"and Asset Liabilities Amplifier if they exist."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:232
+#: ../../../View/Risks/add.ctp:228 ../../../View/ThirdPartyRisks/add.ctp:274
+msgid "Risk Mitigation"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:241
+#: ../../../View/Risks/add.ctp:237 ../../../View/ThirdPartyRisks/add.ctp:283
+msgid "Choose a Mitigation strategy for this Risk"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:246
+#: ../../../View/DataAssets/add.ctp:114 ../../../View/Risks/add.ctp:242
+#: ../../../View/ThirdPartyRisks/add.ctp:288
+msgid "Compensating controls"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:272
+#: ../../../View/Risks/add.ctp:268 ../../../View/ThirdPartyRisks/add.ctp:314
+msgid "Select which Controls you wish to utilize to threat this Risk"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:277
+#: ../../../View/Risks/add.ctp:273 ../../../View/ThirdPartyRisks/add.ctp:319
+msgid "Residual Score"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:284
+#: ../../../View/Risks/add.ctp:280 ../../../View/ThirdPartyRisks/add.ctp:326
+msgid ""
+"Select the percentage of Risk Reduction that was achieved by applying "
+"Security Controls. This is a subjective appreciation."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:289
+#: ../../../View/Risks/add.ctp:285 ../../../View/ThirdPartyRisks/add.ctp:331
+msgid "Applicable Risk Exceptions"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:315
+#: ../../../View/Risks/add.ctp:311 ../../../View/ThirdPartyRisks/add.ctp:357
+msgid "Select which Risk Exceptions you wish to utilize to threat this Risk"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:328
+#: ../../../View/Risks/add.ctp:324 ../../../View/ThirdPartyRisks/add.ctp:370
+msgid "Who is the owner of this Risk?"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:333
+#: ../../../View/Risks/add.ctp:329 ../../../View/ThirdPartyRisks/add.ctp:375
+msgid "Review"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/add.ctp:340
+#: ../../../View/Risks/add.ctp:336 ../../../View/ThirdPartyRisks/add.ctp:382
+msgid "Select a Date where this Risk should be Reviewed."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:26
+msgid "Business Unit"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:99
+#: ../../../View/Risks/index.ctp:100
+#: ../../../View/ThirdPartyRisks/index.ctp:99
+msgid "Risk Mitigation Strategy"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:101
+#: ../../../View/Risks/index.ctp:102
+#: ../../../View/ThirdPartyRisks/index.ctp:101
+msgid "Residual Risk"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:103
+#: ../../../View/Risks/index.ctp:104
+#: ../../../View/ThirdPartyRisks/index.ctp:103
+msgid "Risk Review Date"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:115
+#: ../../../View/BusinessContinuities/index.ctp:287
+#: ../../../View/PolicyExceptions/index.ctp:46
+#: ../../../View/RiskExceptions/index.ctp:44 ../../../View/Risks/index.ctp:116
+#: ../../../View/Risks/index.ctp:263
+#: ../../../View/ServiceContracts/index.ctp:77
+#: ../../../View/ThirdPartyRisks/index.ctp:115
+#: ../../../View/ThirdPartyRisks/index.ctp:270
+msgid "Not Expired"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:117
+#: ../../../View/BusinessContinuities/index.ctp:289
+#: ../../../View/ComplianceAudits/index.ctp:45
+#: ../../../View/PolicyExceptions/index.ctp:48
+#: ../../../View/RiskExceptions/index.ctp:46 ../../../View/Risks/index.ctp:118
+#: ../../../View/Risks/index.ctp:265
+#: ../../../View/ServiceContracts/index.ctp:79
+#: ../../../View/ThirdPartyRisks/index.ctp:117
+#: ../../../View/ThirdPartyRisks/index.ctp:272
+msgid "Expired"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:146
+msgid "Applicable Business Unit"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:160
+msgid "Minimum RTO"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:161
+msgid "Minimum RPO"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:162
+msgid "Generates Revenue?"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:182
+#: ../../../View/BusinessUnits/add.ctp:57
+msgid "Yes"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:182
+#: ../../../View/BusinessUnits/add.ctp:56
+msgid "No"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:198
+#: ../../../View/Risks/index.ctp:187
+#: ../../../View/ThirdPartyRisks/index.ctp:194
+msgid "Threat Tags"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:199
+#: ../../../View/Risks/index.ctp:188
+#: ../../../View/ThirdPartyRisks/index.ctp:195
+msgid "Vulnerability Tags"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:247
+#: ../../../View/Risks/index.ctp:223
+#: ../../../View/ThirdPartyRisks/index.ctp:230
+msgid "Vulnerability Description"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:273
+#: ../../../View/ComplianceExceptions/add.ctp:52
+#: ../../../View/ComplianceExceptions/index.ctp:29
+#: ../../../View/RiskExceptions/add.ctp:52
+#: ../../../View/RiskExceptions/index.ctp:29 ../../../View/Risks/index.ctp:249
+#: ../../../View/ThirdPartyRisks/index.ctp:256
+msgid "Author"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:274
+#: ../../../View/ComplianceExceptions/add.ctp:64
+#: ../../../View/ComplianceExceptions/index.ctp:30
+#: ../../../View/PolicyExceptions/add.ctp:106
+#: ../../../View/PolicyExceptions/index.ctp:31
+#: ../../../View/PolicyExceptions/index.ctp:32
+#: ../../../View/RiskExceptions/add.ctp:92
+#: ../../../View/RiskExceptions/index.ctp:30 ../../../View/Risks/index.ctp:250
+#: ../../../View/ThirdPartyRisks/index.ctp:257
+msgid "Expiration"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:275
+#: ../../../View/BusinessContinuities/index.ctp:322
+#: ../../../View/BusinessContinuityPlans/add.ctp:115
+#: ../../../View/BusinessContinuityPlans/index.ctp:81
+#: ../../../View/ComplianceAudits/index.ctp:94
+#: ../../../View/ComplianceFindings/add.ctp:73
+#: ../../../View/ComplianceFindings/index.ctp:31
+#: ../../../View/DataAssets/index.ctp:102
+#: ../../../View/PolicyExceptions/add.ctp:52
+#: ../../../View/PolicyExceptions/index.ctp:29
+#: ../../../View/Projects/add.ctp:140 ../../../View/Projects/index.ctp:86
+#: ../../../View/RiskExceptions/index.ctp:31 ../../../View/Risks/index.ctp:251
+#: ../../../View/Risks/index.ctp:298
+#: ../../../View/SecurityIncidents/add.ctp:174
+#: ../../../View/SecurityIncidents/index.ctp:33
+#: ../../../View/SecurityPolicies/add.ctp:52
+#: ../../../View/SecurityPolicies/index.ctp:29
+#: ../../../View/SecurityServices/add.ctp:52
+#: ../../../View/SecurityServices/index.ctp:87
+#: ../../../View/SecurityServices/index.ctp:159
+#: ../../../View/ServiceContracts/index.ctp:64
+#: ../../../View/ThirdPartyRisks/index.ctp:258
+#: ../../../View/ThirdPartyRisks/index.ctp:305 ../../../View/Users/add.ctp:138
+#: ../../../View/Users/profile.ctp:124
+msgid "Status"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:299
+#: ../../../View/Risks/index.ctp:275
+#: ../../../View/ThirdPartyRisks/index.ctp:282
+msgid "No Risks Exceptions found."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:307
+#: ../../../View/Risks/index.ctp:283
+#: ../../../View/ThirdPartyRisks/index.ctp:290
+msgid "Security Controls"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:320
+#: ../../../View/BusinessContinuityPlans/add.ctp:39
+#: ../../../View/BusinessContinuityPlans/index.ctp:113
+#: ../../../View/Risks/index.ctp:296 ../../../View/SecurityServices/add.ctp:39
+#: ../../../View/SecurityServices/index.ctp:120
+#: ../../../View/ThirdPartyRisks/index.ctp:303
+msgid "Objective"
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:341
+#: ../../../View/BusinessContinuityPlans/index.ctp:153
+#: ../../../View/DataAssets/index.ctp:125 ../../../View/Risks/index.ctp:317
+#: ../../../View/SecurityServices/index.ctp:210
+#: ../../../View/ThirdPartyRisks/index.ctp:324
+msgid "Missing audits."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:345
+#: ../../../View/BusinessContinuityPlans/index.ctp:157
+#: ../../../View/DataAssets/index.ctp:128 ../../../View/Risks/index.ctp:321
+#: ../../../View/SecurityServices/index.ctp:214
+#: ../../../View/ThirdPartyRisks/index.ctp:328
+msgid "Last audit failed."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:349
+#: ../../../View/BusinessContinuityPlans/index.ctp:161
+#: ../../../View/DataAssets/index.ctp:132 ../../../View/Risks/index.ctp:325
+#: ../../../View/SecurityServices/index.ctp:218
+#: ../../../View/ThirdPartyRisks/index.ctp:332
+msgid "No audit issues."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:353
+#: ../../../View/Risks/index.ctp:329
+#: ../../../View/SecurityServices/index.ctp:249
+#: ../../../View/ThirdPartyRisks/index.ctp:336
+msgid "Missing maintenances."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:357
+#: ../../../View/Risks/index.ctp:333
+#: ../../../View/SecurityServices/index.ctp:253
+#: ../../../View/ThirdPartyRisks/index.ctp:340
+msgid "Last maintenance failed."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:361
+#: ../../../View/Risks/index.ctp:337
+#: ../../../View/SecurityServices/index.ctp:257
+#: ../../../View/ThirdPartyRisks/index.ctp:344
+msgid "No maintenance issues."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:371
+#: ../../../View/DataAssets/index.ctp:143 ../../../View/Risks/index.ctp:347
+#: ../../../View/ThirdPartyRisks/index.ctp:354
+msgid "No Security Controls found."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:383
+#: ../../../View/ThirdPartyRisks/index.ctp:366
+msgid "No Third Party Risks related to this Third Party found."
+msgstr ""
+
+#: ../../../View/BusinessContinuities/index.ctp:395
+#: ../../../View/ComplianceAudits/index.ctp:216
+#: ../../../View/ComplianceManagements/index.ctp:78
+#: ../../../View/CompliancePackages/index.ctp:141
+#: ../../../View/ServiceContracts/index.ctp:107
+#: ../../../View/ThirdParties/index.ctp:55
+#: ../../../View/ThirdPartyRisks/index.ctp:378
+msgid "No Third Parties found."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:27
+#: ../../../View/BusinessContinuityPlans/add.ctp:52
+#: ../../../View/BusinessContinuityPlans/index.ctp:141
+#: ../../../View/SecurityServiceAudits/add.ctp:27
+#: ../../../View/SecurityServices/index.ctp:189
+msgid "Audit Metric"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:35
+#: ../../../View/SecurityServiceAudits/add.ctp:35
+msgid ""
+"At the time of creating the Security Service, a metric was defined in order "
+"to be able to measure the level of efficacy of the control. This should be "
+"utilized as the base for this audit review."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:40
+#: ../../../View/SecurityServiceAudits/add.ctp:40
+msgid "Metric Success Criteria"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:48
+#: ../../../View/SecurityServiceAudits/add.ctp:48
+msgid ""
+"At the time of creating the Security Service, a success criteria was defined "
+"in order to evaluate if the metric results are within acceptable threasholds "
+"(audit pass) or not (audit not pass)."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:53
+#: ../../../View/SecurityServiceAudits/add.ctp:53
+msgid "Audit Conclusion"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:61
+#: ../../../View/SecurityServiceAudits/add.ctp:61
+msgid ""
+"Describe what evidence was avilable, the accuracy and integrity of the "
+"metrics taken and if the metrics are within the expected threasholds or not."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:66
+#: ../../../View/SecurityServiceAudits/add.ctp:66
+#: ../../../View/SecurityServiceMaintenances/add.ctp:53
+msgid "Audit Owner"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:74
+#: ../../../View/SecurityServiceAudits/add.ctp:74
+msgid "Register the person who has worked on this audit (the auditor name)"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:79
+#: ../../../View/SecurityServiceAudits/add.ctp:79
+msgid "Audit Start Date"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:88
+#: ../../../View/SecurityServiceAudits/add.ctp:88
+#: ../../../View/SecurityServiceMaintenances/add.ctp:75
+msgid "Register the date at which this audit started."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:93
+#: ../../../View/SecurityServiceAudits/add.ctp:93
+msgid "Audit End Date"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:100
+#: ../../../View/SecurityServiceAudits/add.ctp:100
+#: ../../../View/SecurityServiceMaintenances/add.ctp:87
+msgid "Register the date at which this audit ended."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:105
+#: ../../../View/SecurityServiceAudits/add.ctp:105
+msgid "Audit Result"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:108
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:37
+#: ../../../View/SecurityServiceAudits/add.ctp:108
+#: ../../../View/SecurityServiceAudits/index.ctp:37
+#: ../../../View/SecurityServiceMaintenances/add.ctp:95
+#: ../../../View/SecurityServiceMaintenances/index.ctp:37
+msgid "Fail"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:109
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:38
+#: ../../../View/SecurityServiceAudits/add.ctp:109
+#: ../../../View/SecurityServiceAudits/index.ctp:38
+#: ../../../View/SecurityServiceMaintenances/add.ctp:96
+#: ../../../View/SecurityServiceMaintenances/index.ctp:38
+msgid "Pass"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/add.ctp:117
+#: ../../../View/SecurityServiceAudits/add.ctp:117
+msgid ""
+"After evluating the audit evidence, success criteria, etc you are able to "
+"conclude with the audit result. Pass or Fail are the available options."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:17
+#: ../../../View/SecurityServiceAudits/index.ctp:17
+#: ../../../View/SecurityServiceMaintenances/index.ctp:17
+msgid "Control Name"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:18
+#: ../../../View/SecurityServiceAudits/index.ctp:18
+#: ../../../View/SecurityServiceMaintenances/index.ctp:18
+msgid "Planned Start"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:19
+#: ../../../View/SecurityServiceAudits/index.ctp:19
+#: ../../../View/SecurityServiceMaintenances/index.ctp:19
+msgid "Actual Start"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:20
+#: ../../../View/SecurityServiceAudits/index.ctp:20
+#: ../../../View/SecurityServiceMaintenances/index.ctp:20
+msgid "Actual End"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:21
+#: ../../../View/SecurityServiceAudits/index.ctp:21
+#: ../../../View/SecurityServiceMaintenances/index.ctp:21
+msgid "Result"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:22
+#: ../../../View/SecurityServiceAudits/index.ctp:22
+#: ../../../View/SecurityServiceMaintenances/index.ctp:22
+msgid "Conclusion"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlanAudits/index.ctp:61
+#: ../../../View/SecurityServiceAudits/index.ctp:61
+msgid "No Audits found."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:34
+msgid ""
+"Give the plan a title, name or code so it's easily identified on the plan "
+"list menu"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:47
+msgid ""
+"Describe the plan objective, it should be something short and "
+"straightforward to understand"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:60
+msgid ""
+"Continuity plans without regular testing and audits are doomed to fail. Set "
+"your audit metric criteria (Response time?, etc)"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:65
+#: ../../../View/BusinessContinuityPlans/index.ctp:142
+#: ../../../View/SecurityServices/add.ctp:146
+#: ../../../View/SecurityServices/index.ctp:190
+msgid "Audit Success Criteria"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:73
+msgid ""
+"Define a success criteria for the metric you have just defined (Under 2 hs, "
+"etc)"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:78
+#: ../../../View/BusinessContinuityPlans/index.ctp:80
+msgid "Sponsor"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:85
+msgid ""
+"Who is responsible for keeping this plan realitistic, communicateed and "
+"applicable?"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:90
+#: ../../../View/BusinessContinuityPlans/index.ctp:127
+msgid "Launch Criteria"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:98
+msgid ""
+"Describe the criteria the plan responsible should use to know if it's "
+"appropiate to kick the plan or not in the case of an emergency."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:103
+#: ../../../View/BusinessContinuityPlans/index.ctp:126
+msgid "Launch Responsible"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:110
+msgid ""
+"There should be someone who is authorized to lunch this plan (sometimes the "
+"Plan Sponsor)"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:123
+msgid ""
+"Describe the status of the plan. Only productive plans are considered \"live"
+"\" plans!  Select the Plan Status Proposed Design Transition Production "
+"Retired"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:128
+#: ../../../View/SecurityServices/add.ctp:221
+msgid "Cost (OPEX)"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:135
+msgid "Describe the OPEX cost of this Control"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:140
+#: ../../../View/SecurityServices/add.ctp:233
+msgid "Cost (CAPEX)"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:147
+msgid "Describe the CAPEX cost of this Control"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:152
+#: ../../../View/BusinessContinuityPlans/index.ctp:98
+#: ../../../View/SecurityServices/add.ctp:245
+#: ../../../View/SecurityServices/index.ctp:105
+msgid "Resource Utilization"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:159
+#: ../../../View/BusinessContinuityPlans/add.ctp:185
+msgid ""
+"Describe the resources implementing, operating and auditing this control "
+"requires in Days/Year."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:164
+msgid "Regular Reviews"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/add.ctp:167
+#: ../../../View/SecurityServices/add.ctp:162
+#: ../../../View/SecurityServices/add.ctp:199
+msgid "Add Date"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:49
+msgid "Edit Continuity Plan"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:56
+msgid "Add New Task on Plan"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:63
+#: ../../../View/SecurityServices/index.ctp:63
+msgid "Audits"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:79
+msgid "Plan Title"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:96
+#: ../../../View/SecurityServices/index.ctp:103
+msgid "Opex"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:97
+#: ../../../View/SecurityServices/index.ctp:104
+msgid "Capex"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:143
+#: ../../../View/SecurityServices/index.ctp:191
+msgid "Audit Status"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:172
+msgid "Plan Task Details"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:184
+msgid "Step"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:185
+#: ../../../View/BusinessContinuityTasks/add.ctp:44
+msgid "When"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:186
+#: ../../../View/BusinessContinuityTasks/add.ctp:57
+msgid "Who"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:187
+#: ../../../View/BusinessContinuityTasks/add.ctp:70
+msgid "Does Something"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:188
+#: ../../../View/BusinessContinuityTasks/add.ctp:83
+msgid "Where"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:189
+#: ../../../View/BusinessContinuityTasks/add.ctp:96
+msgid "How"
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:214
+msgid "No Business Continuity Plan Tasks found."
+msgstr ""
+
+#: ../../../View/BusinessContinuityPlans/index.ctp:228
+msgid "No Business Continuity Plans found."
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:32
+msgid "Plan Step"
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:39
+msgid "In this plan, where this step goes? Example: 1, 4, 6, Etc."
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:52
+msgid ""
+"When reading an emergency procedure, is important to know who does what in "
+"particular when! Example: no longer than 5 minutes after declared the crisis."
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:65
+msgid "Who is executing this task? This shoud be an individual, a group, Etc."
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:78
+msgid ""
+"Valid examples: Warms up engines, Starts passive DC infrastructure. There's "
+"no point in writting how in details that is to be done since you shouldnt "
+"expect someone to learn to do something while in the middle of an emergency"
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:91
+msgid "Where is the task executed?"
+msgstr ""
+
+#: ../../../View/BusinessContinuityTasks/add.ctp:104
+msgid "How is the task executed?"
+msgstr ""
+
+#: ../../../View/BusinessUnits/add.ctp:34
+msgid "Give a name to this Business Unit"
+msgstr ""
+
+#: ../../../View/BusinessUnits/add.ctp:47
+msgid "Give a brief description of what this Business Unit delivers"
+msgstr ""
+
+#: ../../../View/BusinessUnits/add.ctp:52
+msgid "Revenue Generating BU"
+msgstr ""
+
+#: ../../../View/BusinessUnits/add.ctp:66
+msgid ""
+"Is this BU directly generating revenue? For example a Sales Business Unit."
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:27
+msgid "Business Unit Name:"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:35
+msgid "Add Process"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:42
+msgid "Edit Unit"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:49
+msgid "Delete Unit"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:65
+msgid "Process Name"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:66
+msgid "Process Description"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:67 ../../../View/Processes/add.ctp:55
+msgid "RTO"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:68 ../../../View/Processes/add.ctp:68
+msgid "RPO"
+msgstr ""
+
+#: ../../../View/BusinessUnits/index.ctp:91
+msgid "No Business Processes found."
+msgstr ""
+
+#: ../../../View/ComplianceAudits/add.ctp:38
+#: ../../../View/ComplianceAudits/index.ctp:41
+#: ../../../View/CompliancePackages/index.ctp:59
+msgid "Compliance Package"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/add.ctp:50
+#: ../../../View/ComplianceAudits/index.ctp:40
+msgid "Audit Date"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:32
+#: ../../../View/ComplianceManagements/analyze.ctp:32
+#: ../../../View/CompliancePackages/index.ctp:98
+msgid "Item Name"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:34
+#: ../../../View/CompliancePackageItems/add.ctp:67
+msgid "Audit Questionaire"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:35
+msgid "Findings Action"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:36
+msgid "Attachments Action"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:55
+msgid "View all findings"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:66
+msgid "Add finding"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:78
+#: ../../../View/ComplianceManagements/analyze.ctp:73
+#: ../../../View/CompliancePackages/index.ctp:121
+msgid "No Compliance Package Items found."
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:90
+#: ../../../View/ComplianceManagements/analyze.ctp:85
+#: ../../../View/CompliancePackages/index.ctp:129
+msgid "No Compliance Packages found."
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:27
+msgid "Audit"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:42
+msgid "Number of findings"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:43
+msgid "Open"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:44
+msgid "Closed"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:70
+#: ../../../View/ComplianceManagements/index.ctp:65
+msgid "Analyze"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:81
+msgid "Findings Details"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:96
+msgid "Attachments"
+msgstr ""
+
+#: ../../../View/ComplianceExceptions/add.ctp:34
+#: ../../../View/RiskExceptions/add.ctp:34
+msgid "Provide a descriptive title. Example: Mac-OS Antivirus"
+msgstr ""
+
+#: ../../../View/ComplianceExceptions/add.ctp:47
+msgid ""
+"A good description should include what the compliance is (threat, "
+"vulnerablities, impact, etc), the options which where considered and "
+"discarded, etc."
+msgstr ""
+
+#: ../../../View/ComplianceExceptions/add.ctp:59
+msgid "The identity of the person who will approve this Compliance Exception."
+msgstr ""
+
+#: ../../../View/ComplianceExceptions/add.ctp:71
+msgid ""
+"Set an expiration day for this exception. At that point in time you want to "
+"re-assess the decision to grant an exception. As always, the date format is "
+"YYYY-MM-DD."
+msgstr ""
+
+#: ../../../View/ComplianceExceptions/index.ctp:55
+msgid "No Compliance Exceptions found."
+msgstr ""
+
+#: ../../../View/ComplianceFindings/add.ctp:37
+msgid "Compliance Package Item"
+msgstr ""
+
+#: ../../../View/ComplianceFindings/add.ctp:86
+#: ../../../View/ComplianceFindings/index.ctp:30
+msgid "Deadline"
+msgstr ""
+
+#: ../../../View/ComplianceFindings/index.ctp:56
+msgid "No Compliance Findings found."
+msgstr ""
+
+#: ../../../View/ComplianceManagements/add.ctp:32
+msgid "Treatment Strategy"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/add.ctp:45
+msgid "Mitigation Control"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/add.ctp:74
+#: ../../../View/PolicyExceptions/add.ctp:78
+#: ../../../View/RiskExceptions/add.ctp:64
+#: ../../../View/SecurityServices/add.ctp:93
+msgid "Security Policy Items"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/add.ctp:115
+msgid "Compliance Efficacy"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/analyze.ctp:33
+#: ../../../View/CompliancePackages/index.ctp:99
+msgid "Item Description"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/analyze.ctp:52
+msgid "Add analysis"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/analyze.ctp:62
+msgid "Edit analysis"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:28
+msgid "% Strategy Mitigate"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:29
+msgid "% Strategy NA"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:30
+msgid "% Missing Controls"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:31
+msgid "% Failed Controls"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:32
+msgid "% Comp. On-Going"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:33
+msgid "% Compliant"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:34
+msgid "% Non-Compliant"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:35
+msgid "% Comp. N/A"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:36
+msgid "# Incident"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:37
+msgid "# Open Audit Items"
+msgstr ""
+
+#: ../../../View/CompliancePackageItems/add.ctp:32
+msgid "Compliance Package Item ID"
+msgstr ""
+
+#: ../../../View/CompliancePackages/add.ctp:27
+#: ../../../View/SecurityIncidents/index.ctp:28
+#: ../../../View/ThirdPartyRisks/index.ctp:26
+msgid "Third Party"
+msgstr ""
+
+#: ../../../View/CompliancePackages/add.ctp:40
+msgid "Package ID"
+msgstr ""
+
+#: ../../../View/CompliancePackages/index.ctp:28
+msgid "Regulator or Compliance Authority"
+msgstr ""
+
+#: ../../../View/CompliancePackages/index.ctp:36
+#: ../../../View/ServiceContracts/index.ctp:36
+msgid "View Third Party"
+msgstr ""
+
+#: ../../../View/CompliancePackages/index.ctp:43
+msgid "Add Compliance Package"
+msgstr ""
+
+#: ../../../View/CompliancePackages/index.ctp:81
+msgid "Add Compliance Package Item"
+msgstr ""
+
+#: ../../../View/CompliancePackages/index.ctp:97
+msgid "Item ID"
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:32
+msgid "Flow Status"
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:40
+msgid "Choose the status being analysed."
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:45
+msgid "Flow Description"
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:53
+msgid "Describe a bit more the status you have previously selected."
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:58
+msgid "Which Business Unit is Involved?"
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:86
+msgid "Which Third Party is Involved?"
+msgstr ""
+
+#: ../../../View/DataAssets/add.ctp:138
+msgid ""
+"Choose the most suitable available compensating controls (you can select "
+"multiple) or NONE if you have nothing suitable"
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:46
+msgid "View this asset"
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:53
+msgid "Add new analysis"
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:101
+msgid "Security Control"
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:153
+msgid "Data State"
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:155
+msgid "Applicable Security Controls"
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:186
+msgid "No Data Assets found."
+msgstr ""
+
+#: ../../../View/DataAssets/index.ctp:198 ../../../View/Risks/index.ctp:178
+#: ../../../View/Risks/index.ctp:371
+#: ../../../View/ThirdPartyRisks/index.ctp:185
+msgid "No Assets found."
+msgstr ""
+
+#: ../../../View/Elements/action_buttons.ctp:21
+msgid "Trash"
+msgstr ""
+
+#: ../../../View/Elements/ajax/audit_calendar_entry.ctp:16
+msgid "Remove"
+msgstr ""
+
+#: ../../../View/Elements/core/header.ctp:218
+msgid "My Profile"
+msgstr ""
+
+#: ../../../View/Elements/core/header.ctp:230
+msgid "Log Out"
+msgstr ""
+
+#: ../../../View/Elements/core/pagination.ctp:9
+msgid "Previous"
+msgstr ""
+
+#: ../../../View/Elements/core/pagination.ctp:24
+msgid "Next"
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:6
+msgid ""
+"We have received a password recovery request for your account. Change your "
+"password "
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:8
+msgid "here"
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:8
+msgid "or use the link below within 24 hours."
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:15
+msgid "If you have received this email by mistake, please ignore it!"
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:17
+msgid "If you need more help, just reply to this email."
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:20
+msgid "Cheers!!!"
+msgstr ""
+
+#: ../../../View/Emails/html/reset_password.ctp:22
+msgid "Your friends at Eramba"
+msgstr ""
+
+#: ../../../View/Groups/add.ctp:34 ../../../View/Users/add.ctp:40
+#: ../../../View/Users/profile.ctp:29
+msgid "Name is required."
+msgstr ""
+
+#: ../../../View/Groups/add.ctp:35
+msgid "Same group already exists."
+msgstr ""
+
+#: ../../../View/Groups/add.ctp:38
+msgid "Give a name to this role"
+msgstr ""
+
+#: ../../../View/Groups/add.ctp:50
+msgid "Description is required."
+msgstr ""
+
+#: ../../../View/Groups/add.ctp:53
+msgid "Give a description to this role"
+msgstr ""
+
+#: ../../../View/Groups/index.ctp:57
+msgid "No roles found."
+msgstr ""
+
+#: ../../../View/Legals/add.ctp:34
+msgid ""
+"Give a name to this Liability. For example \"Contractual Liabilities, Legal "
+"Liabilities, Customer Liabilities, Etc"
+msgstr ""
+
+#: ../../../View/Legals/add.ctp:47
+msgid "Give a brief description of what this Liability involves."
+msgstr ""
+
+#: ../../../View/Legals/add.ctp:52 ../../../View/Legals/index.ctp:29
+msgid "Risk Magnifier"
+msgstr ""
+
+#: ../../../View/Legals/add.ctp:59
+msgid ""
+"This value will automatically increase the Risk levels (by multiplicating "
+"the Risk Score with this value) every time this Liability is assigned to an "
+"Asset or Third Party. This is used to increase the visibility of this Risks."
+msgstr ""
+
+#: ../../../View/Legals/index.ctp:53
+msgid "No Legal Constrains found."
+msgstr ""
+
+#: ../../../View/PolicyExceptions/add.ctp:34
+msgid "Give a descriptive title to this Exception"
+msgstr ""
+
+#: ../../../View/PolicyExceptions/add.ctp:47
+msgid ""
+"Describe the Policy Exception in detail (when, what, where, why, whom, how)."
+msgstr ""
+
+#: ../../../View/PolicyExceptions/add.ctp:60
+msgid "Describe the Exception status"
+msgstr ""
+
+#: ../../../View/PolicyExceptions/add.ctp:73
+msgid "Describe for whom this Exception is"
+msgstr ""
+
+#: ../../../View/PolicyExceptions/add.ctp:113
+msgid "Exceptions are not eternal, they must expire at some time"
+msgstr ""
+
+#: ../../../View/PolicyExceptions/index.ctp:66
+#: ../../../View/SecurityIncidents/index.ctp:67
+msgid "No Security Incidents found."
+msgstr ""
+
+#: ../../../View/Processes/add.ctp:63
+msgid ""
+"The period of time within which systems, applications, or functions must be "
+"recovered after a disruption has occurred. For example, critical business "
+"functions must be restored within 4 hours upon occurrence of a disaster."
+msgstr ""
+
+#: ../../../View/Processes/add.ctp:76
+msgid ""
+"How often you need to Backup your data to ensure that suffiecnt data exist "
+"for the business to operate after an incident. This is measured in hours. "
+"For example, my banking application can not loose transactions otherwise the "
+"business is severly impacted. This means RPO is 0 hs (continuos backup)."
+msgstr ""
+
+#: ../../../View/ProjectAchievements/add.ctp:37
+#: ../../../View/ProjectAchievements/index.ctp:29
+msgid "Update Owner"
+msgstr ""
+
+#: ../../../View/ProjectAchievements/add.ctp:62
+msgid "Update Date"
+msgstr ""
+
+#: ../../../View/ProjectAchievements/add.ctp:79
+msgid "Update Contribution Towards Completion"
+msgstr ""
+
+#: ../../../View/ProjectAchievements/index.ctp:28
+#: ../../../View/ProjectExpenses/index.ctp:28
+msgid "Project Name"
+msgstr ""
+
+#: ../../../View/ProjectAchievements/index.ctp:31
+#: ../../../View/ProjectExpenses/index.ctp:31
+msgid "Date"
+msgstr ""
+
+#: ../../../View/ProjectAchievements/index.ctp:32
+#: ../../../View/Projects/index.ctp:90
+msgid "Completion"
+msgstr ""
+
+#: ../../../View/ProjectAchievements/index.ctp:58
+msgid "No Project Updates found."
+msgstr ""
+
+#: ../../../View/ProjectExpenses/add.ctp:32
+msgid "Expense Amount"
+msgstr ""
+
+#: ../../../View/ProjectExpenses/add.ctp:55
+msgid "Expense Date"
+msgstr ""
+
+#: ../../../View/ProjectExpenses/index.ctp:29
+msgid "Amount"
+msgstr ""
+
+#: ../../../View/ProjectExpenses/index.ctp:56
+msgid "No Project Expenses found."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:34
+msgid ""
+"Give the project a title, name or code so it's easily identified on the "
+"project list menu"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:39
+msgid "Goal"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:47
+msgid "Describe the project Goal, it's roadmap and deliverables."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:52
+msgid "RCA"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:60
+msgid "Describe the root cause analysis of why this is required."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:65
+msgid "Proactive Plan"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:73
+msgid ""
+"If this project aims to mitigate an incident or improve something on your "
+"system, describe the proactive plans (stop the bleeding)."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:78
+msgid "Reactive Plan"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:86
+msgid ""
+"If this project aims to mitigate an incident or improve something on your "
+"system, describe the long term plans."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:91
+msgid "Project Start Date"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:98
+msgid ""
+"Document the project kick-off date. The date format for this field is YYYY-"
+"MM-DD, the default is todays date."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:103
+msgid "Project Deadline"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:110
+msgid ""
+"Document the project deadline. The date format for this field is YYYY-MM-DD, "
+"the default is todays date."
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:123
+msgid ""
+"Document the project owner, someone who is responsible for make this project "
+"deliver what has been documented on the times specified above"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:128 ../../../View/Projects/index.ctp:91
+msgid "Planned Budget"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:135
+msgid "Document the planned and approved budget for this project"
+msgstr ""
+
+#: ../../../View/Projects/add.ctp:148 ../../../View/ThirdParties/add.ctp:61
+msgid "Select an applicable type for this Third Party."
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:35
+msgid "Edit Project"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:42
+msgid "Delete Project"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:49
+msgid "Add an update"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:56
+msgid "View all updates"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:63
+msgid "Add an expense"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:70
+msgid "View all expenses"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:87
+msgid "Start"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:88
+msgid "Planned End"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:92
+msgid "Current Budget"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:128
+msgid "Project Goal"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:141
+msgid "Root Cause Analysis"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:154
+msgid "Proactive Plans"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:167
+msgid "Reactive Plans"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:185
+msgid "No Projects found."
+msgstr ""
+
+#: ../../../View/RiskClassifications/add.ctp:36
+msgid ""
+"This is the begining of the classification of risks. Let's say you are "
+"clasifying cars, an example of \"Type\" could be \"Size\". Later, you will "
+"name several options (names) for that Type of classification, such as \"Big"
+"\". \"Small\", Etc. Most regulations and standards require classifications "
+"such as \"Confidentiality, Sensibility or Integrity\" level, Etc. If you "
+"havent created a Classification type before, you will need to create one."
+msgstr ""
+
+#: ../../../View/RiskClassifications/add.ctp:78
+#: ../../../View/RiskClassifications/index.ctp:29
+#: ../../../View/ServiceContracts/index.ctp:61
+msgid "Value"
+msgstr ""
+
+#: ../../../View/RiskClassifications/add.ctp:85
+msgid ""
+"At a later stage of your classification (and Risk Management) this will be "
+"useful to give numerical priorities to each classificatoin type, Etc. Values "
+"represent the significant of this classification. Examples could be 3, 5, 1, "
+"Etc. Note: dont use 0! Default if not completed is 1."
+msgstr ""
+
+#: ../../../View/RiskClassifications/index.ctp:55
+msgid "No Risk Classifications found."
+msgstr ""
+
+#: ../../../View/RiskExceptions/add.ctp:47
+msgid "Describe why this Exception is required, who authorized, Etc."
+msgstr ""
+
+#: ../../../View/RiskExceptions/add.ctp:59
+msgid "The identity of the person who approved this Risk Exception."
+msgstr ""
+
+#: ../../../View/RiskExceptions/add.ctp:99
+msgid ""
+"Set the deadline for this Risk Exception. At the expiration day, a full re-"
+"assesment on this exception is usually done."
+msgstr ""
+
+#: ../../../View/RiskExceptions/index.ctp:64
+msgid "No Risk Exceptions found."
+msgstr ""
+
+#: ../../../View/Risks/add.ctp:54
+msgid "Applicable Assets"
+msgstr ""
+
+#: ../../../View/Risks/add.ctp:78
+msgid "To which Assets this Risk is applicable? You can select more than one."
+msgstr ""
+
+#: ../../../View/Risks/index.ctp:69
+msgid "Risk"
+msgstr ""
+
+#: ../../../View/Risks/index.ctp:147
+msgid "Assets"
+msgstr ""
+
+#: ../../../View/Risks/index.ctp:359
+msgid "No Risks related to this Asset found."
+msgstr ""
+
+#: ../../../View/SecurityIncidentClassifications/add.ctp:47
+msgid ""
+"Very important. It's crucial when classifying to be consistent with the "
+"criteria you use to say a given risk is one or another type. Ideally your "
+"criteria should be simple and practical. Dont get too creative here. "
+"Examples: \"The risk worth is higher than a 40k EUR\", \"The disclosure of "
+"this risk could mean legal actions against the company\", Etc."
+msgstr ""
+
+#: ../../../View/SecurityIncidentClassifications/index.ctp:51
+msgid "No Security Incident Classifications found."
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:34
+msgid ""
+"Give the Securty Incident a title, name or code so it's easily identified on "
+"the list list menu"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:47
+msgid ""
+"Describe the Security Incident in detail (when, what, where, why, whom, how)."
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:52
+msgid "Third Parties Affected"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:64
+msgid "Incident Classification"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:76
+msgid "Compromised Asset"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:84
+msgid ""
+"Describe an asset from the list of registered asset that best represents the "
+"assets being affected by this incident"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:89
+msgid "Compensating Controls"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:113
+msgid "Select those controls involved on this incident"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:130
+#: ../../../View/SecurityIncidents/index.ctp:29
+msgid "Reporter"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:141
+msgid "Victim"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:152
+#: ../../../View/SecurityIncidents/index.ctp:34
+msgid "Open Date"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/add.ctp:163
+#: ../../../View/SecurityIncidents/index.ctp:35
+msgid "Closure Date"
+msgstr ""
+
+#: ../../../View/SecurityIncidents/index.ctp:30
+msgid "Affected"
+msgstr ""
+
+#: ../../../View/SecurityPolicies/add.ctp:27
+#: ../../../View/SecurityPolicies/index.ctp:27
+msgid "Index"
+msgstr ""
+
+#: ../../../View/SecurityPolicies/add.ctp:34
+msgid ""
+"Record the ID for this Policy Item. Idealy this should be a complete "
+"reference to your policy documentation. For example: 1.2 , Etc."
+msgstr ""
+
+#: ../../../View/SecurityPolicies/add.ctp:47
+msgid ""
+"Brief description of the Policy Statement. For example: \"Password Policy\""
+msgstr ""
+
+#: ../../../View/SecurityPolicies/add.ctp:60
+msgid ""
+"Only those items marked as \"Release\" will be used across other parts of "
+"the system."
+msgstr ""
+
+#: ../../../View/SecurityPolicies/index.ctp:53
+msgid "No Security Policy found."
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:27
+msgid "Maintenance Task"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:35
+msgid "What is required to do in order to execute this maintenance task?"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:40
+msgid "Task Conclusion"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:48
+msgid "How did the task go?"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:61
+msgid "Who did the task?"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:66
+msgid "Maintenance Start Date"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:80
+msgid "Maintenance End Date"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:92
+msgid "Task Result"
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/add.ctp:104
+msgid ""
+"Altough this is not strictly an audit, this maintenance task are a good "
+"indication to know if services are working or not."
+msgstr ""
+
+#: ../../../View/SecurityServiceMaintenances/index.ctp:61
+msgid "No Maintenance found."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:34
+msgid "Name this Security Service (Firewalls, CCTV, Etc)"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:47
+msgid "Give a brief description on what this services does."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:60
+msgid ""
+"The objective is to understand what is the status of this service: Proposed "
+"(Just a good idea that needs to be validated and drafted), Design (there's "
+"budget and a business case, so it's time to design), Transition (the design "
+"is moving towards an implementation), Production (the service is working, "
+"metrics are being taken, etc), Retired (the service is no longer used)  "
+"Select the Service Status Proposed Design Transition Production Retired."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:65
+msgid "Service Classification"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:74
+msgid ""
+"Use a pre-defined classification criteria as a priotization tool  Select the "
+"Service Classification Critical."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:79
+msgid "Service Owner"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:86
+msgid "Select an owner"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:88
+msgid ""
+"Describe the name of the owner of this Service. The owner typically is a "
+"person, group, Etc and is fully accountable for the service maintenance, Etc."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:121
+msgid "Documentation URL"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:128
+msgid ""
+"Document ONE url where the documentation for this Service is located (Wiki "
+"Page, Etc)"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:133
+msgid "Audit Metric Description"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:141
+msgid ""
+"At regular intervals, Security controls must be Audited. This is a key "
+"component of any Security Framework. Audits don’t need to be complex but yet "
+"must be usefull to determine if the control is delivering or not. For "
+"example, in the case of a CCTV system: \"Recordings must be available for "
+"the last 90 Days\""
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:154
+msgid ""
+"What answer is expected in order to determine if the Audit is successful or "
+"not. Example: CCTV recordings must be available."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:159
+msgid "Service Audit Calendar"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:178
+msgid ""
+"Select the months in the year where this audit must take place. At least "
+"once a year this control should receive Audits."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:183
+msgid "Maintenance Metric Description"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:191
+msgid ""
+"At regular intervals, Security controls must receive some sort of "
+"maintenance. For example, if you have \"User Account\" reviews then at "
+"regular intervals this reviews must be done. Note: this is different from an "
+"Audit, an audit for this type of control would be \"Number of creeping "
+"accounts found\"."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:196
+msgid "Service Maintenance Calendar"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:216
+msgid "Select the months in the year where this maintenance must take place."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:228
+msgid ""
+"Describe the amount of OPEX this controls costs per annun. Do not include "
+"Support Contracts (they are described separetely)."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:240
+msgid "Describe the amount of CAPEX paid for this control."
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:252
+msgid ""
+"Describe the amount of Days / Year that must be dedicated in order to build, "
+"operate, improve, audit this control. For example, 30 days year (Some 10 "
+"hours / Week of one resource)"
+msgstr ""
+
+#: ../../../View/SecurityServices/add.ctp:281
+msgid "Select all applicable Support Contracts for this Security Service."
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:70
+msgid "Maintenances"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:133
+msgid "URL"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:145
+msgid "Security Policies Items"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:180
+msgid "No Security Policies found."
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:230
+msgid "Maintenance Metric"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:231
+msgid "Maintenance Status"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:268
+msgid "Mitigation"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:279
+msgid "Mitigation Type"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:286
+msgid "Asset based Risk"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:297
+#: ../../../View/ThirdPartyRisks/index.ctp:68
+msgid "Third Party Risk"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:308
+msgid "Security Incident"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:319
+msgid "Data Asset"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:330
+msgid "Compliance"
+msgstr ""
+
+#: ../../../View/SecurityServices/index.ctp:354
+msgid "No Security Services found."
+msgstr ""
+
+#: ../../../View/ServiceClassifications/add.ctp:34
+msgid "Set a name for your Classification"
+msgstr ""
+
+#: ../../../View/ServiceClassifications/add.ctp:47
+msgid "Define a clear criteria that describes this Classification"
+msgstr ""
+
+#: ../../../View/ServiceClassifications/index.ctp:51
+msgid "No Service Classifications found."
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:39
+msgid ""
+"Give a name to the contract you have in between this provider and your "
+"organization. Examples: Firewall Hardware Support, Firewall Consulting Time, "
+"Etc."
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:52
+#: ../../../View/ServiceContracts/add.ctp:91
+msgid ""
+"Service contracts usually have a start and end dates. This will help you to "
+"keep track of renovations."
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:57
+msgid "Service Value"
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:65
+msgid "Provide a description of the service contract scope, Etc."
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:70
+#: ../../../View/ServiceContracts/index.ctp:62
+msgid "Start Date"
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:78
+msgid ""
+"Record the service contract value, how much money you are paying for this?"
+msgstr ""
+
+#: ../../../View/ServiceContracts/add.ctp:83
+#: ../../../View/ServiceContracts/index.ctp:63
+msgid "End Date"
+msgstr ""
+
+#: ../../../View/ServiceContracts/index.ctp:43
+msgid "Add Service Contract"
+msgstr ""
+
+#: ../../../View/ServiceContracts/index.ctp:59
+msgid "Contract Name"
+msgstr ""
+
+#: ../../../View/ServiceContracts/index.ctp:60
+msgid "Contract Description"
+msgstr ""
+
+#: ../../../View/ServiceContracts/index.ctp:95
+msgid "No Service Contracts found."
+msgstr ""
+
+#: ../../../View/ThirdParties/add.ctp:34
+msgid "Give a name to this Third Party."
+msgstr ""
+
+#: ../../../View/ThirdParties/add.ctp:47
+msgid ""
+"Give a brief description on how your orgnization collaborates with this "
+"Third Party."
+msgstr ""
+
+#: ../../../View/ThirdParties/add.ctp:59
+msgid "Select one"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:54
+msgid "Applicable Third Parties"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:78
+msgid "Which Third Parties are you Risk Analysing?"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:83
+msgid "Assets shared with this Third Parties"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:107
+msgid "What Assets (Information) is shared with this Third Party?"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:112
+msgid "Why Information is shared with this Third Party"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:120
+msgid "Why Information is shared with this Third Party?"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:125
+msgid "How it will be Controlled?"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/add.ctp:133
+msgid "How information will be controlled?"
+msgstr ""
+
+#: ../../../View/ThirdPartyRisks/index.ctp:146
+msgid "Shared Assets"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:3 ../../../View/Users/profile.ctp:3
+msgid "Active"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:4 ../../../View/Users/profile.ctp:4
+msgid "Inactive"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:43 ../../../View/Users/profile.ctp:32
+msgid "First Name"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:48 ../../../View/Users/add.ctp:55
+#: ../../../View/Users/index.ctp:34 ../../../View/Users/profile.ctp:37
+#: ../../../View/Users/profile.ctp:44
+msgid "Surname"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:60 ../../../View/Users/profile.ctp:49
+msgid "Email"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:67 ../../../View/Users/profile.ctp:56
+msgid "Email address is in wrong format."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:68 ../../../View/Users/profile.ctp:57
+msgid "Email address is required."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:71 ../../../View/Users/profile.ctp:60
+msgid "If you forget your password, we will use this email to Contact you."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:76
+msgid "Login Name"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:83
+msgid "Login is required."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:84
+msgid "Same login already exists."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:87
+msgid "You will use this login name to get access to eramba."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:92 ../../../View/Users/login.ctp:32
+#: ../../../View/Users/profile.ctp:78
+msgid "Password"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:101 ../../../View/Users/profile.ctp:87
+#: ../../../View/Users/useticket.ctp:17
+msgid "Passwords must be between 8 and 30 characters long."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:102 ../../../View/Users/profile.ctp:88
+#: ../../../View/Users/useticket.ctp:18
+msgid "Password and verify password must be same."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:105 ../../../View/Users/profile.ctp:91
+msgid "Set your access password."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:110 ../../../View/Users/profile.ctp:96
+msgid "Verify Password"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:118 ../../../View/Users/profile.ctp:104
+msgid "Type your password again."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:123 ../../../View/Users/profile.ctp:109
+msgid "Role"
+msgstr ""
+
+#: ../../../View/Users/add.ctp:130 ../../../View/Users/profile.ctp:116
+msgid "Role is required."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:133 ../../../View/Users/profile.ctp:119
+msgid "Select your Role. Each role has different access permissions to eramba."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:147 ../../../View/Users/profile.ctp:133
+msgid "Status is required."
+msgstr ""
+
+#: ../../../View/Users/add.ctp:150 ../../../View/Users/profile.ctp:136
+msgid "Select user status."
+msgstr ""
+
+#: ../../../View/Users/index.ctp:35
+msgid "Group"
+msgstr ""
+
+#: ../../../View/Users/index.ctp:63
+msgid "No users found."
+msgstr ""
+
+#: ../../../View/Users/login.ctp:9
+msgid "Sign In to your Account"
+msgstr ""
+
+#: ../../../View/Users/login.ctp:18
+msgid "Username"
+msgstr ""
+
+#: ../../../View/Users/login.ctp:22
+msgid "Please enter your username."
+msgstr ""
+
+#: ../../../View/Users/login.ctp:35
+msgid "Please enter your password."
+msgstr ""
+
+#: ../../../View/Users/login.ctp:46
+msgid "Remember me"
+msgstr ""
+
+#: ../../../View/Users/login.ctp:67
+msgid "Forgot Password?"
+msgstr ""
+
+#: ../../../View/Users/profile.ctp:65
+msgid "Current password"
+msgstr ""
+
+#: ../../../View/Users/profile.ctp:73
+msgid "Eneter your current password."
+msgstr ""
+
+#: ../../../View/Users/resetpassword.ctp:10
+msgid ""
+"Enter your email. We will send you email with link and simple tutorial how "
+"to change your password."
+msgstr ""
+
+#: ../../../View/Users/resetpassword.ctp:21
+msgid "Enter email address"
+msgstr ""
+
+#: ../../../View/Users/resetpassword.ctp:25
+msgid "Please enter your email."
+msgstr ""
+
+#: ../../../View/Users/resetpassword.ctp:31
+msgid "Back"
+msgstr ""
+
+#: ../../../View/Users/useticket.ctp:4
+msgid "Change your password"
+msgstr ""
+
+#: ../../../View/Users/useticket.ctp:6
+msgid "You can change your password in the form bellow."
+msgstr ""
+
+#: ../../../View/Users/useticket.ctp:15
+msgid "New password"
+msgstr ""
+
+#: ../../../View/Users/useticket.ctp:26
+msgid "Verify password"
+msgstr ""
+
+#: ../../../View/Users/useticket.ctp:31
+msgid "Change password"
+msgstr ""

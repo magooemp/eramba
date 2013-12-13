@@ -50,7 +50,13 @@ class SecurityServicesController extends AppController {
 				'ComplianceManagement' => array(
 					'fields' => array( 'id' ),
 					'CompliancePackageItem' => array(
-						'fields' => array( 'name' )
+						'fields' => array( 'id', 'name' ),
+						'CompliancePackage' => array(
+							'fields' => array( 'id' ),
+							'ThirdParty' => array(
+								'fields' => array( 'id', 'name' )
+							)
+						)
 					)
 				)
 			),

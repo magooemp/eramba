@@ -21,7 +21,8 @@ class BusinessUnit extends AppModel {
 	);
 
 	public $hasAndBelongsToMany = array(
-		'Asset' => array()
+		'Asset' => array(),
+		'BusinessContinuity' => array()
 	);
 }
 ?>

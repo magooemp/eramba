@@ -328,7 +328,10 @@
 										<?php foreach ( $entry['ComplianceManagement'] as $compliance ) : ?>
 										<tr>
 											<td><?php echo __( 'Compliance' ) ?></td>
-											<td><?php echo $this->Html->link( $compliance['CompliancePackageItem']['name'], array(
+											<?php
+											$compliance_name = '(' . $compliance['CompliancePackageItem']['CompliancePackage']['ThirdParty']['name'] . ') ' . $compliance['CompliancePackageItem']['name'];
+											?>
+											<td><?php echo $this->Html->link( $compliance_name, array(
 												'controller' => 'compliancePackageItems',
 												'action' => 'edit',
 												$compliance['CompliancePackageItem']['id']

@@ -47,7 +47,8 @@ class Asset extends AppModel {
 
 	public $hasAndBelongsToMany = array(
 		'BusinessUnit' => array(),
-		'AssetClassification' => array()
+		'AssetClassification' => array(),
+		'Risk' => array()
 	);
 }
 ?>

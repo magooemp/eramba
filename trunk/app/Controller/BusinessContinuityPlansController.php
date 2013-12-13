@@ -10,15 +10,27 @@ class BusinessContinuityPlansController extends AppController {
 		$this->paginate = array(
 			'conditions' => array(
 			),
-			/*'contain' => array(
+			'fields' => array(
+				'BusinessContinuityPlan.id',
+				'BusinessContinuityPlan.title',
+				'BusinessContinuityPlan.objective',
+				'BusinessContinuityPlan.audit_metric',
+				'BusinessContinuityPlan.audit_success_criteria',
+				'BusinessContinuityPlan.sponsor',
+				'BusinessContinuityPlan.launch_criteria',
+				'BusinessContinuityPlan.launch_responsible',
+				'BusinessContinuityPlan.opex',
+				'BusinessContinuityPlan.capex',
+				'BusinessContinuityPlan.resource_utilization'
+			),
+			'contain' => array(
 				'BusinessContinuityTask' => array(
 					'fields' => array( 'id', 'step', 'when', 'who', 'does', 'where', 'how' ),
 					'order' => 'BusinessContinuityTask.step ASC' 
+				),
+				'SecurityServiceType' => array(
+					'fields' => array( 'id', 'name' )
 				)
-			),*/
-			'fields' => array(
-				/*'BusinessContinuityPlan.id',
-				'BusinessContinuityPlan.title'*/
 			),
 			'order' => array( 'BusinessContinuityPlan.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),
@@ -26,8 +38,67 @@ class BusinessContinuityPlansController extends AppController {
 		);
 
 		$data = $this->paginate( 'BusinessContinuityPlan' );
+		$data = $this->addAuditStatuses( $data );
+
 		$this->set( 'data', $data );
 		//debug( $data );
+	}
+
+	private function addAuditStatuses( $data ) {
+		foreach ( $data as $key => $business_continuity_plan ) {
+			$data[ $key ]['BusinessContinuityPlan']['status'] = $this->auditCheck( $business_continuity_plan['BusinessContinuityPlan']['id'] );
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Check audits completion. 
+	 * @param  int $id   Security Service ID.
+	 * @return array     Result.
+	 */
+	protected function auditCheck( $id = null ) {
+		$data = $this->BusinessContinuityPlan->find( 'first', array(
+			'conditions' => array(
+				'BusinessContinuityPlan.id' => $id,
+			),
+			'contain' => array(
+				'BusinessContinuityPlanAudit' => array(
+					'conditions' => array(
+						'BusinessContinuityPlanAudit.result' => null,
+						'BusinessContinuityPlanAudit.planned_date <' => date( 'Y-m-d', strtotime('now') )
+					)
+				)
+			), 
+			'recursive' => 2
+		) );
+
+		$all_done = false;
+		if ( empty( $data['BusinessContinuityPlanAudit'] ) ) {
+			$all_done = true;
+		}
+
+		$data = $this->BusinessContinuityPlan->find( 'first', array(
+			'conditions' => array(
+				'BusinessContinuityPlan.id' => $id,
+			),
+			'contain' => array(
+				'BusinessContinuityPlanAudit' => array(
+					'order' => 'BusinessContinuityPlanAudit.planned_date DESC',
+				)
+			), 
+			'recursive' => 2
+		) );
+
+		$last_passed = false;
+		if ( isset( $data['BusinessContinuityPlanAudit'][0] ) && $data['BusinessContinuityPlanAudit'][0]['result'] == 1 ) {
+			$last_passed = true;
+		}
+		
+		return array(
+			'all_done' => $all_done,
+			'last_passed' => $last_passed
+		);
 	}
 
 	public function add() {
