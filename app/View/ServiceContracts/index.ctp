@@ -14,12 +14,21 @@
 
 		<?php if ( ! empty( $data ) ) : ?>
 			<?php foreach ( $data as $entry ) : ?>
-				<div class="widget box">
-					<div class="widget-header">
+				<?php
+				$today = CakeTime::format( 'Y-m-d', CakeTime::fromString( 'now' ) );
+				$extra_class = '';
+				foreach ( $entry['ServiceContract'] as $service_contract ) {
+					if ( ! $extra_class && $service_contract['end'] > $today ) {
+						$extra_class = 'widget-header-alert';
+					}
+				}
+				?>
+				<div class="widget box widget-closed">
+					<div class="widget-header <?php echo $extra_class; ?>">
 						<h4><?php echo $entry['ThirdParty']['name']; ?></h4>
 						<div class="toolbar no-padding">
 							<div class="btn-group">
-								<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+								<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
 								<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
 									<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
 								</span>
@@ -42,7 +51,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="widget-content">
+					<div class="widget-content" style="display:none;">
 						<?php if ( ! empty( $entry['ServiceContract'] ) ) : ?>
 							<table class="table table-hover table-striped">
 								<thead>
@@ -52,6 +61,7 @@
 										<th><?php echo __( 'Value' ); ?></th>
 										<th><?php echo __( 'Start Date' ); ?></th>
 										<th><?php echo __( 'End Date' ); ?></th>
+										<th><?php echo __( 'Status' ); ?></th>
 										<th class="align-center"><?php echo __( 'Action' ); ?></th>
 									</tr>
 								</thead>
@@ -63,6 +73,13 @@
 										<td><?php echo $service_contract['value']; ?></td>
 										<td><?php echo $service_contract['start']; ?></td>
 										<td><?php echo $service_contract['end']; ?></td>
+										<?php
+										$notification = '<span class="label label-success">' . __( 'Not Expired' ) . '</span>';
+										if ( $service_contract['end'] > $today ) {
+											$notification = '<span class="label label-danger">' . __( 'Expired' ) . '</span>';
+										}
+										?>
+										<td><?php echo $notification; ?></td>
 										<td class="align-center">
 											<?php echo $this->element( 'action_buttons', array( 
 												'id' => $service_contract['id'],

@@ -29,6 +29,7 @@
 							<th><?php echo $this->Paginator->sort( 'PolicyExceptionStatus.name', __( 'Status' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'User.name', __( 'Owner' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'PolicyException.expiration', __( 'Expiration' ) ); ?></th>
+							<th><?php echo __( 'Expiration' ); ?>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
@@ -40,6 +41,14 @@
 								<td><?php echo $entry['PolicyExceptionStatus']['name']; ?></td>
 								<td><?php echo $entry['User']['name'] . ' ' . $entry['User']['surname']; ?></td>
 								<td><?php echo $entry['PolicyException']['expiration']; ?></td>
+								<?php
+								$today = CakeTime::format( 'Y-m-d', CakeTime::fromString( 'now' ) );
+								$notification = '<span class="label label-success">' . __( 'Not Expired' ) . '</span>';
+								if ( $entry['PolicyException']['expiration'] > $today ) {
+									$notification = '<span class="label label-danger">' . __( 'Expired' ) . '</span>';
+								}
+								?>
+								<td><?php echo $notification; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
 										'id' => $entry['PolicyException']['id'],

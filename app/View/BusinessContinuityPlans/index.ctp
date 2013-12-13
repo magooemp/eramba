@@ -22,8 +22,22 @@
 
 		<?php if ( ! empty( $data ) ) : ?>
 			<?php foreach ( $data as $entry ) : ?>
+				<?php
+				$extra_class = '';
+				if ( $extra_class != 'widget-header-alert' ) {
+					if ( $extra_class != 'widget-header-warning' ) {
+						if ( ! $entry['BusinessContinuityPlan']['status']['all_done'] ) {
+							$extra_class = 'widget-header-warning';
+						}
+					}
+					
+					if ( ! $entry['BusinessContinuityPlan']['status']['last_passed'] ) {
+						$extra_class = 'widget-header-alert';
+					}
+				}
+				?>
 				<div class="widget box widget-closed">
-					<div class="widget-header">
+					<div class="widget-header <?php echo $extra_class; ?>">
 						<h4><?php echo $entry['BusinessContinuityPlan']['title']; ?></h4>
 						<div class="toolbar no-padding">
 							<div class="btn-group">
@@ -134,14 +148,20 @@
 									<td><?php echo $entry['BusinessContinuityPlan']['audit_metric']; ?></td>
 									<td><?php echo $entry['BusinessContinuityPlan']['audit_success_criteria']; ?></td>
 									<?php
-									$is_audit_ok = true;
-									foreach ( $entry['BusinessContinuityPlanAudit'] as $audit ) {
-										if ( ! $audit['result'] ) {
-											$is_audit_ok = false;
-										}
+									$msg = array();
+									if ( ! $entry['BusinessContinuityPlan']['status']['all_done'] ) {
+										$msg[] = '<span class="label label-warning">' . __( 'Missing audits.' ) . '</span>';
+										
+									}
+									if ( ! $entry['BusinessContinuityPlan']['status']['last_passed'] ) {
+										$msg[] = '<span class="label label-danger">' . __( 'Last audit failed.' ) . '</span>';
+									}
+
+									if ( $entry['BusinessContinuityPlan']['status']['all_done'] && $entry['BusinessContinuityPlan']['status']['last_passed'] ) {
+										$msg[] = '<span class="label label-success">' . __( 'No audit issues.' ) . '</span>';
 									}
 									?>
-									<td><?php echo $is_audit_ok ? __( 'Ok' ) : __( 'Not Ok' ); ?></td>
+									<td><?php echo implode( '<br />', $msg ); ?></td>
 								</th>
 							</tbody>
 						</table>

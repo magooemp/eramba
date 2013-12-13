@@ -23,5 +23,9 @@ class ThirdParty extends AppModel {
 		'CompliancePackage' => array(),
 		'ComplianceAudit' => array()
 	);
+
+	public $hasAndBelongsToMany = array(
+		'ThirdPartyRisk' => array()
+	);
 }
 ?>

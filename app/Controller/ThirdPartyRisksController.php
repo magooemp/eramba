@@ -7,7 +7,7 @@ class ThirdPartyRisksController extends AppController {
 		$this->set( 'title_for_layout', __( 'Third Party - Risk Analysis' ) );
 		$this->set( 'subtitle_for_layout', __( 'Identifying and analysing Risks can be usefull if executed in a simple and practical way. For each Third Party identify and analyse risks.' ) );
 
-		$this->paginate = array(
+		/*$this->paginate = array(
 			'conditions' => array(
 			),
 			'fields' => array(
@@ -16,10 +16,80 @@ class ThirdPartyRisksController extends AppController {
 			'order' => array('ThirdPartyRisk.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
 			'recursive' => 0
+		);*/
+
+		$this->loadModel( 'ThirdParty' );
+		$this->paginate = array(
+			'conditions' => array(
+			),
+			'fields' => array(
+				'ThirdParty.id', 'ThirdParty.name'
+			),
+			'contain' => array(
+				'ThirdPartyRisk' => array(
+					'fields' => array( 'id', 'title', 'shared_information', 'controlled', 'threats', 'vulnerabilities', 'residual_score', 'risk_score', 'review' ),
+
+					'RiskMitigationStrategy' => array(
+						'fields' => array( 'id', 'name' )
+					),
+					'User' => array(
+						'fields' => array( 'id', 'name', 'surname' )
+					),
+					'Asset' => array(
+						'fields' => array( 'id', 'name', 'description' ),
+						'AssetLabel' => array(
+							'fields' => array( 'id', 'name' )
+						),
+						'Legal' => array(
+							'fields' => array( 'id', 'name' )
+						)
+					),
+					'Threat' => array(
+						'fields' => array( 'name' )
+					),
+					'Vulnerability' => array(
+						'fields' => array( 'name' )
+					),
+					'SecurityService' => array(
+						'fields' => array( 'id', 'name', 'objective' ),
+						'User' => array(
+							'fields' => array( 'name', 'surname' )
+						)
+					),
+					'RiskException' => array(
+						'fields' => array( 'title', 'description', 'author', 'expiration' )
+					),
+					'RiskClassification' => array(
+						'fields' => array( 'name' ),
+						'RiskClassificationType' => array()
+					)
+				)
+			),
+			'order' => array('ThirdParty.id' => 'ASC'),
+			'limit' => $this->getPageLimit(),
+			'recursive' => 2
 		);
 
-		$data = $this->paginate( 'ThirdPartyRisk' );
+		$data = $this->paginate( 'ThirdParty' );
+
+		$data = $this->addAuditStatuses( $data );
+		//debug( $data );
+		//die();
 		$this->set( 'data', $data );
+	}
+
+	private function addAuditStatuses( $data ) {
+		foreach ( $data as $key => $third_party ) {
+			foreach ( $third_party['ThirdPartyRisk'] as $key2 => $risk ) {
+				foreach ( $risk['SecurityService'] as $key3 => $security_service ) {
+					$data[ $key ]['ThirdPartyRisk'][ $key2 ]['SecurityService'][ $key3 ]['status'] = $this->auditCheck( $security_service['id'] );
+					$data[ $key ]['ThirdPartyRisk'][ $key2 ]['SecurityService'][ $key3 ]['maintenanceStatus'] = $this->maintenanceCheck( $security_service['id'] );
+				}
+			}
+			
+		}
+
+		return $data;
 	}
 
 	public function delete( $id = null ) {

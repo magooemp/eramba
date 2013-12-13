@@ -28,6 +28,7 @@
 							<th><?php echo $this->Paginator->sort( 'RiskException.description', __( 'Description' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'RiskException.author', __( 'Author' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'RiskException.expiration', __( 'Expiration' ) ); ?></th>
+							<th><?php echo __( 'Status' ); ?>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
@@ -38,6 +39,14 @@
 								<td><?php echo $entry['RiskException']['description']; ?></td>
 								<td><?php echo $entry['RiskException']['author']; ?></td>
 								<td><?php echo $entry['RiskException']['expiration']; ?></td>
+								<?php
+								$today = CakeTime::format( 'Y-m-d', CakeTime::fromString( 'now' ) );
+								$notification = '<span class="label label-success">' . __( 'Not Expired' ) . '</span>';
+								if ( $entry['RiskException']['expiration'] > $today ) {
+									$notification = '<span class="label label-danger">' . __( 'Expired' ) . '</span>';
+								}
+								?>
+								<td><?php echo $notification; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
 										'id' => $entry['RiskException']['id'],

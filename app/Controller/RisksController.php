@@ -7,7 +7,7 @@ class RisksController extends AppController {
 		$this->set( 'title_for_layout', __( 'Asset based - Risk Analysis' ) );
 		$this->set( 'subtitle_for_layout', __( 'Identifying and analysing Risks can be usefull if executed in a simple and practical way. For each asset identify and analyse risks.' ) );
 
-		$this->paginate = array(
+		/*$this->paginate = array(
 			'conditions' => array(
 			),
 			'fields' => array(
@@ -18,8 +18,112 @@ class RisksController extends AppController {
 			'recursive' => 0
 		);
 
-		$data = $this->paginate( 'Risk' );
+		$data = $this->paginate( 'Risk' );*/
+
+		$this->loadModel( 'Asset' );
+		$this->paginate = array(
+			'conditions' => array(
+			),
+			'fields' => array(
+				'Asset.id', 'Asset.name'
+			),
+			'contain' => array(
+				'Risk' => array(
+					'fields' => array( 'id', 'title', 'threats', 'vulnerabilities', 'residual_score', 'risk_score', 'review' ),
+					'RiskMitigationStrategy' => array(
+						'fields' => array( 'name' )
+					),
+					'Asset' => array(
+						'fields' => array( 'name' )
+					),
+					'User' => array(
+						'fields' => array( 'name', 'surname' )
+					),
+					'Threat' => array(
+						'fields' => array( 'name' )
+					),
+					'Vulnerability' => array(
+						'fields' => array( 'name' )
+					),
+					'SecurityService' => array(
+						'fields' => array( 'id', 'name', 'objective' ),
+						'User' => array(
+							'fields' => array( 'name', 'surname' )
+						)
+					),
+					'RiskException' => array(
+						'fields' => array( 'title', 'description', 'author', 'expiration' )
+					),
+					'RiskClassification' => array(
+						'fields' => array( 'name' ),
+						'RiskClassificationType' => array()
+					)
+				)
+			),
+			'order' => array('Asset.id' => 'ASC'),
+			'limit' => $this->getPageLimit(),
+			'recursive' => 3
+		);
+
+		$data = $this->paginate( 'Asset' );
+
+		foreach ( $data as $key => $asset ) {
+			foreach ( $asset['Risk'] as $key2 => $risk ) {
+				$data[ $key ]['Risk'][ $key2 ]['Asset'] = $this->mergeAssets( $risk['id'] );
+			}
+		}
+		$data = $this->addAuditStatuses( $data );
+
 		$this->set( 'data', $data );
+
+		//debug( $data );
+	}
+
+	private function addAuditStatuses( $data ) {
+		foreach ( $data as $key => $asset ) {
+			foreach ( $asset['Risk'] as $key2 => $risk ) {
+				foreach ( $risk['SecurityService'] as $key3 => $security_service ) {
+					$data[ $key ]['Risk'][ $key2 ]['SecurityService'][ $key3 ]['status'] = $this->auditCheck( $security_service['id'] );
+					$data[ $key ]['Risk'][ $key2 ]['SecurityService'][ $key3 ]['maintenanceStatus'] = $this->maintenanceCheck( $security_service['id'] );
+				}
+			}
+			
+		}
+
+		return $data;
+	}
+
+	private function mergeAssets( $id = null ) {
+		$tmp = $this->Risk->Asset->find( 'all', array(
+			'conditions' => array(
+				//'Risk.id' => $id
+			),
+			'fields' => array( 'name', 'description' ),
+			'contain' => array(
+				'Risk' => array(
+					'fields' => array( 'id' ),
+					'conditions' => array(
+						'Risk.id' => $id
+					)
+				),
+				'AssetLabel' => array(
+					'fields' => array( 'name' )
+				),
+				'Legal' => array(
+					'fields' => array( 'name' )
+				)
+			),
+			'recursive' => 2
+		) );
+
+		$data = array();
+		foreach ( $tmp as $asset ) {
+			if ( ! empty( $asset['Risk'] ) ) {
+				$data[] = $asset;
+			}
+		}
+
+		return $data;
 	}
 
 	public function delete( $id = null ) {

@@ -7,7 +7,7 @@ class BusinessContinuitiesController extends AppController {
 		$this->set( 'title_for_layout', __( 'Business Based - Risk Analysis' ) );
 		$this->set( 'subtitle_for_layout', __( 'Identifying and analysing Business Risks can be usefull if executed in a simple and practical way. For each Business line, identify and analyse risks. You will later have the option to mitigate them by the use of controls or Continuity Plans.' ) );
 
-		$this->paginate = array(
+		/*$this->paginate = array(
 			'conditions' => array(
 			),
 			'fields' => array(
@@ -16,10 +16,114 @@ class BusinessContinuitiesController extends AppController {
 			'order' => array('BusinessContinuity.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
 			'recursive' => 0
+		);*/
+
+		$this->loadModel( 'BusinessUnit' );
+		$this->paginate = array(
+			'conditions' => array(
+			),
+			'fields' => array(
+				'BusinessUnit.id', 'BusinessUnit.name'
+			),
+			'contain' => array(
+				'BusinessContinuity' => array(
+					'fields' => array( 'id', 'title', 'impact', 'threats', 'vulnerabilities', 'residual_score', 'risk_score', 'review' ),
+
+					'RiskMitigationStrategy' => array(
+						'fields' => array( 'id', 'name' )
+					),
+					'User' => array(
+						'fields' => array( 'id', 'name', 'surname' )
+					),
+					'Threat' => array(
+						'fields' => array( 'name' )
+					),
+					'Vulnerability' => array(
+						'fields' => array( 'name' )
+					),
+					'SecurityService' => array(
+						'fields' => array( 'id', 'name', 'objective' ),
+						'User' => array(
+							'fields' => array( 'name', 'surname' )
+						)
+					),
+					'RiskException' => array(
+						'fields' => array( 'title', 'description', 'author', 'expiration' )
+					),
+					'RiskClassification' => array(
+						'fields' => array( 'name' ),
+						'RiskClassificationType' => array()
+					)
+				)
+			),
+			'order' => array('BusinessUnit.id' => 'ASC'),
+			'limit' => $this->getPageLimit(),
+			'recursive' => 2
 		);
 
-		$data = $this->paginate( 'BusinessContinuity' );
+		$data = $this->paginate( 'BusinessUnit' );
+
+		foreach ( $data as $key => $bu ) {
+			foreach ( $bu['BusinessContinuity'] as $key2 => $bc ) {
+				$data[ $key ]['BusinessContinuity'][ $key2 ]['BusinessUnit'] = $this->mergeBu( $bc['id'] );
+			}
+		}
+
+		$data = $this->addAuditStatuses( $data );
+
+		//debug($data);
+		//die();
 		$this->set( 'data', $data );
+	}
+
+	private function addAuditStatuses( $data ) {
+		foreach ( $data as $key => $bu ) {
+			foreach ( $bu['BusinessContinuity'] as $key2 => $bc ) {
+				foreach ( $bc['SecurityService'] as $key3 => $security_service ) {
+					$data[ $key ]['BusinessContinuity'][ $key2 ]['SecurityService'][ $key3 ]['status'] = $this->auditCheck( $security_service['id'] );
+					$data[ $key ]['BusinessContinuity'][ $key2 ]['SecurityService'][ $key3 ]['maintenanceStatus'] = $this->maintenanceCheck( $security_service['id'] );
+				}
+			}
+			
+		}
+
+		return $data;
+	}
+
+	private function mergeBu( $id = null ) {
+		$tmp = $this->BusinessContinuity->BusinessUnit->find( 'all', array(
+			'conditions' => array(
+				//'Risk.id' => $id
+			),
+			'fields' => array( 'name', 'description', 'revenue' ),
+			'contain' => array(
+				'BusinessContinuity' => array(
+					'fields' => array( 'id' ),
+					'conditions' => array(
+						'BusinessContinuity.id' => $id
+					)
+				),
+				'Process' => array(
+					'fields' => array( 'rto', 'rpo' )
+				)
+				/*'AssetLabel' => array(
+					'fields' => array( 'name' )
+				),
+				'Legal' => array(
+					'fields' => array( 'name' )
+				)*/
+			),
+			'recursive' => 2
+		) );
+
+		$data = array();
+		foreach ( $tmp as $bu ) {
+			if ( ! empty( $bu['BusinessContinuity'] ) ) {
+				$data[] = $bu;
+			}
+		}
+
+		return $data;
 	}
 
 	public function delete( $id = null ) {
