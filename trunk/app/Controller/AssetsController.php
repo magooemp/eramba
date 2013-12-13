@@ -37,7 +37,8 @@ class AssetsController extends AppController {
 					),
 					'AssetMainContainer' => array(
 						'fields' => array( 'name' )
-					)
+					),
+					'SecurityIncident' => array()
 				),
 			),
 			'fields' => array(

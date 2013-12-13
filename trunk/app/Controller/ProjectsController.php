@@ -3,23 +3,31 @@ class ProjectsController extends AppController {
 	public $helpers = array( 'Html', 'Form' );
 	public $components = array( 'Session' );
 
-	public function index() {
+	public function index( $id = null ) {
 		$this->set( 'title_for_layout', __( 'Project Management' ) );
 		$this->set( 'subtitle_for_layout', __( 'Manage your projects priorities, assignations, etc.' ) );
 
+		$conditions = array();
+		if ( $id != null ) {
+			$conditions = array(
+				'Project.project_status_id' => $id
+			);
+		}
 		$this->paginate = array(
-			'conditions' => array(
-			),
+			'conditions' => $conditions,
 			'contain' => array(
 				'ProjectStatus' => array( 'id', 'name' ),
 				'User' => array(
 					'fields' => array( 'id', 'name', 'surname' )
 				),
 				'ProjectAchievement' => array(
-					'fields' => array( 'id', 'date', 'completion' )
+					'fields' => array( 'id', 'description', 'date', 'completion' ),
+					'User' => array(
+						'fields' => array( 'name', 'surname' )
+					)
 				),
 				'ProjectExpense' => array(
-					'fields' => array( 'id', 'amount' )
+					'fields' => array( 'id', 'description', 'date', 'amount' )
 				)
 			),
 			'fields' => array(
@@ -41,7 +49,20 @@ class ProjectsController extends AppController {
 		$data = $this->paginate( 'Project' );
 		$this->set( 'data', $data );
 
+		$statuses = $this->getProjectStatuses();
+		//debug( $statuses );
+		$this->set( 'statuses', $statuses );
+
 		//debug( $data );
+	}
+
+	private function getProjectStatuses() {
+		$statuses = $this->Project->ProjectStatus->find( 'list', array(
+			'order' => array('ProjectStatus.name' => 'ASC'),
+			'recursive' => -1
+		) );
+
+		return $statuses;
 	}
 
 	public function delete( $id = null ) {
@@ -115,7 +136,7 @@ class ProjectsController extends AppController {
 				
 				if ( $this->Project->save() ) {
 					$this->Session->setFlash( __( 'Project was successfully edited.' ), FLASH_OK );
-					$this->redirect( array( 'controller' => 'projects', 'action' => 'index', $id ) );
+					$this->redirect( array( 'controller' => 'projects', 'action' => 'index' ) );
 				}
 				else {
 					$this->Session->setFlash( __( 'Error while saving the data. Please try it again.' ), FLASH_ERROR );

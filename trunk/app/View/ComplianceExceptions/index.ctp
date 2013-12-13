@@ -28,6 +28,7 @@
 							<th><?php echo $this->Paginator->sort( 'ComplianceException.description', __( 'Description' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ComplianceException.author', __( 'Author' ) ); ?></th>
 							<th><?php echo $this->Paginator->sort( 'ComplianceException.expiration', __( 'Expiration' ) ); ?></th>
+							<th><?php echo __( 'Status' ); ?></td>
 							<th class="align-center"><?php echo __( 'Action' ); ?></th>
 						</tr>
 					</thead>
@@ -38,6 +39,14 @@
 								<td><?php echo $entry['ComplianceException']['description']; ?></td>
 								<td><?php echo $entry['ComplianceException']['author']; ?></td>
 								<td><?php echo $entry['ComplianceException']['expiration']; ?></td>
+								<?php
+								$today = CakeTime::format( 'Y-m-d', CakeTime::fromString( 'now' ) );
+								$notification = '<span class="label label-success">' . __( 'Not Expired' ) . '</span>';
+								if ( $entry['ComplianceException']['expiration'] > $today ) {
+									$notification = '<span class="label label-danger">' . __( 'Expired' ) . '</span>';
+								}
+								?>
+								<td><?php echo $notification; ?></td>
 								<td class="align-center">
 									<?php echo $this->element( 'action_buttons', array( 
 										'id' => $entry['ComplianceException']['id'],

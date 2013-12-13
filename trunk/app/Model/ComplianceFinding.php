@@ -12,7 +12,8 @@ class ComplianceFinding extends AppModel {
 	);
 
 	public $belongsTo = array(
-		'ComplianceFindingStatus' => array()
+		'ComplianceFindingStatus' => array(),
+		'CompliancePackageItem' => array()
 	);
 }
 ?>

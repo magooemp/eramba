@@ -86,6 +86,7 @@
 									<th><?php echo __( 'Classification' ); ?></th>
 									<th><?php echo __( 'Status' ); ?></th>
 									<th><?php echo __( 'Owner' ); ?></th>
+									<th><?php echo __( 'Incidents' ); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -93,6 +94,15 @@
 									<td><?php echo $entry['ServiceClassification']['name']; ?></td>
 									<td><?php echo $entry['SecurityServiceType']['name']; ?></td>
 									<td><?php echo $entry['User']['name'] . ' ' . $entry['User']['surname']; ?></td>
+									<?php
+									$incidents = count( $entry['SecurityIncident'] );
+									if ( $incidents ) {
+										$notification = $incidents . '&nbsp;<span class="label label-danger">' . __( 'Warning' ) . '</span>';
+									} else {
+										$notification = '<span class="label label-success">' . __( 'No Incident' ) . '</span>';
+									}
+									?>
+									<td><?php echo $notification; ?></td>
 								</tr>
 							</tbody>
 						</table>

@@ -23,12 +23,12 @@
 		<?php if ( ! empty( $data ) ) : ?>
 			<?php foreach ( $data as $entry ) : ?>
 				<?php //if ( empty( $entry['CompliancePackage'] ) ) continue; ?>
-				<div class="widget box">
+				<div class="widget box widget-closed">
 					<div class="widget-header">
 						<h4><?php echo __( 'Regulator or Compliance Authority' ); ?>: <?php echo $entry['ThirdParty']['name']; ?></h4>
 						<div class="toolbar no-padding">
 							<div class="btn-group">
-								<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+								<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
 								<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
 									<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
 								</span>
@@ -51,15 +51,15 @@
 							</div>
 						</div>
 					</div>
-					<div class="widget-content">
+					<div class="widget-content" style="display:none;">
 						<?php if ( ! empty( $entry['CompliancePackage'] ) ) : ?>
 							<?php foreach ( $entry['CompliancePackage'] as $compliancePackage ) : ?>
-								<div class="widget box">
+								<div class="widget box widget-closed">
 									<div class="widget-header">
 										<h4><?php echo __( 'Compliance Package' ); ?>: <?php echo $compliancePackage['name']; ?></h4>
 										<div class="toolbar no-padding">
 											<div class="btn-group">
-												<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+												<span class="btn btn-xs widget-collapse"><i class="icon-angle-up"></i></span>
 												<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
 													<?php echo __( 'Manage' ); ?> <i class="icon-angle-down"></i>
 												</span>
@@ -89,7 +89,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="widget-content">
+									<div class="widget-content" style="display:none;">
 										<?php if ( ! empty( $compliancePackage['CompliancePackageItem'] ) ) : ?>
 											<table class="table table-hover table-striped">
 												<thead>

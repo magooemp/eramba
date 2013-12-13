@@ -1,12 +1,16 @@
 <?php
 class ComplianceAudit extends AppModel {
+	public $actsAs = array(
+		'Containable'
+	);
+
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
 			'required' => true,
 			'allowEmpty' => false
 		),
-		'compliance_package_id' => array(
+		'third_party_id' => array(
 			'rule' => 'notEmpty',
 			'required' => true
 		),

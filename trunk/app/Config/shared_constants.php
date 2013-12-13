@@ -38,5 +38,9 @@ define('COMPLIANCE_TREATMENT_MITIGATE', 1);
 define('COMPLIANCE_TREATMENT_NOT_APPLICABLE', 2);
 define('COMPLIANCE_TREATMENT_IGNORE', 3);
 
+//compliance_finding_statuses
+define('COMPLIANCE_FINDING_OPEN', 1);
+define('COMPLIANCE_FINDING_CLOSED', 2);
+
 //audits
 define('AUDIT_PASSED', 1);

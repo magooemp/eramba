@@ -29,6 +29,7 @@
 								<th><?php echo $this->Paginator->sort( 'ThirdParty.name', __( 'Name' ) ); ?></th>
 								<th><?php echo $this->Paginator->sort( 'ThirdParty.description', __( 'Description' ) ); ?></th>
 								<th><?php echo $this->Paginator->sort( 'ThirdPartyType.name', __( 'Type' ) ); ?></th>
+								<th><?php echo __( 'Incidents' ); ?></th>
 								<th class="align-center"><?php echo __( 'Action' ); ?></th>
 							</tr>
 						</thead>
@@ -38,6 +39,15 @@
 									<td><?php echo $entry['ThirdParty']['name']; ?></td>
 									<td><?php echo $entry['ThirdParty']['description']; ?></td>
 									<td><?php echo $entry['ThirdPartyType']['name']; ?></td>
+									<?php
+									$incidents = count( $entry['SecurityIncident'] );
+									if ( $incidents ) {
+										$notification = $incidents . '&nbsp;<span class="label label-danger">' . __( 'Warning' ) . '</span>';
+									} else {
+										$notification = '<span class="label label-success">' . __( 'No Incident' ) . '</span>';
+									}
+									?>
+									<td><?php echo $notification; ?></td>
 									<td class="align-center">
 										<?php echo $this->element( 'action_buttons', array( 
 											'id' => $entry['ThirdParty']['id'],

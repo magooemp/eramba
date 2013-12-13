@@ -20,5 +20,9 @@ class CompliancePackageItem extends AppModel {
 	public $hasOne = array(
 		'ComplianceManagement' => array()
 	);
+
+	public $hasMany = array(
+		'ComplianceFinding' => array()
+	);
 }
 ?>

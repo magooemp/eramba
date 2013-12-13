@@ -4,19 +4,29 @@ class ComplianceAuditsController extends AppController {
 	public $components = array( 'Session' );
 
 	public function index() {
-		$this->set( 'title_for_layout', __( 'Audit Calendar' ) );
+		$this->set( 'title_for_layout', __( 'Audit Management' ) );
 		$this->set( 'subtitle_for_layout', __( 'Keeping tidy a calendar of Audits is helpful for prepation and planning. In this section you can keep track all audit findings (non-compliances) in order to work on their mitigation plans.' ) );
 
 		//$this->loadModel( 'ThirdParty' );
 		$this->paginate = array(
 			'conditions' => array(
 			),
-			/*'contain' => array(
-				'ComplianceAudit' => array(
-					'ComplianceFinding' => array()
-				)
-			),*/
 			'fields' => array(
+				'ComplianceAudit.id', 'ComplianceAudit.name', 'ComplianceAudit.date'
+			),
+			'contain' => array(
+				'ThirdParty' => array(
+					'fields' => array( 'id', 'name' )
+				),
+				'ComplianceFinding' => array(
+					'fields' => array( 'id', 'title', 'description', 'deadline' ),
+					'ComplianceFindingStatus' => array(
+						'fields' => array( 'name' )
+					),
+					'CompliancePackageItem' => array(
+						'fields' => array( 'item_id', 'name' )
+					)
+				)
 			),
 			'order' => array('ComplianceAudit.id' => 'ASC'),
 			'limit' => $this->getPageLimit(),
@@ -41,7 +51,8 @@ class ComplianceAuditsController extends AppController {
 			'contain' => array(
 				'CompliancePackage' => array(
 					'CompliancePackageItem' => array(
-						'ComplianceManagement' => array()
+						'ComplianceManagement' => array(),
+						'ComplianceFinding' => array()
 					)
 				)
 			),
