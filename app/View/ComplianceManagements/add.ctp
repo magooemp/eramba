@@ -117,7 +117,8 @@
 						<?php
 							$percentages = array();
 							for ( $i = 0; $i <= 10; $i++ ) {
-								$percentages[ $i*10 ] = $i*10;
+								$val = $i*10;
+								$percentages[ $val ] = CakeNumber::toPercentage( $val, 0 );
 							}
 						?>
 						<?php echo $this->Form->input( 'efficacy', array(
