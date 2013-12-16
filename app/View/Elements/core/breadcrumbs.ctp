@@ -3,14 +3,14 @@
 	<ul id="breadcrumbs" class="breadcrumb">
 		<li>
 			<i class="icon-home"></i>
-			<a href="#">Dashboard</a>
+			<a href="#"><?php echo __( 'Dashboard' ); ?></a>
 		</li>
 		<li class="current">
 			<a href="#" title=""><?php echo $title_for_layout; ?></a>
 		</li>
 	</ul>
 
-	<ul class="crumb-buttons">
+	<!--<ul class="crumb-buttons">
 		<li><a href="#" title=""><i class="icon-signal"></i><span>Statistics</span></a></li>
 		<li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="icon-tasks"></i><span>Users <strong>(+3)</strong></span><i class="icon-angle-down left-padding"></i></a>
 			<ul class="dropdown-menu pull-right">
@@ -23,6 +23,6 @@
 			<span></span>
 			<i class="icon-angle-down"></i>
 		</a></li>
-	</ul>
+	</ul>-->
 </div>
 <!-- /Breadcrumbs line -->

@@ -3,7 +3,7 @@
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<?php echo $section['name']; ?>
-				&nbsp;<i class="icon-caret-down small"></i>
+				<!--&nbsp;<i class="icon-caret-down small"></i>-->
 			</a>
 			<ul class="dropdown-menu">
 				<?php foreach ($section['children'] as $action) : ?>
