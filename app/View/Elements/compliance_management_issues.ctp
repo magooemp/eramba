@@ -13,8 +13,8 @@
 		<?php if ( $notification ) : ?>
 			<tr>
 				<td><?php echo $compliance_package_item['item_id'] . ' - ' . $compliance_package_item['name']; ?></td>
-				<td><?php echo $compliance_package_item['ComplianceManagement']['ComplianceException']['title']; ?></td>
 				<td><?php echo __( 'Compliance Exception' ); ?></td>
+				<td><?php echo $compliance_package_item['ComplianceManagement']['ComplianceException']['title']; ?></td>
 				<td><?php echo $notification; ?></td>
 			</tr>
 		<?php endif; ?>

@@ -170,8 +170,10 @@
 					<label class="col-md-2 control-label"><?php echo __( 'Classification' ); ?>:</label>
 					<div class="col-md-10">
 						<?php
-
+						$index = 1;
 						foreach ( $classifications as $classification_type ) :
+							if ( $index > 5 ) continue;
+
 							$options = array();
 							$options_ids = array();
 
@@ -203,6 +205,8 @@
 								'class' => 'form-control',
 								'selected' => $selected
 							) );
+
+							$index++;
 						endforeach;
 						?>
 						<span class="help-block"><?php echo __( 'Use the previously defined asset classification criterias and choose the appropiate classification profile for this asset.' ); ?></span>

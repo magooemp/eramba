@@ -9,7 +9,11 @@
 		?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
+		echo $this->Html->meta(
+			'favicon.ico',
+			'/favicon.png',
+			array('type' => 'icon')
+		);
 
 		$cssFiles = array(
 			'bootstrap.min',
@@ -56,6 +60,12 @@
 			'plugins.form-components',
 			'custom'
 		);
+		
+		if ( $logged == null ) {
+			unset( $jsFiles[ array_search( 'app', $jsFiles ) ] );
+			unset( $jsFiles[ array_search( 'plugins', $jsFiles ) ] );
+			unset( $jsFiles[ array_search( 'custom', $jsFiles ) ] );
+		}
 
 		echo $this->Html->css( $cssFiles );
 		echo $this->Html->script( $jsFiles );
@@ -65,13 +75,13 @@
 		echo $this->fetch('script');
 	?>
 	<script type="text/javascript">
-	$(document).ready(function(){
+	/*$(document).ready(function(){
 		"use strict";
 
 		App.init(); // Init layout and core plugins
 		Plugins.init(); // Init all plugins
 		FormComponents.init(); // Init all form-specific plugins
-	});
+	});*/
 	</script>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -106,7 +116,7 @@
 
 	<?php else : ?>
 		<div class="logo">
-			<strong>E</strong>ramba
+			<img src="/img/logo-blue.png">
 		</div>
 
 		<?php echo $this->fetch( 'content' ); ?>
