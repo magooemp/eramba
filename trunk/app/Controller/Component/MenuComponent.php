@@ -42,7 +42,7 @@ class MenuComponent extends Component {
 				)
 			),
 			array(
-				'name' => __('Asset Management'),
+				'name' => __('Asset Mgt'),
 				'children' => array(
 					array(
 						'name' => __('Asset Classification'),
@@ -112,7 +112,7 @@ class MenuComponent extends Component {
 				)
 			),
 			array(
-				'name' => __('Risk Management'),
+				'name' => __('Risk Mgt'),
 				'children' => array(
 					array(
 						'name' => __('Risk Classifications'),
@@ -147,7 +147,7 @@ class MenuComponent extends Component {
 				)
 			),
 			array(
-				'name' => __('Compliance Management'),
+				'name' => __('Compliance Mgt'),
 				'children' => array(
 					array(
 						'name' => __('Compliance Exception'),
@@ -199,7 +199,7 @@ class MenuComponent extends Component {
 				)
 			),
 			array(
-				'name' => __('System Management'),
+				'name' => __('System Mgt'),
 				'children' => array(
 					array(
 						'name' => __('User Accounts'),

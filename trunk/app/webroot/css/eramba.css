@@ -2,8 +2,8 @@
 	width: 160px;
 }
 
-.navbar .nav > li > a > span.username,
-.navbar .nav > li > a > i[class="icon-caret-down small"] {
+.navbar .nav > li.user > a > span.username,
+.navbar .nav > li.user > a > i[class="icon-caret-down small"] {
 	display: none;
 }
 
