@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Eramba\n"
-"POT-Creation-Date: 2013-12-13 11:33+0100\n"
-"PO-Revision-Date: 2013-12-13 11:34+0100\n"
+"POT-Creation-Date: 2013-12-16 13:52+0100\n"
+"PO-Revision-Date: 2013-12-16 13:52+0100\n"
 "Last-Translator: Martin Horvath <martin.horvath@adbee.sk>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -35,11 +35,11 @@ msgstr ""
 
 #: ../../../Controller/AssetClassificationsController.php:42
 #: ../../../Controller/AssetLabelsController.php:39
-#: ../../../Controller/AssetsController.php:81
+#: ../../../Controller/AssetsController.php:82
 #: ../../../Controller/BusinessContinuityPlanAuditsController.php:40
 #: ../../../Controller/BusinessContinuityTasksController.php:20
 #: ../../../Controller/BusinessUnitsController.php:45
-#: ../../../Controller/ComplianceAuditsController.php:74
+#: ../../../Controller/ComplianceAuditsController.php:85
 #: ../../../Controller/ComplianceFindingsController.php:43
 #: ../../../Controller/CompliancePackageItemsController.php:20
 #: ../../../Controller/CompliancePackagesController.php:46
@@ -51,10 +51,10 @@ msgstr ""
 #: ../../../Controller/SecurityPoliciesController.php:40
 #: ../../../Controller/SecurityServiceAuditsController.php:40
 #: ../../../Controller/SecurityServiceMaintenancesController.php:40
-#: ../../../Controller/SecurityServicesController.php:98
+#: ../../../Controller/SecurityServicesController.php:96
 #: ../../../Controller/ServiceClassificationsController.php:39
 #: ../../../Controller/ServiceContractsController.php:41
-#: ../../../Controller/ThirdPartiesController.php:43
+#: ../../../Controller/ThirdPartiesController.php:49
 #: ../../../Controller/UsersController.php:155
 msgid "Error while deleting the data. Please try it again."
 msgstr ""
@@ -81,8 +81,8 @@ msgstr ""
 #: ../../../Controller/AssetClassificationsController.php:137
 #: ../../../Controller/AssetLabelsController.php:59
 #: ../../../Controller/AssetLabelsController.php:99
-#: ../../../Controller/AssetsController.php:112
-#: ../../../Controller/AssetsController.php:169
+#: ../../../Controller/AssetsController.php:113
+#: ../../../Controller/AssetsController.php:170
 #: ../../../Controller/BusinessContinuitiesController.php:189
 #: ../../../Controller/BusinessContinuitiesController.php:260
 #: ../../../Controller/BusinessContinuityPlanAuditsController.php:101
@@ -92,14 +92,14 @@ msgstr ""
 #: ../../../Controller/BusinessContinuityTasksController.php:96
 #: ../../../Controller/BusinessUnitsController.php:65
 #: ../../../Controller/BusinessUnitsController.php:106
-#: ../../../Controller/ComplianceAuditsController.php:94
-#: ../../../Controller/ComplianceAuditsController.php:136
+#: ../../../Controller/ComplianceAuditsController.php:105
+#: ../../../Controller/ComplianceAuditsController.php:147
 #: ../../../Controller/ComplianceExceptionsController.php:56
 #: ../../../Controller/ComplianceExceptionsController.php:96
 #: ../../../Controller/ComplianceFindingsController.php:63
 #: ../../../Controller/ComplianceFindingsController.php:109
-#: ../../../Controller/ComplianceManagementsController.php:78
-#: ../../../Controller/ComplianceManagementsController.php:137
+#: ../../../Controller/ComplianceManagementsController.php:118
+#: ../../../Controller/ComplianceManagementsController.php:177
 #: ../../../Controller/CompliancePackageItemsController.php:42
 #: ../../../Controller/CompliancePackageItemsController.php:96
 #: ../../../Controller/CompliancePackagesController.php:66
@@ -118,8 +118,8 @@ msgstr ""
 #: ../../../Controller/ProjectAchievementsController.php:120
 #: ../../../Controller/ProjectExpensesController.php:70
 #: ../../../Controller/ProjectExpensesController.php:114
-#: ../../../Controller/ProjectsController.php:78
-#: ../../../Controller/ProjectsController.php:121
+#: ../../../Controller/ProjectsController.php:99
+#: ../../../Controller/ProjectsController.php:142
 #: ../../../Controller/RiskClassificationsController.php:120
 #: ../../../Controller/RiskClassificationsController.php:124
 #: ../../../Controller/RiskClassificationsController.php:139
@@ -135,14 +135,14 @@ msgstr ""
 #: ../../../Controller/SecurityPoliciesController.php:102
 #: ../../../Controller/SecurityServiceAuditsController.php:100
 #: ../../../Controller/SecurityServiceMaintenancesController.php:100
-#: ../../../Controller/SecurityServicesController.php:136
-#: ../../../Controller/SecurityServicesController.php:212
+#: ../../../Controller/SecurityServicesController.php:134
+#: ../../../Controller/SecurityServicesController.php:210
 #: ../../../Controller/ServiceClassificationsController.php:59
 #: ../../../Controller/ServiceClassificationsController.php:99
 #: ../../../Controller/ServiceContractsController.php:63
 #: ../../../Controller/ServiceContractsController.php:117
-#: ../../../Controller/ThirdPartiesController.php:63
-#: ../../../Controller/ThirdPartiesController.php:106
+#: ../../../Controller/ThirdPartiesController.php:69
+#: ../../../Controller/ThirdPartiesController.php:112
 #: ../../../Controller/ThirdPartyRisksController.php:156
 #: ../../../Controller/ThirdPartyRisksController.php:227
 #: ../../../Controller/UsersController.php:51
@@ -156,8 +156,8 @@ msgstr ""
 #: ../../../Controller/AssetClassificationsController.php:140
 #: ../../../Controller/AssetLabelsController.php:62
 #: ../../../Controller/AssetLabelsController.php:102
-#: ../../../Controller/AssetsController.php:115
-#: ../../../Controller/AssetsController.php:172
+#: ../../../Controller/AssetsController.php:116
+#: ../../../Controller/AssetsController.php:173
 #: ../../../Controller/BusinessContinuitiesController.php:192
 #: ../../../Controller/BusinessContinuitiesController.php:263
 #: ../../../Controller/BusinessContinuityPlanAuditsController.php:104
@@ -167,14 +167,14 @@ msgstr ""
 #: ../../../Controller/BusinessContinuityTasksController.php:99
 #: ../../../Controller/BusinessUnitsController.php:68
 #: ../../../Controller/BusinessUnitsController.php:109
-#: ../../../Controller/ComplianceAuditsController.php:97
-#: ../../../Controller/ComplianceAuditsController.php:139
+#: ../../../Controller/ComplianceAuditsController.php:108
+#: ../../../Controller/ComplianceAuditsController.php:150
 #: ../../../Controller/ComplianceExceptionsController.php:59
 #: ../../../Controller/ComplianceExceptionsController.php:99
 #: ../../../Controller/ComplianceFindingsController.php:66
 #: ../../../Controller/ComplianceFindingsController.php:112
-#: ../../../Controller/ComplianceManagementsController.php:81
-#: ../../../Controller/ComplianceManagementsController.php:140
+#: ../../../Controller/ComplianceManagementsController.php:121
+#: ../../../Controller/ComplianceManagementsController.php:180
 #: ../../../Controller/CompliancePackageItemsController.php:45
 #: ../../../Controller/CompliancePackageItemsController.php:99
 #: ../../../Controller/CompliancePackagesController.php:69
@@ -191,8 +191,8 @@ msgstr ""
 #: ../../../Controller/ProjectAchievementsController.php:123
 #: ../../../Controller/ProjectExpensesController.php:73
 #: ../../../Controller/ProjectExpensesController.php:117
-#: ../../../Controller/ProjectsController.php:81
-#: ../../../Controller/ProjectsController.php:124
+#: ../../../Controller/ProjectsController.php:102
+#: ../../../Controller/ProjectsController.php:145
 #: ../../../Controller/RiskClassificationsController.php:128
 #: ../../../Controller/RiskClassificationsController.php:142
 #: ../../../Controller/RiskExceptionsController.php:68
@@ -207,14 +207,14 @@ msgstr ""
 #: ../../../Controller/SecurityPoliciesController.php:105
 #: ../../../Controller/SecurityServiceAuditsController.php:103
 #: ../../../Controller/SecurityServiceMaintenancesController.php:103
-#: ../../../Controller/SecurityServicesController.php:139
-#: ../../../Controller/SecurityServicesController.php:215
+#: ../../../Controller/SecurityServicesController.php:137
+#: ../../../Controller/SecurityServicesController.php:213
 #: ../../../Controller/ServiceClassificationsController.php:62
 #: ../../../Controller/ServiceClassificationsController.php:102
 #: ../../../Controller/ServiceContractsController.php:66
 #: ../../../Controller/ServiceContractsController.php:120
-#: ../../../Controller/ThirdPartiesController.php:66
-#: ../../../Controller/ThirdPartiesController.php:109
+#: ../../../Controller/ThirdPartiesController.php:72
+#: ../../../Controller/ThirdPartiesController.php:115
 #: ../../../Controller/ThirdPartyRisksController.php:159
 #: ../../../Controller/ThirdPartyRisksController.php:230
 msgid "One or more inputs you entered are invalid. Please try again."
@@ -272,27 +272,27 @@ msgstr ""
 msgid "Build a list of significant assets for your security program."
 msgstr ""
 
-#: ../../../Controller/AssetsController.php:79
+#: ../../../Controller/AssetsController.php:80
 msgid "Asset was successfully deleted."
 msgstr ""
 
-#: ../../../Controller/AssetsController.php:89
+#: ../../../Controller/AssetsController.php:90
 msgid "Create an Asset"
 msgstr ""
 
-#: ../../../Controller/AssetsController.php:108
+#: ../../../Controller/AssetsController.php:109
 msgid "Asset was successfully added."
 msgstr ""
 
-#: ../../../Controller/AssetsController.php:141
+#: ../../../Controller/AssetsController.php:142
 msgid "Edit an Asset"
 msgstr ""
 
-#: ../../../Controller/AssetsController.php:164
+#: ../../../Controller/AssetsController.php:165
 msgid "Asset was successfully edited."
 msgstr ""
 
-#: ../../../Controller/AssetsController.php:265
+#: ../../../Controller/AssetsController.php:266
 msgid ""
 "Identifing assets is perhaps one of the most important tasks for a Security "
 "Program. It all revolves around understanding what is that the program "
@@ -467,7 +467,8 @@ msgid ""
 msgstr ""
 
 #: ../../../Controller/ComplianceAuditsController.php:7
-msgid "Audit Calendar"
+#: ../../../Controller/Component/MenuComponent.php:171
+msgid "Audit Management"
 msgstr ""
 
 #: ../../../Controller/ComplianceAuditsController.php:8
@@ -477,34 +478,34 @@ msgid ""
 "order to work on their mitigation plans."
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:55
-#: ../../../Controller/ComplianceManagementsController.php:50
+#: ../../../Controller/ComplianceAuditsController.php:66
+#: ../../../Controller/ComplianceManagementsController.php:90
 msgid "Compliance Management:"
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:72
+#: ../../../Controller/ComplianceAuditsController.php:83
 msgid "Compliance Audit was successfully deleted."
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:81
+#: ../../../Controller/ComplianceAuditsController.php:92
 #: ../../../Controller/ComplianceFindingsController.php:50
 msgid "Create a Compliance Audit"
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:91
+#: ../../../Controller/ComplianceAuditsController.php:102
 msgid "Compliance Audit was successfully added."
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:123
+#: ../../../Controller/ComplianceAuditsController.php:134
 #: ../../../Controller/ComplianceFindingsController.php:96
 msgid "Edit a Compliance Audit"
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:132
+#: ../../../Controller/ComplianceAuditsController.php:143
 msgid "Compliance Audit was successfully edited."
 msgstr ""
 
-#: ../../../Controller/ComplianceAuditsController.php:173
+#: ../../../Controller/ComplianceAuditsController.php:184
 msgid "Record your next audits."
 msgstr ""
 
@@ -570,7 +571,6 @@ msgid "Use this form to create or edit an audit finding"
 msgstr ""
 
 #: ../../../Controller/ComplianceManagementsController.php:7
-#: ../../../Controller/Component/MenuComponent.php:150
 msgid "Compliance Management"
 msgstr ""
 
@@ -578,25 +578,25 @@ msgstr ""
 msgid "Select the third party who wish to work with."
 msgstr ""
 
-#: ../../../Controller/ComplianceManagementsController.php:55
+#: ../../../Controller/ComplianceManagementsController.php:95
 #: ../../../Controller/CompliancePackagesController.php:53
 msgid "Create a Compliance Package"
 msgstr ""
 
-#: ../../../Controller/ComplianceManagementsController.php:74
+#: ../../../Controller/ComplianceManagementsController.php:114
 msgid "Compliance Management was successfully added."
 msgstr ""
 
-#: ../../../Controller/ComplianceManagementsController.php:111
+#: ../../../Controller/ComplianceManagementsController.php:151
 #: ../../../Controller/CompliancePackagesController.php:97
 msgid "Edit a Compliance Package"
 msgstr ""
 
-#: ../../../Controller/ComplianceManagementsController.php:132
+#: ../../../Controller/ComplianceManagementsController.php:172
 msgid "Compliance Management was successfully edited."
 msgstr ""
 
-#: ../../../Controller/ComplianceManagementsController.php:249
+#: ../../../Controller/ComplianceManagementsController.php:283
 msgid ""
 "Select which mitigation strategy (response) you'll provide to this "
 "compliance package item and what's the regulator feedback on this particular "
@@ -883,28 +883,28 @@ msgstr ""
 msgid "Manage your projects priorities, assignations, etc."
 msgstr ""
 
-#: ../../../Controller/ProjectsController.php:60
+#: ../../../Controller/ProjectsController.php:81
 msgid "Project was successfully deleted."
 msgstr ""
 
-#: ../../../Controller/ProjectsController.php:65
-#: ../../../Controller/ThirdPartiesController.php:50
+#: ../../../Controller/ProjectsController.php:86
+#: ../../../Controller/ThirdPartiesController.php:56
 msgid "Create a Third Party"
 msgstr ""
 
-#: ../../../Controller/ProjectsController.php:75
+#: ../../../Controller/ProjectsController.php:96
 msgid "Project was successfully added."
 msgstr ""
 
-#: ../../../Controller/ProjectsController.php:107
+#: ../../../Controller/ProjectsController.php:128
 msgid "Edit a Project"
 msgstr ""
 
-#: ../../../Controller/ProjectsController.php:117
+#: ../../../Controller/ProjectsController.php:138
 msgid "Project was successfully edited."
 msgstr ""
 
-#: ../../../Controller/ProjectsController.php:149
+#: ../../../Controller/ProjectsController.php:170
 msgid "Use this form to create or edit new improvement projects."
 msgstr ""
 
@@ -1094,12 +1094,13 @@ msgid "Security Policy was successfully edited."
 msgstr ""
 
 #: ../../../Controller/SecurityPoliciesController.php:119
-#: ../../../View/SecurityServices/index.ctp:169
+#: ../../../View/Elements/compliance_management_issues.ctp:60
+#: ../../../View/SecurityServices/index.ctp:179
 msgid "Draft"
 msgstr ""
 
 #: ../../../Controller/SecurityPoliciesController.php:120
-#: ../../../View/SecurityServices/index.ctp:170
+#: ../../../View/SecurityServices/index.ctp:180
 msgid "Released"
 msgstr ""
 
@@ -1162,27 +1163,27 @@ msgid ""
 "Organization, it's highgly recommended to keep them well identified."
 msgstr ""
 
-#: ../../../Controller/SecurityServicesController.php:96
+#: ../../../Controller/SecurityServicesController.php:94
 msgid "Security Service was successfully deleted."
 msgstr ""
 
-#: ../../../Controller/SecurityServicesController.php:105
+#: ../../../Controller/SecurityServicesController.php:103
 msgid "Create a Security Service"
 msgstr ""
 
-#: ../../../Controller/SecurityServicesController.php:132
+#: ../../../Controller/SecurityServicesController.php:130
 msgid "Security Service was successfully added."
 msgstr ""
 
-#: ../../../Controller/SecurityServicesController.php:166
+#: ../../../Controller/SecurityServicesController.php:164
 msgid "Edit a Security Service"
 msgstr ""
 
-#: ../../../Controller/SecurityServicesController.php:207
+#: ../../../Controller/SecurityServicesController.php:205
 msgid "Security Service was successfully edited."
 msgstr ""
 
-#: ../../../Controller/SecurityServicesController.php:398
+#: ../../../Controller/SecurityServicesController.php:396
 msgid ""
 "Pretty much the same way a restaurant has a menu, a security program has a "
 "menu of services and even sometimes products. It's very important to know "
@@ -1270,23 +1271,23 @@ msgid ""
 "hte scope of your security program."
 msgstr ""
 
-#: ../../../Controller/ThirdPartiesController.php:41
+#: ../../../Controller/ThirdPartiesController.php:47
 msgid "Third Party was successfully deleted."
 msgstr ""
 
-#: ../../../Controller/ThirdPartiesController.php:60
+#: ../../../Controller/ThirdPartiesController.php:66
 msgid "Third Party was successfully added."
 msgstr ""
 
-#: ../../../Controller/ThirdPartiesController.php:92
+#: ../../../Controller/ThirdPartiesController.php:98
 msgid "Edit a Third Party"
 msgstr ""
 
-#: ../../../Controller/ThirdPartiesController.php:102
+#: ../../../Controller/ThirdPartiesController.php:108
 msgid "Third Party was successfully edited."
 msgstr ""
 
-#: ../../../Controller/ThirdPartiesController.php:131
+#: ../../../Controller/ThirdPartiesController.php:137
 msgid ""
 "No bussiness operates alone. There's always customers (well, hopefully), "
 "providers, regulators, etc. It's important to define them clearly from the "
@@ -1432,7 +1433,7 @@ msgid "Organization"
 msgstr ""
 
 #: ../../../Controller/Component/MenuComponent.php:45
-msgid "Asset Management"
+msgid "Asset Mgt"
 msgstr ""
 
 #: ../../../Controller/Component/MenuComponent.php:66
@@ -1456,7 +1457,7 @@ msgid "Services Classification"
 msgstr ""
 
 #: ../../../Controller/Component/MenuComponent.php:115
-msgid "Risk Management"
+msgid "Risk Mgt"
 msgstr ""
 
 #: ../../../Controller/Component/MenuComponent.php:118
@@ -1483,8 +1484,13 @@ msgstr ""
 msgid "Business Continuity"
 msgstr ""
 
+#: ../../../Controller/Component/MenuComponent.php:150
+msgid "Compliance Mgt"
+msgstr ""
+
 #: ../../../Controller/Component/MenuComponent.php:153
 #: ../../../View/ComplianceManagements/add.ctp:102
+#: ../../../View/Elements/compliance_management_issues.ctp:17
 msgid "Compliance Exception"
 msgstr ""
 
@@ -1496,10 +1502,6 @@ msgstr ""
 msgid "Compliance Analysis"
 msgstr ""
 
-#: ../../../Controller/Component/MenuComponent.php:171
-msgid "Audit Management"
-msgstr ""
-
 #: ../../../Controller/Component/MenuComponent.php:179
 msgid "Security Operations"
 msgstr ""
@@ -1509,7 +1511,7 @@ msgid "Security Incident Classification"
 msgstr ""
 
 #: ../../../Controller/Component/MenuComponent.php:202
-msgid "System Management"
+msgid "System Mgt"
 msgstr ""
 
 #: ../../../Plugin/Acl/Controller/AclAppController.php:22
@@ -1528,6 +1530,7 @@ msgstr ""
 #: ../../../View/BusinessContinuityTasks/add.ctp:14
 #: ../../../View/BusinessUnits/add.ctp:14
 #: ../../../View/ComplianceAudits/add.ctp:14
+#: ../../../View/ComplianceAudits/index.ctp:65
 #: ../../../View/ComplianceExceptions/add.ctp:14
 #: ../../../View/ComplianceFindings/add.ctp:14
 #: ../../../View/ComplianceManagements/add.ctp:14
@@ -1627,13 +1630,13 @@ msgstr ""
 #: ../../../View/AssetClassifications/add.ctp:53
 #: ../../../View/AssetClassifications/index.ctp:27
 #: ../../../View/AssetLabels/add.ctp:27 ../../../View/AssetLabels/index.ctp:27
-#: ../../../View/Assets/add.ctp:27 ../../../View/Assets/index.ctp:156
+#: ../../../View/Assets/add.ctp:27 ../../../View/Assets/index.ctp:166
 #: ../../../View/BusinessContinuities/index.ctp:158
 #: ../../../View/BusinessContinuities/index.ctp:271
 #: ../../../View/BusinessContinuities/index.ctp:319
 #: ../../../View/BusinessUnits/add.ctp:27
 #: ../../../View/ComplianceAudits/add.ctp:27
-#: ../../../View/ComplianceManagements/index.ctp:27
+#: ../../../View/ComplianceManagements/index.ctp:85
 #: ../../../View/CompliancePackageItems/add.ctp:44
 #: ../../../View/CompliancePackages/add.ctp:52 ../../../View/Groups/add.ctp:27
 #: ../../../View/Groups/index.ctp:32 ../../../View/Legals/add.ctp:27
@@ -1645,7 +1648,7 @@ msgstr ""
 #: ../../../View/SecurityIncidentClassifications/add.ctp:27
 #: ../../../View/SecurityIncidentClassifications/index.ctp:27
 #: ../../../View/SecurityServices/add.ctp:27
-#: ../../../View/SecurityServices/index.ctp:157
+#: ../../../View/SecurityServices/index.ctp:167
 #: ../../../View/ServiceClassifications/add.ctp:27
 #: ../../../View/ServiceClassifications/index.ctp:27
 #: ../../../View/ServiceContracts/add.ctp:32
@@ -1695,7 +1698,7 @@ msgstr ""
 #: ../../../View/ComplianceAudits/add.ctp:66
 #: ../../../View/ComplianceExceptions/add.ctp:81
 #: ../../../View/ComplianceFindings/add.ctp:102
-#: ../../../View/ComplianceManagements/add.ctp:138
+#: ../../../View/ComplianceManagements/add.ctp:139
 #: ../../../View/CompliancePackageItems/add.ctp:84
 #: ../../../View/CompliancePackages/add.ctp:80
 #: ../../../View/DataAssets/add.ctp:148 ../../../View/Legals/add.ctp:69
@@ -1726,7 +1729,6 @@ msgstr ""
 #: ../../../View/ComplianceAudits/index.ctp:7
 #: ../../../View/ComplianceExceptions/index.ctp:7
 #: ../../../View/ComplianceFindings/index.ctp:7
-#: ../../../View/ComplianceManagements/index.ctp:7
 #: ../../../View/CompliancePackages/index.ctp:7
 #: ../../../View/Groups/index.ctp:10 ../../../View/Legals/index.ctp:7
 #: ../../../View/PolicyExceptions/index.ctp:7
@@ -1756,7 +1758,7 @@ msgstr ""
 #: ../../../View/ComplianceExceptions/index.ctp:15
 #: ../../../View/ComplianceFindings/index.ctp:16
 #: ../../../View/ComplianceManagements/analyze.ctp:7
-#: ../../../View/ComplianceManagements/index.ctp:15
+#: ../../../View/ComplianceManagements/index.ctp:7
 #: ../../../View/CompliancePackages/index.ctp:15
 #: ../../../View/DataAssets/index.ctp:7 ../../../View/Groups/index.ctp:18
 #: ../../../View/Legals/index.ctp:15
@@ -1790,7 +1792,7 @@ msgstr ""
 #: ../../../View/ComplianceExceptions/index.ctp:17
 #: ../../../View/ComplianceFindings/index.ctp:18
 #: ../../../View/ComplianceManagements/analyze.ctp:9
-#: ../../../View/ComplianceManagements/index.ctp:17
+#: ../../../View/ComplianceManagements/index.ctp:9
 #: ../../../View/CompliancePackages/index.ctp:17
 #: ../../../View/DataAssets/index.ctp:9 ../../../View/Groups/index.ctp:20
 #: ../../../View/Legals/index.ctp:17
@@ -1815,6 +1817,7 @@ msgstr ""
 
 #: ../../../View/AssetClassifications/index.ctp:29
 #: ../../../View/Assets/add.ctp:96 ../../../View/Assets/index.ctp:65
+#: ../../../View/ComplianceManagements/index.ctp:84
 #: ../../../View/RiskClassifications/index.ctp:30
 #: ../../../View/ThirdParties/add.ctp:52
 #: ../../../View/ThirdParties/index.ctp:31
@@ -1822,22 +1825,22 @@ msgid "Type"
 msgstr ""
 
 #: ../../../View/AssetClassifications/index.ctp:30
-#: ../../../View/AssetLabels/index.ctp:29 ../../../View/Assets/index.ctp:158
+#: ../../../View/AssetLabels/index.ctp:29 ../../../View/Assets/index.ctp:168
 #: ../../../View/BusinessContinuityPlanAudits/index.ctp:24
 #: ../../../View/BusinessContinuityPlans/index.ctp:190
 #: ../../../View/BusinessUnits/index.ctp:69
-#: ../../../View/ComplianceAudits/index.ctp:46
-#: ../../../View/ComplianceAudits/index.ctp:97
-#: ../../../View/ComplianceExceptions/index.ctp:31
+#: ../../../View/ComplianceAudits/index.ctp:94
+#: ../../../View/ComplianceAudits/index.ctp:145
+#: ../../../View/ComplianceExceptions/index.ctp:32
 #: ../../../View/ComplianceFindings/index.ctp:32
-#: ../../../View/ComplianceManagements/analyze.ctp:34
-#: ../../../View/ComplianceManagements/index.ctp:38
+#: ../../../View/ComplianceManagements/analyze.ctp:35
 #: ../../../View/CompliancePackages/index.ctp:100
 #: ../../../View/DataAssets/index.ctp:156 ../../../View/Groups/index.ctp:33
 #: ../../../View/Legals/index.ctp:30
 #: ../../../View/PolicyExceptions/index.ctp:33
 #: ../../../View/ProjectAchievements/index.ctp:33
 #: ../../../View/ProjectExpenses/index.ctp:32
+#: ../../../View/Projects/index.ctp:219 ../../../View/Projects/index.ctp:264
 #: ../../../View/RiskClassifications/index.ctp:31
 #: ../../../View/RiskExceptions/index.ctp:32
 #: ../../../View/SecurityIncidentClassifications/index.ctp:29
@@ -1847,7 +1850,7 @@ msgstr ""
 #: ../../../View/SecurityServiceMaintenances/index.ctp:24
 #: ../../../View/ServiceClassifications/index.ctp:29
 #: ../../../View/ServiceContracts/index.ctp:65
-#: ../../../View/ThirdParties/index.ctp:32 ../../../View/Users/index.ctp:36
+#: ../../../View/ThirdParties/index.ctp:33 ../../../View/Users/index.ctp:36
 msgid "Action"
 msgstr ""
 
@@ -1861,12 +1864,12 @@ msgstr ""
 
 #: ../../../View/AssetLabels/add.ctp:39 ../../../View/AssetLabels/index.ctp:28
 #: ../../../View/Assets/add.ctp:68 ../../../View/Assets/index.ctp:64
-#: ../../../View/Assets/index.ctp:157
+#: ../../../View/Assets/index.ctp:167
 #: ../../../View/BusinessContinuities/index.ctp:159
 #: ../../../View/BusinessContinuities/index.ctp:272
 #: ../../../View/BusinessUnits/add.ctp:39
-#: ../../../View/ComplianceAudits/analyze.ctp:33
-#: ../../../View/ComplianceAudits/index.ctp:95
+#: ../../../View/ComplianceAudits/analyze.ctp:34
+#: ../../../View/ComplianceAudits/index.ctp:141
 #: ../../../View/ComplianceExceptions/add.ctp:39
 #: ../../../View/ComplianceExceptions/index.ctp:28
 #: ../../../View/ComplianceFindings/add.ctp:61
@@ -1882,14 +1885,15 @@ msgstr ""
 #: ../../../View/ProjectAchievements/index.ctp:30
 #: ../../../View/ProjectExpenses/add.ctp:43
 #: ../../../View/ProjectExpenses/index.ctp:30
+#: ../../../View/Projects/index.ctp:216 ../../../View/Projects/index.ctp:262
 #: ../../../View/RiskExceptions/add.ctp:39
 #: ../../../View/RiskExceptions/index.ctp:28 ../../../View/Risks/index.ctp:160
 #: ../../../View/Risks/index.ctp:248
 #: ../../../View/SecurityIncidents/add.ctp:39
 #: ../../../View/SecurityPolicies/add.ctp:39
 #: ../../../View/SecurityPolicies/index.ctp:28
-#: ../../../View/SecurityServices/index.ctp:158
-#: ../../../View/SecurityServices/index.ctp:280
+#: ../../../View/SecurityServices/index.ctp:168
+#: ../../../View/SecurityServices/index.ctp:290
 #: ../../../View/ServiceClassifications/add.ctp:39
 #: ../../../View/ServiceClassifications/index.ctp:28
 #: ../../../View/ServiceContracts/add.ctp:44
@@ -1964,14 +1968,14 @@ msgid ""
 "Organization)."
 msgstr ""
 
-#: ../../../View/Assets/add.ctp:125 ../../../View/Assets/index.ctp:85
+#: ../../../View/Assets/add.ctp:125 ../../../View/Assets/index.ctp:95
 #: ../../../View/BusinessContinuities/add.ctp:320
 #: ../../../View/BusinessContinuities/index.ctp:102
 #: ../../../View/BusinessContinuities/index.ctp:321
 #: ../../../View/BusinessContinuityPlanAudits/index.ctp:23
 #: ../../../View/PolicyExceptions/add.ctp:65
 #: ../../../View/PolicyExceptions/index.ctp:30
-#: ../../../View/Projects/add.ctp:115 ../../../View/Projects/index.ctp:89
+#: ../../../View/Projects/add.ctp:115 ../../../View/Projects/index.ctp:104
 #: ../../../View/Risks/add.ctp:316 ../../../View/Risks/index.ctp:103
 #: ../../../View/Risks/index.ctp:297
 #: ../../../View/SecurityIncidents/add.ctp:118
@@ -1996,7 +2000,7 @@ msgid ""
 "assets and Users."
 msgstr ""
 
-#: ../../../View/Assets/add.ctp:140 ../../../View/Assets/index.ctp:86
+#: ../../../View/Assets/add.ctp:140 ../../../View/Assets/index.ctp:96
 msgid "Guardian"
 msgstr ""
 
@@ -2004,7 +2008,7 @@ msgstr ""
 msgid "Select a Guardian"
 msgstr ""
 
-#: ../../../View/Assets/add.ctp:155 ../../../View/Assets/index.ctp:87
+#: ../../../View/Assets/add.ctp:155 ../../../View/Assets/index.ctp:97
 msgid "User"
 msgstr ""
 
@@ -2056,10 +2060,12 @@ msgstr ""
 #: ../../../View/BusinessContinuities/index.ctp:73
 #: ../../../View/BusinessContinuityPlans/index.ctp:46
 #: ../../../View/BusinessUnits/index.ctp:32
+#: ../../../View/ComplianceAudits/index.ctp:62
+#: ../../../View/ComplianceManagements/index.ctp:24
 #: ../../../View/CompliancePackages/index.ctp:33
 #: ../../../View/CompliancePackages/index.ctp:64
 #: ../../../View/DataAssets/index.ctp:43 ../../../View/DataAssets/index.ctp:75
-#: ../../../View/Projects/index.ctp:32 ../../../View/Risks/index.ctp:74
+#: ../../../View/Projects/index.ctp:47 ../../../View/Risks/index.ctp:74
 #: ../../../View/SecurityServices/index.ctp:46
 #: ../../../View/ServiceContracts/index.ctp:33
 #: ../../../View/ThirdPartyRisks/index.ctp:73
@@ -2068,6 +2074,7 @@ msgstr ""
 
 #: ../../../View/Assets/index.ctp:49
 #: ../../../View/BusinessContinuities/index.ctp:83
+#: ../../../View/ComplianceAudits/index.ctp:72
 #: ../../../View/CompliancePackages/index.ctp:74
 #: ../../../View/DataAssets/index.ctp:85 ../../../View/Risks/index.ctp:84
 #: ../../../View/SecurityServices/index.ctp:56
@@ -2080,24 +2087,42 @@ msgstr ""
 msgid "Legal Constrain"
 msgstr ""
 
-#: ../../../View/Assets/index.ctp:123
+#: ../../../View/Assets/index.ctp:69
+#: ../../../View/SecurityServices/index.ctp:89
+#: ../../../View/ThirdParties/index.ctp:32
+msgid "Incidents"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:82
+#: ../../../View/SecurityServices/index.ctp:100
+#: ../../../View/ThirdParties/index.ctp:45
+msgid "Warning"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:84
+#: ../../../View/SecurityServices/index.ctp:102
+#: ../../../View/ThirdParties/index.ctp:47
+msgid "No Incident"
+msgstr ""
+
+#: ../../../View/Assets/index.ctp:133
 msgid "No Assets related to Business Units found."
 msgstr ""
 
-#: ../../../View/Assets/index.ctp:135
+#: ../../../View/Assets/index.ctp:145
 #: ../../../View/BusinessContinuities/index.ctp:189
 #: ../../../View/BusinessUnits/index.ctp:103
 msgid "No Business Units found."
 msgstr ""
 
-#: ../../../View/Assets/index.ctp:180
+#: ../../../View/Assets/index.ctp:190
 msgid "No Asset Indentification found."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/add.ctp:42
 #: ../../../View/BusinessContinuities/index.ctp:98
 #: ../../../View/BusinessContinuityPlans/add.ctp:27
-#: ../../../View/ComplianceAudits/index.ctp:93
+#: ../../../View/ComplianceAudits/index.ctp:138
 #: ../../../View/ComplianceExceptions/add.ctp:27
 #: ../../../View/ComplianceExceptions/index.ctp:27
 #: ../../../View/ComplianceFindings/add.ctp:50
@@ -2282,7 +2307,10 @@ msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:115
 #: ../../../View/BusinessContinuities/index.ctp:287
+#: ../../../View/ComplianceAudits/index.ctp:158
+#: ../../../View/ComplianceExceptions/index.ctp:44
 #: ../../../View/PolicyExceptions/index.ctp:46
+#: ../../../View/Projects/index.ctp:116
 #: ../../../View/RiskExceptions/index.ctp:44 ../../../View/Risks/index.ctp:116
 #: ../../../View/Risks/index.ctp:263
 #: ../../../View/ServiceContracts/index.ctp:77
@@ -2293,8 +2321,12 @@ msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:117
 #: ../../../View/BusinessContinuities/index.ctp:289
-#: ../../../View/ComplianceAudits/index.ctp:45
+#: ../../../View/ComplianceAudits/index.ctp:93
+#: ../../../View/ComplianceAudits/index.ctp:160
+#: ../../../View/ComplianceExceptions/index.ctp:46
+#: ../../../View/Elements/compliance_management_issues.ctp:10
 #: ../../../View/PolicyExceptions/index.ctp:48
+#: ../../../View/Projects/index.ctp:118
 #: ../../../View/RiskExceptions/index.ctp:46 ../../../View/Risks/index.ctp:118
 #: ../../../View/Risks/index.ctp:265
 #: ../../../View/ServiceContracts/index.ctp:79
@@ -2357,6 +2389,7 @@ msgid "Author"
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:274
+#: ../../../View/ComplianceAudits/index.ctp:143
 #: ../../../View/ComplianceExceptions/add.ctp:64
 #: ../../../View/ComplianceExceptions/index.ctp:30
 #: ../../../View/PolicyExceptions/add.ctp:106
@@ -2372,13 +2405,15 @@ msgstr ""
 #: ../../../View/BusinessContinuities/index.ctp:322
 #: ../../../View/BusinessContinuityPlans/add.ctp:115
 #: ../../../View/BusinessContinuityPlans/index.ctp:81
-#: ../../../View/ComplianceAudits/index.ctp:94
+#: ../../../View/ComplianceAudits/index.ctp:139
+#: ../../../View/ComplianceExceptions/index.ctp:31
 #: ../../../View/ComplianceFindings/add.ctp:73
 #: ../../../View/ComplianceFindings/index.ctp:31
+#: ../../../View/ComplianceManagements/index.ctp:86
 #: ../../../View/DataAssets/index.ctp:102
 #: ../../../View/PolicyExceptions/add.ctp:52
 #: ../../../View/PolicyExceptions/index.ctp:29
-#: ../../../View/Projects/add.ctp:140 ../../../View/Projects/index.ctp:86
+#: ../../../View/Projects/add.ctp:140 ../../../View/Projects/index.ctp:101
 #: ../../../View/RiskExceptions/index.ctp:31 ../../../View/Risks/index.ctp:251
 #: ../../../View/Risks/index.ctp:298
 #: ../../../View/SecurityIncidents/add.ctp:174
@@ -2387,7 +2422,7 @@ msgstr ""
 #: ../../../View/SecurityPolicies/index.ctp:29
 #: ../../../View/SecurityServices/add.ctp:52
 #: ../../../View/SecurityServices/index.ctp:87
-#: ../../../View/SecurityServices/index.ctp:159
+#: ../../../View/SecurityServices/index.ctp:169
 #: ../../../View/ServiceContracts/index.ctp:64
 #: ../../../View/ThirdPartyRisks/index.ctp:258
 #: ../../../View/ThirdPartyRisks/index.ctp:305 ../../../View/Users/add.ctp:138
@@ -2411,52 +2446,61 @@ msgstr ""
 #: ../../../View/BusinessContinuityPlans/add.ctp:39
 #: ../../../View/BusinessContinuityPlans/index.ctp:113
 #: ../../../View/Risks/index.ctp:296 ../../../View/SecurityServices/add.ctp:39
-#: ../../../View/SecurityServices/index.ctp:120
+#: ../../../View/SecurityServices/index.ctp:130
 #: ../../../View/ThirdPartyRisks/index.ctp:303
 msgid "Objective"
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:341
 #: ../../../View/BusinessContinuityPlans/index.ctp:153
-#: ../../../View/DataAssets/index.ctp:125 ../../../View/Risks/index.ctp:317
-#: ../../../View/SecurityServices/index.ctp:210
+#: ../../../View/DataAssets/index.ctp:125
+#: ../../../View/Elements/compliance_management_issues.ctp:26
+#: ../../../View/Risks/index.ctp:317
+#: ../../../View/SecurityServices/index.ctp:220
 #: ../../../View/ThirdPartyRisks/index.ctp:324
 msgid "Missing audits."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:345
 #: ../../../View/BusinessContinuityPlans/index.ctp:157
-#: ../../../View/DataAssets/index.ctp:128 ../../../View/Risks/index.ctp:321
-#: ../../../View/SecurityServices/index.ctp:214
+#: ../../../View/DataAssets/index.ctp:128
+#: ../../../View/Elements/compliance_management_issues.ctp:30
+#: ../../../View/Risks/index.ctp:321
+#: ../../../View/SecurityServices/index.ctp:224
 #: ../../../View/ThirdPartyRisks/index.ctp:328
 msgid "Last audit failed."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:349
 #: ../../../View/BusinessContinuityPlans/index.ctp:161
-#: ../../../View/DataAssets/index.ctp:132 ../../../View/Risks/index.ctp:325
-#: ../../../View/SecurityServices/index.ctp:218
+#: ../../../View/DataAssets/index.ctp:132
+#: ../../../View/Elements/compliance_management_issues.ctp:34
+#: ../../../View/Risks/index.ctp:325
+#: ../../../View/SecurityServices/index.ctp:228
 #: ../../../View/ThirdPartyRisks/index.ctp:332
 msgid "No audit issues."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:353
+#: ../../../View/Elements/compliance_management_issues.ctp:37
 #: ../../../View/Risks/index.ctp:329
-#: ../../../View/SecurityServices/index.ctp:249
+#: ../../../View/SecurityServices/index.ctp:259
 #: ../../../View/ThirdPartyRisks/index.ctp:336
 msgid "Missing maintenances."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:357
+#: ../../../View/Elements/compliance_management_issues.ctp:41
 #: ../../../View/Risks/index.ctp:333
-#: ../../../View/SecurityServices/index.ctp:253
+#: ../../../View/SecurityServices/index.ctp:263
 #: ../../../View/ThirdPartyRisks/index.ctp:340
 msgid "Last maintenance failed."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:361
+#: ../../../View/Elements/compliance_management_issues.ctp:45
 #: ../../../View/Risks/index.ctp:337
-#: ../../../View/SecurityServices/index.ctp:257
+#: ../../../View/SecurityServices/index.ctp:267
 #: ../../../View/ThirdPartyRisks/index.ctp:344
 msgid "No maintenance issues."
 msgstr ""
@@ -2473,11 +2517,11 @@ msgid "No Third Party Risks related to this Third Party found."
 msgstr ""
 
 #: ../../../View/BusinessContinuities/index.ctp:395
-#: ../../../View/ComplianceAudits/index.ctp:216
-#: ../../../View/ComplianceManagements/index.ctp:78
+#: ../../../View/ComplianceAudits/index.ctp:273
+#: ../../../View/ComplianceManagements/index.ctp:106
 #: ../../../View/CompliancePackages/index.ctp:141
 #: ../../../View/ServiceContracts/index.ctp:107
-#: ../../../View/ThirdParties/index.ctp:55
+#: ../../../View/ThirdParties/index.ctp:65
 #: ../../../View/ThirdPartyRisks/index.ctp:378
 msgid "No Third Parties found."
 msgstr ""
@@ -2486,7 +2530,7 @@ msgstr ""
 #: ../../../View/BusinessContinuityPlans/add.ctp:52
 #: ../../../View/BusinessContinuityPlans/index.ctp:141
 #: ../../../View/SecurityServiceAudits/add.ctp:27
-#: ../../../View/SecurityServices/index.ctp:189
+#: ../../../View/SecurityServices/index.ctp:199
 msgid "Audit Metric"
 msgstr ""
 
@@ -2648,7 +2692,7 @@ msgstr ""
 #: ../../../View/BusinessContinuityPlans/add.ctp:65
 #: ../../../View/BusinessContinuityPlans/index.ctp:142
 #: ../../../View/SecurityServices/add.ctp:146
-#: ../../../View/SecurityServices/index.ctp:190
+#: ../../../View/SecurityServices/index.ctp:200
 msgid "Audit Success Criteria"
 msgstr ""
 
@@ -2719,7 +2763,7 @@ msgstr ""
 #: ../../../View/BusinessContinuityPlans/add.ctp:152
 #: ../../../View/BusinessContinuityPlans/index.ctp:98
 #: ../../../View/SecurityServices/add.ctp:245
-#: ../../../View/SecurityServices/index.ctp:105
+#: ../../../View/SecurityServices/index.ctp:115
 msgid "Resource Utilization"
 msgstr ""
 
@@ -2758,17 +2802,17 @@ msgid "Plan Title"
 msgstr ""
 
 #: ../../../View/BusinessContinuityPlans/index.ctp:96
-#: ../../../View/SecurityServices/index.ctp:103
+#: ../../../View/SecurityServices/index.ctp:113
 msgid "Opex"
 msgstr ""
 
 #: ../../../View/BusinessContinuityPlans/index.ctp:97
-#: ../../../View/SecurityServices/index.ctp:104
+#: ../../../View/SecurityServices/index.ctp:114
 msgid "Capex"
 msgstr ""
 
 #: ../../../View/BusinessContinuityPlans/index.ctp:143
-#: ../../../View/SecurityServices/index.ctp:191
+#: ../../../View/SecurityServices/index.ctp:201
 msgid "Audit Status"
 msgstr ""
 
@@ -2900,81 +2944,97 @@ msgid "No Business Processes found."
 msgstr ""
 
 #: ../../../View/ComplianceAudits/add.ctp:38
-#: ../../../View/ComplianceAudits/index.ctp:41
+#: ../../../View/ComplianceAudits/index.ctp:89
 #: ../../../View/CompliancePackages/index.ctp:59
 msgid "Compliance Package"
 msgstr ""
 
 #: ../../../View/ComplianceAudits/add.ctp:50
-#: ../../../View/ComplianceAudits/index.ctp:40
+#: ../../../View/ComplianceAudits/index.ctp:88
 msgid "Audit Date"
 msgstr ""
 
 #: ../../../View/ComplianceAudits/analyze.ctp:32
 #: ../../../View/ComplianceManagements/analyze.ctp:32
+#: ../../../View/CompliancePackages/index.ctp:97
+msgid "Item ID"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:33
+#: ../../../View/ComplianceManagements/analyze.ctp:33
 #: ../../../View/CompliancePackages/index.ctp:98
 msgid "Item Name"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:34
+#: ../../../View/ComplianceAudits/analyze.ctp:35
 #: ../../../View/CompliancePackageItems/add.ctp:67
 msgid "Audit Questionaire"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:35
+#: ../../../View/ComplianceAudits/analyze.ctp:36
+msgid "Current Findings"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/analyze.ctp:37
 msgid "Findings Action"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:36
+#: ../../../View/ComplianceAudits/analyze.ctp:38
 msgid "Attachments Action"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:55
+#: ../../../View/ComplianceAudits/analyze.ctp:60
 msgid "View all findings"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:66
+#: ../../../View/ComplianceAudits/analyze.ctp:71
 msgid "Add finding"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:78
-#: ../../../View/ComplianceManagements/analyze.ctp:73
+#: ../../../View/ComplianceAudits/analyze.ctp:83
+#: ../../../View/ComplianceManagements/analyze.ctp:75
 #: ../../../View/CompliancePackages/index.ctp:121
 msgid "No Compliance Package Items found."
 msgstr ""
 
-#: ../../../View/ComplianceAudits/analyze.ctp:90
-#: ../../../View/ComplianceManagements/analyze.ctp:85
+#: ../../../View/ComplianceAudits/analyze.ctp:95
+#: ../../../View/ComplianceManagements/analyze.ctp:87
 #: ../../../View/CompliancePackages/index.ctp:129
 msgid "No Compliance Packages found."
 msgstr ""
 
-#: ../../../View/ComplianceAudits/index.ctp:27
+#: ../../../View/ComplianceAudits/index.ctp:56
+#: ../../../View/ComplianceAudits/index.ctp:115
 msgid "Audit"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/index.ctp:42
+#: ../../../View/ComplianceAudits/index.ctp:90
 msgid "Number of findings"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/index.ctp:43
+#: ../../../View/ComplianceAudits/index.ctp:91
 msgid "Open"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/index.ctp:44
+#: ../../../View/ComplianceAudits/index.ctp:92
 msgid "Closed"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/index.ctp:70
-#: ../../../View/ComplianceManagements/index.ctp:65
-msgid "Analyze"
-msgstr ""
-
-#: ../../../View/ComplianceAudits/index.ctp:81
+#: ../../../View/ComplianceAudits/index.ctp:126
 msgid "Findings Details"
 msgstr ""
 
-#: ../../../View/ComplianceAudits/index.ctp:96
+#: ../../../View/ComplianceAudits/index.ctp:140
+msgid "Item"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:142
+#: ../../../View/ComplianceFindings/add.ctp:86
+#: ../../../View/ComplianceFindings/index.ctp:30
+msgid "Deadline"
+msgstr ""
+
+#: ../../../View/ComplianceAudits/index.ctp:144
 msgid "Attachments"
 msgstr ""
 
@@ -3001,17 +3061,13 @@ msgid ""
 "YYYY-MM-DD."
 msgstr ""
 
-#: ../../../View/ComplianceExceptions/index.ctp:55
+#: ../../../View/ComplianceExceptions/index.ctp:64
 msgid "No Compliance Exceptions found."
 msgstr ""
 
 #: ../../../View/ComplianceFindings/add.ctp:37
+#: ../../../View/ComplianceManagements/index.ctp:83
 msgid "Compliance Package Item"
-msgstr ""
-
-#: ../../../View/ComplianceFindings/add.ctp:86
-#: ../../../View/ComplianceFindings/index.ctp:30
-msgid "Deadline"
 msgstr ""
 
 #: ../../../View/ComplianceFindings/index.ctp:56
@@ -3037,67 +3093,76 @@ msgstr ""
 msgid "Compliance Efficacy"
 msgstr ""
 
-#: ../../../View/ComplianceManagements/analyze.ctp:33
+#: ../../../View/ComplianceManagements/analyze.ctp:34
 #: ../../../View/CompliancePackages/index.ctp:99
 msgid "Item Description"
 msgstr ""
 
-#: ../../../View/ComplianceManagements/analyze.ctp:52
+#: ../../../View/ComplianceManagements/analyze.ctp:54
 msgid "Add analysis"
 msgstr ""
 
-#: ../../../View/ComplianceManagements/analyze.ctp:62
+#: ../../../View/ComplianceManagements/analyze.ctp:64
 msgid "Edit analysis"
 msgstr ""
 
-#: ../../../View/ComplianceManagements/index.ctp:28
-msgid "% Strategy Mitigate"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:29
-msgid "% Strategy NA"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:30
-msgid "% Missing Controls"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:31
-msgid "% Failed Controls"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:32
-msgid "% Comp. On-Going"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:33
-msgid "% Compliant"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:34
-msgid "% Non-Compliant"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:35
-msgid "% Comp. N/A"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:36
-msgid "# Incident"
-msgstr ""
-
-#: ../../../View/ComplianceManagements/index.ctp:37
-msgid "# Open Audit Items"
-msgstr ""
-
-#: ../../../View/CompliancePackageItems/add.ctp:32
-msgid "Compliance Package Item ID"
-msgstr ""
-
+#: ../../../View/ComplianceManagements/index.ctp:19
 #: ../../../View/CompliancePackages/add.ctp:27
 #: ../../../View/SecurityIncidents/index.ctp:28
 #: ../../../View/ThirdPartyRisks/index.ctp:26
 msgid "Third Party"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:27
+msgid "Analyze"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:42
+msgid "% Strategy Mitigate"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:43
+msgid "% Strategy NA"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:44
+msgid "% Missing Controls"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:45
+msgid "% Failed Controls"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:46
+msgid "% Comp. On-Going"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:47
+msgid "% Compliant"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:48
+msgid "% Non-Compliant"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:49
+msgid "% Comp. N/A"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:50
+msgid "# Incident"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:51
+msgid "# Open Audit Items"
+msgstr ""
+
+#: ../../../View/ComplianceManagements/index.ctp:72
+msgid "Compliance Issues"
+msgstr ""
+
+#: ../../../View/CompliancePackageItems/add.ctp:32
+msgid "Compliance Package Item ID"
 msgstr ""
 
 #: ../../../View/CompliancePackages/add.ctp:40
@@ -3119,10 +3184,6 @@ msgstr ""
 
 #: ../../../View/CompliancePackages/index.ctp:81
 msgid "Add Compliance Package Item"
-msgstr ""
-
-#: ../../../View/CompliancePackages/index.ctp:97
-msgid "Item ID"
 msgstr ""
 
 #: ../../../View/DataAssets/add.ctp:32
@@ -3189,8 +3250,20 @@ msgstr ""
 msgid "Trash"
 msgstr ""
 
+#: ../../../View/Elements/compliance_management_issues.ctp:50
+msgid "Security Service"
+msgstr ""
+
+#: ../../../View/Elements/compliance_management_issues.ctp:66
+msgid "Security Policy"
+msgstr ""
+
 #: ../../../View/Elements/ajax/audit_calendar_entry.ctp:16
 msgid "Remove"
+msgstr ""
+
+#: ../../../View/Elements/core/breadcrumbs.ctp:6
+msgid "Dashboard"
 msgstr ""
 
 #: ../../../View/Elements/core/header.ctp:218
@@ -3332,6 +3405,7 @@ msgstr ""
 
 #: ../../../View/ProjectAchievements/add.ctp:37
 #: ../../../View/ProjectAchievements/index.ctp:29
+#: ../../../View/Projects/index.ctp:215
 msgid "Update Owner"
 msgstr ""
 
@@ -3350,15 +3424,17 @@ msgstr ""
 
 #: ../../../View/ProjectAchievements/index.ctp:31
 #: ../../../View/ProjectExpenses/index.ctp:31
+#: ../../../View/Projects/index.ctp:217 ../../../View/Projects/index.ctp:263
 msgid "Date"
 msgstr ""
 
 #: ../../../View/ProjectAchievements/index.ctp:32
-#: ../../../View/Projects/index.ctp:90
+#: ../../../View/Projects/index.ctp:105 ../../../View/Projects/index.ctp:218
 msgid "Completion"
 msgstr ""
 
 #: ../../../View/ProjectAchievements/index.ctp:58
+#: ../../../View/Projects/index.ctp:241 ../../../View/Projects/index.ctp:285
 msgid "No Project Updates found."
 msgstr ""
 
@@ -3371,6 +3447,7 @@ msgid "Expense Date"
 msgstr ""
 
 #: ../../../View/ProjectExpenses/index.ctp:29
+#: ../../../View/Projects/index.ctp:261
 msgid "Amount"
 msgstr ""
 
@@ -3446,7 +3523,7 @@ msgid ""
 "deliver what has been documented on the times specified above"
 msgstr ""
 
-#: ../../../View/Projects/add.ctp:128 ../../../View/Projects/index.ctp:91
+#: ../../../View/Projects/add.ctp:128 ../../../View/Projects/index.ctp:106
 msgid "Planned Budget"
 msgstr ""
 
@@ -3458,59 +3535,83 @@ msgstr ""
 msgid "Select an applicable type for this Third Party."
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:35
+#: ../../../View/Projects/index.ctp:21
+msgid "Project Status"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:24
+msgid "All"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:50
 msgid "Edit Project"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:42
+#: ../../../View/Projects/index.ctp:57
 msgid "Delete Project"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:49
+#: ../../../View/Projects/index.ctp:64
 msgid "Add an update"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:56
+#: ../../../View/Projects/index.ctp:71
 msgid "View all updates"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:63
+#: ../../../View/Projects/index.ctp:78
 msgid "Add an expense"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:70
+#: ../../../View/Projects/index.ctp:85
 msgid "View all expenses"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:87
+#: ../../../View/Projects/index.ctp:102
 msgid "Start"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:88
+#: ../../../View/Projects/index.ctp:103
 msgid "Planned End"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:92
+#: ../../../View/Projects/index.ctp:107
 msgid "Current Budget"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:128
-msgid "Project Goal"
+#: ../../../View/Projects/index.ctp:139
+msgid "Ok"
 msgstr ""
 
 #: ../../../View/Projects/index.ctp:141
+msgid "Over Budget"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:152
+msgid "Project Goal"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:165
 msgid "Root Cause Analysis"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:154
+#: ../../../View/Projects/index.ctp:178
 msgid "Proactive Plans"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:167
+#: ../../../View/Projects/index.ctp:191
 msgid "Reactive Plans"
 msgstr ""
 
-#: ../../../View/Projects/index.ctp:185
+#: ../../../View/Projects/index.ctp:203
+msgid "Project Updates"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:249
+msgid "Project Expenses"
+msgstr ""
+
+#: ../../../View/Projects/index.ctp:299
 msgid "No Projects found."
 msgstr ""
 
@@ -3848,56 +3949,56 @@ msgstr ""
 msgid "Maintenances"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:133
+#: ../../../View/SecurityServices/index.ctp:143
 msgid "URL"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:145
+#: ../../../View/SecurityServices/index.ctp:155
 msgid "Security Policies Items"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:180
+#: ../../../View/SecurityServices/index.ctp:190
 msgid "No Security Policies found."
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:230
+#: ../../../View/SecurityServices/index.ctp:240
 msgid "Maintenance Metric"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:231
+#: ../../../View/SecurityServices/index.ctp:241
 msgid "Maintenance Status"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:268
+#: ../../../View/SecurityServices/index.ctp:278
 msgid "Mitigation"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:279
+#: ../../../View/SecurityServices/index.ctp:289
 msgid "Mitigation Type"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:286
+#: ../../../View/SecurityServices/index.ctp:296
 msgid "Asset based Risk"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:297
+#: ../../../View/SecurityServices/index.ctp:307
 #: ../../../View/ThirdPartyRisks/index.ctp:68
 msgid "Third Party Risk"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:308
+#: ../../../View/SecurityServices/index.ctp:318
 msgid "Security Incident"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:319
+#: ../../../View/SecurityServices/index.ctp:329
 msgid "Data Asset"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:330
+#: ../../../View/SecurityServices/index.ctp:340
 msgid "Compliance"
 msgstr ""
 
-#: ../../../View/SecurityServices/index.ctp:354
+#: ../../../View/SecurityServices/index.ctp:364
 msgid "No Security Services found."
 msgstr ""
 
