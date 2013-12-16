@@ -16,13 +16,51 @@ class ComplianceManagementsController extends AppController {
 				'ThirdParty.name',
 				'ThirdParty.description'
 			),
+			'contain' => array(
+				'CompliancePackage' => array(
+					'CompliancePackageItem' => array(
+						'ComplianceManagement' => array(
+							'SecurityService' => array(
+								'fields' => array( 'id', 'name' )
+							),
+							'SecurityPolicy' => array(
+								'fields' => array( 'id', 'index', 'status' )
+							),
+							'ComplianceException' => array(
+								'fields' => array( 'id', 'title', 'expiration' )
+							)
+						)
+					)
+				)
+			),
 			'order' => array( 'ThirdParty.id' => 'ASC' ),
 			'limit' => $this->getPageLimit(),
-			'recursive' => 0
+			'recursive' => 4
 		);
 
 		$data = $this->paginate( 'ThirdParty' );
+		$data = $this->addAuditStatuses( $data );
 		$this->set( 'data', $data );
+
+		//debug( $data );
+	}
+
+	private function addAuditStatuses( $data ) {
+		foreach ( $data as $key => $entry ) {
+			foreach ( $entry['CompliancePackage'] as $key2 => $compliance_package ) {
+				foreach ( $compliance_package['CompliancePackageItem'] as $key3 => $compliance_package_item ) {
+					if ( empty( $compliance_package_item['ComplianceManagement'] ) )
+						continue;
+
+					foreach ( $compliance_package_item['ComplianceManagement']['SecurityService'] as $key4 => $security_service ) {
+						$data[ $key ]['CompliancePackage'][ $key2 ]['CompliancePackageItem'][ $key3 ]['ComplianceManagement']['SecurityService'][ $key4 ]['status'] = $this->auditCheck( $security_service['id'] );
+						$data[ $key ]['CompliancePackage'][ $key2 ]['CompliancePackageItem'][ $key3 ]['ComplianceManagement']['SecurityService'][ $key4 ]['maintenanceStatus'] = $this->maintenanceCheck( $security_service['id'] );
+					}
+				}
+			}
+		}
+
+		return $data;
 	}
 
 	public function analyze( $tp_id = null ) {
@@ -46,6 +84,8 @@ class ComplianceManagementsController extends AppController {
 		if ( empty( $data ) ) {
 			throw new NotFoundException();
 		}
+
+		//debug( $data );
 
 		$this->set( 'title_for_layout', __( 'Compliance Management:' ) . ' ' . $data['ThirdParty']['name'] );
 		$this->set( 'data', $data );

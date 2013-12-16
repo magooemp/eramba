@@ -29,6 +29,7 @@
 							<table class="table table-hover table-striped">
 								<thead>
 									<tr>
+										<th><?php echo __( 'Item ID' ); ?></th>
 										<th><?php echo __( 'Item Name' ); ?></th>
 										<th><?php echo __( 'Item Description' ); ?></th>
 										<th class="align-center"><?php echo __( 'Action' ); ?></th>
@@ -37,6 +38,7 @@
 								<tbody>
 									<?php foreach ( $entry['CompliancePackageItem'] as $item ) : ?>
 									<tr>
+										<td><?php echo $item['item_id']; ?></td>
 										<td><?php echo $item['name']; ?></td>
 										<td><?php echo $item['description']; ?></td>
 										<td class="align-center">
