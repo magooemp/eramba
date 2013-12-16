@@ -9,9 +9,12 @@
 		</ul>
 
 		<!-- Logo -->
-		<a class="navbar-brand" href="<?php echo ROUTER::url( array('controller' => 'dashboard', 'action' => 'index') ); ?>">
+		<!--<a class="navbar-brand" href="<?php echo ROUTER::url( array('controller' => 'dashboard', 'action' => 'index') ); ?>">
 			<strong>E</strong>RAMBA
 			<span class="version">v<?php echo VERSION; ?></span>
+		</a>-->
+		<a class="navbar-brand" href="<?php echo ROUTER::url( array('controller' => 'dashboard', 'action' => 'index') ); ?>">
+			<img src="/img/logo-white.png" />
 		</a>
 		<!-- /logo -->
 

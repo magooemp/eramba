@@ -1,10 +1,17 @@
 .navbar .navbar-brand {
-	width: 160px;
+	width: 230px;
 }
 
 .navbar .nav > li.user > a > span.username,
 .navbar .nav > li.user > a > i[class="icon-caret-down small"] {
 	display: none;
+}
+
+.navbar .navbar-brand {
+	line-height: 58px;
+}
+.navbar-nav>li>a {
+	line-height: 30px;
 }
 
 .error-message {

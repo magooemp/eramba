@@ -54,6 +54,61 @@ class AssetsController extends AppController {
 		$this->set( 'data', $data );
 
 		//debug( $data );
+		//$this->findUncategorized();
+	}
+
+	private function findUncategorized() {
+		$tmp = $this->Asset->find( 'all', array(
+			'conditions' => array(
+			),
+			'fields' => array(
+				'Asset.id',
+				'Asset.name',
+				'Asset.description',
+				'Asset.asset_owner_id',
+				'Asset.asset_guardian_id',
+				'Asset.asset_user_id',
+			),
+			'contain' => array(
+				'BusinessUnit' => array(
+				),
+				'AssetMediaType' => array(
+					'fields' => array( 'name' )
+				),
+				'AssetLabel' => array(
+					'fields' => array( 'name' )
+				),
+				'Legal' => array(
+					'fields' => array( 'name' )
+				),
+				'AssetClassification' => array(
+					'AssetClassificationType' => array()
+				),
+				'AssetOwner' => array(
+					'fields' => array( 'name' )
+				),
+				'AssetGuardian' => array(
+					'fields' => array( 'name' )
+				),
+				'AssetUser' => array(
+					'fields' => array( 'name' )
+				),
+				'AssetMainContainer' => array(
+					'fields' => array( 'name' )
+				),
+				'SecurityIncident' => array()
+			),
+			'recursive' => 2
+		) );
+
+		$data = array();
+		foreach ( $tmp as $asset ) {
+			if ( empty( $asset['BusinessUnit'] ) ) {
+				$data[] = $asset;
+			}
+		}
+
+		//debug( $data );
 	}
 
 	public function delete( $id = null ) {
